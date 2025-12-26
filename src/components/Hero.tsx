@@ -10,36 +10,36 @@ const successStories = [
   {
     name: "Rajesh Kumar",
     image: person1,
-    before: "Stuck",
-    after: "90-day Roadmap",
+    scoreBefore: 298,
+    scoreAfter: 328,
     position: "left-far",
   },
   {
     name: "Priya Sharma",
     image: person2,
-    before: "Overwhelmed",
-    after: "Weekly Momentum",
+    scoreBefore: 305,
+    scoreAfter: 332,
     position: "left",
   },
   {
     name: "Arjun Menon",
     image: person3,
-    before: "Confused",
-    after: "Clear Vision",
+    scoreBefore: 295,
+    scoreAfter: 335,
     position: "center",
   },
   {
     name: "Sneha Patel",
     image: person4,
-    before: "Lost",
-    after: "Found Direction",
+    scoreBefore: 302,
+    scoreAfter: 327,
     position: "right",
   },
   {
     name: "Vikram Singh",
     image: person5,
-    before: "Uncertain",
-    after: "Career Path",
+    scoreBefore: 308,
+    scoreAfter: 330,
     position: "right-far",
   },
 ];
@@ -51,17 +51,17 @@ export const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-[1.1] mb-6 animate-fade-up">
-            <span className="headline-primary">Transform Your Life Direction,</span>
+            <span className="headline-primary">Transform Your GRE Score,</span>
             <br />
             <span className="text-foreground">No Matter Where You Begin!</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-4 animate-fade-up stagger-1">
-            <span className="font-semibold">Starting confused, stuck, or overwhelmed? It doesn't matter.</span>
+            <span className="font-semibold">Starting at 295, 305, or 310? It doesn't matter.</span>
           </p>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-up stagger-2">
-            Hundreds of our members have executed their custom roadmaps to achieve clarity from various starting points.{" "}
+            Hundreds of our students have executed their custom study plans to achieve 325+ from various starting points.{" "}
             <span className="font-semibold text-foreground">You can too!</span>
           </p>
 
@@ -111,30 +111,31 @@ export const Hero = () => {
                   />
 
                   {/* Dark gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-white">
-                    <p className={`font-medium mb-2 ${isCenter ? "text-sm md:text-base" : "text-xs md:text-sm"}`}>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-center">
+                    {/* Name */}
+                    <p className={`font-medium text-white mb-2 ${isCenter ? "text-sm md:text-base" : "text-xs md:text-sm"}`}>
                       {story.name}
                     </p>
                     
-                    {/* Transformation badge */}
-                    <div className="flex items-center gap-1.5">
+                    {/* Score improvement badge */}
+                    <div className="flex items-center justify-center gap-1.5">
                       <span
-                        className={`bg-primary/90 text-primary-foreground px-2 py-1 rounded-lg font-bold ${
-                          isCenter ? "text-sm md:text-lg" : "text-xs md:text-sm"
+                        className={`bg-primary text-primary-foreground px-2.5 py-1 rounded-lg font-bold ${
+                          isCenter ? "text-lg md:text-2xl" : "text-sm md:text-base"
                         }`}
                       >
-                        {story.before}
+                        {story.scoreBefore}
                       </span>
-                      <ArrowRight className={`text-white/80 ${isCenter ? "w-4 h-4" : "w-3 h-3"}`} />
+                      <ArrowRight className={`text-white/80 ${isCenter ? "w-5 h-5" : "w-3 h-3"}`} />
                       <span
-                        className={`bg-white text-foreground px-2 py-1 rounded-lg font-bold ${
-                          isCenter ? "text-sm md:text-lg" : "text-xs md:text-sm"
+                        className={`bg-white text-foreground px-2.5 py-1 rounded-lg font-bold ${
+                          isCenter ? "text-lg md:text-2xl" : "text-sm md:text-base"
                         }`}
                       >
-                        {story.after}
+                        {story.scoreAfter}
                       </span>
                     </div>
                   </div>
