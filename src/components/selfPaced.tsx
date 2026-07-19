@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { BookOpen, Zap, Activity, Gift, ChevronDown } from "lucide-react";
+import { BookOpen, Zap, Activity, Gift, ChevronDown, BarChart3 } from "lucide-react";
+import { Footer } from "@/components/Footer";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
 import qaIcon from "@/assets/paced-icon/qa.webp";
@@ -12,6 +13,7 @@ const SelfPaced = () => {
   const [speedOpen, setSpeedOpen] = useState(false);
   const [staminaOpen, setStaminaOpen] = useState(false);
   const [complimentaryOpen, setComplimentaryOpen] = useState(false);
+  const [selectedTrack, setSelectedTrack] = useState("quant");
 
   const topScorers = [
     { name: "Anant Govil", school: "DTU - DELHI TECHNOLOGICAL UNIVERSITY", score: "323" },
@@ -55,22 +57,109 @@ const SelfPaced = () => {
     "Study material available at additional cost*",
   ];
 
+  const trackOptions = {
+    quant: [
+      {
+        id: "quant-syllabus",
+        icon: "📊",
+        title: "Full ETS Quant syllabus",
+        description: "Arithmetic, Algebra, Geometry and Data Analysis — every topic, with QC, Numeric Entry and multi-answer strategies.",
+      },
+      {
+        id: "quant-logic",
+        icon: "🧠",
+        title: "Logic over formulas",
+        description: "Aman's signature approach: estimation, elimination and number sense that saves minutes.",
+      },
+      {
+        id: "quant-drills",
+        icon: "⏱️",
+        title: "Timed drills",
+        description: "Section-length drills (12Q/21min and 15Q/26min) that build 165+ pace.",
+      },
+    ],
+    verbal: [
+      {
+        id: "verbal-rc",
+        icon: "📖",
+        title: "RC + Critical Reasoning",
+        description: "A repeatable process for Reading Comprehension and CR questions — assumptions, strengthen/weaken, paradox and conclusion.",
+      },
+      {
+        id: "verbal-tc",
+        icon: "✏️",
+        title: "TC & SE mastery",
+        description: "Text Completion (1–3 blanks) and Sentence Equivalence with logic-based cluing — not blind vocab guessing.",
+      },
+      {
+        id: "verbal-vocab",
+        icon: "💡",
+        title: "High-frequency vocab",
+        description: "Curated word lists with mnemonics, usage and daily quizzes — no 3,500-word grid.",
+      },
+    ],
+    mixed: [
+      {
+        id: "mixed-syllabus",
+        icon: "📚",
+        title: "150+ video lessons",
+        description: "Every Quant and Verbal concept on the ETS syllabus — arithmetic to data analysis, RC and Critical Reasoning to Sentence Equivalence — taught logic-first.",
+      },
+      {
+        id: "mixed-practice",
+        icon: "🎯",
+        title: "4,000+ practice questions",
+        description: "Topic-wise sets, timed drills and full sectional tests with detailed video solutions.",
+      },
+      {
+        id: "mixed-analytics",
+        icon: "📈",
+        title: "Smart analytics + AWA",
+        description: "Track accuracy, pace and weak topics — plus AWA templates and 2 evaluated essays.",
+      },
+    ],
+  };
+
+  const getTrackIcon = (icon) => {
+    const iconMap = {
+      "📊": <BookOpen className="h-8 w-8" />,
+      "🧠": <Zap className="h-8 w-8" />,
+      "⏱️": <Activity className="h-8 w-8" />,
+      "📖": <BookOpen className="h-8 w-8" />,
+      "✏️": <Activity className="h-8 w-8" />,
+      "💡": <Zap className="h-8 w-8" />,
+      "📚": <BookOpen className="h-8 w-8" />,
+      "🎯": <Activity className="h-8 w-8" />,
+      "📈": <BarChart3 className="h-8 w-8" />,
+    };
+    return iconMap[icon] || null;
+  };
+
+  const getCardColors = (index) => {
+    const colors = [
+      { bg: "bg-card", border: "border-border", icon: "bg-primary text-primary-foreground" },
+      { bg: "bg-card", border: "border-border", icon: "bg-accent text-accent-foreground" },
+      { bg: "bg-card", border: "border-border", icon: "bg-[hsl(var(--exam-gold))] text-foreground" },
+    ];
+    return colors[index % 3];
+  };
+
   return (
     <div className="bg-background text-foreground">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-emerald-50/60 py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/60 to-indigo-50/40 py-20">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_420px] gap-8 items-start">
             <div className="pt-6">
-              <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">GRE® ONLINE PREP</p>
-              <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl">GRE EXAM PREPARATION AT YOUR OWN PACE</h1>
-              <p className="mt-4 max-w-2xl text-lg text-muted-foreground">For your uninterrupted GRE test prep</p>
+              <div className="pill pill-blue">GRE® ONLINE PREP</div>
+              <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[4.5rem]">GRE EXAM PREPARATION AT YOUR OWN PACE</h1>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">For your uninterrupted GRE test prep</p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <button className="inline-flex items-center gap-3 rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-800">
+                <button className="inline-flex items-center gap-3 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95">
                   TAKE A FREE CLASS
                 </button>
-                <button className="inline-flex items-center gap-3 rounded-full border border-emerald-700 bg-white px-6 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-50">
+                <button className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-card/95">
                   CALL US
                 </button>
               </div>
@@ -78,10 +167,10 @@ const SelfPaced = () => {
 
             {/* Top scorers card */}
             <div className="relative">
-              <div className="rounded-2xl bg-white p-4 shadow-lg border border-border">
-                <div className="rounded-xl bg-emerald-700/90 p-4 text-white">
+              <div className="rounded-2xl bg-card p-4 shadow-lg border border-border">
+                <div className="rounded-xl bg-primary/95 p-4 text-primary-foreground">
                   {topScorers.map((s) => (
-                    <div key={s.name} className="mb-4 flex items-center justify-between gap-4 rounded-lg bg-emerald-700 p-3">
+                    <div key={s.name} className="mb-4 flex items-center justify-between gap-4 rounded-lg bg-primary p-3">
                       <div className="flex items-center gap-3">
                         <div className="h-10 w-10 rounded-full bg-white/20" />
                         <div>
@@ -89,7 +178,7 @@ const SelfPaced = () => {
                           <div className="text-xs">{s.school}</div>
                         </div>
                       </div>
-                      <div className="ml-2 rounded-md bg-black px-4 py-2 text-right text-white">
+                      <div className="ml-2 rounded-md bg-foreground px-4 py-2 text-right text-primary-foreground">
                         <div className="text-xs opacity-70">GRE</div>
                         <div className="text-xl font-bold">{s.score}</div>
                       </div>
@@ -118,28 +207,28 @@ const SelfPaced = () => {
               </ul>
             </div>
 
-            <aside className="rounded-2xl border border-border bg-emerald-50 p-6">
-              <h3 className="text-center text-lg font-semibold text-emerald-800">Speak to an Expert</h3>
+            <aside className="rounded-2xl border border-border bg-card/60 p-6">
+              <h3 className="text-center text-lg font-semibold text-foreground">Speak to an Expert</h3>
               <form className="mt-4 space-y-3">
-                <input className="w-full rounded-lg border border-slate-200 px-3 py-2" placeholder="Name" />
+                <input className="w-full rounded-lg border border-border bg-card px-3 py-2" placeholder="Name" />
                 <div className="flex gap-2">
-                  <select className="w-28 rounded-lg border border-slate-200 px-2"> <option>+91</option> </select>
-                  <input className="flex-1 rounded-lg border border-slate-200 px-3 py-2" placeholder="Mobile Number" />
+                  <select className="w-28 rounded-lg border border-border bg-card px-2"> <option>+91</option> </select>
+                  <input className="flex-1 rounded-lg border border-border bg-card px-3 py-2" placeholder="Mobile Number" />
                 </div>
-                <input className="w-full rounded-lg border border-slate-200 px-3 py-2" placeholder="Email Id" />
-                <select className="w-full rounded-lg border border-slate-200 px-3 py-2">
+                <input className="w-full rounded-lg border border-border bg-card px-3 py-2" placeholder="Email Id" />
+                <select className="w-full rounded-lg border border-border bg-card px-3 py-2">
                   <option>Interested in?</option>
                 </select>
-                <select className="w-full rounded-lg border border-slate-200 px-3 py-2">
+                <select className="w-full rounded-lg border border-border bg-card px-3 py-2">
                   <option>Your City</option>
                 </select>
-                <select className="w-full rounded-lg border border-slate-200 px-3 py-2">
+                <select className="w-full rounded-lg border border-border bg-card px-3 py-2">
                   <option>Nearest Center</option>
                 </select>
-                <label className="flex items-center gap-2 text-sm">
-                  <input type="checkbox" /> Stay informed via SMS & WhatsApp
+                <label className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <input type="checkbox" className="rounded border-border text-primary" /> Stay informed via SMS & WhatsApp
                 </label>
-                <button className="w-full rounded-lg bg-emerald-700 px-4 py-2 text-white font-semibold">Schedule a Call</button>
+                <button className="w-full rounded-lg px-4 py-2 font-semibold text-primary-foreground bg-primary hover:brightness-95">Schedule a Call</button>
               </form>
             </aside>
           </div>
@@ -147,50 +236,195 @@ const SelfPaced = () => {
       </section>
 
       {/* Why Choose Seekyoury - Feature Cards */}
-      <section className="py-12">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold">Why Choose Seekyoury for GRE Online Prep Coaching</h2>
+     
+    
 
-          {/* cards with icons */}
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: since1993Icon,
-                title: "Unmatched Scores on the GRE since 1993",
-              },
-              {
-                icon: analyticsIcon,
-                title: "Smart Analytics help you track and evaluate your performance",
-              },
-              {
-                icon: teacherIcon,
-                title:
-                  "Flexibility to move between online and offline mode of learning as per your convenience & availability",
-              },
-              {
-                icon: booksIcon,
-                title: "Targeted study plan & exhaustive Full-length tests to maximize speed and accuracy",
-              },
-              {
-                icon: studentIcon,
-                title: "Mentoring and Coaching by the best and most experienced faculty",
-              },
-              {
-                icon: qaIcon,
-                title: "Personalized attention through Unlimited Doubt Clearing Sessions",
-              },
-            ].map((c) => (
-              <div key={c.title} className="rounded-[2rem] bg-emerald-50/80 p-8">
-                <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-sm">
-                  <img src={c.icon} alt={c.title} className="h-16 w-16 object-contain" loading="lazy" />
-                </div>
-                <div className="text-center text-sm text-slate-800">{c.title}</div>
-              </div>
-            ))}
+      {/* Pick Your Track Section */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">CHOOSE YOUR TRACK</p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-4xl text-foreground">Pick your track</h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">Already strong in one section? Prep only what you need — or take the full course.</p>
           </div>
 
-          <div className="mt-8 text-center">
-            <button className="rounded-full bg-emerald-700 px-6 py-3 text-white font-semibold">TALK TO A GRE EXPERT</button>
+          {/* Toggle Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <button
+              onClick={() => setSelectedTrack("mixed")}
+              className={`px-8 py-3 rounded-full font-semibold transition ${
+                selectedTrack === "mixed"
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "border border-border bg-card text-foreground hover:border-primary hover:bg-primary/5"
+              }`}
+            >
+              Mixed (Quant + Verbal)
+            </button>
+            <button
+              onClick={() => setSelectedTrack("quant")}
+              className={`px-8 py-3 rounded-full font-semibold transition ${
+                selectedTrack === "quant"
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "border border-border bg-card text-foreground hover:border-primary hover:bg-primary/5"
+              }`}
+            >
+              Quant Only
+            </button>
+            <button
+              onClick={() => setSelectedTrack("verbal")}
+              className={`px-8 py-3 rounded-full font-semibold transition ${
+                selectedTrack === "verbal"
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "border border-border bg-card text-foreground hover:border-primary hover:bg-primary/5"
+              }`}
+            >
+              Verbal Only
+            </button>
+          </div>
+
+          {/* Track Cards */}
+          <div className="grid gap-6 lg:grid-cols-3">
+            {trackOptions[selectedTrack].map((card, index) => {
+              const colors = getCardColors(index);
+              return (
+                <div
+                  key={card.id}
+                  className={`rounded-[2rem] border-2 ${colors.border} ${colors.bg} p-8 shadow-sm hover:shadow-lg transition-shadow duration-200`}
+                >
+                  <div className={`mb-6 flex h-16 w-16 items-center justify-center rounded-3xl ${colors.icon}`}>
+                    {getTrackIcon(card.icon)}
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-950">{card.title}</h3>
+                  <p className="mt-4 text-base text-slate-600 leading-relaxed">{card.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-background">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">PRICING</p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-4xl text-foreground">Plans & pricing</h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">Priced below every major alternative — without cutting a single corner.</p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3 mb-12">
+            {/* Quant Track Card */}
+            <div className="relative rounded-[2rem] border-2 border-border bg-card p-8 shadow-sm hover:shadow-lg transition-shadow duration-200">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-slate-950">Quant Track</h3>
+                <div className="mt-4">
+                  <p className="text-4xl font-bold text-primary">₹8,999</p>
+                  <p className="mt-2 text-sm text-muted-foreground">6-month access</p>
+                </div>
+              </div>
+              
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">80+ Quant video lessons</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">2,000+ practice questions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">10 Quant sectional tests</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">Doubt forum access</span>
+                </li>
+              </ul>
+
+              <button className="w-full rounded-full px-6 py-3 font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition-all duration-200">
+                Enroll Now
+              </button>
+            </div>
+
+            {/* Complete (Mixed) Card - Best Value */}
+            <div className="relative rounded-[2rem] border-2 ring-1 ring-primary/20 bg-card p-8 shadow-lg hover:shadow-xl transition-shadow duration-200">
+              <div className="absolute left-1/2 top-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground px-4 py-1 text-sm font-semibold text-primary-foreground">Best value</div>
+              
+              <div className="mb-6 pt-4">
+                <h3 className="text-2xl font-bold text-foreground">Complete (Mixed)</h3>
+                <div className="mt-4">
+                  <p className="text-4xl font-bold text-primary">₹14,999</p>
+                  <p className="mt-2 text-sm text-muted-foreground">12-month access</p>
+                </div>
+              </div>
+              
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">Full Quant + Verbal (incl. CR) course</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">4,000+ practice questions</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">Full 30-test GRE Test Series included</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">AWA templates + 2 essay reviews</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">Monthly live strategy session</span>
+                </li>
+              </ul>
+
+              <button className="w-full rounded-full px-6 py-3 font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition-all duration-200">
+                Enroll Now
+              </button>
+            </div>
+
+            {/* Verbal Track Card */}
+            <div className="relative rounded-[2rem] border-2 border-border bg-card p-8 shadow-sm hover:shadow-lg transition-shadow duration-200">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-slate-950">Verbal Track</h3>
+                <div className="mt-4">
+                  <p className="text-4xl font-bold text-primary">₹8,999</p>
+                  <p className="mt-2 text-sm text-muted-foreground">6-month access</p>
+                </div>
+              </div>
+              
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">70+ Verbal video lessons (RC, CR, SC)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">Vocab program + app quizzes</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">10 Verbal sectional tests</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <span className="text-slate-700">Doubt forum access</span>
+                </li>
+              </ul>
+
+              <button className="w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow hover:opacity-95 transition-all duration-200">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+
+          <div className="rounded-xl bg-indigo-50 border border-indigo-200 p-6 text-center">
+            <p className="text-sm text-indigo-900">
+              <span className="font-semibold">How we compare:</span> Princeton Review/Manya online GRE courses run ₹30,000–40,000, Jamboree ₹30,000–35,000, and Magoosh about ₹16,000 (without India-specific mentoring or a full test series). Our Complete track is ₹14,999 with the 30-test series included.
+            </p>
           </div>
         </div>
       </section>
@@ -198,7 +432,7 @@ const SelfPaced = () => {
       {/* Video + Feature List */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h3 className="text-center text-2xl font-semibold">GRE Online Self-Paced Training Features</h3>
+          <h3 className="text-center text-3xl font-semibold text-slate-950">GRE Online Self-Paced Training Features</h3>
           <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] items-start">
             <div>
               <div className="aspect-video w-full overflow-hidden rounded-3xl border border-slate-200 bg-black shadow-lg">
@@ -220,7 +454,7 @@ const SelfPaced = () => {
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow">
                         <BookOpen className="h-7 w-7" />
                       </div>
                       <div>
@@ -237,7 +471,7 @@ const SelfPaced = () => {
                   <div className="mt-6 space-y-3 text-sm text-slate-700">
                     {conceptDetails.map((detail) => (
                       <div key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-700 text-white text-xs font-bold">✓</span>
+                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs font-bold">✓</span>
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -278,7 +512,7 @@ const SelfPaced = () => {
                 )}
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-emerald-50/80 p-6 shadow-sm">
+              <div className="rounded-3xl border border-slate-200 bg-indigo-50/60 p-6 shadow-sm">
                 <button
                   type="button"
                   onClick={() => setStaminaOpen((prev) => !prev)}
@@ -286,7 +520,7 @@ const SelfPaced = () => {
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-700 text-white shadow">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-600 text-white shadow">
                         <Activity className="h-7 w-7" />
                       </div>
                       <div>
@@ -303,7 +537,7 @@ const SelfPaced = () => {
                   <div className="mt-6 space-y-3 text-sm text-slate-700">
                     {staminaDetails.map((detail) => (
                       <div key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-700 text-white text-xs font-bold">✓</span>
+                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-bold">✓</span>
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -319,7 +553,7 @@ const SelfPaced = () => {
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow">
                         <Gift className="h-7 w-7" />
                       </div>
                       <div>
@@ -336,7 +570,7 @@ const SelfPaced = () => {
                   <div className="mt-6 space-y-3 text-sm text-slate-700">
                     {complimentaryDetails.map((detail) => (
                       <div key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-white text-xs font-bold">✓</span>
+                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs font-bold">✓</span>
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -349,59 +583,35 @@ const SelfPaced = () => {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-16 bg-slate-900 text-white">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h3 className="text-center text-2xl font-semibold">Other GRE Prep Modes</h3>
-          <div className="mt-8 overflow-auto">
-            <table className="w-full max-w-[1100px] mx-auto table-auto rounded-2xl border-separate border-spacing-0 overflow-hidden">
-              <thead>
-                <tr className="bg-white text-black">
-                  <th className="p-6">GRE Prep Mode</th>
-                  <th className="p-6">Class Recordings & Concept Videos</th>
-                  <th className="p-6">Study Material</th>
-                  <th className="p-6">Mock Tests & Discussion</th>
-                  <th className="p-6">Doubt-Clearing Sessions</th>
-                  <th className="p-6">Access to Webinars</th>
-                  <th className="p-6">Session with Experts</th>
-                  <th className="p-6">Course Validity</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-emerald-200">
-                <tr className="bg-emerald-50 text-emerald-900">
-                  <td className="p-6">Classroom Training<br/><strong>48 hours</strong></td>
-                  <td className="p-6">✕</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">Unlimited</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">Up to 1 year</td>
-                </tr>
-                <tr className="bg-emerald-50 text-emerald-900">
-                  <td className="p-6">Live Online Training<br/><strong>48 hours</strong></td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">Unlimited</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">Up to 1 year</td>
-                </tr>
-                <tr className="bg-emerald-50 text-emerald-900">
-                  <td className="p-6">Private Tutoring<br/><strong>Customised</strong></td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✕</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">✓</td>
-                  <td className="p-6">40 hrs of classes + 6 months portal</td>
-                </tr>
-              </tbody>
-            </table>
+     
+     
+
+      {/* CTA Section */}
+      <section className="bg-slate-50 py-20 px-6">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="rounded-[36px] border border-border p-12 text-white shadow-soft sm:p-16" style={{ backgroundImage: "var(--gradient-primary)" }}>
+            <div className="text-center space-y-6">
+              <div className="flex justify-center">
+                <div className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-primary-foreground backdrop-blur">
+                  Your success journey starts here
+                </div>
+              </div>
+              <h2 className="text-4xl font-bold sm:text-5xl md:text-6xl">Ready to find your Y?</h2>
+              <p className="mx-auto max-w-2xl text-lg leading-8 text-primary-foreground">
+                Book a free demo session and a 1-on-1 strategy call. We'll map your target score, timeline and study plan — no strings attached.
+              </p>
+              <div className="pt-6">
+                <button className="inline-flex rounded-full bg-card px-8 py-3 text-base font-semibold text-primary shadow-lg shadow-white/20 transition hover:shadow-xl hover:bg-card/95">
+                  Book a Free Demo
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

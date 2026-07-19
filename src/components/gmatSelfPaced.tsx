@@ -1,5 +1,6 @@
 import React from "react";
 import { Award, Activity, BookOpen, Gift, Zap, Clock, CheckCircle2 } from "lucide-react";
+import { Footer } from "@/components/Footer";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
 import qaIcon from "@/assets/paced-icon/qa.webp";
@@ -37,17 +38,17 @@ const GmatSelfPaced: React.FC = () => {
 
   const featureItems = [
     {
-      icon: <BookOpen className="h-6 w-6 text-emerald-700" />,
+      icon: <BookOpen className="h-6 w-6 text-primary" />,
       title: "Concept Building",
       description: "Structured concept videos and practice for Quant, Verbal, and DI.",
     },
     {
-      icon: <Zap className="h-6 w-6 text-emerald-700" />,
+      icon: <Zap className="h-6 w-6 text-primary" />,
       title: "Speed & Accuracy",
       description: "Timed drills, sectional tests and score-based analytics to sharpen pace.",
     },
     {
-      icon: <Gift className="h-6 w-6 text-emerald-700" />,
+      icon: <Gift className="h-6 w-6 text-primary" />,
       title: "Complimentary Features",
       description: "Free doubt sessions, application guidance, and repeat access within validity.",
     },
@@ -89,53 +90,92 @@ const GmatSelfPaced: React.FC = () => {
     },
   ];
 
+  const plans = [
+    {
+      id: 'sectional',
+      title: 'Sectional',
+      price: '₹10,999',
+      subtitle: 'Any one section • 6 months',
+      bullets: [
+        'Quant, Verbal or DI module',
+        '1,000+ practice questions',
+        'Sectional tests included',
+        'Doubt forum access',
+      ],
+    },
+    {
+      id: 'full',
+      title: 'Full Course',
+      price: '₹19,999',
+      subtitle: 'All 3 sections • 12 months',
+      bullets: [
+        'Complete Quant + Verbal + DI',
+        '3,000+ practice questions',
+        'Full GMAT Test Series included',
+        'Monthly live strategy session',
+      ],
+      recommended: true,
+    },
+    {
+      id: 'mentor',
+      title: 'Full Course + Mentor',
+      price: '₹27,999',
+      subtitle: '12 months + mentor check-ins',
+      bullets: [
+        'Everything in Full Course',
+        'Monthly 1-on-1 mentor call',
+        'Personalised study plan',
+      ],
+    },
+  ];
+
   return (
-    <div className="bg-background text-foreground">
-      <section className="relative overflow-hidden bg-emerald-50/70 py-20">
+    <div className="bg-background text-foreground flex flex-col gap-8">
+      <section className="relative overflow-hidden bg-background py-12">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1fr_420px] items-start">
             <div className="pt-6">
-              <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">GMAT® SELF-PACED PROGRAM</p>
-              <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl">GMAT ONLINE COACHING THAT GETS YOU IN THE 705+ SQUAD</h1>
-              <p className="mt-4 text-xl font-semibold text-slate-900">Self-Paced Program</p>
-              <p className="mt-4 max-w-2xl text-lg text-slate-700">Experience learning anywhere, anytime with Seekyoury’s GMAT self-paced program.</p>
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">GMAT® SELF-PACED PROGRAM</p>
+              <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl text-foreground">GMAT ONLINE COACHING THAT GETS YOU IN THE 705+ SQUAD</h1>
+              <p className="mt-4 text-xl font-semibold text-foreground">Self-Paced Program</p>
+              <p className="mt-4 max-w-2xl text-lg text-muted-foreground">Experience learning anywhere, anytime with Seekyoury’s GMAT self-paced program.</p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <button className="inline-flex items-center justify-center gap-3 rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-800 transition-colors duration-200">
+                <button className="inline-flex items-center justify-center gap-3 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">
                   TAKE A FREE CLASS
                 </button>
-                <button className="inline-flex items-center justify-center gap-3 rounded-full border border-emerald-700 bg-white px-6 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors duration-200">
+                <button className="inline-flex items-center justify-center gap-3 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-card/95 transition">
                   CALL US
                 </button>
               </div>
             </div>
 
             <div className="relative">
-              <div className="rounded-3xl border border-emerald-100 bg-white p-5 shadow-lg">
-                <div className="space-y-4 rounded-3xl bg-emerald-700 p-5 text-white shadow-inner">
-                  <div className="flex items-center justify-between gap-4 rounded-2xl bg-emerald-800 p-4">
+              <div className="rounded-3xl border border-border bg-card p-5 shadow-lg">
+                <div className="space-y-4 rounded-3xl bg-primary p-5 text-primary-foreground shadow-inner">
+                  <div className="flex items-center justify-between gap-4 rounded-2xl bg-primary p-4">
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-full bg-white/20" />
+                      <div className="h-12 w-12 rounded-full bg-card/20" />
                       <div>
                         <div className="font-semibold">Jinay Nandu</div>
                         <div className="text-xs opacity-80">GMAT 715</div>
                       </div>
                     </div>
-                    <div className="rounded-2xl bg-black px-4 py-3 text-right">
+                    <div className="rounded-2xl bg-foreground px-4 py-3 text-right text-primary-foreground">
                       <div className="text-xs opacity-70">GMAT</div>
                       <div className="text-xl font-bold">715</div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between gap-4 rounded-2xl bg-emerald-800 p-4">
+                  <div className="flex items-center justify-between gap-4 rounded-2xl bg-primary p-4">
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-full bg-white/20" />
+                      <div className="h-12 w-12 rounded-full bg-card/20" />
                       <div>
                         <div className="font-semibold">Sid Makharia</div>
                         <div className="text-xs opacity-80">GMAT 715</div>
                       </div>
                     </div>
-                    <div className="rounded-2xl bg-black px-4 py-3 text-right">
+                    <div className="rounded-2xl bg-foreground px-4 py-3 text-right text-primary-foreground">
                       <div className="text-xs opacity-70">GMAT</div>
                       <div className="text-xl font-bold">715</div>
                     </div>
@@ -147,68 +187,101 @@ const GmatSelfPaced: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-12">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1fr_360px] items-start">
-            <div className="prose max-w-none text-base text-slate-700">
+            <div className="prose max-w-none text-base text-muted-foreground">
               <h2>Self-Paced GMAT Online Prep: An Overview</h2>
-              <p>Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.</p>
-              <p>Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.</p>
-              <button className="mt-6 rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-800 transition-colors duration-200">TALK TO A GMAT EXPERT</button>
+              <p className="text-muted-foreground">Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.</p>
+              <p className="text-muted-foreground">Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.</p>
+              <button className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">TALK TO A GMAT EXPERT</button>
             </div>
 
-            <aside className="rounded-3xl border border-emerald-100 bg-emerald-50 p-6 shadow-sm">
-              <h3 className="text-center text-lg font-semibold text-emerald-900">Speak to an Expert</h3>
+            <aside className="rounded-3xl border border-border bg-card/60 p-6 shadow-sm">
+              <h3 className="text-center text-lg font-semibold text-foreground">Speak to an Expert</h3>
               <form className="mt-6 space-y-4">
-                <input className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm" placeholder="Name" />
+                <input className="w-full rounded-2xl border border-border bg-card px-4 py-3" placeholder="Name" />
                 <div className="flex gap-3">
-                  <select className="w-28 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm"> <option>+91</option> </select>
-                  <input className="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm" placeholder="Mobile Number" />
+                  <select className="w-28 rounded-2xl border border-border bg-card px-4 py-3"> <option>+91</option> </select>
+                  <input className="flex-1 rounded-2xl border border-border bg-card px-4 py-3" placeholder="Mobile Number" />
                 </div>
-                <input className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm" placeholder="Email Id" />
-                <select className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+                <input className="w-full rounded-2xl border border-border bg-card px-4 py-3" placeholder="Email Id" />
+                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
                   <option>Interested in?</option>
                 </select>
-                <select className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
                   <option>Your City</option>
                 </select>
-                <select className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
                   <option>Nearest Center</option>
                 </select>
-                <label className="flex items-center gap-2 text-sm text-slate-700">
-                  <input type="checkbox" className="h-4 w-4 rounded border-slate-300 text-emerald-700" /> Stay informed via SMS & WhatsApp
+                <label className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <input type="checkbox" className="h-4 w-4 rounded border-border text-primary" /> Stay informed via SMS & WhatsApp
                 </label>
-                <button className="w-full rounded-2xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-800 transition-colors duration-200">Schedule a Call</button>
+                <button className="w-full rounded-2xl px-4 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">Schedule a Call</button>
               </form>
             </aside>
           </div>
         </div>
       </section>
 
-      <section className="py-12 bg-emerald-50">
+      
+
+      
+      <section className="py-12 bg-background">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold">Why Choose Seekyoury for GMAT Online Prep Coaching</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {cards.map((card) => (
-              <div key={card.title} className="rounded-[2rem] bg-white/80 p-8 shadow-sm border border-emerald-100">
-                <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-emerald-50 shadow-inner">
-                  <img src={card.icon} alt={card.title} className="h-16 w-16 object-contain" loading="lazy" />
+          <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-primary">Pricing</p>
+          <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Plans & pricing</h2>
+          <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
+
+          <div className="mt-10 grid gap-8 md:grid-cols-3">
+            {plans.map((plan) => (
+              <div
+                key={plan.id}
+                className={`relative overflow-hidden rounded-[28px] bg-card p-8 transition-transform hover:translate-y-[-6px] ${plan.recommended ? 'ring-1 ring-primary/20' : 'border border-border'}`}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+              >
+                {/* decorative top rim */}
+                <div className="absolute left-6 right-6 -top-3 h-2 rounded-t-[18px] bg-gradient-to-r from-primary to-accent shadow-glow" />
+
+                {plan.recommended && (
+                  <div className="absolute left-1/2 top-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground px-4 py-1 text-sm font-semibold text-primary-foreground">Best value</div>
+                )}
+
+                <div className="flex flex-col h-full">
+                  <h3 className="text-lg font-semibold text-foreground">{plan.title}</h3>
+
+                  <div className="mt-6 flex items-baseline gap-4">
+                    <p className="text-4xl font-extrabold text-primary leading-none">{plan.price}</p>
+                    <p className="text-sm text-muted-foreground">{plan.subtitle}</p>
+                  </div>
+
+                  <ul className="mt-6 space-y-4 flex-1">
+                    {plan.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <svg className="mt-1 h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                          <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <span className="leading-6">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-8">
+                    <button className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition">Enroll Now</button>
+                  </div>
                 </div>
-                <p className="text-center text-sm font-medium text-slate-900">{card.title}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-8 text-center">
-            <button className="rounded-full bg-emerald-700 px-7 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-800 transition-colors duration-200">TALK TO A GMAT EXPERT</button>
           </div>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-12">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <h2 className="text-center text-2xl font-semibold">GMAT Online Self-Paced Training Features</h2>
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
-            <div className="rounded-[2rem] overflow-hidden border border-slate-200 bg-black shadow-lg">
+            <div className="rounded-[2rem] overflow-hidden border border-border bg-card shadow-lg">
               <iframe
                 title="GMAT self paced preview"
                 src="https://www.youtube.com/embed/0qisGSwZym4"
@@ -219,12 +292,12 @@ const GmatSelfPaced: React.FC = () => {
 
             <div className="space-y-6">
               {featureItems.map((feature) => (
-                <div key={feature.title} className="rounded-3xl border border-slate-200 bg-emerald-50 p-6 shadow-sm">
+                <div key={feature.title} className="rounded-3xl border border-border bg-card/60 p-6 shadow-sm">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-white shadow-sm">{feature.icon}</div>
+                    <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-card shadow-sm">{feature.icon}</div>
                     <div>
-                      <h3 className="text-lg font-semibold text-slate-900">{feature.title}</h3>
-                      <p className="mt-2 text-sm text-slate-700">{feature.description}</p>
+                      <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{feature.description}</p>
                     </div>
                   </div>
                 </div>
@@ -234,60 +307,25 @@ const GmatSelfPaced: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-emerald-900 text-white">
+      <section className="py-12 bg-[hsl(var(--logic-navy))] text-primary-foreground">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 shadow-xl">
+          <div className="rounded-[2rem] border border-border bg-card/5 p-10 shadow-xl">
             <div className="grid gap-10 lg:grid-cols-[1.4fr_0.6fr] items-center">
               <div>
                 <h2 className="text-3xl font-semibold">GMAT DI preparation by India’s most experienced faculty</h2>
-                <p className="mt-4 max-w-2xl text-slate-200">Build confidence in Data Interpretation and become exam-ready with personalised guidance, targeted practice, and performance review from our expert faculty.</p>
+                <p className="mt-4 max-w-2xl text-primary-foreground">Build confidence in Data Interpretation and become exam-ready with personalised guidance, targeted practice, and performance review from our expert faculty.</p>
               </div>
               <div className="text-center">
-                <button className="rounded-full bg-emerald-700 px-8 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white shadow hover:bg-emerald-800 transition-colors duration-200">GMAT DI Preparation</button>
+                <button className="rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground bg-primary shadow hover:brightness-95 transition">GMAT DI Preparation</button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-background">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold">Other GMAT Prep Modes</h2>
-          <div className="mt-8 overflow-auto rounded-[2rem] border border-emerald-100 bg-white shadow-sm">
-            <table className="min-w-full border-collapse text-left">
-              <thead className="bg-slate-100 text-slate-900">
-                <tr>
-                  <th className="whitespace-nowrap px-5 py-4">GMAT Prep Mode</th>
-                  <th className="px-5 py-4">Class Recordings & Concept Videos</th>
-                  <th className="px-5 py-4">Study Material</th>
-                  <th className="px-5 py-4">Mock Tests & Discussion Sessions</th>
-                  <th className="px-5 py-4">Doubt-Clearing Sessions</th>
-                  <th className="px-5 py-4">Access to Webinars</th>
-                  <th className="px-5 py-4">Session with Admissions Experts</th>
-                  <th className="px-5 py-4">Course Validity</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.mode} className="border-t border-emerald-100 bg-emerald-50/80 text-slate-900">
-                    <td className="px-5 py-5 font-semibold">
-                      <div>{row.mode}</div>
-                      <div className="text-sm text-slate-700">{row.detail}</div>
-                    </td>
-                    <td className="px-5 py-5">{row.recording}</td>
-                    <td className="px-5 py-5">{row.material}</td>
-                    <td className="px-5 py-5">{row.mock}</td>
-                    <td className="px-5 py-5">{row.doubt}</td>
-                    <td className="px-5 py-5">{row.webinar}</td>
-                    <td className="px-5 py-5">{row.expert}</td>
-                    <td className="px-5 py-5">{row.validity}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+     
+     
+      <Footer />
     </div>
   );
 };

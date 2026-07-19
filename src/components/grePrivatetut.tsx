@@ -59,42 +59,58 @@ const GrePrivateTut: React.FC = () => {
   return (
     <div className="bg-background text-foreground">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-emerald-50/60 py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-background via-blue-50/20 to-indigo-50/30 py-20 md:py-28">
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-blue-300/5 blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-indigo-300/5 blur-3xl pointer-events-none -z-10" />
+        
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_420px] gap-8 items-start">
+          <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-start">
             <div className="pt-6">
-              <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">GRE® CLASSES</p>
-              <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl">GRE EXAM PREPARATION FROM YOUR HOME</h1>
-              <p className="mt-4 max-w-2xl text-lg text-muted-foreground">GRE Coaching with a private mentor</p>
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-blue-100/80 border border-blue-200/60">
+                <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                <span className="text-sm font-bold text-blue-700 uppercase tracking-wide">GRE® Private Tutoring</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-slate-900 mb-6 tracking-tight">
+                GRE Exam <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Preparation</span> From Your Home
+              </h1>
+              
+              <p className="text-xl text-slate-600 mb-8 max-w-2xl">Get expert GRE coaching with a private mentor, personalized study plan, and 1-on-1 guidance to crush your target score.</p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
-                <button className="inline-flex items-center gap-3 rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-800">
-                  TAKE A FREE CLASS
+              <div className="flex flex-wrap gap-4">
+                <button className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                  Take a Free Class
                 </button>
-                <button className="inline-flex items-center gap-3 rounded-full border border-emerald-700 bg-white px-6 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-50">
-                  CALL US
+                <button className="inline-flex items-center gap-3 rounded-xl border border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-900 hover:bg-slate-50 hover:border-slate-400 transition-all duration-300">
+                  Call Us
                 </button>
               </div>
             </div>
 
+            {/* Top Scorers Card */}
             <div className="relative">
-              <div className="rounded-2xl bg-white p-4 shadow-lg border border-border">
-                <div className="rounded-xl bg-emerald-700/90 p-4 text-white">
-                  {topScorers.map((s) => (
-                    <div key={s.name} className="mb-4 flex items-center justify-between gap-4 rounded-lg bg-emerald-700 p-3">
-                      <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-full bg-white/20" />
-                        <div>
-                          <div className="font-semibold">{s.name}</div>
-                          <div className="text-xs">{s.school}</div>
+              <div className="glass-card rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50/50 to-white border border-blue-200/60 p-6 shadow-xl overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-t-3xl"></div>
+                
+                <div className="pt-2">
+                  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-6">Top Scorers</h3>
+                  <div className="space-y-4">
+                    {topScorers.map((s) => (
+                      <div key={s.name} className="flex items-center justify-between gap-4 rounded-2xl bg-white/80 border border-slate-200/50 p-4 hover:bg-white transition-all duration-200">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 flex-shrink-0" />
+                          <div className="min-w-0">
+                            <div className="font-semibold text-slate-900 text-sm">{s.name}</div>
+                            <div className="text-xs text-slate-500 truncate">{s.school}</div>
+                          </div>
+                        </div>
+                        <div className="rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 px-3 py-2 text-right flex-shrink-0">
+                          <div className="text-xs text-blue-100 font-semibold">GRE</div>
+                          <div className="text-lg font-bold text-white">{s.score}</div>
                         </div>
                       </div>
-                      <div className="ml-2 rounded-md bg-black px-4 py-2 text-right text-white">
-                        <div className="text-xs opacity-70">GRE</div>
-                        <div className="text-xl font-bold">{s.score}</div>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -152,23 +168,278 @@ const GrePrivateTut: React.FC = () => {
       </section>
 
       {/* WHY CHOOSE - CARDS */}
-      <section className="py-12">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold">Why Choose Seekyoury for GRE Private Tutoring</h2>
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+              Why Choose Seekyoury for <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">GRE Private Tutoring</span>
+            </h2>
+            
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Experience personalized GRE preparation backed by 30+ years of expertise
+            </p>
+          </div>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {cards.map((c) => (
-              <div key={c.title} className="rounded-[2rem] bg-emerald-50/80 p-8">
-                <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-sm">
-                  <img src={c.icon} alt={c.title} className="h-16 w-16 object-contain" loading="lazy" />
+          {/* Cards Grid */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map((card) => (
+              <div
+                key={card.title}
+                className="group rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50/40 border border-blue-100/60 p-10 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-2"
+              >
+                {/* Icon Container */}
+                <div className="mb-8">
+                  <div className="inline-flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                    <img
+                      src={card.icon}
+                      alt={card.title}
+                      className="h-14 w-14 object-contain"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-                <div className="text-center text-sm text-slate-800">{c.title}</div>
+
+                {/* Text Content */}
+                <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight">
+                  {card.title}
+                </h3>
+                
+                <p className="text-base text-slate-600 leading-relaxed">
+                  {card.description || card.title}
+                </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 text-center">
-            <button className="rounded-full bg-emerald-700 px-6 py-3 text-white font-semibold">TALK TO A GRE EXPERT</button>
+          {/* CTA Button */}
+          <div className="mt-16 text-center">
+            <button className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              Talk to a GRE Expert
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-16 bg-gradient-to-b from-white via-slate-50/50 to-white">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-600 mb-2">PRICING</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">Packages</h2>
+            <div className="mx-auto w-32 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+          </div>
+
+          <div className="mt-16 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+            {/* Booster Card */}
+            <div className="relative rounded-3xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white p-8 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 group">
+              <h3 className="text-2xl font-extrabold text-slate-900 mb-4">Booster</h3>
+              <div className="mb-2">
+                <span className="text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">₹24,999</span>
+              </div>
+              <p className="text-sm text-slate-600 mb-6">8 sessions • single section • ~₹3,125/session</p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">8 × 60-min 1-on-1 sessions</span>
+                </div>
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">Custom drills & homework</span>
+                </div>
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">WhatsApp doubt support</span>
+                </div>
+              </div>
+
+              <button className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-6 py-3 text-white font-bold hover:shadow-lg shadow-md hover:scale-105 transform transition-all duration-300">
+                Get Started
+              </button>
+            </div>
+
+            {/* Complete Card (Recommended) */}
+            <div className="relative rounded-3xl border border-blue-500/40 bg-gradient-to-br from-white via-blue-50/30 to-white p-8 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group lg:scale-105">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="inline-flex px-4 py-1 rounded-full bg-black text-white text-xs font-bold">Recommended</span>
+              </div>
+              
+              <h3 className="text-2xl font-extrabold text-slate-900 mb-4 mt-2">Complete</h3>
+              <div className="mb-2">
+                <span className="text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">₹44,999</span>
+              </div>
+              <p className="text-sm text-slate-600 mb-6">16 sessions • full GRE • ~₹2,812/session</p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">16 × 60-min 1-on-1 sessions</span>
+                </div>
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">Self-paced course + 30-test series</span>
+                </div>
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">Mock reviews after every test</span>
+                </div>
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">Priority doubt support</span>
+                </div>
+              </div>
+
+              <button className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-6 py-3 text-white font-bold hover:shadow-lg shadow-md hover:scale-105 transform transition-all duration-300">
+                Get Started
+              </button>
+            </div>
+
+            {/* Elite Card */}
+            <div className="relative rounded-3xl border border-slate-200/60 bg-gradient-to-br from-white via-slate-50/30 to-white p-8 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 group">
+              <h3 className="text-2xl font-extrabold text-slate-900 mb-4">Elite 330+</h3>
+              <div className="mb-2">
+                <span className="text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">₹69,999</span>
+              </div>
+              <p className="text-sm text-slate-600 mb-6">24 sessions • directly with Aman</p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">24 sessions with Aman himself</span>
+                </div>
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">Everything in Complete</span>
+                </div>
+                <div className="flex gap-3">
+                  <svg className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">MBA/MS admissions strategy session</span>
+                </div>
+              </div>
+
+              <button className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-6 py-3 text-white font-bold hover:shadow-lg shadow-md hover:scale-105 transform transition-all duration-300">
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-12 rounded-2xl bg-blue-50 border border-blue-200 p-6 max-w-4xl mx-auto">
+            <p className="text-slate-700">
+              <span className="font-bold text-slate-900">How we compare:</span> private GRE tutoring in India typically runs ₹2,500–4,000 per hour (and US firms like Manhattan Prep or Princeton Review charge $200–300/hr). Our Complete package works out to ~₹2,812/session — with course, mocks and mentoring included free.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-background via-blue-50/20 to-background py-20">
+        {/* Decorative glows */}
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-blue-400/5 blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-indigo-400/5 blur-3xl pointer-events-none -z-10" />
+        
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-blue-100/80 border border-blue-200/60">
+                <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                <span className="text-sm font-bold text-blue-700 uppercase tracking-wide">Ready to Transform Your GRE Prep?</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight">
+                Find Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Y</span> Today
+              </h2>
+              
+              <p className="text-lg text-slate-700 mb-8 leading-relaxed max-w-lg">
+                Get personalized GRE tutoring with a 1-on-1 strategy session. We'll assess your current level, understand your goals, and create a roadmap to your target score.
+              </p>
+
+              <div className="space-y-4 mb-10">
+                {[
+                  { title: "Free strategy consultation", desc: "30-minute session with GRE experts" },
+                  { title: "Personalized study roadmap", desc: "Custom plan tailored to your timeline" },
+                  { title: "No commitment required", desc: "Pure guidance, zero obligations" },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-3">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-blue-100 mt-0.5 flex-shrink-0">
+                      <svg className="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900">{item.title}</div>
+                      <div className="text-sm text-slate-600">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                Book Your Free Demo
+              </button>
+            </div>
+
+            {/* Right Visual Card */}
+            <div className="relative">
+              {/* Gradient card background */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50/50 to-white border border-blue-200/60 shadow-xl"></div>
+              
+              {/* Accent line at top */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 rounded-t-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700"></div>
+
+              <div className="relative p-10 lg:p-12">
+                <div className="space-y-8">
+                  {/* Stat cards */}
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200/50 shadow-sm">
+                    <div className="flex items-baseline gap-2 mb-2">
+                      <span className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">92%</span>
+                      <span className="text-slate-600 font-semibold">Success</span>
+                    </div>
+                    <p className="text-sm text-slate-600">Students achieve their target scores with personalized tutoring</p>
+                  </div>
+
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200/50 shadow-sm">
+                    <div className="flex items-baseline gap-2 mb-2">
+                      <span className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">+120</span>
+                      <span className="text-slate-600 font-semibold">Avg. Gain</span>
+                    </div>
+                    <p className="text-sm text-slate-600">Average score improvement with our complete program</p>
+                  </div>
+
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200/50 shadow-sm">
+                    <div className="flex items-baseline gap-2 mb-2">
+                      <span className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">15+</span>
+                      <span className="text-slate-600 font-semibold">Years</span>
+                    </div>
+                    <p className="text-sm text-slate-600">Expert faculty with proven track record since 1993</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -224,6 +495,81 @@ const GrePrivateTut: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-950 text-slate-300 py-16">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="grid gap-12 md:grid-cols-4 sm:grid-cols-2 mb-12">
+            {/* Brand */}
+            <div>
+              <h3 className="text-white font-bold text-lg mb-4">Seek Your Y</h3>
+              <p className="text-sm text-slate-400">Your guide to conquering the GRE. Live classes, expert mentorship, and personalized strategies.</p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition">Home</a></li>
+                <li><a href="#" className="hover:text-white transition">Programs</a></li>
+                <li><a href="#" className="hover:text-white transition">Success Stories</a></li>
+                <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Programs */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Programs</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition">GRE Live Coaching</a></li>
+                <li><a href="#" className="hover:text-white transition">Self-Paced Course</a></li>
+                <li><a href="#" className="hover:text-white transition">GRE Coaching</a></li>
+                <li><a href="#" className="hover:text-white transition">Private Tutoring</a></li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Support</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition">FAQs</a></li>
+                <li><a href="#" className="hover:text-white transition">Terms & Conditions</a></li>
+                <li><a href="#" className="hover:text-white transition">Refund Policy</a></li>
+                <li><a href="#" className="hover:text-white transition">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-slate-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-sm text-slate-400">
+                © 2026 Seek Your Y. All rights reserved.
+              </p>
+              <div className="flex gap-6">
+                <a href="#" className="text-slate-400 hover:text-white transition">
+                  <span className="sr-only">Facebook</span>
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.991 22 12z" />
+                  </svg>
+                </a>
+                <a href="#" className="text-slate-400 hover:text-white transition">
+                  <span className="sr-only">Twitter</span>
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.29 20c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-7.104 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                  </svg>
+                </a>
+                <a href="#" className="text-slate-400 hover:text-white transition">
+                  <span className="sr-only">LinkedIn</span>
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

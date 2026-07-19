@@ -71,8 +71,8 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-logic-navy text-white relative">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-teal-500" />
+    <footer className="bg-[hsl(var(--logic-navy))] text-white relative">
+      <div className="absolute top-0 left-0 right-0 h-1" style={{ backgroundImage: "var(--gradient-primary)" }} />
       <div className="container-narrow pt-20 md:pt-28 lg:pt-32 pb-8 md:pb-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
@@ -116,7 +116,7 @@ export const Footer = () => {
         href="https://wa.me/917020183495"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-elevated transition-all hover:scale-110 z-50"
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-elevated transition-all hover:scale-110 z-50 bg-[hsl(var(--success-green))] hover:bg-[hsl(var(--success-green))]/90"
       >
         <MessageCircle className="w-6 h-6 text-white" />
       </a>

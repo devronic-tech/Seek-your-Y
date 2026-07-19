@@ -116,7 +116,7 @@ export const Navbar = () => {
                     GRE Live Classes
                   </Link>
                   <Link
-                    to="/gmat-private-tutoring"
+                    to="/tutoring"
                     onClick={() => {
                       setIsGreDropdownOpen(false);
                     }}
@@ -348,7 +348,7 @@ export const Navbar = () => {
                             GRE Live Classes
                           </Link>
                           <Link
-                            to="/gmat-private-tutoring"
+                            to="/tutoring"
                             className="text-sm text-muted-foreground hover:text-primary py-1"
                             onClick={() => {
                               setIsMobileMenuOpen(false);

@@ -22,6 +22,7 @@ const AboutGre = () => {
   const [isReviewPaused, setIsReviewPaused] = useState(false);
   const reviewListRef = useRef<HTMLDivElement | null>(null);
   const reviewCardsRef = useRef<HTMLDivElement[]>([]);
+  const hasInitializedReviewCarousel = useRef(false);
 
   const studentReviews = [
     {
@@ -69,6 +70,19 @@ const AboutGre = () => {
   }, [activeReviewIndex, isReviewPaused, studentReviews.length]);
 
   useEffect(() => {
+    if (!hasInitializedReviewCarousel.current) {
+      hasInitializedReviewCarousel.current = true;
+      return;
+    }
+
+    const reviewList = reviewListRef.current;
+    if (!reviewList) return;
+
+    const rect = reviewList.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const isVisible = rect.top < viewportHeight && rect.bottom > 0;
+    if (!isVisible) return;
+
     reviewCardsRef.current[activeReviewIndex]?.scrollIntoView({
       behavior: "smooth",
       inline: "center",
@@ -390,8 +404,8 @@ const AboutGre = () => {
 
       <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
-          <div className="grid gap-10 xl:grid-cols-[1.4fr_0.95fr]">
-            <div className="space-y-8">
+          <div className="grid gap-10 xl:grid-cols-[1.4fr_0.95fr] items-stretch">
+            <div className="space-y-8 flex flex-col">
               <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
                 <h2 className="text-3xl font-semibold text-slate-950">What is the GRE?</h2>
                 <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -404,57 +418,67 @@ const AboutGre = () => {
 
               <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-soft">
                 <div className="border-b border-slate-200 bg-slate-50 px-6 py-6">
-                  <h3 className="text-xl font-semibold text-slate-950">GRE 2025 Key points</h3>
-                </div>
-                <div className="divide-y divide-slate-200">
-                  {[
-                    ["Exam name", "Graduate Record Examination (GRE)"],
-                    ["Conducted by", "Educational Testing Service (ETS)"],
-                    ["GRE Scoring", "AWA 0–6; Quantitative 130–170; Verbal 130–170; Total 260–340"],
-                    ["Score Validity", "5 years"],
-                    ["GRE fees", "₹22,500/-"],
-                    ["Number of attempts", "Up to 5 times in 365 days"],
-                    ["Question type", "MCQs for Quant & Verbal plus one AWA essay"],
-                  ].map(([label, value], index) => (
-                    <div
-                      key={label}
-                      className={`grid gap-4 px-6 py-5 md:grid-cols-[180px_1fr] ${index % 2 === 0 ? "bg-white" : "bg-slate-50"}`}
-                    >
-                      <span className="font-semibold text-slate-900">{label}</span>
-                      <span className="text-slate-600">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-soft">
-                <div className="border-b border-slate-200 bg-slate-50 px-6 py-6">
                   <h3 className="text-xl font-semibold text-slate-950">GRE Exam Pattern</h3>
                 </div>
-                <div className="grid divide-y divide-slate-200">
-                  {[
-                    {
-                      section: "Analytical Writing Assessment (AWA)",
-                      details: "Task – “Analyze an Issue”",
-                      time: "30 min",
-                    },
-                    {
-                      section: "Quantitative reasoning",
-                      details: "Section 1: 12 questions · Section 2: 15 questions",
-                      time: "21 min / 26 min",
-                    },
-                    {
-                      section: "Verbal reasoning",
-                      details: "Section 1: 12 questions · Section 2: 15 questions",
-                      time: "18 min / 23 min",
-                    },
-                  ].map((row) => (
-                    <div key={row.section} className="grid gap-4 px-6 py-5 md:grid-cols-[1.5fr_1.2fr_0.8fr]">
-                      <div className="font-semibold text-slate-900">{row.section}</div>
-                      <div className="text-slate-600">{row.details}</div>
-                      <div className="font-medium text-slate-900">{row.time}</div>
-                    </div>
-                  ))}
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-slate-200 bg-gradient-to-r from-[#0052CC] to-[#003A99]">
+                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Section</th>
+                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Questions</th>
+                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Time</th>
+                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Score Scale</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200">
+                      {[
+                        {
+                          section: "Analytical Writing — \"Analyze an Issue\"",
+                          questions: "1 essay task",
+                          time: "30 min",
+                          scoreScale: "0-6",
+                        },
+                        {
+                          section: "Verbal Reasoning — Section 1",
+                          questions: "12",
+                          time: "18 min",
+                          scoreScale: "130-170",
+                        },
+                        {
+                          section: "Verbal Reasoning — Section 2 (adaptive)",
+                          questions: "15",
+                          time: "23 min",
+                          scoreScale: "130-170",
+                        },
+                        {
+                          section: "Quantitative Reasoning — Section 1",
+                          questions: "12",
+                          time: "21 min",
+                          scoreScale: "130-170",
+                        },
+                        {
+                          section: "Quantitative Reasoning — Section 2 (adaptive)",
+                          questions: "15",
+                          time: "26 min",
+                          scoreScale: "130-170",
+                        },
+                        {
+                          section: "Total",
+                          questions: "55",
+                          time: "~1 hr 58 min",
+                          scoreScale: "260-340",
+                          isTotal: true,
+                        },
+                      ].map((row) => (
+                        <tr key={row.section} className={row.isTotal ? "bg-slate-50 font-semibold" : ""}>
+                          <td className="px-6 py-3 text-base text-slate-900">{row.section}</td>
+                          <td className="px-6 py-3 text-base text-slate-700">{row.questions}</td>
+                          <td className="px-6 py-3 text-base text-slate-700">{row.time}</td>
+                          <td className="px-6 py-3 text-base text-slate-700">{row.scoreScale}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
 
@@ -474,7 +498,7 @@ const AboutGre = () => {
               </div>
             </div>
 
-            <aside className="lg:sticky lg:top-28">
+            <aside className="lg:sticky lg:top-28 h-fit">
               <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
                 <div className="mb-7">
                   <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#0052CC]">Speak to an Expert</p>
@@ -554,77 +578,50 @@ const AboutGre = () => {
             </aside>
           </div>
 
-          <section className="mt-16 rounded-[32px] border border-slate-200 bg-black/90 p-6 shadow-soft text-white">
-            <div className="mx-auto max-w-[1200px] px-4 lg:px-6">
-              <div className="mb-8 text-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300">GRE Prep Modes</p>
-                <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Pick the GRE preparation mode that works best for you</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-sm leading-7 text-slate-300">
-                  At Seekyoury we believe that every individual has their own learning style and requirement when it comes to GRE preparation. We offer four different GRE prep modes so each student can choose the option that fits their schedule, goals and comfort.
-                </p>
-              </div>
+          <section className="mt-16 px-6">
+            <div className="mx-auto max-w-[1200px]">
+              <div className="mb-8 rounded-[32px] border border-slate-200 bg-white p-10 shadow-soft">
+                <div className="text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#0052CC]">GRE Prep Modes</p>
+                  <h2 className="mt-4 text-3xl font-semibold md:text-4xl text-slate-950">Pick the GRE preparation mode that works best for you</h2>
+                  <p className="mt-4 mx-auto max-w-2xl text-sm leading-7 text-slate-600">
+                    At Seekyoury we believe that every individual has their own learning style and requirement when it comes to GRE preparation. We offer four different GRE prep modes so each student can choose the option that fits their schedule, goals and comfort.
+                  </p>
+                </div>
 
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-                {grePrepModes.map((mode) => (
-                  <button
-                    key={mode.id}
-                    onClick={() => setActiveMode(mode.id)}
-                    className={`rounded-3xl border px-4 py-5 text-left transition duration-200 ${
-                      activeMode === mode.id
-                        ? "border-emerald-400 bg-emerald-700/15 text-white"
-                        : "border-slate-700/10 bg-white/5 text-slate-200 hover:border-emerald-300/70 hover:bg-white/10"
-                    }`}
-                  >
-                    <p className="text-base font-semibold leading-tight">{mode.title}</p>
-                    <span className="mt-3 inline-flex rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-emerald-100">
-                      {mode.label}
-                    </span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-8 rounded-[32px] bg-white p-6 text-slate-900 shadow-soft">
-                {grePrepModes
-                  .filter((mode) => mode.id === activeMode)
-                  .map((mode) => (
-                    <div key={mode.id} className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] items-center">
-                      <div>
-                        <div className="mb-3 flex flex-wrap items-center gap-3">
-                          <span className="text-xl font-semibold text-slate-950">{mode.title}</span>
-                          <span className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-700">{mode.label}</span>
+                <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                  {grePrepModes.map((mode) => (
+                    <button
+                      key={mode.id}
+                      onClick={() => setActiveMode(mode.id)}
+                      className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-6 text-left transition duration-300 ${
+                        activeMode === mode.id
+                          ? "border-[#0052CC] bg-[#F5FAFF] shadow-md"
+                          : "border-slate-200 bg-white hover:border-[#0052CC]/70 hover:bg-slate-50 hover:shadow-sm"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <div>
+                          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{mode.label}</p>
                         </div>
-                        <p className="text-sm leading-7 text-slate-700">{mode.description}</p>
-                        <ul className="mt-4 space-y-2 text-slate-700">
-                          {mode.bullets.map((bullet) => (
-                            <li key={bullet} className="flex items-start gap-2 text-sm leading-6">
-                              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-700" />
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          <a
-                            href={mode.cta.demo.href}
-                            className="inline-flex items-center gap-2 rounded-full bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-emerald-800 transition"
-                          >
-                            <img src={mode.cta.demo.icon} alt="call" className="h-4 w-4" />
-                            {mode.cta.demo.label}
-                          </a>
-                          <a
-                            href={mode.cta.knowMore.href}
-                            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-5 py-2.5 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-                          >
-                            <img src={mode.cta.knowMore.icon} alt="call" className="h-4 w-4" />
-                            {mode.cta.knowMore.label}
-                          </a>
+                        <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
+                          activeMode === mode.id ? "bg-[#0052CC] text-white" : "bg-slate-100 text-slate-700"
+                        }`}>
+                          <span className="text-sm font-bold">{mode.title.split(" ")[1]?.charAt(0) ?? mode.title.charAt(0)}</span>
                         </div>
                       </div>
-
-                      <div className="flex items-center justify-center rounded-[2rem] bg-slate-100 p-4">
-                        <img src={mode.image} alt={mode.title} className="h-auto w-full max-w-[320px] rounded-[2rem] object-cover" />
+                      <h3 className="mt-6 text-lg font-semibold text-slate-950">{mode.title}</h3>
+                      <p className="mt-4 text-sm leading-6 text-slate-600">{mode.description}</p>
+                      <div className="mt-auto pt-6">
+                        <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-slate-600 transition group-hover:bg-[#E5F4FF]">
+                          Learn More
+                        </span>
                       </div>
-                    </div>
+                    </button>
                   ))}
+                </div>
+
+
               </div>
             </div>
           </section>
@@ -634,54 +631,77 @@ const AboutGre = () => {
 
           <section className="mt-12 px-6">
             <div className="mx-auto max-w-[1200px]">
-              <div className="text-center mb-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300">How we help</p>
-                <h2 className="mt-2 text-3xl font-semibold">Seekyoury GRE Coaching</h2>
-                <p className="mt-2 text-sm text-slate-500">Designed To Help Your GRE Prep In 3 Key Areas</p>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                {greFocusAreas.map((area) => (
-                  <button
-                    key={area.id}
-                    onClick={() => setActiveGreFocus(area.id)}
-                    className={`relative flex items-center gap-4 rounded-lg px-6 py-6 text-left transition ${
-                      activeGreFocus === area.id ? "bg-emerald-700 text-white" : "bg-emerald-700/20 text-white"
-                    }`}
-                  >
-                    <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-white/90 p-2">
-                      <img src={area.image} alt={area.title} className="h-full w-full object-contain" />
-                    </div>
-                    <div>
-                      <div className="text-lg font-semibold">{area.title}</div>
-                      <div className="text-sm opacity-90">{area.short}</div>
-                    </div>
-                    {activeGreFocus === area.id && <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 rotate-45 w-4 h-4 bg-black" />}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-[18px] bg-black/95 p-8 text-white">
-                <div className="grid gap-6 md:grid-cols-3">
-                  {activeFocus.points.map((p) => (
-                    <div key={p} className="rounded-xl border-2 border-dashed border-white/40 p-6 text-center">
-                      <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-white/90 flex items-center justify-center text-black">
-                        <img src={activeFocus.image} alt="" className="h-6 w-6 object-contain" />
-                      </div>
-                      <p className="text-sm">{p}</p>
-                    </div>
-                  ))}
+              <div className="rounded-[36px] border border-slate-200 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-8 text-white shadow-soft sm:p-10">
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                  <div className="max-w-2xl">
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300">How we help</p>
+                    <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Seekyoury GRE coaching built around your growth</h2>
+                    <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base">
+                      We blend concept mastery, expert mentorship, and exam-smart practice so your preparation feels focused and result-driven.
+                    </p>
+                  </div>
+                  <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-slate-200">
+                    3 key areas
+                  </div>
                 </div>
 
-                <div className="mt-6 flex items-start gap-6">
-                  <img
-                    src={activeGreFocus === "concepts" ? (greFocusAreas.find((f) => f.id === "faculty")?.image ?? activeFocus.image) : activeFocus.image}
-                    alt="focus"
-                    className="hidden w-48 flex-shrink-0 rounded-lg object-cover md:block"
-                  />
-                  <div>
-                    <h3 className="text-xl font-semibold">{activeGreFocus === "concepts" ? (greFocusAreas.find((f) => f.id === "faculty")?.title ?? activeFocus.title) : activeFocus.title}</h3>
-                    <p className="mt-2 text-sm text-slate-200">{activeFocus.description}</p>
+                <div className="mt-8 grid gap-4 lg:grid-cols-3">
+                  {greFocusAreas.map((area) => {
+                    const isActive = activeGreFocus === area.id;
+                    return (
+                      <button
+                        key={area.id}
+                        onClick={() => setActiveGreFocus(area.id)}
+                        className={`rounded-[24px] border p-5 text-left transition duration-300 ${
+                          isActive
+                            ? "border-emerald-400 bg-white text-slate-900 shadow-lg"
+                            : "border-white/10 bg-white/10 text-white hover:bg-white/15"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${isActive ? "bg-emerald-100 text-emerald-700" : "bg-white/10 text-white"}`}>
+                            <img src={area.image} alt={area.title} className="h-6 w-6 object-contain" />
+                          </div>
+                          <div>
+                            <div className="text-base font-semibold">{area.title}</div>
+                            <div className={`mt-1 text-sm ${isActive ? "text-slate-600" : "text-slate-300"}`}>{area.short}</div>
+                          </div>
+                        </div>
+                        {isActive && <div className="mt-5 h-1.5 rounded-full bg-emerald-500" />}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-6 rounded-[28px] border border-white/10 bg-white/10 p-6 backdrop-blur">
+                  <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+                    <div className="rounded-[24px] bg-white p-6 text-slate-900 shadow-lg">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100">
+                          <img src={activeFocus.image} alt={activeFocus.title} className="h-6 w-6 object-contain" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-600">Selected focus</p>
+                          <h3 className="text-xl font-semibold">{activeFocus.title}</h3>
+                        </div>
+                      </div>
+                      <p className="mt-5 text-sm leading-7 text-slate-600">{activeFocus.description}</p>
+
+                      <div className="mt-6 space-y-3">
+                        {activeFocus.points.map((point) => (
+                          <div key={point} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                            <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                            <span className="text-sm text-slate-700">{point}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-center">
+                      <div className="w-full overflow-hidden rounded-[24px] border border-white/10 bg-slate-900/70 p-3">
+                        <img src={activeFocus.image} alt={activeFocus.title} className="h-[280px] w-full rounded-[18px] object-cover sm:h-[340px]" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -697,12 +717,37 @@ const AboutGre = () => {
               <div key={feature.title} className="rounded-[32px] border border-slate-200 bg-white p-7 shadow-soft">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-3xl bg-[#EEF2FF]">
                   <img src={feature.iconPath} alt={feature.title} className="h-8 w-8 object-contain" />
-                </div>
+                </div> 
+
                 <h3 className="text-lg font-semibold text-slate-950">{feature.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{feature.description}</p>
               </div>
             ))}
           </div>
+
+          {/* CTA Section */}
+          <section className="bg-slate-50 py-20 px-6 -mx-6 lg:-mx-8">
+            <div className="mx-auto max-w-[1200px]">
+              <div className="rounded-[36px] border border-slate-200 bg-gradient-to-br from-[#0052CC] to-[#003A99] p-12 text-white shadow-soft sm:p-16">
+                <div className="text-center space-y-6">
+                  <div className="flex justify-center">
+                    <div className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-blue-100 backdrop-blur">
+                      Ready for your next step?
+                    </div>
+                  </div>
+                  <h2 className="text-4xl font-bold sm:text-5xl md:text-6xl">Ready to find your Y?</h2>
+                  <p className="mx-auto max-w-2xl text-lg leading-8 text-blue-100">
+                    Book a free demo session and a 1-on-1 strategy call. We'll map your target score, timeline and study plan — no strings attached.
+                  </p>
+                  <div className="pt-6">
+                    <button className="inline-flex rounded-full bg-white px-8 py-3 text-base font-semibold text-[#0052CC] shadow-lg shadow-white/20 transition hover:shadow-xl hover:bg-slate-50">
+                      Book a Free Demo
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <section className="mt-12 rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
             <div className="text-center mb-10">
@@ -822,6 +867,74 @@ const AboutGre = () => {
           </section>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-950 text-slate-100 py-16">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-12">
+            {/* Brand */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-white">Seekyoury</h4>
+              <p className="text-sm text-slate-400">Premium GRE and GMAT preparation for ambitious learners worldwide.</p>
+              <div className="flex gap-4 pt-2">
+                <a href="#" className="text-slate-400 hover:text-white transition">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20v-7.21H5.93v-2.96h2.36V7.9c0-2.34 1.43-3.62 3.52-3.62 1 0 1.86.07 2.11.1v2.44h-1.44c-1.13 0-1.35.54-1.35 1.32v1.73h2.71l-.35 2.96h-2.36V20H8.29z"/></svg>
+                </a>
+                <a href="#" className="text-slate-400 hover:text-white transition">
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/></svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Programs */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-white">Programs</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-slate-400 hover:text-white transition">GRE Classroom</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">GRE Online</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">GRE Self-Paced</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">GMAT Prep</a></li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-white">Resources</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-slate-400 hover:text-white transition">Blog</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">Success Stories</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">FAQs</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">Contact Us</a></li>
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-white">Legal</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="text-slate-400 hover:text-white transition">Privacy Policy</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">Terms & Conditions</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">Refund Policy</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-slate-800 pt-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <p className="text-sm text-slate-400">
+                © 2025 Seekyoury. All rights reserved. | Made with ❤️ for GRE aspirants
+              </p>
+              <div className="flex gap-6 text-sm text-slate-400">
+                <a href="#" className="hover:text-white transition">Privacy</a>
+                <a href="#" className="hover:text-white transition">Terms</a>
+                <a href="#" className="hover:text-white transition">Cookies</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
