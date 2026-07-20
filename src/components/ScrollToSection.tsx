@@ -6,7 +6,7 @@ const PATH_TO_SECTION: Record<string, string> = {
   "/programs": "programs",
   "/tutoring": "tutoring",
   "/book-demo": "book-demo",
-  "/success-stories": "success-stories",
+  "/testimonials": "testimonials",
   "/about": "about",
 };
 

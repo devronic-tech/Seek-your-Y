@@ -18,6 +18,9 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
 import ContactUs from "./pages/ContactUs";
 import SuccessStoriesPage from "./pages/SuccessStories";
+import TestSeriesPage from "./pages/TestSeries";
+import TestimonialsPage from "./pages/Testimonials";
+import BlogsPage from "./pages/Blogs";
 import { FormSubmitFrame } from "@/components/FormSubmitFrame";
 
 const queryClient = new QueryClient();
@@ -32,6 +35,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/test-series" element={<TestSeriesPage />} />
           <Route path="/about-gmat" element={<AboutGmatPage />} />
           <Route path="/gre-live" element={<GreLivePage />} />
           <Route path="/self-paced" element={<SelfPacedPage />} />
@@ -42,6 +47,7 @@ const App = () => (
           <Route path="/admissions" element={<Admission />} />
           <Route path="/book-demo" element={<Index />} />
           <Route path="/success-stories" element={<SuccessStoriesPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/about" element={<Index />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />

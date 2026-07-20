@@ -1,5 +1,6 @@
-import React from "react";
-import { Award, Activity, BookOpen, Gift, Zap, Clock, CheckCircle2 } from "lucide-react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Award, Activity, BookOpen, Gift, Zap, Clock, CheckCircle2, BarChart3 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
@@ -9,6 +10,95 @@ import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const GmatSelfPaced: React.FC = () => {
+  const [selectedTrack, setSelectedTrack] = useState<"quant" | "verbal" | "mixed">("quant");
+  
+  const trackOptions = {
+    quant: [
+      {
+        id: "quant-syllabus",
+        icon: "📊",
+        title: "Full GMAT Quant syllabus",
+        description: "Arithmetic and Algebra — every topic, with Data Sufficiency logic and logic-based Problem Solving.",
+      },
+      {
+        id: "quant-logic",
+        icon: "🧠",
+        title: "Logic over formulas",
+        description: "Aman's signature approach: estimation, number sense, and smart substitution that beats the clock.",
+      },
+      {
+        id: "quant-drills",
+        icon: "⏱️",
+        title: "Timed drills",
+        description: "Practice sets under time pressure (21 questions in 45 minutes) that build a target 85+ score pace.",
+      },
+    ],
+    verbal: [
+      {
+        id: "verbal-rc-cr",
+        icon: "📖",
+        title: "RC & Critical Reasoning",
+        description: "A repeatable, logic-based process for Reading Comprehension and CR questions without Sentence Correction.",
+      },
+      {
+        id: "verbal-structure",
+        icon: "✏️",
+        title: "Argument structure",
+        description: "Learn to map argument components, spot logical fallacies, and pre-think assumptions instantly.",
+      },
+      {
+        id: "verbal-practice",
+        icon: "💡",
+        title: "Target practice",
+        description: "Topic-wise timed sets and sectional quizzes tailored to GMAT's verbal adaptivity.",
+      },
+    ],
+    mixed: [
+      {
+        id: "mixed-syllabus",
+        icon: "📚",
+        title: "100+ video lessons",
+        description: "Every GMAT Focus concept covered — Arithmetic, Algebra, CR, RC, and the new Data Insights section.",
+      },
+      {
+        id: "mixed-practice",
+        icon: "🎯",
+        title: "3,000+ practice questions",
+        description: "Adaptive question banks, timed quizzes, and full-length test series with detailed solutions.",
+      },
+      {
+        id: "mixed-di",
+        icon: "📈",
+        title: "Comprehensive DI modules",
+        description: "Focused prep for Data Sufficiency, Multi-Source Reasoning, Table Analysis, Graphics Interpretation, and Two-Part Analysis.",
+      },
+    ],
+  };
+
+  const getTrackIcon = (icon: string) => {
+    const iconMap: Record<string, React.ReactNode> = {
+      "📊": <BookOpen className="h-8 w-8" />,
+      "🧠": <Zap className="h-8 w-8" />,
+      "⏱️": <Activity className="h-8 w-8" />,
+      "📖": <BookOpen className="h-8 w-8" />,
+      "✏️": <Activity className="h-8 w-8" />,
+      "💡": <Zap className="h-8 w-8" />,
+      "📚": <BookOpen className="h-8 w-8" />,
+      "🎯": <Activity className="h-8 w-8" />,
+      "📈": <BarChart3 className="h-8 w-8" />,
+    };
+    return iconMap[icon] || null;
+  };
+
+  const getCardColors = (index: number) => {
+    const colors = [
+      { bg: "bg-card", border: "border-border", icon: "bg-primary text-primary-foreground" },
+      { bg: "bg-card", border: "border-border", icon: "bg-accent text-accent-foreground" },
+      { bg: "bg-card", border: "border-border", icon: "bg-[hsl(var(--exam-gold))] text-foreground" },
+    ];
+    return colors[index % 3];
+  };
+
   const cards = [
     {
       icon: since1993Icon,
@@ -36,23 +126,7 @@ const GmatSelfPaced: React.FC = () => {
     },
   ];
 
-  const featureItems = [
-    {
-      icon: <BookOpen className="h-6 w-6 text-primary" />,
-      title: "Concept Building",
-      description: "Structured concept videos and practice for Quant, Verbal, and DI.",
-    },
-    {
-      icon: <Zap className="h-6 w-6 text-primary" />,
-      title: "Speed & Accuracy",
-      description: "Timed drills, sectional tests and score-based analytics to sharpen pace.",
-    },
-    {
-      icon: <Gift className="h-6 w-6 text-primary" />,
-      title: "Complimentary Features",
-      description: "Free doubt sessions, application guidance, and repeat access within validity.",
-    },
-  ];
+
 
   const comparisonRows = [
     {
@@ -244,8 +318,66 @@ const GmatSelfPaced: React.FC = () => {
         </div>
       </section>
 
-      
+      <section className="py-16 px-6 bg-slate-50/30">
+        <div className="max-w-[1200px] mx-auto text-center">
+          <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-blue-600 block mb-3">
+            CHOOSE YOUR TRACK
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold font-display text-foreground tracking-tight leading-tight">
+            Pick your track
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-2xl mx-auto mt-4 mb-10">
+            Already strong in one section? Prep only what you need — or take the full course.
+          </p>
 
+          {/* Track Selection Pills */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {[
+              { id: "mixed", label: "Mixed (Quant + Verbal)" },
+              { id: "quant", label: "Quant Only" },
+              { id: "verbal", label: "Verbal Only" },
+            ].map((track) => (
+              <button
+                key={track.id}
+                onClick={() => setSelectedTrack(track.id as "quant" | "verbal" | "mixed")}
+                className={`px-8 py-3 rounded-full font-semibold text-sm md:text-base transition-all duration-300 border ${
+                  selectedTrack === track.id
+                    ? "bg-blue-600 border-blue-600 text-white shadow-md"
+                    : "bg-white border-slate-200 text-slate-800 hover:bg-slate-50"
+                }`}
+              >
+                {track.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Active Track Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
+            {trackOptions[selectedTrack].map((option, idx) => {
+              const cardColors = getCardColors(idx);
+              return (
+                <motion.div
+                  key={option.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="bg-card rounded-[28px] border border-slate-200/60 p-8 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 shadow-soft hover:shadow-elevated"
+                >
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${cardColors.icon}`}>
+                    {getTrackIcon(option.icon)}
+                  </div>
+                  <h3 className="text-xl font-bold font-display text-slate-900">
+                    {option.title}
+                  </h3>
+                  <p className="text-sm md:text-[14.5px] text-muted-foreground leading-relaxed">
+                    {option.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
       
       <section className="py-12 bg-background">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
@@ -296,35 +428,7 @@ const GmatSelfPaced: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold">GMAT Online Self-Paced Training Features</h2>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
-            <div className="rounded-[2rem] overflow-hidden border border-border bg-card shadow-lg">
-              <iframe
-                title="GMAT self paced preview"
-                src="https://www.youtube.com/embed/0qisGSwZym4"
-                className="aspect-video w-full"
-                allowFullScreen
-              />
-            </div>
 
-            <div className="space-y-6">
-              {featureItems.map((feature) => (
-                <div key={feature.title} className="rounded-3xl border border-border bg-card/60 p-6 shadow-sm">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-card shadow-sm">{feature.icon}</div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground">{feature.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="py-12 bg-[hsl(var(--logic-navy))] text-primary-foreground">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">

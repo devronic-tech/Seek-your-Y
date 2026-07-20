@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CustomFAQ } from "@/components/CustomFAQ";
 import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
@@ -9,7 +10,29 @@ import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const GmatPrivateTut: React.FC = () => {
-  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  const gmatPrivateTutFaqs = [
+    {
+      question: "How personalized is the GMAT private tutoring program?",
+      answer: "Extremely personalized. We design a custom-tailored study timeline and weekly dashboard based on your current GMAT Focus diagnostic score, target score, timeline, strengths, weaknesses, and availability."
+    },
+    {
+      question: "Who will be my GMAT mentor?",
+      answer: "You will get 1-on-1 direct coaching from Aman, an experienced test-prep specialist who has guided hundreds of students to GMAT Focus scores of 645+."
+    },
+    {
+      question: "How flexible is the scheduling for 1-on-1 GMAT sessions?",
+      answer: "We offer highly flexible timings. You can schedule sessions in coordination with your tutor to comfortably fit around your work or college commitments."
+    },
+    {
+      question: "Can we focus only on my weak areas (e.g. Data Insights)?",
+      answer: "Yes, absolutely! The entire curriculum can be tailored to focus on your specific areas of improvement, whether it's Quant, Verbal, or Data Insights."
+    },
+    {
+      question: "How do we track GMAT mock performance and progress?",
+      answer: "We track your progress through detailed analytics of your practice drills, periodic diagnostic mock tests, and regular feedback reviews with your mentor."
+    }
+  ];
 
   const cards = [
     { icon: since1993Icon, title: "Unmatched scores on the GMAT since 1993" },
@@ -20,44 +43,7 @@ const GmatPrivateTut: React.FC = () => {
     { icon: qaIcon, title: "Personalized attention through unlimited doubt-clearing sessions" },
   ];
 
-  const sections = [
-    {
-      id: "structured-plan",
-      title: "Structured Study Plan",
-      details: [
-        "Personalized weekly study roadmap tailored to your GMAT target.",
-        "Regular checkpoints with score tracking and topic-wise progress.",
-      ],
-      icon: <BookOpen className="h-6 w-6 text-primary" />,
-    },
-    {
-      id: "expert-coaching",
-      title: "Expert Coaching",
-      details: [
-        "One-to-one live sessions with experienced GMAT instructors.",
-        "Direct doubt clearing and strategic review after every class.",
-      ],
-      icon: <Zap className="h-6 w-6 text-primary" />,
-    },
-    {
-      id: "adaptive-feedback",
-      title: "Adaptive Feedback",
-      details: [
-        "Regular mock tests with detailed performance analytics.",
-        "Adaptive revisions based on your weak areas and score trends.",
-      ],
-      icon: <Activity className="h-6 w-6 text-primary" />,
-    },
-    {
-      id: "extra-support",
-      title: "Extra Support",
-      details: [
-        "Unlimited doubt-clearing sessions and recorded support classes.",
-        "Application guidance and interview prep built into the program.",
-      ],
-      icon: <Gift className="h-6 w-6 text-primary" />,
-    },
-  ];
+
 
   const plans = [
     {
@@ -318,52 +304,8 @@ const GmatPrivateTut: React.FC = () => {
       </section>
 
 
-      <section className="py-16 bg-background">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold">GMAT Private Tutoring Features</h2>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
-            <div className="rounded-[2rem] overflow-hidden border border-border bg-card shadow-lg">
-              <iframe
-                title="GMAT private tutoring preview"
-                src="https://www.youtube.com/embed/0qisGSwZym4"
-                className="aspect-video w-full"
-                allowFullScreen
-              />
-            </div>
-            <div className="space-y-6">
-              {sections.map((section) => (
-                <div key={section.id} className="rounded-3xl border border-border bg-card/60 p-6 shadow-sm">
-                  <button
-                    type="button"
-                    onClick={() => setOpenSection(openSection === section.id ? null : section.id)}
-                    className="w-full text-left"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-sm">{section.icon}</div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-foreground">{section.title}</h3>
-                        </div>
-                      </div>
-                      <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${openSection === section.id ? "rotate-180" : "rotate-0"}`} />
-                    </div>
-                  </button>
-                  {openSection === section.id && (
-                    <div className="mt-4 space-y-3 text-sm text-muted-foreground">
-                      {section.details.map((detail) => (
-                        <div key={detail} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-1 h-5 w-5 text-primary" />
-                          <span>{detail}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <CustomFAQ faqs={gmatPrivateTutFaqs} />
       <Footer />
     </div>
   );

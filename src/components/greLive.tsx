@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CustomFAQ } from "@/components/CustomFAQ";
 import { BookOpen, Zap, Activity, Gift, ChevronDown } from "lucide-react";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
@@ -8,7 +9,29 @@ import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const GreLive: React.FC = () => {
-  const [openFeature, setOpenFeature] = useState<string | null>(null);
+
+  const greLiveFaqs = [
+    {
+      question: "How are the GRE live interactive classes conducted?",
+      answer: "Our GRE live classes are conducted online via live video sessions with interactive whiteboards. You can ask questions, engage in chat, and get real-time feedback from your instructor."
+    },
+    {
+      question: "What happens if I miss a live class?",
+      answer: "No worries! Every live class is recorded and uploaded to your student dashboard within 24 hours. You will have unlimited access to review them whenever you want."
+    },
+    {
+      question: "Are study materials and practice tests included?",
+      answer: "Yes, you get comprehensive prep material, including dedicated GRE Quant/Verbal textbooks, question banks, and 5+ full-length computer-adaptive mock tests."
+    },
+    {
+      question: "How do I get my doubts resolved outside of class hours?",
+      answer: "You can post your queries in our interactive student groups. We also host scheduled live doubt-clearing sessions where you can work directly with our expert tutors."
+    },
+    {
+      question: "Can I try a demo session before fully committing?",
+      answer: "Absolutely! You can book a free live demo session to experience the portal interface, check our teaching method, and plan your GRE strategy."
+    }
+  ];
 
   const topScorers = [
     { name: "Siddhant Tomar", school: "BTECH IT", score: "328" },
@@ -52,36 +75,7 @@ const GreLive: React.FC = () => {
     },
   ];
 
-  const liveFeatures = [
-    {
-      key: "concept",
-      title: "Concept Building",
-      details: [
-        "48 hours of training on the Math and Verbal concepts tested on the GRE",
-        "Seekyoury’s study material on the learning portal",
-        "Unlimited AWA essay reviews",
-      ],
-      icon: <BookOpen className="h-6 w-6" />,
-    },
-    {
-      key: "speed",
-      title: "Speed & Accuracy",
-      details: ["3300+ practice questions with explanations", "5 hours of personal doubt clearing"],
-      icon: <Zap className="h-6 w-6" />,
-    },
-    {
-      key: "stamina",
-      title: "Stamina & Strategy",
-      details: ["7 full-length Seekyoury mock tests", "2 official tests (ETS Tests) discussed as a part of the 11 Learn modules"],
-      icon: <Activity className="h-6 w-6" />,
-    },
-    {
-      key: "complimentary",
-      title: "Complimentary Features",
-      details: ["Regular Information webinars", "Study material available at additional cost*"],
-      icon: <Gift className="h-6 w-6" />,
-    },
-  ];
+
 
   return (
     <div className="bg-background text-foreground">
@@ -455,64 +449,9 @@ const GreLive: React.FC = () => {
         </div>
       </section>
 
-      {/* Live Training Features - Video + Expandable list */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h3 className="text-center text-3xl md:text-4xl font-bold text-foreground">GRE Online Live Training Features</h3>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_420px] items-start">
-            <div>
-              <div className="aspect-video w-full overflow-hidden rounded-3xl border border-slate-200 bg-black shadow-lg">
-                <iframe
-                  title="GRE live preview"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  className="h-full w-full"
-                  allowFullScreen
-                />
-              </div>
-            </div>
 
-            <div className="space-y-6">
-              {liveFeatures.map((f) => (
-                <div key={f.key} className="group rounded-3xl border border-slate-200/60 bg-gradient-to-br from-white to-slate-50/40 p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-blue-400/60 overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/5 rounded-full -mr-16 -mt-16 group-hover:bg-blue-400/10 transition-colors duration-300" />
-                  <button
-                    type="button"
-                    onClick={() => setOpenFeature(openFeature === f.key ? null : f.key)}
-                    className="w-full text-left relative z-10"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/30 group-hover:shadow-2xl group-hover:shadow-blue-600/40 transition-all duration-300">
-                          {f.icon}
-                        </div>
-                        <div>
-                          <h4 className="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">{f.title}</h4>
-                        </div>
-                      </div>
-                      <ChevronDown className={`h-6 w-6 text-slate-600 group-hover:text-blue-600 transition-all duration-300 ${openFeature === f.key ? "rotate-180" : "rotate-0"}`} />
-                    </div>
-                  </button>
 
-                  {openFeature === f.key && (
-                    <div className="mt-6 space-y-3 text-sm text-slate-700 relative z-10 border-t border-slate-200/60 pt-6">
-                      {f.details.map((d) => (
-                        <div key={d} className="flex items-start gap-3 animate-in fade-in duration-300">
-                          <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white text-xs font-bold shadow-md flex-shrink-0">✓</span>
-                          <span className="leading-relaxed text-slate-700 font-medium">{d}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <button className="rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 px-8 py-3 text-white font-semibold hover:shadow-lg shadow-md hover:scale-105 transform transition-all duration-300">TALK TO AN EXPERT</button>
-          </div>
-        </div>
-      </section>
+      <CustomFAQ faqs={greLiveFaqs} />
 
       {/* Footer */}
       <footer className="bg-slate-950 text-slate-300 py-16">

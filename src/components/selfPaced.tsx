@@ -9,10 +9,7 @@ import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const SelfPaced = () => {
-  const [conceptOpen, setConceptOpen] = useState(false);
-  const [speedOpen, setSpeedOpen] = useState(false);
-  const [staminaOpen, setStaminaOpen] = useState(false);
-  const [complimentaryOpen, setComplimentaryOpen] = useState(false);
+
   const [selectedTrack, setSelectedTrack] = useState("quant");
 
   const topScorers = [
@@ -30,32 +27,7 @@ const SelfPaced = () => {
     "Access to local centers for mock tests and labs",
   ];
 
-  const conceptDetails = [
-    "48 hours of training on the Math and Verbal concepts tested on the GRE",
-    "Seekyoury’s study material on the learning portal",
-    "180+ hours of webinars - Foundation sessions, question discussion, Doubt sessions, Verbal refresher sessions before exams, Admissions Information Sessions",
-    "Unlimited AWA essay reviews",
-    "Access to the Simplified GRE Vocab app",
-    "6-month course validity including the option of repeating classes within the validity period",
-    "5 hours of doubt-clearing sessions",
-    "IELTS or TOEFL classes (online live) with complete study material and full-length tests",
-    "Complimentary session with experts on application & profile building strategy",
-  ];
 
-  const speedDetails = [
-    "3300+ practice questions with explanations",
-    "5 hours of personal doubt clearing",
-  ];
-
-  const staminaDetails = [
-    "7 full-length Seekyoury mock tests",
-    "2 official tests (ETS Tests) discussed as a part of the 11 Learn modules",
-  ];
-
-  const complimentaryDetails = [
-    "Regular Information webinars",
-    "Study material available at additional cost*",
-  ];
 
   const trackOptions = {
     quant: [
@@ -485,158 +457,7 @@ const SelfPaced = () => {
         </div>
       </section>
 
-      {/* Video + Feature List */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h3 className="text-center text-3xl font-semibold text-slate-950">GRE Online Self-Paced Training Features</h3>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] items-start">
-            <div>
-              <div className="aspect-video w-full overflow-hidden rounded-3xl border border-slate-200 bg-black shadow-lg">
-                <iframe
-                  title="GRE preview"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  className="h-full w-full"
-                  allowFullScreen
-                />
-              </div>
-            </div>
 
-            <div className="space-y-8">
-              <div className="rounded-3xl border border-slate-200 bg-emerald-50/80 p-6 shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setConceptOpen((prev) => !prev)}
-                  className="w-full text-left"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow">
-                        <BookOpen className="h-7 w-7" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-semibold">Concept Building</h4>
-                      </div>
-                    </div>
-                    <ChevronDown
-                      className={`h-6 w-6 transition-transform duration-200 ${conceptOpen ? "rotate-180" : "rotate-0"}`}
-                    />
-                  </div>
-                </button>
-
-                {conceptOpen && (
-                  <div className="mt-6 space-y-3 text-sm text-slate-700">
-                    {conceptDetails.map((detail) => (
-                      <div key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs font-bold">✓</span>
-                        <span>{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setSpeedOpen((prev) => !prev)}
-                  className="w-full text-left"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-900 text-white shadow">
-                        <Zap className="h-7 w-7" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-semibold">Speed & Accuracy</h4>
-                      </div>
-                    </div>
-                    <ChevronDown
-                      className={`h-6 w-6 transition-transform duration-200 ${speedOpen ? "rotate-180" : "rotate-0"}`}
-                    />
-                  </div>
-                </button>
-
-                {speedOpen && (
-                  <div className="mt-6 space-y-3 text-sm text-slate-700">
-                    {speedDetails.map((detail) => (
-                      <div key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-white text-xs font-bold">✓</span>
-                        <span>{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-indigo-50/60 p-6 shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setStaminaOpen((prev) => !prev)}
-                  className="w-full text-left"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-600 text-white shadow">
-                        <Activity className="h-7 w-7" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-semibold">Stamina & Strategy</h4>
-                      </div>
-                    </div>
-                    <ChevronDown
-                      className={`h-6 w-6 transition-transform duration-200 ${staminaOpen ? "rotate-180" : "rotate-0"}`}
-                    />
-                  </div>
-                </button>
-
-                {staminaOpen && (
-                  <div className="mt-6 space-y-3 text-sm text-slate-700">
-                    {staminaDetails.map((detail) => (
-                      <div key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-bold">✓</span>
-                        <span>{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setComplimentaryOpen((prev) => !prev)}
-                  className="w-full text-left"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow">
-                        <Gift className="h-7 w-7" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-semibold">Complimentary Features</h4>
-                      </div>
-                    </div>
-                    <ChevronDown
-                      className={`h-6 w-6 transition-transform duration-200 ${complimentaryOpen ? "rotate-180" : "rotate-0"}`}
-                    />
-                  </div>
-                </button>
-
-                {complimentaryOpen && (
-                  <div className="mt-6 space-y-3 text-sm text-slate-700">
-                    {complimentaryDetails.map((detail) => (
-                      <div key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white text-xs font-bold">✓</span>
-                        <span>{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Comparison Table */}
      

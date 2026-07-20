@@ -25,7 +25,7 @@ const footerLinks: Record<string, FooterLink[]> = {
   ],
   Company: [
     { label: "About Aman", href: "/about" },
-    { label: "Success stories", href: "/success-stories" },
+    { label: "Testimonials", href: "/testimonials" },
     { label: "Contact", href: "/contact" },
   ],
   Legal: [

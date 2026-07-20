@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { CustomFAQ } from "@/components/CustomFAQ";
 import {
   ArrowRight,
   BarChart3,
@@ -8,6 +9,9 @@ import {
   ShieldCheck,
   Trophy,
   Users,
+  Calculator,
+  BookOpen,
+  PenTool,
 } from "lucide-react";
 import ManyaPhoto from "@/assets/student_pics/Manya.jpeg";
 import PraffulPhoto from "@/assets/student_pics/Prafful.jpeg";
@@ -19,6 +23,7 @@ const AboutGre = () => {
   const [activeMode, setActiveMode] = useState("classroom");
   const [activeGreFocus, setActiveGreFocus] = useState("concepts");
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
+  const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>("quant");
   const [isReviewPaused, setIsReviewPaused] = useState(false);
   const reviewListRef = useRef<HTMLDivElement | null>(null);
   const reviewCardsRef = useRef<HTMLDivElement[]>([]);
@@ -150,25 +155,31 @@ const AboutGre = () => {
     },
   ];
 
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const faqs = [
+  const greFaqs = [
     {
-      question: "What does the GMAT percentile mean?",
-      answer:
-        "The GMAT percentile tells you about your relative performance on the exam. If you secure 85 percentile, it would mean that 85% of the students who have taken the exam in the past three years are below you, and 15% are equal to or above you.",
+      question: "Do MBA programs really accept the GRE?",
+      answer: "Yes! Over 90% of business schools worldwide, including top-tier programs like Harvard, Stanford, Wharton, and ISB, accept GRE scores at par with GMAT scores."
     },
     {
-      question: "How do I send my score to the colleges I want to apply to?",
-      answer:
-        "The universities only accept official scores sent directly by GMAC through www.mba.com. Scores to five colleges can be sent free of cost immediately after taking the exam. Subsequently, for each score report sent to a college, you would have to pay USD 35.",
+      question: "Is the GRE easier than the GMAT?",
+      answer: "Many students find the GRE friendlier because it lacks the complex Data Insights section of the GMAT and has a more straightforward Quant style, though it has a heavier focus on vocabulary."
     },
-    { question: "Who can take the GMAT test?", answer: "Anyone planning for graduate management programs; proof of age or consent may be required for minors." },
-    { question: "Is there any negative marking in the GMAT exam?", answer: "No, there is no negative marking for an incorrect answer, however you will lose points on leaving a question unanswered." },
-    { question: "Can I reschedule my GMAT exam date?", answer: "Yes, you can reschedule your exam subject to GMAC rescheduling rules and fees." },
-    { question: "What is the GMAT exam?", answer: "The GMAT is a computer adaptive test used for admissions to graduate business programs." },
-    { question: "What is the eligibility to take the GMAT exam?", answer: "There is no minimum educational requirement; applicants commonly take it in their final year or after graduating." },
-    { question: "How is the GMAT exam scored?", answer: "Section scores range from 130-170 for Verbal and Quant; the total scaled score is between 260-340." },
+    {
+      question: "What's a good GRE score?",
+      answer: "A score of 320+ is generally considered strong for top-tier graduate programs. For elite business schools, a score of 325+ is highly competitive."
+    },
+    {
+      question: "How long should I prepare?",
+      answer: "On average, students prepare for 2 to 3 months. A structured plan with 80-120 hours of focused study is typically enough to reach target scores."
+    },
+    {
+      question: "How often can I retake the GRE?",
+      answer: "You can take the GRE once every 21 days, up to 5 times within any continuous rolling 12-month period."
+    },
+    {
+      question: "Does the GRE have negative marking?",
+      answer: "No, the GRE does not have negative marking. It is always in your best interest to answer every question, even if you have to make an educated guess."
+    }
   ];
 
   const grePrepModes = [
@@ -629,17 +640,312 @@ const AboutGre = () => {
             </aside>
           </div>
 
-      
-      
-          
+          {/* GRE FOR MBA Section */}
+          <div className="mt-20 text-center max-w-[1200px] mx-auto">
+            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
+              GRE FOR MBA
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-950 mt-4 mb-3 tracking-tight">
+              The smarter route to your <span className="text-[#0052CC]">MBA</span>
+            </h2>
+            
+            <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
 
+            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+              Determined to do an MBA from ISB, Singapore, the M7 or the Ivy League? You don't need
+              the GMAT for that. Over the last 18 months a growing share of applicants have switched to
+              the GRE — here's why.
+            </p>
 
+            {/* Comparison Table */}
+            <div className="overflow-x-auto rounded-[24px] border border-slate-200 bg-white shadow-soft">
+              <table className="w-full border-collapse text-left text-sm md:text-base">
+                <thead>
+                  <tr className="border-b border-slate-200">
+                    <th className="px-6 py-4 bg-slate-50 w-1/3"></th>
+                    <th className="px-6 py-4 bg-[#0052CC] text-white font-bold text-center text-lg rounded-t-none">
+                      GRE
+                    </th>
+                    <th className="px-6 py-4 bg-slate-900 text-white font-bold text-center text-lg rounded-t-none">
+                      GMAT Focus
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  <tr>
+                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Total time</td>
+                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">1 hr 58 min</td>
+                    <td className="px-6 py-5 text-slate-700 text-center">2 hr 15 min</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Sections</td>
+                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Quant + Verbal + 1 short essay</td>
+                    <td className="px-6 py-5 text-slate-700 text-center">Quant + Verbal + Data Insights</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Data Insights section</td>
+                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">None — no DS, MSR or graph analysis</td>
+                    <td className="px-6 py-5 text-slate-700 text-center">20 questions, a full third of your score</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Quant style</td>
+                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">More standard, formula-friendly math</td>
+                    <td className="px-6 py-5 text-slate-700 text-center">Logic-heavy word problems</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Also usable for MS/PhD</td>
+                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Yes — one score, two doors</td>
+                    <td className="px-6 py-5 text-slate-700 text-center">Business school only</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Accepted at ISB, M7, Ivy League, INSEAD, NUS/NTU</td>
+                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Yes</td>
+                    <td className="px-6 py-5 text-slate-700 text-center">Yes</td>
+                  </tr>
+                  <tr className="bg-slate-50/50">
+                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Retakes</td>
+                    <td colSpan={2} className="px-6 py-5 text-slate-700 text-center font-medium">
+                      Both: up to 5 times/year, 16–21 day gap
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-       
-       
+            {/* Syllabus Section */}
+            <div className="mt-24 max-w-[1200px] mx-auto text-left">
+              <div className="text-center mb-10">
+                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
+                  SYLLABUS
+                </span>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-950 mt-4 mb-3 tracking-tight">
+                  The complete GRE syllabus
+                </h2>
+                <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
+                <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                  Everything ETS tests, organised so you never have to dig through the official site. Click any section to expand.
+                </p>
+              </div>
 
-        
-        
+              <div className="space-y-4 max-w-4xl mx-auto">
+                {/* Quantitative Reasoning Accordion */}
+                <div className={`rounded-[20px] bg-white shadow-soft transition-all duration-200 overflow-hidden ${
+                  openSyllabusSection === "quant" 
+                    ? "border border-slate-200 border-l-[6px] border-l-[#0052CC]" 
+                    : "border border-slate-200/80"
+                }`}>
+                  <button
+                    type="button"
+                    onClick={() => setOpenSyllabusSection(openSyllabusSection === "quant" ? null : "quant")}
+                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-slate-50/50"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF3FF] text-[#0052CC]">
+                        <Calculator className="h-6 w-6 stroke-[2]" />
+                      </div>
+                      <div>
+                        <span className="text-lg font-bold text-slate-950 block">Quantitative Reasoning</span>
+                        <span className="text-xs md:text-sm text-slate-500 font-medium hidden sm:inline">
+                          27 questions • 47 min • on-screen calculator provided
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-slate-500 font-medium sm:hidden">
+                        27 Qs • 47 min
+                      </span>
+                      <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                        {openSyllabusSection === "quant" ? "−" : "+"}
+                      </span>
+                    </div>
+                  </button>
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    openSyllabusSection === "quant" ? "max-h-[1000px] border-t border-slate-100 p-6" : "max-h-0 p-0"
+                  }`}>
+                    <p className="text-sm md:text-base text-slate-600 mb-6">
+                      Tests basic math skills and the ability to reason quantitatively. Four content areas:
+                    </p>
+                    
+                    <div className="space-y-6">
+                      {[
+                        {
+                          title: "Arithmetic",
+                          pills: ["Integers & divisibility", "Primes & factorisation", "Fractions & decimals", "Exponents & roots", "Percent", "Ratio & proportion", "Estimation", "Number lines & absolute value"]
+                        },
+                        {
+                          title: "Algebra",
+                          pills: ["Algebraic expressions", "Linear & quadratic equations", "Inequalities", "Functions", "Word problems", "Coordinate geometry & graphs"]
+                        },
+                        {
+                          title: "Geometry",
+                          pills: ["Lines & angles", "Triangles (incl. 30-60-90, 45-45-90)", "Circles", "Quadrilaterals & polygons", "3-D figures", "Area, perimeter & volume", "Pythagorean theorem"]
+                        },
+                        {
+                          title: "Data Analysis",
+                          pills: ["Mean, median, mode & range", "Standard deviation & percentiles", "Tables, graphs & charts", "Probability", "Permutations & combinations", "Normal distribution basics"]
+                        },
+                        {
+                          title: "Question types",
+                          pills: ["Quantitative Comparison", "Multiple choice (one answer)", "Multiple choice (one or more answers)", "Numeric Entry", "Data Interpretation sets"]
+                        }
+                      ].map((section) => (
+                        <div key={section.title} className="space-y-2">
+                          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">{section.title}</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {section.pills.map((pill) => (
+                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                                {pill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Verbal Reasoning Accordion */}
+                <div className={`rounded-[20px] bg-white shadow-soft transition-all duration-200 overflow-hidden ${
+                  openSyllabusSection === "verbal" 
+                    ? "border border-slate-200 border-l-[6px] border-l-[#0052CC]" 
+                    : "border border-slate-200/80"
+                }`}>
+                  <button
+                    type="button"
+                    onClick={() => setOpenSyllabusSection(openSyllabusSection === "verbal" ? null : "verbal")}
+                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-slate-50/50"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                        <BookOpen className="h-6 w-6 stroke-[2]" />
+                      </div>
+                      <div>
+                        <span className="text-lg font-bold text-slate-950 block">Verbal Reasoning</span>
+                        <span className="text-xs md:text-sm text-slate-500 font-medium hidden sm:inline">
+                          27 questions • 41 min • includes Critical Reasoning
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-slate-500 font-medium sm:hidden">
+                        27 Qs • 41 min
+                      </span>
+                      <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                        {openSyllabusSection === "verbal" ? "−" : "+"}
+                      </span>
+                    </div>
+                  </button>
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    openSyllabusSection === "verbal" ? "max-h-[1000px] border-t border-slate-100 p-6" : "max-h-0 p-0"
+                  }`}>
+                    <p className="text-sm md:text-base text-slate-600 mb-6">
+                      Tests the ability to analyze and evaluate written material, synthesize information, and recognize relationships between words and concepts.
+                    </p>
+                    
+                    <div className="space-y-6">
+                      {[
+                        {
+                          title: "Reading Comprehension",
+                          pills: ["Passage reading", "Informational reasoning", "Tone & attitude", "Structure & main idea", "Critical Reasoning"]
+                        },
+                        {
+                          title: "Text Completion",
+                          pills: ["Single-blank sentences", "Double-blank sentences", "Triple-blank sentences", "Contextual vocabulary"]
+                        },
+                        {
+                          title: "Sentence Equivalence",
+                          pills: ["Synonym pairs", "Sentence context", "Vocabulary in context"]
+                        },
+                        {
+                          title: "Question types",
+                          pills: ["Reading Comprehension", "Text Completion", "Sentence Equivalence"]
+                        }
+                      ].map((section) => (
+                        <div key={section.title} className="space-y-2">
+                          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">{section.title}</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {section.pills.map((pill) => (
+                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                                {pill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Analytical Writing Accordion */}
+                <div className={`rounded-[20px] bg-white shadow-soft transition-all duration-200 overflow-hidden ${
+                  openSyllabusSection === "awa" 
+                    ? "border border-slate-200 border-l-[6px] border-l-[#0052CC]" 
+                    : "border border-slate-200/80"
+                }`}>
+                  <button
+                    type="button"
+                    onClick={() => setOpenSyllabusSection(openSyllabusSection === "awa" ? null : "awa")}
+                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-slate-50/50"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+                        <PenTool className="h-6 w-6 stroke-[2]" />
+                      </div>
+                      <div>
+                        <span className="text-lg font-bold text-slate-950 block">Analytical Writing (AWA)</span>
+                        <span className="text-xs md:text-sm text-slate-500 font-medium hidden sm:inline">
+                          1 task • 30 min • scored 0-6
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-slate-500 font-medium sm:hidden">
+                        1 task • 30 min
+                      </span>
+                      <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                        {openSyllabusSection === "awa" ? "−" : "+"}
+                      </span>
+                    </div>
+                  </button>
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    openSyllabusSection === "awa" ? "max-h-[1000px] border-t border-slate-100 p-6" : "max-h-0 p-0"
+                  }`}>
+                    <p className="text-sm md:text-base text-slate-600 mb-6">
+                      Tests critical thinking and analytical writing skills. Measures your ability to articulate and support complex ideas, construct and evaluate arguments, and sustain a focused and coherent discussion.
+                    </p>
+                    
+                    <div className="space-y-6">
+                      {[
+                        {
+                          title: "Task Details",
+                          pills: ["Analyze an Issue task"]
+                        },
+                        {
+                          title: "Skills Tested",
+                          pills: ["Constructing a claim", "Supporting with evidence", "Maintaining focus and cohesion", "Standard written English grammar"]
+                        }
+                      ].map((section) => (
+                        <div key={section.title} className="space-y-2">
+                          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">{section.title}</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {section.pills.map((pill) => (
+                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                                {pill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <CustomFAQ faqs={greFaqs} />
+          </div>
 
           {/* CTA Section */}
           <section className="bg-slate-50 py-20 px-6 -mx-6 lg:-mx-8">

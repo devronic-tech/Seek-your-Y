@@ -195,6 +195,13 @@ export const Navbar = () => {
           </div>
 
           <Link
+            to="/test-series"
+            className="text-base font-medium text-foreground hover:text-primary transition-colors duration-200"
+          >
+            Test Series
+          </Link>
+
+          <Link
             to="/tutoring"
             className="text-base font-medium text-foreground hover:text-primary transition-colors duration-200"
             onClick={() => handleLinkClick("book-demo")}
@@ -210,11 +217,18 @@ export const Navbar = () => {
           </Link>
 
           <Link
-            to="/success-stories"
+            to="/testimonials"
             className="text-base font-medium text-foreground hover:text-primary transition-colors duration-200"
-            onClick={() => handleLinkClick("success-stories")}
+            onClick={() => handleLinkClick("testimonials")}
           >
-            Success Stories
+            Testimonials
+          </Link>
+
+          <Link
+            to="/blogs"
+            className="text-base font-medium text-foreground hover:text-primary transition-colors duration-200"
+          >
+            Blogs
           </Link>
 
           <Link
@@ -429,6 +443,14 @@ export const Navbar = () => {
                   </div>
 
                   <Link
+                    to="/test-series"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-sm font-semibold text-foreground hover:text-primary py-1"
+                  >
+                    Test Series
+                  </Link>
+
+                  <Link
                     to="/tutoring"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-sm font-semibold text-foreground hover:text-primary py-1"
@@ -445,11 +467,19 @@ export const Navbar = () => {
                   </Link>
 
                   <Link
-                    to="/success-stories"
-                    onClick={() => handleLinkClick("success-stories")}
+                    to="/testimonials"
+                    onClick={() => handleLinkClick("testimonials")}
                     className="text-sm font-semibold text-foreground hover:text-primary py-1"
                   >
-                    Success Stories
+                    Testimonials
+                  </Link>
+
+                  <Link
+                    to="/blogs"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-sm font-semibold text-foreground hover:text-primary py-1"
+                  >
+                    Blogs
                   </Link>
 
                   <Link

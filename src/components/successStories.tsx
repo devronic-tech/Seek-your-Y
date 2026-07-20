@@ -3,8 +3,31 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Check } from "lucide-react";
+import { CustomFAQ } from "@/components/CustomFAQ";
 
 const SuccessStories: React.FC = () => {
+  const successFaqs = [
+    {
+      question: "Are these student reviews and scores verified?",
+      answer: "Yes, all testimonials, case studies, and score improvements published on our website are from verified learners who prepared with us or used our consulting."
+    },
+    {
+      question: "What is the average score improvement of your students?",
+      answer: "On average, our GRE students see an improvement of +10 to +15 points, while GMAT students see a gain of +80 to +120 points on their exams."
+    },
+    {
+      question: "Which global universities have your alumni entered?",
+      answer: "Our alumni have successfully secured admission and scholarships at top-tier global institutions, including Harvard, Wharton, Stanford, Columbia, INSEAD, LBS, ISB, NUS, and NTU."
+    },
+    {
+      question: "Can I connect with an alumni who matches my target profile?",
+      answer: "Yes! If you are enrolled in our programs, we can request a virtual chat or email introduction with an alumnus who studied at your target school or program."
+    },
+    {
+      question: "What makes your teaching and consulting methodology so successful?",
+      answer: "We focus on a logic-first, concept-driven prep that avoids rote learning. In admissions, we align your unique personal narratives directly with the specific values and expectations of target schools."
+    }
+  ];
   return (
     <section className="bg-background">
       <div className="mx-auto max-w-[1200px] px-6 py-20">
@@ -230,6 +253,8 @@ const SuccessStories: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <CustomFAQ faqs={successFaqs} />
     </section>
   );
 };

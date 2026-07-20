@@ -1,5 +1,6 @@
-﻿import React, { useEffect, useState } from "react";
-import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { CustomFAQ } from "@/components/CustomFAQ";
+import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck, Calculator, BarChart3 } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Footer } from "@/components/Footer";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
@@ -18,6 +19,7 @@ const AboutGmat: React.FC = () => {
   const [activeGmatFocus, setActiveGmatFocus] = useState("learn");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>("quant");
 
   const gmatPrepModes = [
     {
@@ -182,25 +184,31 @@ const AboutGmat: React.FC = () => {
     },
   ];
 
-  const faqs = [
+  const gmatFaqs = [
     {
-      question: "What does the GMAT percentile mean?",
-      answer:
-        "The GMAT percentile tells you about your relative performance on the exam. If you secure 85 percentile, it would mean that 85% of the students who have taken the exam in the past three years are below you, and 15% are equal to or above you.",
+      question: "What is the structure of the GMAT Focus Edition?",
+      answer: "The GMAT Focus Edition consists of three 45-minute sections: Quantitative Reasoning (21 questions), Verbal Reasoning (23 questions), and Data Insights (20 questions)."
     },
     {
-      question: "How do I send my score to the colleges I want to apply to?",
-      answer:
-        "The universities only accept official scores sent directly by GMAC through mba.com. Scores to five colleges can be sent free immediately after the exam.",
+      question: "What is the scoring scale for the GMAT Focus Edition?",
+      answer: "Scores range from 205 to 805, with all three sections (Quant, Verbal, Data Insights) contributing equally to your total score."
     },
     {
-      question: "Who can take the GMAT test?",
-      answer: "Anyone planning for graduate management programs; minors may need guardian consent.",
+      question: "What is a competitive GMAT Focus Edition score?",
+      answer: "A score of 645+ is highly competitive (equivalent to a 700+ on the old GMAT exam), placing you in the top 10% of test-takers globally."
     },
     {
-      question: "Is there any negative marking in the GMAT exam?",
-      answer: "No. There is no negative marking, but unanswered questions will still reduce your scaled score.",
+      question: "How long is a GMAT score valid?",
+      answer: "GMAT scores are valid for 5 years from your test date, allowing you to prepare and take the exam well in advance of your applications."
     },
+    {
+      question: "Can I choose the section order on the GMAT?",
+      answer: "Yes! The GMAT Focus Edition offers total flexibility, allowing you to take the sections in any of the 6 possible orders you prefer."
+    },
+    {
+      question: "Does the GMAT Focus Edition have an essay?",
+      answer: "No, the Analytical Writing Assessment (AWA) has been completely removed in the GMAT Focus Edition, making the exam shorter and more focused."
+    }
   ];
 
   useEffect(() => {
@@ -377,6 +385,305 @@ const AboutGmat: React.FC = () => {
         </div>
       </section>
 
+      {/* GRE FOR MBA Section */}
+      <section className="py-20 bg-slate-50/50">
+        <div className="mx-auto max-w-[1200px] px-6 text-center">
+          <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
+            GRE FOR MBA
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mt-4 mb-3 tracking-tight">
+            The smarter route to your <span className="text-[#0052CC]">MBA</span>
+          </h2>
+          
+          <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
+
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
+            Determined to do an MBA from ISB, Singapore, the M7 or the Ivy League? You don't need
+            the GMAT for that. Over the last 18 months a growing share of applicants have switched to
+            the GRE — here's why.
+          </p>
+
+          {/* Comparison Table */}
+          <div className="overflow-x-auto rounded-[24px] border border-border bg-card shadow-soft text-left">
+            <table className="w-full border-collapse text-sm md:text-base">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="px-6 py-4 bg-muted/30 w-1/3"></th>
+                  <th className="px-6 py-4 bg-[#0052CC] text-white font-bold text-center text-lg rounded-t-none">
+                    GRE
+                  </th>
+                  <th className="px-6 py-4 bg-slate-900 text-white font-bold text-center text-lg rounded-t-none">
+                    GMAT Focus
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                <tr>
+                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Total time</td>
+                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">1 hr 58 min</td>
+                  <td className="px-6 py-5 text-muted-foreground text-center">2 hr 15 min</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Sections</td>
+                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">Quant + Verbal + 1 short essay</td>
+                  <td className="px-6 py-5 text-muted-foreground text-center">Quant + Verbal + Data Insights</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Data Insights section</td>
+                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">None — no DS, MSR or graph analysis</td>
+                  <td className="px-6 py-5 text-muted-foreground text-center">20 questions, a full third of your score</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Quant style</td>
+                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">More standard, formula-friendly math</td>
+                  <td className="px-6 py-5 text-muted-foreground text-center">Logic-heavy word problems</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Also usable for MS/PhD</td>
+                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">Yes — one score, two doors</td>
+                  <td className="px-6 py-5 text-muted-foreground text-center">Business school only</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Accepted at ISB, M7, Ivy League, INSEAD, NUS/NTU</td>
+                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">Yes</td>
+                  <td className="px-6 py-5 text-muted-foreground text-center">Yes</td>
+                </tr>
+                <tr className="bg-muted/10">
+                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Retakes</td>
+                  <td colSpan={2} className="px-6 py-5 text-muted-foreground text-center font-medium">
+                    Both: up to 5 times/year, 16–21 day gap
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* GMAT Syllabus Section */}
+      <section className="py-20 bg-background">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="text-center mb-10">
+            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
+              SYLLABUS
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mt-4 mb-3 tracking-tight">
+              The complete GMAT Focus syllabus
+            </h2>
+            <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Everything GMAC tests, organised so you never have to dig through the official site. Click any section to expand.
+            </p>
+          </div>
+
+          <div className="space-y-4 max-w-4xl mx-auto">
+            {/* Quantitative Reasoning Accordion */}
+            <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
+              openSyllabusSection === "quant" 
+                ? "border border-border border-l-[6px] border-l-[#0052CC]" 
+                : "border border-border"
+            }`}>
+              <button
+                type="button"
+                onClick={() => setOpenSyllabusSection(openSyllabusSection === "quant" ? null : "quant")}
+                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-muted/10"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF3FF] text-[#0052CC]">
+                    <Calculator className="h-6 w-6 stroke-[2]" />
+                  </div>
+                  <div>
+                    <span className="text-lg font-bold text-foreground block">Quantitative Reasoning</span>
+                    <span className="text-xs md:text-sm text-muted-foreground font-medium hidden sm:inline">
+                      21 questions • 45 min • no calculator provided
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs text-muted-foreground font-medium sm:hidden">
+                    21 Qs • 45 min
+                  </span>
+                  <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                    {openSyllabusSection === "quant" ? "−" : "+"}
+                  </span>
+                </div>
+              </button>
+              <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                openSyllabusSection === "quant" ? "max-h-[1000px] border-t border-border p-6" : "max-h-0 p-0"
+              }`}>
+                <p className="text-sm md:text-base text-muted-foreground mb-6">
+                  Tests arithmetic and algebraic reasoning skills. Two content areas (No Geometry):
+                </p>
+                
+                <div className="space-y-6">
+                  {[
+                    {
+                      title: "Arithmetic",
+                      pills: ["Integers & divisibility", "Fractions, decimals & percents", "Ratio, proportion & percent", "Exponents & roots", "Estimation", "Word problems"]
+                    },
+                    {
+                      title: "Algebra",
+                      pills: ["Algebraic expressions", "Linear equations", "Quadratic equations", "Inequalities", "Functions", "Absolute value", "Coordinate geometry & graphs"]
+                    },
+                    {
+                      title: "Question types",
+                      pills: ["Problem Solving"]
+                    }
+                  ].map((section) => (
+                    <div key={section.title} className="space-y-2">
+                      <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">{section.title}</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {section.pills.map((pill) => (
+                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                            {pill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Verbal Reasoning Accordion */}
+            <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
+              openSyllabusSection === "verbal" 
+                ? "border border-border border-l-[6px] border-l-[#0052CC]" 
+                : "border border-border"
+            }`}>
+              <button
+                type="button"
+                onClick={() => setOpenSyllabusSection(openSyllabusSection === "verbal" ? null : "verbal")}
+                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-muted/10"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                    <BookOpen className="h-6 w-6 stroke-[2]" />
+                  </div>
+                  <div>
+                    <span className="text-lg font-bold text-foreground block">Verbal Reasoning</span>
+                    <span className="text-xs md:text-sm text-muted-foreground font-medium hidden sm:inline">
+                      23 questions • 45 min • no Sentence Correction
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs text-muted-foreground font-medium sm:hidden">
+                    23 Qs • 45 min
+                  </span>
+                  <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                    {openSyllabusSection === "verbal" ? "−" : "+"}
+                  </span>
+                </div>
+              </button>
+              <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                openSyllabusSection === "verbal" ? "max-h-[1000px] border-t border-border p-6" : "max-h-0 p-0"
+              }`}>
+                <p className="text-sm md:text-base text-muted-foreground mb-6">
+                  Tests reading comprehension and critical reasoning skills. Two content areas (Sentence Correction has been removed):
+                </p>
+                
+                <div className="space-y-6">
+                  {[
+                    {
+                      title: "Reading Comprehension",
+                      pills: ["Passage reading", "Informational reasoning", "Tone & attitude", "Structure & main idea", "Inference questions"]
+                    },
+                    {
+                      title: "Critical Reasoning",
+                      pills: ["Argument structure", "Assumption questions", "Strengthen & weaken", "Inference", "Boldface questions"]
+                    },
+                    {
+                      title: "Question types",
+                      pills: ["Reading Comprehension", "Critical Reasoning"]
+                    }
+                  ].map((section) => (
+                    <div key={section.title} className="space-y-2">
+                      <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">{section.title}</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {section.pills.map((pill) => (
+                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                            {pill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Data Insights Accordion */}
+            <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
+              openSyllabusSection === "di" 
+                ? "border border-border border-l-[6px] border-l-[#0052CC]" 
+                : "border border-border"
+            }`}>
+              <button
+                type="button"
+                onClick={() => setOpenSyllabusSection(openSyllabusSection === "di" ? null : "di")}
+                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-muted/10"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
+                    <BarChart3 className="h-6 w-6 stroke-[2]" />
+                  </div>
+                  <div>
+                    <span className="text-lg font-bold text-foreground block">Data Insights (DI)</span>
+                    <span className="text-xs md:text-sm text-muted-foreground font-medium hidden sm:inline">
+                      20 questions • 45 min • on-screen calculator provided
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs text-muted-foreground font-medium sm:hidden">
+                    20 Qs • 45 min
+                  </span>
+                  <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                    {openSyllabusSection === "di" ? "−" : "+"}
+                  </span>
+                </div>
+              </button>
+              <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                openSyllabusSection === "di" ? "max-h-[1000px] border-t border-border p-6" : "max-h-0 p-0"
+              }`}>
+                <p className="text-sm md:text-base text-muted-foreground mb-6">
+                  Tests data analysis and reasoning skills using multiple formats. Five content areas:
+                </p>
+                
+                <div className="space-y-6">
+                  {[
+                    {
+                      title: "Content Areas",
+                      pills: ["Data Sufficiency", "Multi-Source Reasoning", "Table Analysis", "Graphics Interpretation", "Two-Part Analysis"]
+                    },
+                    {
+                      title: "Skills Tested",
+                      pills: ["Synthesizing verbal & quant data", "Data sorting and spreadsheet logic", "Visual parsing of charts and graphs", "Double-decisional logic"]
+                    },
+                    {
+                      title: "Question types",
+                      pills: ["Data Sufficiency", "Multi-Source Reasoning", "Table Analysis", "Graphics Interpretation", "Two-Part Analysis"]
+                    }
+                  ].map((section) => (
+                    <div key={section.title} className="space-y-2">
+                      <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">{section.title}</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {section.pills.map((pill) => (
+                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                            {pill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-16 px-6">
         <div className="mx-auto max-w-[1200px]">
           <div className="rounded-[36px] border border-border bg-card p-10 shadow-soft">
@@ -524,33 +831,7 @@ const AboutGmat: React.FC = () => {
         </div>
       </section>
 
-      <section className="px-6 pb-20">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
-            <div className="text-center mb-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">GMAT FAQs</p>
-              <h2 className="mt-4 text-3xl font-semibold text-foreground">Frequently asked questions</h2>
-            </div>
-            <div className="grid gap-4 lg:grid-cols-2">
-              {faqs.map((item, idx) => (
-                <div key={item.question} className="rounded-[24px] border border-border bg-background">
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-foreground"
-                  >
-                    <span className="text-base font-semibold">{item.question}</span>
-                    <span className="text-2xl text-primary">{openFaq === idx ? "−" : "+"}</span>
-                  </button>
-                  <div className={`overflow-hidden px-5 pb-5 pt-0 text-muted-foreground transition-all duration-300 ${openFaq === idx ? "max-h-64" : "max-h-0"}`}>
-                    <p className="text-sm leading-7">{item.answer}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <CustomFAQ faqs={gmatFaqs} />
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { GreShortcut } from "@/components/GreShortcut";
 import { ProblemSection } from "@/components/ProblemSection";
 import { SeekMethod } from "@/components/SeekMethod";
 import Testimonials from "@/components/Testimonials";
@@ -20,6 +21,9 @@ const Index = () => {
       <main>
         {/* HERO SECTION */}
         <Hero />
+
+        {/* GRE SHORTCUT SECTION */}
+        <GreShortcut />
 
         {/* TESTIMONIALS */}
         <Testimonials />

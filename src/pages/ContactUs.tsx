@@ -36,26 +36,33 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Hero */}
-      <header className="relative w-full bg-gradient-to-b from-black/20 via-black/10 to-transparent">
-        <div className="absolute inset-0 pointer-events-none">
+      <header className="relative overflow-hidden bg-gradient-to-br from-[#0B1530] via-[#0F172A] to-[#1E293B] pt-36 md:pt-40 pb-28 text-white">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-40">
           <div
             className="h-full w-full"
             style={{
               backgroundImage:
-                "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.05))",
-              backgroundSize: "18px 18px, 100% 100%",
+                "radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)",
+              backgroundSize: "20px 20px",
             }}
           />
         </div>
 
-        <div className="mx-auto max-w-[1400px] pt-36 md:pt-40 pb-20 px-6 text-center relative">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white">Contact Us</h1>
-          <nav className="mt-3 text-sm text-white/80">
-            <a href="/" className="opacity-80 hover:underline">Home</a>
-            <span className="mx-2 opacity-60">»</span>
-            <span className="text-rose-300">Contact Us</span>
-          </nav>
-          <p className="mt-3 text-sm text-white/80">Get in touch — we’re here to help</p>
+        <div className="mx-auto max-w-[1200px] px-6 relative z-10 text-center">
+          <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-slate-400 mb-4 font-medium">
+            <a href="/" className="hover:text-white transition">Home</a>
+            <span>&gt;</span>
+            <span className="text-slate-200">Contact Us</span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight font-display">
+            Contact Us
+          </h1>
+          
+          <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Get in touch — we're here to help you navigate your journey.
+          </p>
         </div>
       </header>
 

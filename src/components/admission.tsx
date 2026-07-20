@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { CustomFAQ } from "@/components/CustomFAQ";
 import CourseGre from "/assets/gre-asset/course_gre_.webp";
 import CourseGmat from "/assets/gre-asset/course_gmat.webp";
 import CourseSat from "/assets/gre-asset/course_sat.webp";
@@ -9,6 +10,28 @@ import GREPREP from "@/assets/svgComponent/GREPREP";
 import GMATPREP from "@/assets/svgComponent/GMATPREP";
 
 const Admission: React.FC = () => {
+  const admissionsFaqs = [
+    {
+      question: "What is covered under your admissions consulting services?",
+      answer: "We provide end-to-end guidance including profile evaluation, target university shortlisting, essay brainstorming and editing, resume restructuring, letter of recommendation (LOR) strategy, and comprehensive mock interview preparation."
+    },
+    {
+      question: "How do you help with shortlisting target universities?",
+      answer: "We analyze your test scores, GPA, professional experience, post-degree career goals, budget, and geographic preferences to curate a balanced list of 'Reach', 'Target', and 'Safe' schools."
+    },
+    {
+      question: "Do you write my statement of purpose (SOP) or essays for me?",
+      answer: "No, we do not write essays from scratch. We help you brainstorm personal stories, outline essay structures, edit multiple drafts for clarity, flow, and tone, and ensure your unique voice stands out to admissions committees."
+    },
+    {
+      question: "Can I get assistance with scholarships and financial aid applications?",
+      answer: "Yes. We advise you on how to highlight key strengths and leadership experiences within your application essays to maximize your chances of merit-based scholarships."
+    },
+    {
+      question: "How does the interview preparation process work?",
+      answer: "We conduct school-specific mock interviews that simulate the actual admissions interview. Tutors provide thorough feedback on your answers, body language, and strategy to build your confidence."
+    }
+  ];
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -33,13 +56,11 @@ const Admission: React.FC = () => {
             </p>
           </div>
 
-          {/* four feature cards */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* feature cards */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {[
               { title: "GRE Prep", subtitle: "Top scores for Masters", Icon: GREPREP },
               { title: "GMAT Prep", subtitle: "Elite Business Schools", Icon: GMATPREP },
-              { title: "SAT Prep", subtitle: "Top Undergrad Programs" },
-              { title: "IELTS Prep", subtitle: "Global English Criteria" },
             ].map((c) => (
               <div key={c.title} className="bg-card rounded-2xl p-8 text-center shadow-soft">
                 <div className="w-14 h-14 rounded-md mx-auto bg-sky-50 flex items-center justify-center mb-4">
@@ -66,7 +87,7 @@ const Admission: React.FC = () => {
             <p className="max-w-2xl mx-auto text-muted-foreground mt-4">Expert-led coaching with proven strategies for every major standardized test. Personalized guidance to maximize your scores.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               {
                 src: CourseGre,
@@ -81,20 +102,6 @@ const Admission: React.FC = () => {
                 badgeClass: "bg-emerald-700/90 text-white",
                 title: "GMAT Preparation",
                 description: "Conquer analytical writing, integrated reasoning, quantitative & verbal sections with customized strategies.",
-              },
-              {
-                src: CourseSat,
-                badge: "SAT Prep",
-                badgeClass: "bg-amber-500/95 text-white",
-                title: "SAT Preparation",
-                description: "Clear instruction on math, evidence-based reading & writing plus experienced, focused practice.",
-              },
-              {
-                src: CourseIelts,
-                badge: "IELTS Prep",
-                badgeClass: "bg-rose-400/95 text-white",
-                title: "IELTS Preparation",
-                description: "Standardized training for listening, reading, writing & speaking with professional guidance.",
               },
             ].map((course) => (
               <div
@@ -255,6 +262,7 @@ const Admission: React.FC = () => {
         </div>
       </section>
       </main>
+      <CustomFAQ faqs={admissionsFaqs} />
       <Footer />
     </div>
   );

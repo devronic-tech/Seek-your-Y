@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CustomFAQ } from "@/components/CustomFAQ";
 import { BookOpen, Zap, Activity, Gift, ChevronDown } from "lucide-react";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
@@ -8,7 +9,29 @@ import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const GrePrivateTut: React.FC = () => {
-  const [open, setOpen] = useState<string | null>(null);
+
+  const grePrivateTutFaqs = [
+    {
+      question: "How personalized is the GRE private tutoring program?",
+      answer: "Extremely personalized. We design a completely custom study plan based on your current score, target score, timeline, strengths, weaknesses, and availability."
+    },
+    {
+      question: "Who will be my mentor?",
+      answer: "You will get 1-on-1 direct coaching from Aman, an experienced prep expert with a proven history of helping students score 325+ on the GRE."
+    },
+    {
+      question: "How flexible is the scheduling for sessions?",
+      answer: "We offer highly flexible timings. You can schedule sessions in coordination with your tutor to comfortably fit around your work or college commitments."
+    },
+    {
+      question: "Can I choose to focus only on my weak areas?",
+      answer: "Yes, absolutely! The entire curriculum can be tailored to focus on your specific areas of improvement, whether it's Quant word problems, Verbal RC, or time management."
+    },
+    {
+      question: "How do we track my progress?",
+      answer: "We track your progress through diagnostic tests, section-wise drills, full simulated mock exams, and direct performance reviews with your mentor."
+    }
+  ];
 
   const topScorers = [
     { name: "Dhruv Puri", school: "MIT", score: "328" },
@@ -26,35 +49,6 @@ const GrePrivateTut: React.FC = () => {
     { icon: qaIcon, title: "Personalized attention through Unlimited Doubt Clearing Sessions" },
   ];
 
-  const features = [
-    {
-      key: "concept",
-      title: "Concept Building",
-      details: [
-        "Best GRE tutors support with in-depth understanding of concepts and application to unique problems in a 1-1 classroom setting.",
-        "Personalized GRE roadmap: build a custom GRE prep plan with faculty guidance.",
-      ],
-      icon: <BookOpen className="h-6 w-6" />,
-    },
-    {
-      key: "speed",
-      title: "Speed & Accuracy",
-      details: ["Comprehensive study material: GRE books, sectional tests and full length tests", "Targeted practice and tests for pacing and accuracy"],
-      icon: <Zap className="h-6 w-6" />,
-    },
-    {
-      key: "stamina",
-      title: "Stamina & Strategy",
-      details: ["Flexibility: plan classes based on availability and level of prep", "Both online & offline options available"],
-      icon: <Activity className="h-6 w-6" />,
-    },
-    {
-      key: "complimentary",
-      title: "Complimentary Features",
-      details: ["Regular Information webinars", "Study material available at additional cost*"],
-      icon: <Gift className="h-6 w-6" />,
-    },
-  ];
 
   return (
     <div className="bg-background text-foreground">
@@ -491,57 +485,9 @@ const GrePrivateTut: React.FC = () => {
         </div>
       </section>
 
-      {/* Features video + list */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h3 className="text-center text-2xl font-semibold">GRE Private Tutoring Features</h3>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] items-start">
-            <div>
-              <div className="aspect-video w-full overflow-hidden rounded-3xl border border-slate-200 bg-black shadow-lg">
-                <iframe
-                  title="GRE preview"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  className="h-full w-full"
-                  allowFullScreen
-                />
-              </div>
-            </div>
 
-            <div className="space-y-6">
-              {features.map((f) => (
-                <div key={f.key} className="rounded-3xl border border-slate-200 bg-emerald-50/80 p-6">
-                  <button
-                    type="button"
-                    onClick={() => setOpen(open === f.key ? null : f.key)}
-                    className="w-full text-left"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white shadow">{f.icon}</div>
-                        <div>
-                          <h4 className="text-lg font-semibold">{f.title}</h4>
-                        </div>
-                      </div>
-                      <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${open === f.key ? "rotate-180" : "rotate-0"}`} />
-                    </div>
-                  </button>
 
-                  {open === f.key && (
-                    <div className="mt-4 space-y-2 text-sm text-slate-700">
-                      {f.details.map((d) => (
-                        <div key={d} className="flex items-start gap-3">
-                          <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-700 text-white text-xs font-bold">✓</span>
-                          <span>{d}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <CustomFAQ faqs={grePrivateTutFaqs} />
 
       {/* Footer */}
       <footer className="bg-slate-950 text-slate-300 py-16">

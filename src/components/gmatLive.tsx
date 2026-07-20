@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CustomFAQ } from "@/components/CustomFAQ";
 import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
@@ -7,9 +8,29 @@ import qaIcon from "@/assets/paced-icon/qa.webp";
 import since1993Icon from "@/assets/paced-icon/since-1993.webp";
 import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
-
 const GmatLive: React.FC = () => {
-  const [openFeature, setOpenFeature] = useState<string | null>(null);
+  const gmatLiveFaqs = [
+    {
+      question: "How are the GMAT live interactive classes conducted?",
+      answer: "Our GMAT live classes are conducted online via live video sessions with interactive whiteboards. You can ask questions, engage in chat, and get real-time feedback from your instructor."
+    },
+    {
+      question: "What happens if I miss a live class?",
+      answer: "No worries! Every live class is recorded and uploaded to your student dashboard within 24 hours. You will have unlimited access to review them whenever you want."
+    },
+    {
+      question: "Are study materials and practice tests included?",
+      answer: "Yes, you get comprehensive prep material, including dedicated GMAT Focus textbooks, question banks, and 5+ full-length computer-adaptive mock tests."
+    },
+    {
+      question: "How do I get my doubts resolved outside of class hours?",
+      answer: "You can post your queries in our interactive student groups. We also host scheduled live doubt-clearing sessions where you can work directly with our expert GMAT tutors."
+    },
+    {
+      question: "Can I try a demo session before fully committing?",
+      answer: "Absolutely! You can book a free live demo session to experience the portal interface, check our teaching method, and plan your GMAT strategy."
+    }
+  ];
 
   const cards = [
     { icon: since1993Icon, title: "Unmatched scores on the GMAT since 1993" },
@@ -20,44 +41,7 @@ const GmatLive: React.FC = () => {
     { icon: qaIcon, title: "Personalized attention through unlimited doubt-clearing sessions" },
   ];
 
-  const features = [
-    {
-      id: "concept",
-      title: "Concept Building",
-      description: [
-        "Live interactive concept sessions for Quant, Verbal, and Data Insights.",
-        "Topic-based doubt clearing and instant feedback.",
-      ],
-      icon: <BookOpen className="h-6 w-6" />,
-    },
-    {
-      id: "speed",
-      title: "Speed & Accuracy",
-      description: [
-        "Timed sectional practice with performance analytics.",
-        "Live strategy classes to improve pacing under pressure.",
-      ],
-      icon: <Zap className="h-6 w-6" />,
-    },
-    {
-      id: "stamina",
-      title: "Stamina & Strategy",
-      description: [
-        "Test-taking strategies, recovery techniques, and review sessions.",
-        "Full-length mock simulation with expert debriefs.",
-      ],
-      icon: <Activity className="h-6 w-6" />,
-    },
-    {
-      id: "bonus",
-      title: "Complimentary Features",
-      description: [
-        "Doubt-clearing clinics, application sessions, and progress tracking.",
-        "Access to recorded sessions for repeat review.",
-      ],
-      icon: <Gift className="h-6 w-6" />,
-    },
-  ];
+
 
   return (
     <div className="bg-background text-foreground">
@@ -338,53 +322,9 @@ const GmatLive: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-background">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold">GMAT Live Training Features</h2>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
-            <div className="rounded-[2rem] overflow-hidden border border-border bg-card shadow-lg">
-              <iframe
-                title="GMAT live preview"
-                src="https://www.youtube.com/embed/0qisGSwZym4"
-                className="aspect-video w-full"
-                allowFullScreen
-              />
-            </div>
-            <div className="space-y-6">
-              {features.map((feature) => (
-                <div key={feature.id} className="rounded-3xl border border-border bg-card/60 p-6 shadow-sm">
-                  <button
-                    type="button"
-                    onClick={() => setOpenFeature(openFeature === feature.id ? null : feature.id)}
-                    className="w-full text-left"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-card shadow-sm">{feature.icon}</div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
-                        </div>
-                      </div>
-                      <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${openFeature === feature.id ? "rotate-180" : "rotate-0"}`} />
-                    </div>
-                  </button>
-                  {openFeature === feature.id && (
-                    <div className="mt-4 space-y-3 text-sm text-muted-foreground">
-                      {feature.description.map((item) => (
-                        <div key={item} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-1 h-5 w-5 text-primary" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
+
+      <CustomFAQ faqs={gmatLiveFaqs} />
       <Footer />
     </div>
   );
