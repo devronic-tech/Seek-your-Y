@@ -496,6 +496,57 @@ const AboutGre = () => {
                   </div>
                 </div>
               </div>
+
+              <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
+                <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-center">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-[#EAF3FF] px-4 py-2 text-sm font-semibold text-[#0052CC]">
+                      <Globe2 className="h-4 w-4" />
+                      GRE for Global MS
+                    </div>
+                    <h3 className="text-3xl font-semibold text-slate-950">The GRE advantage for your next master’s application</h3>
+                    <p className="text-lg leading-8 text-slate-600">
+                      GRE gives you a flexible, globally accepted score report that works for top MS programs while keeping your application options open across business, engineering and science.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4">
+                    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                      <div className="flex items-center gap-3">
+                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#0052CC]">
+                          <BarChart3 className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-slate-950">Accepted worldwide</p>
+                          <p className="text-sm text-slate-600">GRE is accepted by 1,200+ programs globally.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                      <div className="flex items-center gap-3">
+                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E0F2FE] text-[#0B69FF]">
+                          <Clock3 className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-slate-950">Flexible timetable</p>
+                          <p className="text-sm text-slate-600">Choose the test date that fits your study pace.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                      <div className="flex items-center gap-3">
+                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ECFDF5] text-[#0F766E]">
+                          <ShieldCheck className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-slate-950">Send only your best</p>
+                          <p className="text-sm text-slate-600">Report scores selectively to schools after you decide.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <aside className="lg:sticky lg:top-28 h-fit">
@@ -578,135 +629,14 @@ const AboutGre = () => {
             </aside>
           </div>
 
-          <section className="mt-16 px-6">
-            <div className="mx-auto max-w-[1200px]">
-              <div className="mb-8 rounded-[32px] border border-slate-200 bg-white p-10 shadow-soft">
-                <div className="text-center">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#0052CC]">GRE Prep Modes</p>
-                  <h2 className="mt-4 text-3xl font-semibold md:text-4xl text-slate-950">Pick the GRE preparation mode that works best for you</h2>
-                  <p className="mt-4 mx-auto max-w-2xl text-sm leading-7 text-slate-600">
-                    At Seekyoury we believe that every individual has their own learning style and requirement when it comes to GRE preparation. We offer four different GRE prep modes so each student can choose the option that fits their schedule, goals and comfort.
-                  </p>
-                </div>
-
-                <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-                  {grePrepModes.map((mode) => (
-                    <button
-                      key={mode.id}
-                      onClick={() => setActiveMode(mode.id)}
-                      className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-6 text-left transition duration-300 ${
-                        activeMode === mode.id
-                          ? "border-[#0052CC] bg-[#F5FAFF] shadow-md"
-                          : "border-slate-200 bg-white hover:border-[#0052CC]/70 hover:bg-slate-50 hover:shadow-sm"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <div>
-                          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{mode.label}</p>
-                        </div>
-                        <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
-                          activeMode === mode.id ? "bg-[#0052CC] text-white" : "bg-slate-100 text-slate-700"
-                        }`}>
-                          <span className="text-sm font-bold">{mode.title.split(" ")[1]?.charAt(0) ?? mode.title.charAt(0)}</span>
-                        </div>
-                      </div>
-                      <h3 className="mt-6 text-lg font-semibold text-slate-950">{mode.title}</h3>
-                      <p className="mt-4 text-sm leading-6 text-slate-600">{mode.description}</p>
-                      <div className="mt-auto pt-6">
-                        <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-slate-600 transition group-hover:bg-[#E5F4FF]">
-                          Learn More
-                        </span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-
-
-              </div>
-            </div>
-          </section>
+      
+      
           
 
 
 
-          <section className="mt-12 px-6">
-            <div className="mx-auto max-w-[1200px]">
-              <div className="rounded-[36px] border border-slate-200 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-8 text-white shadow-soft sm:p-10">
-                <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-                  <div className="max-w-2xl">
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300">How we help</p>
-                    <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Seekyoury GRE coaching built around your growth</h2>
-                    <p className="mt-3 text-sm leading-7 text-slate-300 sm:text-base">
-                      We blend concept mastery, expert mentorship, and exam-smart practice so your preparation feels focused and result-driven.
-                    </p>
-                  </div>
-                  <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-slate-200">
-                    3 key areas
-                  </div>
-                </div>
-
-                <div className="mt-8 grid gap-4 lg:grid-cols-3">
-                  {greFocusAreas.map((area) => {
-                    const isActive = activeGreFocus === area.id;
-                    return (
-                      <button
-                        key={area.id}
-                        onClick={() => setActiveGreFocus(area.id)}
-                        className={`rounded-[24px] border p-5 text-left transition duration-300 ${
-                          isActive
-                            ? "border-emerald-400 bg-white text-slate-900 shadow-lg"
-                            : "border-white/10 bg-white/10 text-white hover:bg-white/15"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${isActive ? "bg-emerald-100 text-emerald-700" : "bg-white/10 text-white"}`}>
-                            <img src={area.image} alt={area.title} className="h-6 w-6 object-contain" />
-                          </div>
-                          <div>
-                            <div className="text-base font-semibold">{area.title}</div>
-                            <div className={`mt-1 text-sm ${isActive ? "text-slate-600" : "text-slate-300"}`}>{area.short}</div>
-                          </div>
-                        </div>
-                        {isActive && <div className="mt-5 h-1.5 rounded-full bg-emerald-500" />}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="mt-6 rounded-[28px] border border-white/10 bg-white/10 p-6 backdrop-blur">
-                  <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-                    <div className="rounded-[24px] bg-white p-6 text-slate-900 shadow-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100">
-                          <img src={activeFocus.image} alt={activeFocus.title} className="h-6 w-6 object-contain" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-600">Selected focus</p>
-                          <h3 className="text-xl font-semibold">{activeFocus.title}</h3>
-                        </div>
-                      </div>
-                      <p className="mt-5 text-sm leading-7 text-slate-600">{activeFocus.description}</p>
-
-                      <div className="mt-6 space-y-3">
-                        {activeFocus.points.map((point) => (
-                          <div key={point} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                            <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                            <span className="text-sm text-slate-700">{point}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-center">
-                      <div className="w-full overflow-hidden rounded-[24px] border border-white/10 bg-slate-900/70 p-3">
-                        <img src={activeFocus.image} alt={activeFocus.title} className="h-[280px] w-full rounded-[18px] object-cover sm:h-[340px]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+       
+       
 
         
         
@@ -735,122 +665,6 @@ const AboutGre = () => {
             </div>
           </section>
 
-          <section className="mt-12 rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
-            <div className="text-center mb-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300">Our students in Nashik review their GRE Tutors</p>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-950">GRE Tutor Reviews</h2>
-              <p className="mt-3 max-w-2xl mx-auto text-sm leading-7 text-slate-500">
-                See what our students say about GRE tutoring, concept clarity, and one-on-one support from our top faculty.
-              </p>
-            </div>
-
-            <div className="relative mt-6 sm:mt-8">
-              <button
-                type="button"
-                onClick={handlePrevReview}
-                className="absolute left-2 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-soft transition hover:bg-slate-100 sm:flex"
-                aria-label="Previous review"
-              >
-                ‹
-              </button>
-
-              <div
-                ref={reviewListRef}
-                className="overflow-x-auto overflow-y-visible pt-4 pb-4 scrollbar-none scroll-smooth px-6 sm:px-8"
-                onMouseEnter={() => setIsReviewPaused(true)}
-                onMouseLeave={() => setIsReviewPaused(false)}
-                onTouchStart={() => setIsReviewPaused(true)}
-                onTouchEnd={() => setIsReviewPaused(false)}
-              >
-                <div className="flex gap-4 snap-x snap-mandatory items-start justify-start pl-6 pr-48 sm:pl-8">
-                  {studentReviews.map((review, index) => {
-                    const isActive = index === activeReviewIndex;
-                    return (
-                      <div
-                        key={`${review.name}-${review.footer}`}
-                        ref={(el) => {
-                          if (el) reviewCardsRef.current[index] = el;
-                        }}
-                        className={`min-w-[64vw] max-w-[280px] sm:min-w-[34%] lg:min-w-[28%] snap-start rounded-[32px] border border-slate-200 bg-slate-50 p-4 pb-6 shadow-soft transition duration-300 ${
-                          isActive
-                            ? "scale-105 ring-2 ring-emerald-200 shadow-xl opacity-100"
-                            : "opacity-50 hover:opacity-80 scale-95"
-                        } first:ml-2 sm:first:ml-4 last:mr-28`}
-                      >
-                        <div className="flex items-center gap-4">
-                          <img
-                            src={review.image}
-                            alt={review.name}
-                            className="h-14 w-14 rounded-full object-cover"
-                          />
-                          <div>
-                            <p className="text-base sm:text-lg font-semibold text-slate-950">{review.name}</p>
-                            <p className="text-xs sm:text-sm text-slate-600">{review.title}</p>
-                            <div className="mt-2 flex items-center gap-1 text-amber-400">
-                              {Array.from({ length: review.rating }).map((_, starIndex) => (
-                                <span key={starIndex}>★</span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                        <p className="mt-5 text-sm sm:text-sm leading-6 sm:leading-7 text-slate-700">{review.text}</p>
-                        <p className="mt-6 text-xs sm:text-sm font-semibold text-slate-900">{review.footer}</p>
-                      </div>
-                    );
-                  })}
-                  <div className="shrink-0 w-[24vw] sm:w-[12rem] lg:w-[16rem]" />
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={handleNextReview}
-                className="absolute right-2 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-soft transition hover:bg-slate-100 sm:flex"
-                aria-label="Next review"
-              >
-                ›
-              </button>
-            </div>
-
-            <div className="mt-6 flex justify-center gap-2">
-              {studentReviews.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => setActiveReviewIndex(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition ${
-                    index === activeReviewIndex ? "bg-emerald-600" : "bg-slate-300"
-                  }`}
-                  aria-label={`Go to review ${index + 1}`}
-                />
-              ))}
-            </div>
-
-              <div className="mt-6">
-                <div className="mx-auto max-w-[1200px]">
-                  <div className="text-center mb-4">
-                    <h2 className="text-2xl font-semibold text-slate-950">GMAT Prep FAQs</h2>
-                  </div>
-
-                  <div className="space-y-3">
-                    {faqs.map((item, idx) => (
-                      <div key={item.question} className="rounded-md bg-white border border-slate-100">
-                        <button
-                          onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                          className="flex w-full items-center justify-between px-4 py-3 text-left"
-                        >
-                          <span className="text-base font-medium text-slate-900">{item.question}</span>
-                          <span className="ml-4 text-lg font-bold text-slate-700">{openFaq === idx ? "−" : "+"}</span>
-                        </button>
-                        <div className={`px-4 pb-4 pt-0 text-slate-600 overflow-hidden transition-all duration-300 ${openFaq === idx ? "max-h-56 opacity-100" : "max-h-0 opacity-0"}`}>
-                          <p className="leading-6 text-sm">{item.answer}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-          </section>
         </div>
       </section>
 

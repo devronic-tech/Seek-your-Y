@@ -453,9 +453,7 @@ const AboutGmat: React.FC = () => {
           </div>
         </div>
       </section>
-
- 
- 
+      
       <section className="bg-slate-50 py-20 px-6">
         <div className="mx-auto max-w-[1200px]">
           <div className="rounded-[36px] border border-border p-12 text-white shadow-soft sm:p-16" style={{ backgroundImage: "var(--gradient-primary)" }}>
