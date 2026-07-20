@@ -203,14 +203,6 @@ export const Navbar = () => {
           </Link>
 
           <Link
-            to="/tutoring"
-            className="text-base font-medium text-foreground hover:text-primary transition-colors duration-200"
-            onClick={() => handleLinkClick("book-demo")}
-          >
-            Private Tutoring
-          </Link>
-
-          <Link
             to="/admissions"
             className="text-base font-medium text-foreground hover:text-primary transition-colors duration-200"
           >
@@ -451,14 +443,6 @@ export const Navbar = () => {
                     className="text-sm font-semibold text-foreground hover:text-primary py-1"
                   >
                     Test Series
-                  </Link>
-
-                  <Link
-                    to="/tutoring"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-sm font-semibold text-foreground hover:text-primary py-1"
-                  >
-                    Private Tutoring
                   </Link>
 
                   <Link

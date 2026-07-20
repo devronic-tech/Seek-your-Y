@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CustomFAQ } from "@/components/CustomFAQ";
+import { CallToAction } from "@/components/CallToAction";
+import { BookSessionDialog } from "@/components/BookSessionDialog";
 import CourseGre from "/assets/gre-asset/course_gre_.webp";
 import CourseGmat from "/assets/gre-asset/course_gmat.webp";
 import CourseSat from "/assets/gre-asset/course_sat.webp";
 import CourseIelts from "/assets/gre-asset/course_ielts.webp";
 import GREPREP from "@/assets/svgComponent/GREPREP";
 import GMATPREP from "@/assets/svgComponent/GMATPREP";
+import { 
+  ShieldCheck, 
+  CalendarDays, 
+  Presentation, 
+  MessagesSquare, 
+  Trophy, 
+  BookOpen 
+} from "lucide-react";
 
 const Admission: React.FC = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
+
   const admissionsFaqs = [
     {
       question: "What is covered under your admissions consulting services?",
@@ -37,13 +49,13 @@ const Admission: React.FC = () => {
       <Navbar />
       <main>
         {/* HERO: Blueprint */}
-        <section className="pt-[100px] pb-16">
-        <div className="max-w-[1200px] mx-auto px-4">
+        <section className="overflow-hidden bg-background pt-28 md:pt-32 lg:pt-36 pb-12 md:pb-16 lg:pb-20">
+        <div className="max-w-[1440px] mx-auto px-4">
           <div className="text-center">
-            <div className="inline-block px-4 py-1 rounded-full bg-white/60 text-sm text-primary mb-6">
+            <div className="inline-block px-4 py-2 rounded-full border border-primary/15 bg-primary/10 text-xs font-bold uppercase tracking-[0.14em] text-primary shadow-sm mb-6">
               Global Admissions & Profile Building
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-[1.1] tracking-tight">
               Your Blueprint to a
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">
                 World-Class University
@@ -73,7 +85,12 @@ const Admission: React.FC = () => {
           </div>
 
           <div className="flex justify-center mt-10">
-            <button className="px-10 py-3 rounded-full bg-emerald-500 text-white font-semibold shadow-lg">Start Your Admissions Journey</button>
+            <button 
+              onClick={() => setIsBookSessionOpen(true)}
+              className="px-10 py-4 rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 text-white font-bold shadow-lg shadow-indigo-500/25 hover:opacity-95"
+            >
+              Start Your Admissions Journey
+            </button>
           </div>
         </div>
       </section>
@@ -133,6 +150,73 @@ const Admission: React.FC = () => {
         </div>
       </section>
 
+      {/* What You Get Only With Seek Your Y */}
+      <section className="py-20 bg-slate-50/50 border-t border-b border-slate-200/50">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            What You Get <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">Only With Seek Your Y</span>
+          </h2>
+          <p className="text-lg md:text-xl text-slate-600 mt-2 font-normal italic">
+            and nowhere else in the world
+          </p>
+
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 mt-16 max-w-[1000px] mx-auto">
+            {[
+              {
+                icon: ShieldCheck,
+                text: (
+                  <>
+                    100% score guarantee for{" "}
+                    <a href="/gmat" className="underline text-blue-600 font-semibold hover:text-indigo-600 transition-colors">GMAT</a>,{" "}
+                    <a href="/gre" className="underline text-blue-600 font-semibold hover:text-indigo-600 transition-colors">GRE</a> and{" "}
+                    <span className="underline text-blue-600 font-semibold">SAT</span>
+                  </>
+                ),
+              },
+              {
+                icon: CalendarDays,
+                text: "Daily live classes for accountability",
+              },
+              {
+                icon: Presentation,
+                text: "100+ hours of live training (Highest in the world)",
+              },
+              {
+                icon: MessagesSquare,
+                text: "Live discussion of all tests with expert faculty",
+              },
+              {
+                icon: Trophy,
+                text: "Record holders of GMAT 800, GRE 339, and SAT 1580",
+              },
+              {
+                icon: BookOpen,
+                text: (
+                  <>
+                    18+ unique courses to prepare for{" "}
+                    <a href="/gmat" className="underline text-blue-600 font-semibold hover:text-indigo-600 transition-colors">GMAT</a>,{" "}
+                    <a href="/gre" className="underline text-blue-600 font-semibold hover:text-indigo-600 transition-colors">GRE</a> and{" "}
+                    <span className="underline text-blue-600 font-semibold">SAT</span>
+                  </>
+                ),
+              },
+            ].map((item, idx) => {
+              const IconComponent = item.icon;
+              return (
+                <div key={idx} className="flex flex-col items-center text-center p-4">
+                  <div className="w-20 h-20 flex items-center justify-center mb-6 text-blue-600">
+                    <IconComponent className="w-16 h-16 stroke-[1.25]" />
+                  </div>
+                  <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed max-w-[280px]">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* BLUE CTA SECTION */}
       <section className="py-20 bg-gradient-to-r from-sky-600 to-blue-500 text-white">
         <div className="max-w-[1000px] mx-auto px-4 text-center">
@@ -140,8 +224,8 @@ const Admission: React.FC = () => {
           <h3 className="text-4xl font-extrabold mb-4">Not Sure Which Path Is Right For You?</h3>
           <p className="max-w-2xl mx-auto text-white/90 mb-8">Our expert counselors will evaluate your profile and recommend the perfect program — absolutely free.</p>
           <div className="flex items-center justify-center gap-6">
-            <button className="bg-white text-primary px-6 py-3 rounded-xl font-semibold">Get Free Profile Evaluation</button>
-            <button className="bg-white/20 border border-white/30 text-white px-6 py-3 rounded-xl">Talk to an Expert</button>
+            <button onClick={() => setIsBookSessionOpen(true)} className="bg-white text-primary px-6 py-3 rounded-xl font-semibold">Get Free Profile Evaluation</button>
+            <button onClick={() => setIsBookSessionOpen(true)} className="bg-white/20 border border-white/30 text-white px-6 py-3 rounded-xl">Talk to an Expert</button>
           </div>
         </div>
       </section>
@@ -179,7 +263,10 @@ const Admission: React.FC = () => {
                 <div className="flex items-start gap-3"><span className="mt-1 text-blue-600">✓</span> Fully adjustable against a bigger package</div>
               </div>
 
-              <button className="mt-10 w-full rounded-full bg-blue-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-blue-700">
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="mt-10 w-full rounded-full bg-blue-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-blue-700"
+              >
                 Book a Call
               </button>
             </div>
@@ -204,7 +291,10 @@ const Admission: React.FC = () => {
                 <div className="flex items-start gap-3"><span className="mt-1 text-blue-600">✓</span> Scholarship & waitlist strategy</div>
               </div>
 
-              <button className="mt-10 w-full rounded-full bg-blue-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-blue-700">
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="mt-10 w-full rounded-full bg-blue-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-blue-700"
+              >
                 Book a Call
               </button>
             </div>
@@ -226,7 +316,10 @@ const Admission: React.FC = () => {
                 <div className="flex items-start gap-3"><span className="mt-1 text-blue-600">✓</span> Available with any course, batch or tutoring plan</div>
               </div>
 
-              <button className="mt-8 w-full rounded-full bg-blue-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-blue-700">
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="mt-8 w-full rounded-full bg-blue-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-blue-700"
+              >
                 Get the Combo
               </button>
             </div>
@@ -250,20 +343,22 @@ const Admission: React.FC = () => {
             <div className="inline-block px-3 py-1 rounded-full bg-sky-50 text-primary mb-4">For Students</div>
             <h4 className="text-2xl font-extrabold mb-3">Book a Free Counselling Session</h4>
             <p className="text-muted-foreground mb-6">Talk to our admissions experts, evaluate your profile, and map your road to your dream university — at zero cost.</p>
-            <button className="bg-sky-600 text-white px-6 py-3 rounded-lg">Book Now →</button>
+            <button onClick={() => setIsBookSessionOpen(true)} className="bg-sky-600 text-white px-6 py-3 rounded-lg">Book Now →</button>
           </div>
 
           <div className="bg-card rounded-2xl p-10 shadow-soft">
             <div className="inline-block px-3 py-1 rounded-full bg-emerald-50 text-primary mb-4">For Institutions</div>
             <h4 className="text-2xl font-extrabold mb-3">Request a Collaboration Proposal</h4>
             <p className="text-muted-foreground mb-6">Tell us about your institution and your students' goals — we will design a bespoke employability program that fits your needs.</p>
-            <button className="bg-emerald-700 text-white px-6 py-3 rounded-lg">Get in Touch →</button>
+            <button onClick={() => setIsBookSessionOpen(true)} className="bg-emerald-700 text-white px-6 py-3 rounded-lg">Get in Touch →</button>
           </div>
         </div>
       </section>
       </main>
+      <CallToAction />
       <CustomFAQ faqs={admissionsFaqs} />
       <Footer />
+      <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
     </div>
   );
 };

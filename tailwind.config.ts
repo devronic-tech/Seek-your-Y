@@ -12,6 +12,11 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        /* Floor all sub-16px utilities at 16px */
+        xs: ["1rem", { lineHeight: "1.5" }],   /* was 0.75rem / 12px */
+        sm: ["1rem", { lineHeight: "1.5625" }], /* was 0.875rem / 14px */
+      },
       fontFamily: {
         sans: ["Lexend", "system-ui", "sans-serif"],
         display: ["Manrope", "system-ui", "sans-serif"],

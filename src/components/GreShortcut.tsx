@@ -140,7 +140,7 @@ export const GreShortcut = () => {
                 </h3>
 
                 {/* Card Description */}
-                <p className="text-sm md:text-[14.5px] text-muted-foreground leading-relaxed font-normal">
+                <p className="text-base text-muted-foreground leading-relaxed font-normal">
                   {card.description}
                 </p>
               </motion.div>

@@ -306,11 +306,11 @@ export const SupportTabs = () => {
                                 <img src={avatar2} alt="Tutor" className="w-7 h-7 rounded-full object-cover" />
                                 <div>
                                   <div className="flex items-center gap-1">
-                                    <span className="text-[10px] font-bold text-foreground">Riya Sharma</span>
+                                    <span className="text-base font-bold text-foreground">Riya Sharma</span>
                                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                                    <span className="text-[8px] text-emerald-500 font-medium">Online</span>
+                                    <span className="text-base text-emerald-500 font-medium">Online</span>
                                   </div>
-                                  <span className="text-[8px] text-muted-foreground block">Math Expert - 5+ years exp.</span>
+                                  <span className="text-base text-muted-foreground block">Math Expert - 5+ years exp.</span>
                                 </div>
                               </div>
                               <MoreVertical className="w-3.5 h-3.5 text-muted-foreground cursor-pointer" />
@@ -319,22 +319,22 @@ export const SupportTabs = () => {
                             {/* Messages Area */}
                             <div className="flex flex-col gap-2 max-h-[140px] overflow-y-auto pr-1">
                               {/* Student Msg */}
-                              <div className="self-end bg-primary/10 rounded-2xl rounded-tr-sm p-2 max-w-[85%] text-[10px]">
+                              <div className="self-end bg-primary/10 rounded-2xl rounded-tr-sm p-2 max-w-[85%] text-base">
                                 <p className="text-foreground">Can you explain how to solve this integral?</p>
-                                <div className="mt-1 bg-card/90 border border-border/40 p-1.5 rounded-lg text-center font-mono text-[6.3px] text-foreground">
+                                <div className="mt-1 bg-card/90 border border-border/40 p-1.5 rounded-lg text-center font-mono text-base text-foreground">
                                   ∫ (x² + 1)/(x² - 4) dx
                                 </div>
-                                <span className="text-[4.9px] text-muted-foreground text-right block mt-0.5">10:32 AM ✓✓</span>
+                                <span className="text-base text-muted-foreground text-right block mt-0.5">10:32 AM ✓✓</span>
                               </div>
 
                               {/* Tutor Msg */}
-                              <div className="self-start bg-secondary/40 rounded-2xl rounded-tl-sm p-2 max-w-[85%] text-[10px]">
+                              <div className="self-start bg-secondary/40 rounded-2xl rounded-tl-sm p-2 max-w-[85%] text-base">
                                 <p className="text-foreground">Sure! Let's solve it step by step. We can break it down using partial fractions.</p>
                                 <div className="mt-1.5 bg-card border border-border/70 p-1.5 rounded-lg flex items-center gap-1.5 hover:border-primary/20 transition-colors cursor-pointer">
                                   <FileText className="w-3.5 h-3.5 text-primary" />
-                                  <span className="text-[6.3px] font-bold text-foreground">Step-by-step Solution.pdf</span>
+                                  <span className="text-base font-bold text-foreground">Step-by-step Solution.pdf</span>
                                 </div>
-                                <span className="text-[4.9px] text-muted-foreground block mt-0.5">10:34 AM</span>
+                                <span className="text-base text-muted-foreground block mt-0.5">10:34 AM</span>
                               </div>
                             </div>
 

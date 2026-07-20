@@ -170,10 +170,10 @@ export const Hero = () => {
                 <TrendingUp className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-[8px] sm:text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                <h4 className="text-base font-semibold text-muted-foreground uppercase tracking-wider">
                   Score Improvement
                 </h4>
-                <p className="text-[10px] sm:text-sm xl:text-sm font-bold text-foreground mt-0.5 leading-tight">
+                <p className="text-base font-bold text-foreground mt-0.5 leading-tight">
                   +120 Avg Increase
                 </p>
               </div>
@@ -198,10 +198,10 @@ export const Hero = () => {
                 <Users className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-[8px] sm:text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                <h4 className="text-base font-semibold text-muted-foreground uppercase tracking-wider">
                   1:1 Personalised
                 </h4>
-                <p className="text-[10px] sm:text-sm xl:text-sm font-bold text-foreground mt-0.5 leading-tight">
+                <p className="text-base font-bold text-foreground mt-0.5 leading-tight">
                   Tailored Mentorship
                 </p>
               </div>
@@ -226,10 +226,10 @@ export const Hero = () => {
                 <ShieldCheck className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-[8px] sm:text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                <h4 className="text-base font-semibold text-muted-foreground uppercase tracking-wider">
                   Proven Result
                 </h4>
-                <p className="text-[10px] sm:text-sm xl:text-sm font-bold text-foreground mt-0.5 leading-tight">
+                <p className="text-base font-bold text-foreground mt-0.5 leading-tight">
                   700+ GMAT/GRE
                 </p>
               </div>

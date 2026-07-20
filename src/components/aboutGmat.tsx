@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
+import { CallToAction } from "@/components/CallToAction";
 import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck, Calculator, BarChart3 } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Footer } from "@/components/Footer";
+import { ProgramHero } from "@/components/ProgramHero";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
 import qaIcon from "@/assets/paced-icon/qa.webp";
@@ -19,7 +21,7 @@ const AboutGmat: React.FC = () => {
   const [activeGmatFocus, setActiveGmatFocus] = useState("learn");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
-  const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>("quant");
+  const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>(null);
 
   const gmatPrepModes = [
     {
@@ -225,75 +227,11 @@ const AboutGmat: React.FC = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <section className="overflow-hidden bg-background py-20">
-        <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent" />
-        <div className="relative mx-auto max-w-[1440px] px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] items-center">
-            <div className="space-y-6">
-              <div className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-primary shadow-sm">
-                GMAT PREP
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[4.5rem]">
-                Achieve GMAT momentum with
-                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">
-                  coaching built for scores.
-                </span>
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-                Learn faster, practice smarter, and get the exact GMAT strategy you need for your target business school.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-blue-500/20 transition hover:opacity-95">
-                  Book a Free Class
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-                <button className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-primary transition hover:border-primary/60 hover:bg-primary/10">
-                  Talk to an Expert
-                </button>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute -left-6 top-0 hidden h-32 w-32 rounded-full bg-primary/10 blur-3xl lg:block" />
-              <div className="rounded-[32px] border border-border bg-card p-6 shadow-soft">
-                <div className="mb-6 flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground">Top GMAT Results</p>
-                    <p className="mt-2 text-sm text-muted-foreground">Recent achievers from our coaching batch</p>
-                  </div>
-                  <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-violet-600 px-4 py-2 text-sm font-semibold text-primary-foreground shadow-soft">
-                    2025
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    { name: "Jinay Nandu", score: "720" },
-                    { name: "Sid Makharia", score: "715" },
-                    { name: "Riya Joshi", score: "710" },
-                  ].map((item) => (
-                    <div key={item.name} className="rounded-3xl p-4 bg-card">
-                      <div className="flex items-center justify-between gap-4">
-                        <div>
-                          <p className="font-semibold text-foreground">{item.name}</p>
-                          <p className="text-sm text-muted-foreground">GMAT Achiever</p>
-                        </div>
-                        <div className="rounded-3xl bg-primary px-4 py-2 text-right text-primary-foreground">
-                          <p className="text-xs uppercase text-primary-foreground/70">Score</p>
-                          <p className="text-xl font-bold">{item.score}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProgramHero type="gmat" />
 
       <section className="bg-background py-20">
-        <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
-          <div className="grid gap-10 xl:grid-cols-[1.4fr_0.95fr] items-stretch">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="w-full">
             <div className="space-y-8">
               <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
                 <h2 className="text-3xl font-semibold text-foreground">What is the GMAT?</h2>
@@ -355,32 +293,6 @@ const AboutGmat: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            <aside className="lg:sticky lg:top-28 h-fit">
-              <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">Speak to an Expert</p>
-                <h3 className="mt-4 text-2xl font-semibold text-foreground">Book a GMAT consultation</h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  Share a few details and our expert team will call you with a tailored GMAT plan.
-                </p>
-                <form className="mt-6 space-y-4">
-                  <input type="text" placeholder="Name" className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-                  <div className="flex gap-2">
-                    <select className="w-28 rounded-2xl border border-border bg-background px-3 py-3 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
-                      <option>+91</option>
-                    </select>
-                    <input type="tel" placeholder="Mobile Number" className="flex-1 rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-                  </div>
-                  <input type="email" placeholder="Email" className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
-                  <select className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
-                    <option>Interested in?</option>
-                  </select>
-                  <button type="submit" className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-blue-500/20 transition hover:opacity-95">
-                    Schedule a Call
-                  </button>
-                </form>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
@@ -388,14 +300,14 @@ const AboutGmat: React.FC = () => {
       {/* GRE FOR MBA Section */}
       <section className="py-20 bg-slate-50/50">
         <div className="mx-auto max-w-[1200px] px-6 text-center">
-          <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
-            GRE FOR MBA
-          </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mt-4 mb-3 tracking-tight">
-            The smarter route to your <span className="text-[#0052CC]">MBA</span>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-12 bg-primary/40" />
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">GRE FOR MBA</span>
+            <div className="h-px w-12 bg-primary/40" />
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center mt-4 mb-3">
+            The smarter route to your <span className="text-primary">MBA</span>
           </h2>
-          
-          <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
 
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
             Determined to do an MBA from ISB, Singapore, the M7 or the Ivy League? You don't need
@@ -408,11 +320,8 @@ const AboutGmat: React.FC = () => {
             <table className="w-full border-collapse text-sm md:text-base">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="px-6 py-4 bg-muted/30 w-1/3"></th>
-                  <th className="px-6 py-4 bg-[#0052CC] text-white font-bold text-center text-lg rounded-t-none">
-                    GRE
-                  </th>
-                  <th className="px-6 py-4 bg-slate-900 text-white font-bold text-center text-lg rounded-t-none">
+                  <th className="px-6 py-4 bg-muted/30 w-1/2"></th>
+                  <th className="px-6 py-4 bg-slate-900 text-white font-bold text-center text-lg rounded-t-none w-1/2">
                     GMAT Focus
                   </th>
                 </tr>
@@ -420,38 +329,32 @@ const AboutGmat: React.FC = () => {
               <tbody className="divide-y divide-border">
                 <tr>
                   <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Total time</td>
-                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">1 hr 58 min</td>
                   <td className="px-6 py-5 text-muted-foreground text-center">2 hr 15 min</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Sections</td>
-                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">Quant + Verbal + 1 short essay</td>
                   <td className="px-6 py-5 text-muted-foreground text-center">Quant + Verbal + Data Insights</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Data Insights section</td>
-                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">None — no DS, MSR or graph analysis</td>
                   <td className="px-6 py-5 text-muted-foreground text-center">20 questions, a full third of your score</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Quant style</td>
-                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">More standard, formula-friendly math</td>
                   <td className="px-6 py-5 text-muted-foreground text-center">Logic-heavy word problems</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Also usable for MS/PhD</td>
-                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">Yes — one score, two doors</td>
                   <td className="px-6 py-5 text-muted-foreground text-center">Business school only</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Accepted at ISB, M7, Ivy League, INSEAD, NUS/NTU</td>
-                  <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/5">Yes</td>
                   <td className="px-6 py-5 text-muted-foreground text-center">Yes</td>
                 </tr>
                 <tr className="bg-muted/10">
                   <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Retakes</td>
-                  <td colSpan={2} className="px-6 py-5 text-muted-foreground text-center font-medium">
-                    Both: up to 5 times/year, 16–21 day gap
+                  <td className="px-6 py-5 text-muted-foreground text-center font-medium">
+                    GMAT Focus: up to 5 times/year, 16-day gap
                   </td>
                 </tr>
               </tbody>
@@ -464,13 +367,14 @@ const AboutGmat: React.FC = () => {
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="text-center mb-10">
-            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
-              SYLLABUS
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mt-4 mb-3 tracking-tight">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-12 bg-primary/40" />
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">SYLLABUS</span>
+              <div className="h-px w-12 bg-primary/40" />
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center mt-4 mb-3">
               The complete GMAT Focus syllabus
             </h2>
-            <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Everything GMAC tests, organised so you never have to dig through the official site. Click any section to expand.
             </p>
@@ -480,7 +384,7 @@ const AboutGmat: React.FC = () => {
             {/* Quantitative Reasoning Accordion */}
             <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
               openSyllabusSection === "quant" 
-                ? "border border-border border-l-[6px] border-l-[#0052CC]" 
+                ? "border border-border border-l-[6px] border-l-primary" 
                 : "border border-border"
             }`}>
               <button
@@ -489,7 +393,7 @@ const AboutGmat: React.FC = () => {
                 className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-muted/10"
               >
                 <div className="flex items-center gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF3FF] text-[#0052CC]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <Calculator className="h-6 w-6 stroke-[2]" />
                   </div>
                   <div>
@@ -503,7 +407,7 @@ const AboutGmat: React.FC = () => {
                   <span className="text-xs text-muted-foreground font-medium sm:hidden">
                     21 Qs • 45 min
                   </span>
-                  <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                  <span className="text-primary font-semibold text-2xl leading-none">
                     {openSyllabusSection === "quant" ? "−" : "+"}
                   </span>
                 </div>
@@ -534,7 +438,7 @@ const AboutGmat: React.FC = () => {
                       <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">{section.title}</h4>
                       <div className="flex flex-wrap gap-2">
                         {section.pills.map((pill) => (
-                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-primary/10 text-primary cursor-default hover:bg-primary/20 transition-colors">
                             {pill}
                           </span>
                         ))}
@@ -548,7 +452,7 @@ const AboutGmat: React.FC = () => {
             {/* Verbal Reasoning Accordion */}
             <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
               openSyllabusSection === "verbal" 
-                ? "border border-border border-l-[6px] border-l-[#0052CC]" 
+                ? "border border-border border-l-[6px] border-l-primary" 
                 : "border border-border"
             }`}>
               <button
@@ -571,7 +475,7 @@ const AboutGmat: React.FC = () => {
                   <span className="text-xs text-muted-foreground font-medium sm:hidden">
                     23 Qs • 45 min
                   </span>
-                  <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                  <span className="text-primary font-semibold text-2xl leading-none">
                     {openSyllabusSection === "verbal" ? "−" : "+"}
                   </span>
                 </div>
@@ -602,7 +506,7 @@ const AboutGmat: React.FC = () => {
                       <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">{section.title}</h4>
                       <div className="flex flex-wrap gap-2">
                         {section.pills.map((pill) => (
-                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-primary/10 text-primary cursor-default hover:bg-primary/20 transition-colors">
                             {pill}
                           </span>
                         ))}
@@ -616,7 +520,7 @@ const AboutGmat: React.FC = () => {
             {/* Data Insights Accordion */}
             <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
               openSyllabusSection === "di" 
-                ? "border border-border border-l-[6px] border-l-[#0052CC]" 
+                ? "border border-border border-l-[6px] border-l-primary" 
                 : "border border-border"
             }`}>
               <button
@@ -639,7 +543,7 @@ const AboutGmat: React.FC = () => {
                   <span className="text-xs text-muted-foreground font-medium sm:hidden">
                     20 Qs • 45 min
                   </span>
-                  <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                  <span className="text-primary font-semibold text-2xl leading-none">
                     {openSyllabusSection === "di" ? "−" : "+"}
                   </span>
                 </div>
@@ -670,7 +574,7 @@ const AboutGmat: React.FC = () => {
                       <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">{section.title}</h4>
                       <div className="flex flex-wrap gap-2">
                         {section.pills.map((pill) => (
-                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                          <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-primary/10 text-primary cursor-default hover:bg-primary/20 transition-colors">
                             {pill}
                           </span>
                         ))}
@@ -686,7 +590,7 @@ const AboutGmat: React.FC = () => {
 
       <section className="mt-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[36px] border border-border bg-card p-10 shadow-soft">
+          <div className="rounded-[36px] border border-border bg-card p-5 sm:p-8 md:p-10 shadow-soft">
             <div className="text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">GMAT Prep Modes</p>
               <h2 className="mt-4 text-3xl font-semibold text-foreground">Pick the GMAT preparation mode that works best for you</h2>
@@ -700,15 +604,15 @@ const AboutGmat: React.FC = () => {
                 <button
                   key={mode.id}
                   onClick={() => setActiveMode(mode.id)}
-                  className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-6 text-left transition duration-300 ${
+                  className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-5 sm:p-6 text-left transition duration-300 ${
                     activeMode === mode.id
                       ? "border-primary bg-primary/10 shadow-soft"
                       : "border-border bg-card hover:border-primary/70 hover:bg-background hover:shadow-sm"
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">{mode.label}</p>
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.24em] text-muted-foreground truncate">{mode.label}</p>
+                    <div className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl ${
                       activeMode === mode.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                     }`}>
                       <span className="text-sm font-bold">{mode.title.split(" ")[1]?.charAt(0) ?? mode.title.charAt(0)}</span>
@@ -761,29 +665,6 @@ const AboutGmat: React.FC = () => {
         </div>
       </section>
       
-      <section className="bg-slate-50 py-20 px-6">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[36px] border border-border p-12 text-white shadow-soft sm:p-16" style={{ backgroundImage: "var(--gradient-primary)" }}>
-            <div className="text-center space-y-6">
-              <div className="flex justify-center">
-                <div className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-primary-foreground backdrop-blur">
-                  Your success journey starts here
-                </div>
-              </div>
-              <h2 className="text-4xl font-bold sm:text-5xl md:text-6xl">Ready to find your Y?</h2>
-              <p className="mx-auto max-w-2xl text-lg leading-8 text-primary-foreground">
-                Book a free demo session and a 1-on-1 strategy call. We'll map your target score, timeline and study plan — no strings attached.
-              </p>
-              <div className="pt-6">
-                <button className="inline-flex rounded-full bg-card px-8 py-3 text-base font-semibold text-primary shadow-lg shadow-white/20 transition hover:shadow-xl hover:bg-card/95">
-                  Book a Free Demo
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="px-6 pb-20">
         <div className="mx-auto max-w-[1200px]">
           <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
@@ -831,6 +712,7 @@ const AboutGmat: React.FC = () => {
         </div>
       </section>
 
+      <CallToAction />
       <CustomFAQ faqs={gmatFaqs} />
       <Footer />
     </div>

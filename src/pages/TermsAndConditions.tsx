@@ -8,7 +8,7 @@ const TermsAndConditions = () => {
       <main className="section-padding pt-32">
         <div className="container-narrow max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-extrabold font-display leading-[1.1] tracking-tight text-foreground mb-4">
               Terms & Conditions
             </h1>
             <p className="text-muted-foreground">Seek Your Y</p>

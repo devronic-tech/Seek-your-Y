@@ -200,10 +200,10 @@ export const ProblemSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start lg:pl-8"
           >
-            <p className="text-[13.3px] md:text-base font-bold text-foreground leading-snug mb-1">
+            <p className="text-base font-bold text-foreground leading-snug mb-1">
               Real guidance. Right strategy. Consistent results.
             </p>
-            <p className="text-[11.9px] md:text-sm font-semibold text-primary">
+            <p className="text-base font-semibold text-primary">
               That's what changes everything.
             </p>
           </motion.div>

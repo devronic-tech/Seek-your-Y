@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
+import { CallToAction } from "@/components/CallToAction";
 import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2 } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { ProgramHero } from "@/components/ProgramHero";
+import { BookSessionDialog } from "@/components/BookSessionDialog";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
 import qaIcon from "@/assets/paced-icon/qa.webp";
@@ -10,6 +13,7 @@ import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const GmatPrivateTut: React.FC = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
 
   const gmatPrivateTutFaqs = [
     {
@@ -85,79 +89,13 @@ const GmatPrivateTut: React.FC = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <section className="relative overflow-hidden bg-background py-12">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1fr_420px] items-start">
-            <div className="pt-6">
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">GMAT® PRIVATE TUTORING</p>
-              <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl">Personalised GMAT Coaching to Target 700+</h1>
-              <p className="mt-4 text-xl font-semibold text-foreground">One-on-one training with expert tutors</p>
-              <p className="mt-4 max-w-2xl text-lg text-muted-foreground">Get focused GMAT tutoring with a custom study plan, detailed feedback, and live doubt sessions designed for top percentile scores.</p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <button className="inline-flex items-center justify-center gap-3 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">BOOK A FREE CONSULTATION</button>
-                <button className="inline-flex items-center justify-center gap-3 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-card/95 transition">CALL US</button>
-              </div>
-            </div>
-
-            <div className="rounded-[32px] border border-border bg-card p-6 shadow-soft">
-              <div className="mb-6 flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground">Top GMAT Results</p>
-                  <p className="mt-2 text-sm text-muted-foreground">Recent achievers from our coaching batch</p>
-                </div>
-                <div className="rounded-3xl bg-primary/5 px-4 py-2 text-sm font-semibold text-primary shadow-sm">2025</div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="rounded-3xl p-4 bg-background">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="font-semibold text-foreground">Jinay Nandu</p>
-                      <p className="text-sm text-muted-foreground">GMAT Achiever</p>
-                    </div>
-                    <div className="rounded-3xl bg-primary px-4 py-2 text-right text-primary-foreground">
-                      <p className="text-xs uppercase text-primary-foreground/70">Score</p>
-                      <p className="text-xl font-bold">720</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-3xl p-4 bg-background">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="font-semibold text-foreground">Sid Makharia</p>
-                      <p className="text-sm text-muted-foreground">GMAT Achiever</p>
-                    </div>
-                    <div className="rounded-3xl bg-primary px-4 py-2 text-right text-primary-foreground">
-                      <p className="text-xs uppercase text-primary-foreground/70">Score</p>
-                      <p className="text-xl font-bold">715</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-3xl p-4 bg-background">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="font-semibold text-foreground">Riya Joshi</p>
-                      <p className="text-sm text-muted-foreground">GMAT Achiever</p>
-                    </div>
-                    <div className="rounded-3xl bg-primary px-4 py-2 text-right text-primary-foreground">
-                      <p className="text-xs uppercase text-primary-foreground/70">Score</p>
-                      <p className="text-xl font-bold">710</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProgramHero type="gmat" />
 
       
 
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1fr_360px] items-start">
+          <div className="w-full">
             <div className="prose max-w-none text-base text-muted-foreground">
               <h2>GMAT Private Tutoring That Works</h2>
               <p>Our private tutoring program gives you 1-on-1 coaching with GMAT experts, personalised lesson plans, and targeted support to improve your scores quickly.</p>
@@ -166,35 +104,13 @@ const GmatPrivateTut: React.FC = () => {
                 <li>Live sessions, feedback, and section-level strategy reviews.</li>
                 <li>Performance monitoring with mock tests and adaptive corrections.</li>
               </ul>
-              <button className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">TALK TO A GMAT EXPERT</button>
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition"
+              >
+                TALK TO A GMAT EXPERT
+              </button>
             </div>
-
-            <aside className="rounded-3xl border border-border bg-card/60 p-6 shadow-sm">
-              <h3 className="text-center text-lg font-semibold text-foreground">Speak to an Expert</h3>
-              <form className="mt-6 space-y-4">
-                <input className="w-full rounded-2xl border border-border bg-card px-4 py-3" placeholder="Name" />
-                <div className="flex gap-3">
-                  <select className="w-28 rounded-2xl border border-border bg-card px-4 py-3">
-                    <option>+91</option>
-                  </select>
-                  <input className="flex-1 rounded-2xl border border-border bg-card px-4 py-3" placeholder="Mobile Number" />
-                </div>
-                <input className="w-full rounded-2xl border border-border bg-card px-4 py-3" placeholder="Email Id" />
-                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
-                  <option>Interested in?</option>
-                </select>
-                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
-                  <option>Your City</option>
-                </select>
-                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
-                  <option>Nearest Center</option>
-                </select>
-                <label className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <input type="checkbox" className="h-4 w-4 rounded border-border text-primary" /> Stay informed via SMS & WhatsApp
-                </label>
-                <button className="w-full rounded-2xl px-4 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">Schedule a Call</button>
-              </form>
-            </aside>
           </div>
         </div>
       </section>
@@ -290,7 +206,12 @@ const GmatPrivateTut: React.FC = () => {
                   </ul>
 
                   <div className="mt-8">
-                    <button className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition">Get Started</button>
+                    <button 
+                      onClick={() => setIsBookSessionOpen(true)}
+                      className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition"
+                    >
+                      Get Started
+                    </button>
                   </div>
                 </div>
               </div>
@@ -305,8 +226,10 @@ const GmatPrivateTut: React.FC = () => {
 
 
 
+      <CallToAction />
       <CustomFAQ faqs={gmatPrivateTutFaqs} />
       <Footer />
+      <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
     </div>
   );
 };

@@ -1,15 +1,33 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, Activity, BookOpen, Gift, Zap, Clock, CheckCircle2, BarChart3 } from "lucide-react";
+import { Activity, BookOpen, BarChart3, Zap } from "lucide-react";
 import { Footer } from "@/components/Footer";
-import analyticsIcon from "@/assets/paced-icon/analytics.webp";
-import booksIcon from "@/assets/paced-icon/books.webp";
-import qaIcon from "@/assets/paced-icon/qa.webp";
-import since1993Icon from "@/assets/paced-icon/since-1993.webp";
-import studentIcon from "@/assets/paced-icon/student.webp";
-import teacherIcon from "@/assets/paced-icon/teacher.webp";
+import { ProgramHero } from "@/components/ProgramHero";
+import { BookSessionDialog } from "@/components/BookSessionDialog";
+import { CustomFAQ } from "@/components/CustomFAQ";
+import { CallToAction } from "@/components/CallToAction";
+
+const gmatSelfPacedFaqs = [
+  {
+    question: "How long is the GMAT Self-Paced course valid for?",
+    answer: "The self-paced GMAT Focus program is valid for 6 months from your purchase date, allowing you to prepare thoroughly at your own speed."
+  },
+  {
+    question: "Is the new GMAT Focus Data Insights (DI) section covered?",
+    answer: "Yes, our self-paced course features a dedicated comprehensive module covering all GMAT Focus Data Insights (DI) question formats, along with integrated mock practice."
+  },
+  {
+    question: "Can I upgrade my self-paced package to live prep or tutoring?",
+    answer: "Yes, you can easily upgrade to our GMAT Live classes or 1-on-1 tutoring sessions at any point during your prep by contacting us."
+  },
+  {
+    question: "Are mock tests and practice question banks included?",
+    answer: "Absolutely. You get access to full-length GMAT Focus simulated mocks and a robust question bank with step-by-step logic explanations."
+  }
+];
 
 const GmatSelfPaced: React.FC = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState<"quant" | "verbal" | "mixed">("quant");
   
   const trackOptions = {
@@ -99,71 +117,6 @@ const GmatSelfPaced: React.FC = () => {
     return colors[index % 3];
   };
 
-  const cards = [
-    {
-      icon: since1993Icon,
-      title: "Unmatched scores on the GMAT since 1993",
-    },
-    {
-      icon: analyticsIcon,
-      title: "Smart analytics help you track and evaluate your performance",
-    },
-    {
-      icon: teacherIcon,
-      title: "Powerful adaptive technology platform streamlines your preparation",
-    },
-    {
-      icon: booksIcon,
-      title: "Targeted study plan & exhaustive full-length tests to maximise speed and accuracy",
-    },
-    {
-      icon: studentIcon,
-      title: "Mentoring and coaching by the best and most experienced faculty",
-    },
-    {
-      icon: qaIcon,
-      title: "Personalized attention through unlimited doubt-clearing sessions",
-    },
-  ];
-
-
-
-  const comparisonRows = [
-    {
-      mode: "Classroom Training",
-      detail: "60 hours",
-      recording: "✕",
-      material: "✓",
-      mock: "✓",
-      doubt: "Unlimited",
-      webinar: "✓",
-      expert: "✓",
-      validity: "Up to 1 year",
-    },
-    {
-      mode: "Live Online Training",
-      detail: "60 hours",
-      recording: "✓",
-      material: "✓",
-      mock: "✓",
-      doubt: "Unlimited",
-      webinar: "✓",
-      expert: "✓",
-      validity: "Up to 1 year",
-    },
-    {
-      mode: "Private Tutoring",
-      detail: "Customised",
-      recording: "✓",
-      material: "✓",
-      mock: "✓",
-      doubt: "✕",
-      webinar: "✓",
-      expert: "✓",
-      validity: "40 hrs of classes + 6 months portal",
-    },
-  ];
-
   const plans = [
     {
       id: 'sectional',
@@ -205,115 +158,22 @@ const GmatSelfPaced: React.FC = () => {
 
   return (
     <div className="bg-background text-foreground flex flex-col gap-8">
-      <section className="relative overflow-hidden bg-background py-12">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1fr_420px] items-start">
-            <div className="pt-6">
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">GMAT® SELF-PACED PROGRAM</p>
-              <h1 className="mt-4 text-4xl font-extrabold leading-tight sm:text-5xl text-foreground">GMAT ONLINE COACHING THAT GETS YOU IN THE 705+ SQUAD</h1>
-              <p className="mt-4 text-xl font-semibold text-foreground">Self-Paced Program</p>
-              <p className="mt-4 max-w-2xl text-lg text-muted-foreground">Experience learning anywhere, anytime with Seekyoury’s GMAT self-paced program.</p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <button className="inline-flex items-center justify-center gap-3 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">
-                  TAKE A FREE CLASS
-                </button>
-                <button className="inline-flex items-center justify-center gap-3 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-card/95 transition">
-                  CALL US
-                </button>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="rounded-[32px] border border-border bg-card p-6 shadow-soft">
-                <div className="mb-6 flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground">Top GMAT Results</p>
-                    <p className="mt-2 text-sm text-muted-foreground">Recent achievers from our coaching batch</p>
-                  </div>
-                  <div className="rounded-3xl bg-primary/5 px-4 py-2 text-sm font-semibold text-primary shadow-sm">2025</div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="rounded-3xl p-4 bg-background">
-                    <div className="flex items-center justify-between gap-4">
-                      <div>
-                        <p className="font-semibold text-foreground">Jinay Nandu</p>
-                        <p className="text-sm text-muted-foreground">GMAT Achiever</p>
-                      </div>
-                      <div className="rounded-3xl bg-primary px-4 py-2 text-right text-primary-foreground">
-                        <p className="text-xs uppercase text-primary-foreground/70">Score</p>
-                        <p className="text-xl font-bold">720</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-3xl p-4 bg-background">
-                    <div className="flex items-center justify-between gap-4">
-                      <div>
-                        <p className="font-semibold text-foreground">Sid Makharia</p>
-                        <p className="text-sm text-muted-foreground">GMAT Achiever</p>
-                      </div>
-                      <div className="rounded-3xl bg-primary px-4 py-2 text-right text-primary-foreground">
-                        <p className="text-xs uppercase text-primary-foreground/70">Score</p>
-                        <p className="text-xl font-bold">715</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-3xl p-4 bg-background">
-                    <div className="flex items-center justify-between gap-4">
-                      <div>
-                        <p className="font-semibold text-foreground">Riya Joshi</p>
-                        <p className="text-sm text-muted-foreground">GMAT Achiever</p>
-                      </div>
-                      <div className="rounded-3xl bg-primary px-4 py-2 text-right text-primary-foreground">
-                        <p className="text-xs uppercase text-primary-foreground/70">Score</p>
-                        <p className="text-xl font-bold">710</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProgramHero type="gmat" />
 
       <section className="py-12">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1fr_360px] items-start">
+          <div className="w-full">
             <div className="prose max-w-none text-base text-muted-foreground">
               <h2>Self-Paced GMAT Online Prep: An Overview</h2>
               <p className="text-muted-foreground">Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.</p>
               <p className="text-muted-foreground">Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.</p>
-              <button className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">TALK TO A GMAT EXPERT</button>
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition"
+              >
+                TALK TO A GMAT EXPERT
+              </button>
             </div>
-
-            <aside className="rounded-3xl border border-border bg-card/60 p-6 shadow-sm">
-              <h3 className="text-center text-lg font-semibold text-foreground">Speak to an Expert</h3>
-              <form className="mt-6 space-y-4">
-                <input className="w-full rounded-2xl border border-border bg-card px-4 py-3" placeholder="Name" />
-                <div className="flex gap-3">
-                  <select className="w-28 rounded-2xl border border-border bg-card px-4 py-3"> <option>+91</option> </select>
-                  <input className="flex-1 rounded-2xl border border-border bg-card px-4 py-3" placeholder="Mobile Number" />
-                </div>
-                <input className="w-full rounded-2xl border border-border bg-card px-4 py-3" placeholder="Email Id" />
-                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
-                  <option>Interested in?</option>
-                </select>
-                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
-                  <option>Your City</option>
-                </select>
-                <select className="w-full rounded-2xl border border-border bg-card px-4 py-3">
-                  <option>Nearest Center</option>
-                </select>
-                <label className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <input type="checkbox" className="h-4 w-4 rounded border-border text-primary" /> Stay informed via SMS & WhatsApp
-                </label>
-                <button className="w-full rounded-2xl px-4 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition">Schedule a Call</button>
-              </form>
-            </aside>
           </div>
         </div>
       </section>
@@ -330,7 +190,6 @@ const GmatSelfPaced: React.FC = () => {
             Already strong in one section? Prep only what you need — or take the full course.
           </p>
 
-          {/* Track Selection Pills */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {[
               { id: "mixed", label: "Mixed (Quant + Verbal)" },
@@ -351,7 +210,6 @@ const GmatSelfPaced: React.FC = () => {
             ))}
           </div>
 
-          {/* Active Track Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
             {trackOptions[selectedTrack].map((option, idx) => {
               const cardColors = getCardColors(idx);
@@ -381,8 +239,12 @@ const GmatSelfPaced: React.FC = () => {
       
       <section className="py-12 bg-background">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-primary">Pricing</p>
-          <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Plans & pricing</h2>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-12 bg-primary/40" />
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">PRICING</span>
+            <div className="h-px w-12 bg-primary/40" />
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Plans & pricing</h2>
           <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
@@ -392,7 +254,6 @@ const GmatSelfPaced: React.FC = () => {
                 className={`relative overflow-hidden rounded-[28px] bg-card p-8 transition-transform hover:translate-y-[-6px] ${plan.recommended ? 'ring-1 ring-primary/20' : 'border border-border'}`}
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                {/* decorative top rim */}
                 <div className="absolute left-6 right-6 -top-3 h-2 rounded-t-[18px] bg-gradient-to-r from-primary to-accent shadow-glow" />
 
                 {plan.recommended && (
@@ -419,7 +280,12 @@ const GmatSelfPaced: React.FC = () => {
                   </ul>
 
                   <div className="mt-8">
-                    <button className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition">Enroll Now</button>
+                    <button 
+                      onClick={() => setIsBookSessionOpen(true)}
+                      className="w-full rounded-[14px] bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-colors"
+                    >
+                      Enroll Now
+                    </button>
                   </div>
                 </div>
               </div>
@@ -428,27 +294,10 @@ const GmatSelfPaced: React.FC = () => {
         </div>
       </section>
 
-
-
-      <section className="py-12 bg-[hsl(var(--logic-navy))] text-primary-foreground">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="rounded-[2rem] border border-border bg-card/5 p-10 shadow-xl">
-            <div className="grid gap-10 lg:grid-cols-[1.4fr_0.6fr] items-center">
-              <div>
-                <h2 className="text-3xl font-semibold">GMAT DI preparation by India’s most experienced faculty</h2>
-                <p className="mt-4 max-w-2xl text-primary-foreground">Build confidence in Data Interpretation and become exam-ready with personalised guidance, targeted practice, and performance review from our expert faculty.</p>
-              </div>
-              <div className="text-center">
-                <button className="rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-primary-foreground bg-primary shadow hover:brightness-95 transition">GMAT DI Preparation</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     
-     
+      <CallToAction />
+      <CustomFAQ faqs={gmatSelfPacedFaqs} title="GMAT Self-Paced FAQs" />
       <Footer />
+      <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
     </div>
   );
 };

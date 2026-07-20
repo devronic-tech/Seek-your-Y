@@ -59,6 +59,7 @@ export const StatCounter: React.FC<StatCounterProps> = ({ value, label, icon: Ic
   const formatNumber = (num: number) => {
     if (value.includes("+")) return `${num.toLocaleString()}+`;
     if (value.includes("%")) return `${num}%`;
+    if (value.includes("th")) return `${num}th`;
     return num.toLocaleString();
   };
 

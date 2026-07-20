@@ -1,15 +1,17 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { GreShortcut } from "@/components/GreShortcut";
+import { StudentScoreCarousel } from "@/components/StudentScoreCarousel";
 import { ProblemSection } from "@/components/ProblemSection";
 import { SeekMethod } from "@/components/SeekMethod";
-import Testimonials from "@/components/Testimonials";
 import { AboutMe } from "@/components/AboutMe";
 import { SupportTabs } from "@/components/SupportTabs";
 import { BookDemoForm } from "@/components/BookDemoForm";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { ScrollToSection } from "@/components/ScrollToSection";
+import { FeaturesDiagram } from "@/components/FeaturesDiagram";
+import { MethodTimeline } from "@/components/MethodTimeline";
 import { motion } from "framer-motion";
 import { Users, BarChart2, TrendingUp, Award, Star } from "lucide-react";
 
@@ -25,8 +27,28 @@ const Index = () => {
         {/* GRE SHORTCUT SECTION */}
         <GreShortcut />
 
-        {/* TESTIMONIALS */}
-        <Testimonials />
+        {/* TOP ACHIEVERS SECTION */}
+        <section className="py-16 bg-background relative overflow-hidden">
+          <div className="max-w-[1200px] mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-blue-600 block">
+              OUR STUDENTS' SUCCESS
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold font-display text-foreground mt-4 mb-2 tracking-tight">
+              Our Top Achievers
+            </h2>
+            <div className="w-16 h-1 bg-blue-600 rounded-full mx-auto my-5" />
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
+              Meet some of our top-performing students who achieved outstanding score improvements.
+            </p>
+            <StudentScoreCarousel type="gre" />
+          </div>
+        </section>
+
+        {/* FEATURES DIAGRAM SECTION */}
+        <FeaturesDiagram />
+
+        {/* METHODOLOGY STICKY SCROLL TIMELINE */}
+        <MethodTimeline />
 
         {/* TRUST HEADER */}
         <section className="pt-16 pb-4 px-8 md:px-16 lg:px-24 xl:px-16 text-center bg-gradient-to-b from-background via-blue-50/20 to-indigo-50/30 mesh-blue-indigo">

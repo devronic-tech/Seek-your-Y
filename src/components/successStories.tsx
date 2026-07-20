@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Check } from "lucide-react";
 import { CustomFAQ } from "@/components/CustomFAQ";
+import { CallToAction } from "@/components/CallToAction";
+import { Footer } from "@/components/Footer";
 
 const SuccessStories: React.FC = () => {
   const successFaqs = [
@@ -34,17 +36,17 @@ const SuccessStories: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left column - heading + text */}
           <div className="relative">
-            <p className="inline-block rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-[#0052CC] shadow-sm">EMPOWERING GLOBAL DREAMS</p>
-            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight relative">23 Years. 500+ Students. <br/> One Relentless Belief: Every Student Has Untapped Potential.</h2>
-            <div className="mt-3 w-40 h-2 bg-gradient-to-r from-[#0052CC] to-[#F43F5E] rounded-full shadow-sm" />
+            <p className="inline-block rounded-full border border-primary/15 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-primary shadow-sm">EMPOWERING GLOBAL DREAMS</p>
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground leading-tight relative">23 Years. 500+ Students. <br/> One Relentless Belief: Every Student Has Untapped Potential.</h2>
+            <div className="mt-3 w-40 h-2 bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 rounded-full shadow-sm" />
 
-            <p className="mt-6 text-lg text-muted-foreground max-w-lg pl-6 border-l-4 border-[#0052CC]/20">
+            <p className="mt-6 text-lg text-muted-foreground max-w-lg pl-6 border-l-4 border-primary/20">
               Seek Your Y was founded with a clear and ambitious vision: that world-class education guidance should be accessible to all, not just a privileged few. We combine rigorous academic coaching with genuine mentorship to help students reach their goals.
             </p>
 
             <div className="mt-8 flex items-center gap-6">
               <Link to="/programs">
-                <Button className="rounded-full bg-gradient-to-r from-[#0052CC] to-[#F43F5E] hover:opacity-95 text-white px-6 py-3">Start Your Journey</Button>
+                <Button className="rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 text-white px-6 py-3">Start Your Journey</Button>
               </Link>
 
               <div className="flex items-center gap-3">
@@ -74,7 +76,7 @@ const SuccessStories: React.FC = () => {
             </div>
 
             <div className="absolute bottom-6 -right-2">
-              <div className="rounded-full bg-gradient-to-br from-[#0052CC] to-[#F43F5E] w-16 h-16 flex items-center justify-center shadow-lg">
+              <div className="rounded-full bg-gradient-to-br from-blue-600 via-indigo-500 to-violet-500 w-16 h-16 flex items-center justify-center shadow-lg">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 6.18 2 2 0 0 1 5 4h3a2 2 0 0 1 2 1.72c.12 1.01.37 2 .74 2.94a2 2 0 0 1-.45 2.11L9.91 12.91a16 16 0 0 0 6.18 6.18l1.06-1.06a2 2 0 0 1 2.11-.45c.94.37 1.93.62 2.94.74A2 2 0 0 1 22 16.92z" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
               </div>
             </div>
@@ -87,11 +89,18 @@ const SuccessStories: React.FC = () => {
 
       {/* Driving Global Excellence */}
       <section className="pt-12 pb-8">
-        <h3 className="text-center text-3xl md:text-4xl font-extrabold text-foreground">Driving <span className="text-[#0052CC]">Global Excellence</span></h3>
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="h-px w-12 bg-primary/40" />
+          <span className="rounded-full border border-primary/15 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-primary shadow-sm">
+            OUR PURPOSE
+          </span>
+          <div className="h-px w-12 bg-primary/40" />
+        </div>
+        <h3 className="text-center text-3xl md:text-4xl font-extrabold text-foreground mb-8">Driving <span className="text-primary">Global Excellence</span></h3>
         <div className="mx-auto max-w-[1200px] px-6 py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-[24px] p-10 shadow-soft border border-border/50">
-              <div className="w-12 h-12 rounded-xl bg-[#EAF3FF] flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                 <img src="/assets/gre-asset/analytics.png" alt="icon" className="w-6 h-6" />
               </div>
               <h4 className="text-2xl font-bold text-foreground mb-4">Our Mission</h4>
@@ -99,7 +108,7 @@ const SuccessStories: React.FC = () => {
             </div>
 
             <div className="bg-white rounded-[24px] p-10 shadow-soft border border-border/50">
-              <div className="w-12 h-12 rounded-xl bg-[#FFF1F4] flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6">
                 <img src="/assets/gre-asset/board.webp" alt="icon" className="w-6 h-6" />
               </div>
               <h4 className="text-2xl font-bold text-foreground mb-4">Our Vision</h4>
@@ -115,32 +124,32 @@ const SuccessStories: React.FC = () => {
         <div className="mx-auto max-w-[1200px] px-6 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="mx-auto mb-4 w-16 h-16 rounded bg-[#EAF3FF] flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#0052CC]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#0052CC" strokeWidth="1.5"></rect></svg>
+              <div className="mx-auto mb-4 w-16 h-16 rounded bg-primary/10 flex items-center justify-center">
+                <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"></rect></svg>
               </div>
               <div className="text-4xl font-extrabold">500</div>
               <div className="text-xs mt-2 text-rose-200">+ TOTAL COURSES</div>
             </div>
 
             <div>
-              <div className="mx-auto mb-4 w-16 h-16 rounded bg-[#FFF1F4] flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#F43F5E]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v4" stroke="#F43F5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+              <div className="mx-auto mb-4 w-16 h-16 rounded bg-destructive/10 flex items-center justify-center">
+                <svg className="w-6 h-6 text-destructive" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
               </div>
               <div className="text-4xl font-extrabold">1900</div>
               <div className="text-xs mt-2 text-rose-200">+ OUR STUDENTS</div>
             </div>
 
             <div>
-              <div className="mx-auto mb-4 w-16 h-16 rounded bg-[#EAF3FF] flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#0052CC]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="#0052CC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+              <div className="mx-auto mb-4 w-16 h-16 rounded bg-primary/10 flex items-center justify-center">
+                <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
               </div>
               <div className="text-4xl font-extrabold">750</div>
               <div className="text-xs mt-2 text-rose-200">+ SKILLED LECTURERS</div>
             </div>
 
             <div>
-              <div className="mx-auto mb-4 w-16 h-16 rounded bg-[#FFF1F4] flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#F43F5E]" viewBox="0 0 24 24" fill="none" xmlns="www.w3.org/2000/svg"><path d="M12 2v20" stroke="#F43F5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+              <div className="mx-auto mb-4 w-16 h-16 rounded bg-destructive/10 flex items-center justify-center">
+                <svg className="w-6 h-6 text-destructive" viewBox="0 0 24 24" fill="none" xmlns="www.w3.org/2000/svg"><path d="M12 2v20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
               </div>
               <div className="text-4xl font-extrabold">30</div>
               <div className="text-xs mt-2 text-rose-200">+ WIN AWARDS</div>
@@ -151,6 +160,13 @@ const SuccessStories: React.FC = () => {
 
             {/* Experts carousel - auto scroll */}
             <div className="mx-auto max-w-[1200px] px-6 py-16">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="h-px w-12 bg-primary/40" />
+                <span className="rounded-full border border-primary/15 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-primary shadow-sm">
+                  OUR EXPERTS
+                </span>
+                <div className="h-px w-12 bg-primary/40" />
+              </div>
               <h3 className="text-center text-3xl md:text-4xl font-extrabold text-foreground mb-8">Meet Our Experts</h3>
               <ExpertsCarousel />
             </div>
@@ -159,12 +175,12 @@ const SuccessStories: React.FC = () => {
       <section className="bg-[#f7f8fb]">
         <div className="mx-auto max-w-[1200px] px-6 pb-20">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.4em] text-[#0052CC] shadow-[0_10px_25px_rgba(0,82,204,0.08)] border border-[#0052CC]/15">
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#F43F5E]" />
+            <p className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-primary shadow-sm">
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-destructive" />
               Why Choose Us?
             </p>
             <h2 className="mt-8 text-5xl font-extrabold tracking-tight text-slate-950 sm:text-6xl">
-              Why Choose <span className="text-[#0052CC]">Seek-Your-Y?</span>
+              Why Choose <span className="text-primary">Seek-Your-Y?</span>
             </h2>
           </div>
 
@@ -254,7 +270,9 @@ const SuccessStories: React.FC = () => {
         </div>
       </section>
 
+      <CallToAction />
       <CustomFAQ faqs={successFaqs} />
+      <Footer />
     </section>
   );
 };

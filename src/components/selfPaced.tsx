@@ -1,6 +1,29 @@
 import React, { useState } from "react";
 import { BookOpen, Zap, Activity, Gift, ChevronDown, BarChart3 } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { ProgramHero } from "@/components/ProgramHero";
+import { BookSessionDialog } from "@/components/BookSessionDialog";
+import { CustomFAQ } from "@/components/CustomFAQ";
+import { CallToAction } from "@/components/CallToAction";
+
+const selfPacedFaqs = [
+  {
+    question: "How long is the self-paced course valid for?",
+    answer: "Each course comes with 6 months of validity from the date of purchase, giving you plenty of study time."
+  },
+  {
+    question: "Are mock tests included in the self-paced plan?",
+    answer: "Yes, our self-paced plans include the full GMAT/GRE Quant test series with simulated full-length mocks."
+  },
+  {
+    question: "Can I upgrade to private tutoring later if I get stuck?",
+    answer: "Absolutely. You can upgrade to a private tutoring or live prep tier at any point during your preparation."
+  },
+  {
+    question: "How do I get my doubts resolved?",
+    answer: "You get access to our online student doubt forum where you can post queries and receive expert assistance."
+  }
+];
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
 import booksIcon from "@/assets/paced-icon/books.webp";
 import qaIcon from "@/assets/paced-icon/qa.webp";
@@ -9,6 +32,7 @@ import studentIcon from "@/assets/paced-icon/student.webp";
 import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const SelfPaced = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
 
   const [selectedTrack, setSelectedTrack] = useState("quant");
 
@@ -118,111 +142,12 @@ const SelfPaced = () => {
 
   return (
     <div className="bg-background text-foreground">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/60 to-indigo-50/40 py-20">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_420px] gap-8 items-start">
-            <div className="pt-6">
-              <div className="pill pill-blue">GRE® ONLINE PREP</div>
-              <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-[4.5rem]">GRE EXAM PREPARATION AT YOUR OWN PACE</h1>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">For your uninterrupted GRE test prep</p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <button className="inline-flex items-center gap-3 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95">
-                  TAKE A FREE CLASS
-                </button>
-                <button className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-card/95">
-                  CALL US
-                </button>
-              </div>
-            </div>
-
-            {/* Top scorers card */}
-            <div className="relative">
-              <div className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-soft">
-                <div className="mb-6 flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-slate-500">GRE Top Scorers</p>
-                    <p className="mt-2 text-sm text-slate-600">Recent achievers from our GRE cohort</p>
-                  </div>
-                  <div className="rounded-3xl bg-[#EAF3FF] px-4 py-2 text-sm font-semibold text-[#0052CC]">2025</div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="rounded-3xl p-4 bg-[#F8FAFF]">
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0052CC]/10 text-[#0052CC] font-semibold">M</div>
-                        <div>
-                          <p className="font-semibold text-slate-950">Manya Sharma</p>
-                          <p className="text-sm text-slate-600">Punjab College</p>
-                        </div>
-                      </div>
-                      <div className="rounded-3xl bg-slate-950 px-4 py-3 text-right text-white shadow-sm">
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-slate-300">GRE</p>
-                        <p className="mt-1 text-2xl font-bold leading-none">324</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-3xl p-4 bg-[#EFF6FF]">
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-centered gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0052CC]/10 text-[#0052CC] font-semibold">A</div>
-                        <div>
-                          <p className="font-semibold text-slate-950">Anant Govil</p>
-                          <p className="text-sm text-slate-600">DTU - Delhi Technological University</p>
-                        </div>
-                      </div>
-                      <div className="rounded-3xl bg-slate-950 px-4 py-3 text-right text-white shadow-sm">
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-slate-300">GRE</p>
-                        <p className="mt-1 text-2xl font-bold leading-none">323</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-3xl p-4 bg-[#F8FAFF]">
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0052CC]/10 text-[#0052CC] font-semibold">S</div>
-                        <div>
-                          <p className="font-semibold text-slate-950">Shaurya Srivastava</p>
-                          <p className="text-sm text-slate-600">NIIT University</p>
-                        </div>
-                      </div>
-                      <div className="rounded-3xl bg-slate-950 px-4 py-3 text-right text-white shadow-sm">
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-slate-300">GRE</p>
-                        <p className="mt-1 text-2xl font-bold leading-none">322</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-3xl p-4 bg-[#EFF6FF]">
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0052CC]/10 text-[#0052CC] font-semibold">E</div>
-                        <div>
-                          <p className="font-semibold text-slate-950">Eshan Singh</p>
-                          <p className="text-sm text-slate-600">DYPiemr</p>
-                        </div>
-                      </div>
-                      <div className="rounded-3xl bg-slate-950 px-4 py-3 text-right text-white shadow-sm">
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-slate-300">GRE</p>
-                        <p className="mt-1 text-2xl font-bold leading-none">321</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProgramHero type="gre" />
 
       {/* MAIN CONTENT - Description + Form */}
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1fr_360px] items-start">
+          <div className="w-full">
             <div className="prose max-w-none text-base text-slate-700">
               <p>
                 GRE Self-paced coaching allows students to prepare for the GRE at their convenience. These are pre-recorded videos that cover all concepts tested on the GRE with examples of applications of those concepts. GRE online training in a self-paced environment ensures that students can speed up or slow down their preparation based on their schedules.
@@ -234,31 +159,6 @@ const SelfPaced = () => {
                 ))}
               </ul>
             </div>
-
-            <aside className="rounded-2xl border border-border bg-card/60 p-6">
-              <h3 className="text-center text-lg font-semibold text-foreground">Speak to an Expert</h3>
-              <form className="mt-4 space-y-3">
-                <input className="w-full rounded-lg border border-border bg-card px-3 py-2" placeholder="Name" />
-                <div className="flex gap-2">
-                  <select className="w-28 rounded-lg border border-border bg-card px-2"> <option>+91</option> </select>
-                  <input className="flex-1 rounded-lg border border-border bg-card px-3 py-2" placeholder="Mobile Number" />
-                </div>
-                <input className="w-full rounded-lg border border-border bg-card px-3 py-2" placeholder="Email Id" />
-                <select className="w-full rounded-lg border border-border bg-card px-3 py-2">
-                  <option>Interested in?</option>
-                </select>
-                <select className="w-full rounded-lg border border-border bg-card px-3 py-2">
-                  <option>Your City</option>
-                </select>
-                <select className="w-full rounded-lg border border-border bg-card px-3 py-2">
-                  <option>Nearest Center</option>
-                </select>
-                <label className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <input type="checkbox" className="rounded border-border text-primary" /> Stay informed via SMS & WhatsApp
-                </label>
-                <button className="w-full rounded-lg px-4 py-2 font-semibold text-primary-foreground bg-primary hover:brightness-95">Schedule a Call</button>
-              </form>
-            </aside>
           </div>
         </div>
       </section>
@@ -271,8 +171,12 @@ const SelfPaced = () => {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">CHOOSE YOUR TRACK</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl text-foreground">Pick your track</h2>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-12 bg-primary/40" />
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">CHOOSE YOUR TRACK</span>
+              <div className="h-px w-12 bg-primary/40" />
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Pick your track</h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">Already strong in one section? Prep only what you need — or take the full course.</p>
           </div>
 
@@ -334,8 +238,12 @@ const SelfPaced = () => {
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">PRICING</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl text-foreground">Plans & pricing</h2>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-12 bg-primary/40" />
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">PRICING</span>
+              <div className="h-px w-12 bg-primary/40" />
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Plans & pricing</h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">Priced below every major alternative — without cutting a single corner.</p>
           </div>
 
@@ -369,7 +277,10 @@ const SelfPaced = () => {
                 </li>
               </ul>
 
-              <button className="w-full rounded-full px-6 py-3 font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition-all duration-200">
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="w-full rounded-full px-6 py-3 font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition-all duration-200"
+              >
                 Enroll Now
               </button>
             </div>
@@ -409,7 +320,10 @@ const SelfPaced = () => {
                 </li>
               </ul>
 
-              <button className="w-full rounded-full px-6 py-3 font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition-all duration-200">
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="w-full rounded-full px-6 py-3 font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition-all duration-200"
+              >
                 Enroll Now
               </button>
             </div>
@@ -443,7 +357,10 @@ const SelfPaced = () => {
                 </li>
               </ul>
 
-              <button className="w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow hover:opacity-95 transition-all duration-200">
+              <button 
+                onClick={() => setIsBookSessionOpen(true)}
+                className="w-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow hover:opacity-95 transition-all duration-200"
+              >
                 Enroll Now
               </button>
             </div>
@@ -463,32 +380,10 @@ const SelfPaced = () => {
      
      
 
-      {/* CTA Section */}
-      <section className="bg-slate-50 py-20 px-6">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[36px] border border-border p-12 text-white shadow-soft sm:p-16" style={{ backgroundImage: "var(--gradient-primary)" }}>
-            <div className="text-center space-y-6">
-              <div className="flex justify-center">
-                <div className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-primary-foreground backdrop-blur">
-                  Your success journey starts here
-                </div>
-              </div>
-              <h2 className="text-4xl font-bold sm:text-5xl md:text-6xl">Ready to find your Y?</h2>
-              <p className="mx-auto max-w-2xl text-lg leading-8 text-primary-foreground">
-                Book a free demo session and a 1-on-1 strategy call. We'll map your target score, timeline and study plan — no strings attached.
-              </p>
-              <div className="pt-6">
-                <button className="inline-flex rounded-full bg-card px-8 py-3 text-base font-semibold text-primary shadow-lg shadow-white/20 transition hover:shadow-xl hover:bg-card/95">
-                  Book a Free Demo
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
+      <CallToAction />
+      <CustomFAQ faqs={selfPacedFaqs} title="Self-Paced Course FAQs" />
       <Footer />
+      <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
     </div>
   );
 };

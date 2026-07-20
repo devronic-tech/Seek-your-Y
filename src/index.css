@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Global minimum font-size: 16px ─────────────────────────────────────
+   Override Tailwind utility classes that produce sizes below 16px.
+   text-xs = 12px → 16px | text-sm = 14px → 16px
+   Any arbitrary sizes smaller than 16px are also clamped globally.
+   ────────────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Clamp Tailwind xs / sm text utilities to minimum 16px */
+  .text-xs   { font-size: 1rem !important; }   /* was 0.75rem / 12px */
+  .text-sm   { font-size: 1rem !important; }   /* was 0.875rem / 14px */
+}
+
 @layer base {
   :root {
     /* SeekYourY design system (single theme) */

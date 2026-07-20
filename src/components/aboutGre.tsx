@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
+import { CallToAction } from "@/components/CallToAction";
+import { Footer } from "@/components/Footer";
 import {
   ArrowRight,
   BarChart3,
@@ -13,6 +15,7 @@ import {
   BookOpen,
   PenTool,
 } from "lucide-react";
+import { ProgramHero } from "@/components/ProgramHero";
 import ManyaPhoto from "@/assets/student_pics/Manya.jpeg";
 import PraffulPhoto from "@/assets/student_pics/Prafful.jpeg";
 import ArjunPhoto from "@/assets/student_pics/Arjun M S.jpeg";
@@ -23,7 +26,7 @@ const AboutGre = () => {
   const [activeMode, setActiveMode] = useState("classroom");
   const [activeGreFocus, setActiveGreFocus] = useState("concepts");
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
-  const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>("quant");
+  const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>(null);
   const [isReviewPaused, setIsReviewPaused] = useState(false);
   const reviewListRef = useRef<HTMLDivElement | null>(null);
   const reviewCardsRef = useRef<HTMLDivElement[]>([]);
@@ -345,96 +348,31 @@ const AboutGre = () => {
   };
 
   return (
-    <div className="bg-slate-50 text-slate-950">
-      <section className="overflow-hidden bg-slate-50 py-20">
-        <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-br from-[#EFF6FF] via-white to-transparent" />
-        <div className="relative mx-auto max-w-[1440px] px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] items-center">
-            <div className="space-y-6">
-              <div className="inline-flex rounded-full border border-[#0052CC]/15 bg-[#EAF3FF] px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#0052CC] shadow-sm">
-                GRE PREP
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl md:text-[4.5rem]">
-                We Deliver the GRE Scores that Top Colleges Want
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                Premium GRE coaching designed for ambitious learners. Build the test skills, speed, and confidence you need to compete for top programs.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="inline-flex items-center gap-2 rounded-full bg-[#0052CC] px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0052CC]/20 transition hover:bg-[#0041a8]">
-                  Take a Free Class
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-                <button className="inline-flex items-center gap-2 rounded-full border border-[#0052CC] bg-white px-7 py-3 text-sm font-semibold text-[#0052CC] transition hover:bg-[#0052CC]/5">
-                  Call Us
-                </button>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute -left-6 top-0 hidden h-32 w-32 rounded-full bg-[#6366F1]/10 blur-3xl lg:block" />
-              <div className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-soft">
-                <div className="mb-6 flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-slate-500">GRE Top Scorers</p>
-                    <p className="mt-2 text-sm text-slate-600">Recent achievers from our GRE cohort</p>
-                  </div>
-                  <div className="rounded-3xl bg-[#EAF3FF] px-4 py-2 text-sm font-semibold text-[#0052CC]">
-                    2025
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  {results.map((result, index) => (
-                    <div
-                      key={result.name}
-                      className={`rounded-3xl p-4 ${index % 2 === 0 ? "bg-[#F8FAFF]" : "bg-[#EFF6FF]"}`}
-                    >
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0052CC]/10 text-[#0052CC] font-semibold">
-                            {result.avatar}
-                          </div>
-                          <div>
-                            <p className="font-semibold text-slate-950">{result.name}</p>
-                            <p className="text-sm text-slate-600">{result.school}</p>
-                          </div>
-                        </div>
-                        <div className="rounded-3xl bg-slate-950 px-4 py-3 text-right text-white shadow-sm">
-                          <p className="text-[0.65rem] uppercase tracking-[0.24em] text-slate-300">GRE</p>
-                          <p className="mt-1 text-2xl font-bold leading-none">{result.score}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="bg-slate-50 text-foreground">
+      <ProgramHero type="gre" />
 
       <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
-          <div className="grid gap-10 xl:grid-cols-[1.4fr_0.95fr] items-stretch">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="w-full">
             <div className="space-y-8 flex flex-col">
               <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
-                <h2 className="text-3xl font-semibold text-slate-950">What is the GRE?</h2>
-                <p className="mt-5 text-lg leading-8 text-slate-600">
+                <h2 className="text-3xl font-semibold text-foreground">What is the GRE?</h2>
+                <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   The Graduate Record Examination (GRE) General Test is a multiple-choice exam for applicants seeking advanced study overseas. It helps graduate schools evaluate reasoning, analytical writing, and critical thinking across multiple fields.
                 </p>
-                <p className="mt-4 text-lg leading-8 text-slate-600">
+                <p className="mt-4 text-lg leading-8 text-muted-foreground">
                   Our GRE prep combines targeted strategy, timed practice, and expert mentoring so you can build score-driving confidence for top programs in the US, UK, Canada, and beyond.
                 </p>
               </div>
 
               <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-soft">
                 <div className="border-b border-slate-200 bg-slate-50 px-6 py-6">
-                  <h3 className="text-xl font-semibold text-slate-950">GRE Exam Pattern</h3>
+                  <h3 className="text-xl font-semibold text-foreground">GRE Exam Pattern</h3>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-slate-200 bg-gradient-to-r from-[#0052CC] to-[#003A99]">
+                      <tr className="border-b border-slate-200 bg-gradient-to-r from-primary to-[#003A99]">
                         <th className="px-6 py-3 text-left text-base font-semibold text-white">Section</th>
                         <th className="px-6 py-3 text-left text-base font-semibold text-white">Questions</th>
                         <th className="px-6 py-3 text-left text-base font-semibold text-white">Time</th>
@@ -494,15 +432,15 @@ const AboutGre = () => {
               </div>
 
               <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-soft">
-                <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-[#EEF2FF] via-[#F8FAFF] to-transparent">
+                <div className="relative aspect-auto min-h-[340px] sm:min-h-0 sm:aspect-video overflow-hidden bg-gradient-to-br from-[#EEF2FF] via-[#F8FAFF] to-transparent">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(99,_102,_241,_0.14),_transparent_45%)]" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-[#0052CC] shadow-lg">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg">
                       <Play className="h-8 w-8" />
                     </div>
                     <div className="mt-4 max-w-[24rem] rounded-3xl border border-white/70 bg-white/90 px-5 py-4 shadow-sm">
-                      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#0052CC]">GRE Overview</p>
-                      <p className="mt-2 text-sm leading-7 text-slate-600">Watch a crisp preview of our GRE preparation approach and student success stories.</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">GRE Overview</p>
+                      <p className="mt-2 text-sm leading-7 text-muted-foreground">Watch a crisp preview of our GRE preparation approach and student success stories.</p>
                     </div>
                   </div>
                 </div>
@@ -511,12 +449,12 @@ const AboutGre = () => {
               <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
                 <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-center">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-[#EAF3FF] px-4 py-2 text-sm font-semibold text-[#0052CC]">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
                       <Globe2 className="h-4 w-4" />
                       GRE for Global MS
                     </div>
-                    <h3 className="text-3xl font-semibold text-slate-950">The GRE advantage for your next master’s application</h3>
-                    <p className="text-lg leading-8 text-slate-600">
+                    <h3 className="text-3xl font-semibold text-foreground">The GRE advantage for your next master’s application</h3>
+                    <p className="text-lg leading-8 text-muted-foreground">
                       GRE gives you a flexible, globally accepted score report that works for top MS programs while keeping your application options open across business, engineering and science.
                     </p>
                   </div>
@@ -524,12 +462,12 @@ const AboutGre = () => {
                   <div className="grid gap-4">
                     <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
                       <div className="flex items-center gap-3">
-                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#0052CC]">
+                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EEF2FF] text-primary">
                           <BarChart3 className="h-5 w-5" />
                         </div>
                         <div>
-                          <p className="text-sm font-semibold text-slate-950">Accepted worldwide</p>
-                          <p className="text-sm text-slate-600">GRE is accepted by 1,200+ programs globally.</p>
+                          <p className="text-sm font-semibold text-foreground">Accepted worldwide</p>
+                          <p className="text-sm text-muted-foreground">GRE is accepted by 1,200+ programs globally.</p>
                         </div>
                       </div>
                     </div>
@@ -539,8 +477,8 @@ const AboutGre = () => {
                           <Clock3 className="h-5 w-5" />
                         </div>
                         <div>
-                          <p className="text-sm font-semibold text-slate-950">Flexible timetable</p>
-                          <p className="text-sm text-slate-600">Choose the test date that fits your study pace.</p>
+                          <p className="text-sm font-semibold text-foreground">Flexible timetable</p>
+                          <p className="text-sm text-muted-foreground">Choose the test date that fits your study pace.</p>
                         </div>
                       </div>
                     </div>
@@ -550,8 +488,8 @@ const AboutGre = () => {
                           <ShieldCheck className="h-5 w-5" />
                         </div>
                         <div>
-                          <p className="text-sm font-semibold text-slate-950">Send only your best</p>
-                          <p className="text-sm text-slate-600">Report scores selectively to schools after you decide.</p>
+                          <p className="text-sm font-semibold text-foreground">Send only your best</p>
+                          <p className="text-sm text-muted-foreground">Report scores selectively to schools after you decide.</p>
                         </div>
                       </div>
                     </div>
@@ -559,99 +497,20 @@ const AboutGre = () => {
                 </div>
               </div>
             </div>
-
-            <aside className="lg:sticky lg:top-28 h-fit">
-              <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
-                <div className="mb-7">
-                  <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#0052CC]">Speak to an Expert</p>
-                  <h3 className="mt-4 text-2xl font-semibold text-slate-950">Book a GRE consultation</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
-                    Share a few details and our expert team will call you with a tailored plan.
-                  </p>
-                </div>
-                <form className="space-y-4">
-                  <label className="block text-sm font-medium text-slate-900">
-                    Name
-                    <input
-                      type="text"
-                      placeholder="Your name"
-                      className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#0052CC] focus:ring-2 focus:ring-[#0052CC]/20"
-                    />
-                  </label>
-                  <label className="block text-sm font-medium text-slate-900">
-                    Mobile Number
-                    <div className="mt-2 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-1.5">
-                      <span className="inline-flex items-center rounded-2xl bg-slate-100 px-3 text-sm font-semibold text-slate-600">+91</span>
-                      <input
-                        type="tel"
-                        placeholder="Mobile Number"
-                        className="flex-1 rounded-2xl border-none bg-transparent px-3 py-3 text-sm text-slate-900 outline-none"
-                      />
-                    </div>
-                  </label>
-                  <label className="block text-sm font-medium text-slate-900">
-                    Email
-                    <input
-                      type="email"
-                      placeholder="Email Id"
-                      className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#0052CC] focus:ring-2 focus:ring-[#0052CC]/20"
-                    />
-                  </label>
-                  <label className="block text-sm font-medium text-slate-900">
-                    Interested in?
-                    <select className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#0052CC] focus:ring-2 focus:ring-[#0052CC]/20">
-                      <option>GRE Coaching</option>
-                      <option>Mock Tests</option>
-                      <option>Hybrid Program</option>
-                      <option>One-on-One Mentoring</option>
-                    </select>
-                  </label>
-                  <label className="block text-sm font-medium text-slate-900">
-                    Your City
-                    <select className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#0052CC] focus:ring-2 focus:ring-[#0052CC]/20">
-                      <option>Delhi</option>
-                      <option>Gurgaon</option>
-                      <option>Mumbai</option>
-                      <option>Bengaluru</option>
-                      <option>Other</option>
-                    </select>
-                  </label>
-                  <label className="block text-sm font-medium text-slate-900">
-                    Nearest Center
-                    <select className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#0052CC] focus:ring-2 focus:ring-[#0052CC]/20">
-                      <option>Central Delhi</option>
-                      <option>South Delhi</option>
-                      <option>Gurugram</option>
-                      <option>Online</option>
-                    </select>
-                  </label>
-                  <label className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                    <input type="checkbox" className="mt-1 h-4 w-4 rounded border-slate-300 text-[#0052CC] focus:ring-[#0052CC]" />
-                    <span>Stay informed via SMS & WhatsApp</span>
-                  </label>
-                  <button
-                    type="submit"
-                    className="w-full rounded-2xl bg-gradient-to-r from-[#6366F1] to-[#3B82F6] px-5 py-4 text-sm font-semibold text-white shadow-lg shadow-[#3B82F6]/20 transition hover:opacity-95"
-                  >
-                    Schedule a Call
-                  </button>
-                </form>
-              </div>
-            </aside>
           </div>
 
           {/* GRE FOR MBA Section */}
           <div className="mt-20 text-center max-w-[1200px] mx-auto">
-            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
-              GRE FOR MBA
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-950 mt-4 mb-3 tracking-tight">
-              The smarter route to your <span className="text-[#0052CC]">MBA</span>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-px w-12 bg-primary/40" />
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">GRE FOR MBA</span>
+              <div className="h-px w-12 bg-primary/40" />
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center mt-4 mb-3">
+              The smarter route to your <span className="text-primary">MBA</span>
             </h2>
-            
-            <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
 
-            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
               Determined to do an MBA from ISB, Singapore, the M7 or the Ivy League? You don't need
               the GMAT for that. Over the last 18 months a growing share of applicants have switched to
               the GRE — here's why.
@@ -662,50 +521,41 @@ const AboutGre = () => {
               <table className="w-full border-collapse text-left text-sm md:text-base">
                 <thead>
                   <tr className="border-b border-slate-200">
-                    <th className="px-6 py-4 bg-slate-50 w-1/3"></th>
-                    <th className="px-6 py-4 bg-[#0052CC] text-white font-bold text-center text-lg rounded-t-none">
+                    <th className="px-6 py-4 bg-slate-50 w-1/2"></th>
+                    <th className="px-6 py-4 bg-primary text-white font-bold text-center text-lg rounded-t-none w-1/2">
                       GRE
-                    </th>
-                    <th className="px-6 py-4 bg-slate-900 text-white font-bold text-center text-lg rounded-t-none">
-                      GMAT Focus
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Total time</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">1 hr 58 min</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">2 hr 15 min</td>
+                    <td className="px-6 py-5 text-primary font-bold text-center bg-blue-50/10">1 hr 58 min</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Sections</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Quant + Verbal + 1 short essay</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Quant + Verbal + Data Insights</td>
+                    <td className="px-6 py-5 text-primary font-bold text-center bg-blue-50/10">Quant + Verbal + 1 short essay</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Data Insights section</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">None — no DS, MSR or graph analysis</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">20 questions, a full third of your score</td>
+                    <td className="px-6 py-5 text-primary font-bold text-center bg-blue-50/10">None — no DS, MSR or graph analysis</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Quant style</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">More standard, formula-friendly math</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Logic-heavy word problems</td>
+                    <td className="px-6 py-5 text-primary font-bold text-center bg-blue-50/10">More standard, formula-friendly math</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Also usable for MS/PhD</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Yes — one score, two doors</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Business school only</td>
+                    <td className="px-6 py-5 text-primary font-bold text-center bg-blue-50/10">Yes — one score, two doors</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Accepted at ISB, M7, Ivy League, INSEAD, NUS/NTU</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Yes</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Yes</td>
+                    <td className="px-6 py-5 text-primary font-bold text-center bg-blue-50/10">Yes</td>
                   </tr>
                   <tr className="bg-slate-50/50">
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Retakes</td>
-                    <td colSpan={2} className="px-6 py-5 text-slate-700 text-center font-medium">
-                      Both: up to 5 times/year, 16–21 day gap
+                    <td className="px-6 py-5 text-slate-700 text-center font-medium">
+                      GRE: up to 5 times/year, 21-day gap
                     </td>
                   </tr>
                 </tbody>
@@ -715,14 +565,15 @@ const AboutGre = () => {
             {/* Syllabus Section */}
             <div className="mt-24 max-w-[1200px] mx-auto text-left">
               <div className="text-center mb-10">
-                <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-[#0052CC] block">
-                  SYLLABUS
-                </span>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-slate-950 mt-4 mb-3 tracking-tight">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="h-px w-12 bg-primary/40" />
+                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">SYLLABUS</span>
+                  <div className="h-px w-12 bg-primary/40" />
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center mt-4 mb-3">
                   The complete GRE syllabus
                 </h2>
-                <div className="w-16 h-1 bg-[#0052CC] rounded-full mx-auto my-5" />
-                <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                   Everything ETS tests, organised so you never have to dig through the official site. Click any section to expand.
                 </p>
               </div>
@@ -731,7 +582,7 @@ const AboutGre = () => {
                 {/* Quantitative Reasoning Accordion */}
                 <div className={`rounded-[20px] bg-white shadow-soft transition-all duration-200 overflow-hidden ${
                   openSyllabusSection === "quant" 
-                    ? "border border-slate-200 border-l-[6px] border-l-[#0052CC]" 
+                    ? "border border-slate-200 border-l-[6px] border-l-primary" 
                     : "border border-slate-200/80"
                 }`}>
                   <button
@@ -740,11 +591,11 @@ const AboutGre = () => {
                     className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-slate-50/50"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EAF3FF] text-[#0052CC]">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                         <Calculator className="h-6 w-6 stroke-[2]" />
                       </div>
                       <div>
-                        <span className="text-lg font-bold text-slate-950 block">Quantitative Reasoning</span>
+                        <span className="text-lg font-bold text-foreground block">Quantitative Reasoning</span>
                         <span className="text-xs md:text-sm text-slate-500 font-medium hidden sm:inline">
                           27 questions • 47 min • on-screen calculator provided
                         </span>
@@ -754,7 +605,7 @@ const AboutGre = () => {
                       <span className="text-xs text-slate-500 font-medium sm:hidden">
                         27 Qs • 47 min
                       </span>
-                      <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                      <span className="text-primary font-semibold text-2xl leading-none">
                         {openSyllabusSection === "quant" ? "−" : "+"}
                       </span>
                     </div>
@@ -762,7 +613,7 @@ const AboutGre = () => {
                   <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
                     openSyllabusSection === "quant" ? "max-h-[1000px] border-t border-slate-100 p-6" : "max-h-0 p-0"
                   }`}>
-                    <p className="text-sm md:text-base text-slate-600 mb-6">
+                    <p className="text-sm md:text-base text-muted-foreground mb-6">
                       Tests basic math skills and the ability to reason quantitatively. Four content areas:
                     </p>
                     
@@ -793,7 +644,7 @@ const AboutGre = () => {
                           <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">{section.title}</h4>
                           <div className="flex flex-wrap gap-2">
                             {section.pills.map((pill) => (
-                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-primary/10 text-primary cursor-default hover:bg-primary/20 transition-colors">
                                 {pill}
                               </span>
                             ))}
@@ -807,7 +658,7 @@ const AboutGre = () => {
                 {/* Verbal Reasoning Accordion */}
                 <div className={`rounded-[20px] bg-white shadow-soft transition-all duration-200 overflow-hidden ${
                   openSyllabusSection === "verbal" 
-                    ? "border border-slate-200 border-l-[6px] border-l-[#0052CC]" 
+                    ? "border border-slate-200 border-l-[6px] border-l-primary" 
                     : "border border-slate-200/80"
                 }`}>
                   <button
@@ -820,7 +671,7 @@ const AboutGre = () => {
                         <BookOpen className="h-6 w-6 stroke-[2]" />
                       </div>
                       <div>
-                        <span className="text-lg font-bold text-slate-950 block">Verbal Reasoning</span>
+                        <span className="text-lg font-bold text-foreground block">Verbal Reasoning</span>
                         <span className="text-xs md:text-sm text-slate-500 font-medium hidden sm:inline">
                           27 questions • 41 min • includes Critical Reasoning
                         </span>
@@ -830,7 +681,7 @@ const AboutGre = () => {
                       <span className="text-xs text-slate-500 font-medium sm:hidden">
                         27 Qs • 41 min
                       </span>
-                      <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                      <span className="text-primary font-semibold text-2xl leading-none">
                         {openSyllabusSection === "verbal" ? "−" : "+"}
                       </span>
                     </div>
@@ -838,7 +689,7 @@ const AboutGre = () => {
                   <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
                     openSyllabusSection === "verbal" ? "max-h-[1000px] border-t border-slate-100 p-6" : "max-h-0 p-0"
                   }`}>
-                    <p className="text-sm md:text-base text-slate-600 mb-6">
+                    <p className="text-sm md:text-base text-muted-foreground mb-6">
                       Tests the ability to analyze and evaluate written material, synthesize information, and recognize relationships between words and concepts.
                     </p>
                     
@@ -865,7 +716,7 @@ const AboutGre = () => {
                           <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">{section.title}</h4>
                           <div className="flex flex-wrap gap-2">
                             {section.pills.map((pill) => (
-                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-primary/10 text-primary cursor-default hover:bg-primary/20 transition-colors">
                                 {pill}
                               </span>
                             ))}
@@ -879,7 +730,7 @@ const AboutGre = () => {
                 {/* Analytical Writing Accordion */}
                 <div className={`rounded-[20px] bg-white shadow-soft transition-all duration-200 overflow-hidden ${
                   openSyllabusSection === "awa" 
-                    ? "border border-slate-200 border-l-[6px] border-l-[#0052CC]" 
+                    ? "border border-slate-200 border-l-[6px] border-l-primary" 
                     : "border border-slate-200/80"
                 }`}>
                   <button
@@ -892,7 +743,7 @@ const AboutGre = () => {
                         <PenTool className="h-6 w-6 stroke-[2]" />
                       </div>
                       <div>
-                        <span className="text-lg font-bold text-slate-950 block">Analytical Writing (AWA)</span>
+                        <span className="text-lg font-bold text-foreground block">Analytical Writing (AWA)</span>
                         <span className="text-xs md:text-sm text-slate-500 font-medium hidden sm:inline">
                           1 task • 30 min • scored 0-6
                         </span>
@@ -902,7 +753,7 @@ const AboutGre = () => {
                       <span className="text-xs text-slate-500 font-medium sm:hidden">
                         1 task • 30 min
                       </span>
-                      <span className="text-[#0052CC] font-semibold text-2xl leading-none">
+                      <span className="text-primary font-semibold text-2xl leading-none">
                         {openSyllabusSection === "awa" ? "−" : "+"}
                       </span>
                     </div>
@@ -910,7 +761,7 @@ const AboutGre = () => {
                   <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
                     openSyllabusSection === "awa" ? "max-h-[1000px] border-t border-slate-100 p-6" : "max-h-0 p-0"
                   }`}>
-                    <p className="text-sm md:text-base text-slate-600 mb-6">
+                    <p className="text-sm md:text-base text-muted-foreground mb-6">
                       Tests critical thinking and analytical writing skills. Measures your ability to articulate and support complex ideas, construct and evaluate arguments, and sustain a focused and coherent discussion.
                     </p>
                     
@@ -929,7 +780,7 @@ const AboutGre = () => {
                           <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">{section.title}</h4>
                           <div className="flex flex-wrap gap-2">
                             {section.pills.map((pill) => (
-                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-[#EAF3FF] text-[#0052CC] cursor-default hover:bg-[#EAF3FF]/80 transition-colors">
+                              <span key={pill} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-semibold bg-primary/10 text-primary cursor-default hover:bg-primary/20 transition-colors">
                                 {pill}
                               </span>
                             ))}
@@ -943,104 +794,12 @@ const AboutGre = () => {
             </div>
           </div>
 
-          <div className="mt-16">
-            <CustomFAQ faqs={greFaqs} />
-          </div>
-
-          {/* CTA Section */}
-          <section className="bg-slate-50 py-20 px-6 -mx-6 lg:-mx-8">
-            <div className="mx-auto max-w-[1200px]">
-              <div className="rounded-[36px] border border-slate-200 bg-gradient-to-br from-[#0052CC] to-[#003A99] p-12 text-white shadow-soft sm:p-16">
-                <div className="text-center space-y-6">
-                  <div className="flex justify-center">
-                    <div className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-blue-100 backdrop-blur">
-                      Ready for your next step?
-                    </div>
-                  </div>
-                  <h2 className="text-4xl font-bold sm:text-5xl md:text-6xl">Ready to find your Y?</h2>
-                  <p className="mx-auto max-w-2xl text-lg leading-8 text-blue-100">
-                    Book a free demo session and a 1-on-1 strategy call. We'll map your target score, timeline and study plan — no strings attached.
-                  </p>
-                  <div className="pt-6">
-                    <button className="inline-flex rounded-full bg-white px-8 py-3 text-base font-semibold text-[#0052CC] shadow-lg shadow-white/20 transition hover:shadow-xl hover:bg-slate-50">
-                      Book a Free Demo
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-100 py-16">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-12">
-            {/* Brand */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-white">Seekyoury</h4>
-              <p className="text-sm text-slate-400">Premium GRE and GMAT preparation for ambitious learners worldwide.</p>
-              <div className="flex gap-4 pt-2">
-                <a href="#" className="text-slate-400 hover:text-white transition">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20v-7.21H5.93v-2.96h2.36V7.9c0-2.34 1.43-3.62 3.52-3.62 1 0 1.86.07 2.11.1v2.44h-1.44c-1.13 0-1.35.54-1.35 1.32v1.73h2.71l-.35 2.96h-2.36V20H8.29z"/></svg>
-                </a>
-                <a href="#" className="text-slate-400 hover:text-white transition">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/></svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Programs */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-white">Programs</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-slate-400 hover:text-white transition">GRE Classroom</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">GRE Online</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">GRE Self-Paced</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">GMAT Prep</a></li>
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-white">Resources</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-slate-400 hover:text-white transition">Blog</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">Success Stories</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">FAQs</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">Contact Us</a></li>
-              </ul>
-            </div>
-
-            {/* Legal */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-white">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-slate-400 hover:text-white transition">Privacy Policy</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">Terms & Conditions</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">Refund Policy</a></li>
-                <li><a href="#" className="text-slate-400 hover:text-white transition">Sitemap</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-slate-800 pt-8">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <p className="text-sm text-slate-400">
-                © 2025 Seekyoury. All rights reserved. | Made with ❤️ for GRE aspirants
-              </p>
-              <div className="flex gap-6 text-sm text-slate-400">
-                <a href="#" className="hover:text-white transition">Privacy</a>
-                <a href="#" className="hover:text-white transition">Terms</a>
-                <a href="#" className="hover:text-white transition">Cookies</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <CallToAction />
+      <CustomFAQ faqs={greFaqs} />
+      <Footer />
     </div>
   );
 };

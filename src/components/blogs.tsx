@@ -62,25 +62,28 @@ const BlogsComponent: React.FC = () => {
   return (
     <div className="bg-background text-foreground">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0052CC] via-[#003A99] to-[#001F5C] pt-16 pb-24 text-white">
-        {/* soft background glow */}
-        <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-        <div className="absolute left-1/4 bottom-0 h-[300px] w-[300px] rounded-full bg-indigo-500/15 blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-20 pb-24 text-slate-900 border-b border-slate-200/60">
+        {/* Soft decorative glow */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-50">
+          <div
+            className="h-full w-full"
+            style={{
+              backgroundImage:
+                "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
+              backgroundSize: "20px 20px",
+            }}
+          />
+        </div>
 
         <div className="max-w-[1200px] mx-auto px-6 text-left relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-1 text-xs text-blue-200/80 mb-6 font-medium">
-            <Link to="/" className="hover:text-white transition">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-white">Blogs</span>
-          </div>
-
           <div className="max-w-3xl">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display leading-[1.15] tracking-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display leading-[1.15] tracking-tight mb-6 text-slate-900"
             >
               The Seek Your Y Blog
             </motion.h1>
@@ -89,7 +92,7 @@ const BlogsComponent: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-xl text-blue-100 font-normal leading-relaxed mb-8"
+              className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed mb-8"
             >
               Strategy deep-dives, MBA cost & ROI breakdowns, study plans and admissions trends — written by the people who teach it.
             </motion.p>
@@ -101,7 +104,7 @@ const BlogsComponent: React.FC = () => {
             >
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700 hover:shadow-xl hover:scale-[1.02] active:scale-95 duration-200"
+                className="inline-flex items-center justify-center rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-8 py-4 font-bold text-white shadow-lg shadow-indigo-500/20 transition hover:opacity-95 duration-200"
               >
                 Book a Free Demo
               </button>

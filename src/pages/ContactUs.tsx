@@ -36,31 +36,26 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-[#0B1530] via-[#0F172A] to-[#1E293B] pt-36 md:pt-40 pb-28 text-white">
+      <header className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-28 md:pt-36 pb-20 text-slate-900 border-b border-slate-200/60">
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-50">
           <div
             className="h-full w-full"
             style={{
               backgroundImage:
-                "radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)",
+                "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
               backgroundSize: "20px 20px",
             }}
           />
         </div>
 
         <div className="mx-auto max-w-[1200px] px-6 relative z-10 text-center">
-          <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-slate-400 mb-4 font-medium">
-            <a href="/" className="hover:text-white transition">Home</a>
-            <span>&gt;</span>
-            <span className="text-slate-200">Contact Us</span>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight font-display">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-4 leading-[1.1] font-display">
             Contact Us
           </h1>
           
-          <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Get in touch — we're here to help you navigate your journey.
           </p>
         </div>
@@ -72,7 +67,7 @@ const ContactUs = () => {
             <div className="mt-12 mb-10">
             <div className="mx-auto max-w-[1200px] px-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="rounded-[20px] bg-white p-8 shadow-soft text-center border border-slate-100">
+            <div className="rounded-[24px] bg-white p-8 shadow-soft text-center border border-border/50">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/5 text-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin w-6 h-6 text-[#1a2b4c] group-hover:text-white transition-colors duration-300" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
@@ -80,7 +75,7 @@ const ContactUs = () => {
               <p className="mt-3 text-sm text-muted-foreground">Seek Your Y, UGF 24, Arcadium One, Vrindavan Yojana Sector 16, Lucknow</p>
             </div>
 
-            <div className="rounded-[20px] bg-white p-8 shadow-soft text-center border border-slate-100">
+            <div className="rounded-[24px] bg-white p-8 shadow-soft text-center border border-border/50">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/5 text-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone-call w-6 h-6 text-[#1a2b4c] group-hover:text-white transition-colors duration-300" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
               </div>
@@ -88,7 +83,7 @@ const ContactUs = () => {
               <p className="mt-3 text-sm text-muted-foreground">+91 7307870773</p>
             </div>
 
-            <div className="rounded-[20px] bg-white p-8 shadow-soft text-center border border-slate-100">
+            <div className="rounded-[24px] bg-white p-8 shadow-soft text-center border border-border/50">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/5 text-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail w-6 h-6 text-[#1a2b4c] group-hover:text-white transition-colors duration-300" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
               </div>
@@ -96,7 +91,7 @@ const ContactUs = () => {
               <p className="mt-3 text-sm text-muted-foreground">seekyoury@gmail.com</p>
             </div>
 
-            <div className="rounded-[20px] bg-white p-8 shadow-soft text-center border border-slate-100">
+            <div className="rounded-[24px] bg-white p-8 shadow-soft text-center border border-border/50">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/5 text-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock w-6 h-6 text-[#1a2b4c] group-hover:text-white transition-colors duration-300" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
               </div>

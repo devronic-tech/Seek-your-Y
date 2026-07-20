@@ -5,7 +5,7 @@ const GmatPrivateTutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-[96px]">
+      <main className="pt-[72px]">
         <GmatPrivateTut />
       </main>
     </div>
