@@ -109,6 +109,24 @@ export const Footer = () => {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/50">© 2024 SeekYourY. All rights reserved.</p>
+
+          {/* Devronic Mark */}
+          <div className="flex items-center gap-2 text-xs bg-white py-1.5 px-3.5 rounded-full border border-slate-200 shadow-sm hover:shadow hover:scale-[1.02] transition-all duration-300 select-none">
+            <span className="text-slate-600 font-medium">Designed & Developed by</span>
+            <a
+              href="https://devronic.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:opacity-85 transition-opacity"
+            >
+              <img
+                src="/images/devronic_logo.png"
+                alt="Devronic Logo"
+                className="h-4 w-auto object-contain shrink-0"
+              />
+              <span className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Devronic</span>
+            </a>
+          </div>
         </div>
       </div>
 
