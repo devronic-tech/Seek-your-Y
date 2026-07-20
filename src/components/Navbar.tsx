@@ -46,16 +46,17 @@ export const Navbar = () => {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
-        isScrolled
-          ? "h-[72px] bg-white/95 backdrop-blur-xl border-b border-border/50 shadow-soft"
-          : "h-[72px] bg-white/90 backdrop-blur-xl border-b border-border/20 shadow-soft"
-      }`} 
-    >
+    <>
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
+          isScrolled
+            ? "h-[72px] bg-white border-b border-border/50 shadow-soft"
+            : "h-[72px] bg-white border-b border-border/20 shadow-soft"
+        }`} 
+      >
       <div className="max-w-[1440px] mx-auto h-full px-4 md:px-8 xl:px-12 flex items-center justify-between py-3">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 select-none cursor-pointer">
@@ -273,6 +274,8 @@ export const Navbar = () => {
         </div>
       </div>
 
+      </motion.nav>
+
       {/* MOBILE DRAWER */}
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -283,7 +286,7 @@ export const Navbar = () => {
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black z-[90] lg:hidden"
+              className="fixed inset-0 bg-black z-[91] lg:hidden"
             />
             {/* Panel */}
             <motion.div
@@ -291,7 +294,7 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-full max-w-[90vw] sm:max-w-[340px] bg-white/98 backdrop-blur-xl z-[95] shadow-elevated p-6 flex flex-col justify-between overflow-y-auto lg:hidden"
+              className="fixed right-0 top-0 bottom-0 w-full max-w-[90vw] sm:max-w-[340px] bg-white z-[95] shadow-elevated p-6 flex flex-col justify-between overflow-y-auto lg:hidden"
             >
               <div>
                 {/* Header */}
@@ -510,6 +513,6 @@ export const Navbar = () => {
       </AnimatePresence>
 
       <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
-    </motion.nav>
+    </>
   );
 };
