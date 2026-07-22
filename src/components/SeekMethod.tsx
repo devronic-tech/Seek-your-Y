@@ -35,12 +35,10 @@ export const SeekMethod = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6"
+            className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-6"
           >
-            <Zap className="w-3.5 h-3.5 text-primary" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
-              The Seek Your Y Method
-            </span>
+            <Zap className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+            <span>THE SEEK YOUR Y METHOD</span>
           </motion.div>
 
           <motion.h2
@@ -59,7 +57,8 @@ export const SeekMethod = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.14 }}
-            className="text-base md:text-lg text-muted-foreground leading-relaxed"
+            className="text-muted-foreground leading-relaxed"
+            style={{ fontSize: "20px" }}
           >
             We don't teach random tricks. We build a system that helps you{" "}
             <strong className="text-foreground font-semibold">understand, apply,</strong> and{" "}
@@ -129,28 +128,28 @@ export const SeekMethod = () => {
                 <div className={`absolute top-0 left-0 right-0 h-1.5 rounded-t-[28px] bg-gradient-to-r ${card.theme}`} />
 
                 {/* Number badge floating above card */}
-                <div className={`absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center font-black text-base shadow-md border-2 border-white ${card.numBg}`}>
+                <div className={`absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full flex items-center justify-center font-black text-lg shadow-md border-2 border-white ${card.numBg}`}>
                   {card.num}
                 </div>
 
-                {/* Icon LEFT + Heading+Text RIGHT */}
-                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 md:gap-6 flex-1 mb-6">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 border mt-1 shadow-sm ${card.iconBg}`}>
-                    <card.icon className="w-7 h-7 stroke-[2]" />
+                {/* Icon CENTERED + Heading+Text CENTERED */}
+                <div className="flex flex-col items-center text-center gap-4 flex-1 mb-6 pt-2">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 border shadow-md ${card.iconBg}`}>
+                    <card.icon className="w-8 h-8 stroke-[2.2]" />
                   </div>
-                  <div className="flex flex-col items-center sm:items-start">
-                    <h3 className={`text-base font-extrabold uppercase tracking-wide leading-tight ${card.textTheme}`}>
+                  <div className="flex flex-col items-center text-center">
+                    <h3 className={`text-xl md:text-2xl font-black uppercase tracking-wider leading-tight ${card.textTheme}`}>
                       {card.label}
                     </h3>
-                    <div className={`w-8 h-[3px] rounded-full mt-2.5 mb-3.5 ${card.lineColor}`} />
-                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{card.desc}</p>
+                    <div className={`w-10 h-[3.5px] rounded-full mt-2.5 mb-3.5 ${card.lineColor}`} />
+                    <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-sm mx-auto">{card.desc}</p>
                   </div>
                 </div>
 
                 {/* Single chip */}
                 <div className="flex justify-center pt-2">
-                  <span className={`inline-flex items-center gap-2 border text-sm font-semibold px-4 py-2 rounded-xl shadow-inner ${card.chipBg}`}>
-                    <CheckCircle2 className={`w-4 h-4 shrink-0 ${card.chipIcon}`} />
+                  <span className={`inline-flex items-center gap-2.5 border text-base font-bold px-5 py-2.5 rounded-2xl shadow-inner ${card.chipBg}`}>
+                    <CheckCircle2 className={`w-5 h-5 shrink-0 ${card.chipIcon}`} />
                     {card.chip}
                   </span>
                 </div>
@@ -190,10 +189,10 @@ export const SeekMethod = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-6"
           >
-            <span className="inline-flex items-center bg-primary/5 border border-primary/20 text-foreground text-xs font-bold uppercase tracking-[0.12em] px-5 py-2.5 rounded-full mb-6">
-              COURSES
-            </span>
+            <BookOpen className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+            <span>COURSES</span>
           </motion.div>
 
           <motion.h2
@@ -211,7 +210,8 @@ export const SeekMethod = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-[620px] mx-auto"
+            className="text-muted-foreground leading-relaxed max-w-[620px] mx-auto"
+            style={{ fontSize: "20px" }}
           >
             Whether you're starting from scratch or fine-tuning for test day, we have the right course for you.
           </motion.p>
@@ -285,7 +285,7 @@ export const SeekMethod = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] min-w-[260px] max-w-[320px] bg-card border border-border/80 hover:border-primary/40 rounded-[24px] p-8 flex flex-col items-center text-center gap-6 shadow-soft hover:shadow-medium transition-all duration-300"
+              className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] min-w-[270px] max-w-[340px] bg-card border border-border/80 hover:border-primary/40 rounded-[24px] p-8 flex flex-col items-center text-center gap-6 shadow-soft hover:shadow-medium transition-all duration-300"
             >
               {/* Logo / Badge container (size w-20 h-20, gradient, shadow) */}
               <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${item.gradient} flex flex-col items-center justify-center shrink-0 shadow-lg text-white group-hover:scale-105 transition-transform duration-300`}>
@@ -301,25 +301,27 @@ export const SeekMethod = () => {
               </div>
 
               <div className="flex-grow flex flex-col items-center">
-                <h4 className="text-lg font-bold text-foreground mb-3 transition-colors duration-200 group-hover:text-primary">{item.title}</h4>
-                <p className="text-base text-muted-foreground leading-relaxed max-w-[240px]">
+                <h4 className="text-xl md:text-2xl font-extrabold text-foreground mb-3 transition-colors duration-200 group-hover:text-primary">
+                  {item.title}
+                </h4>
+                <p className="text-lg md:text-[19px] text-muted-foreground leading-relaxed max-w-[270px] font-medium">
                   {item.desc}
                 </p>
               </div>
               {item.isInternal ? (
                 <Link
                   to={item.href || "/"}
-                  className="mt-auto text-sm font-bold text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1 group/btn"
+                  className="mt-auto text-lg md:text-xl font-extrabold text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 group/btn"
                 >
-                  Explore <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                  Explore <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
                 </Link>
               ) : (
                 <button
                   type="button"
                   onClick={() => setIsBookDemoOpen(true)}
-                  className="mt-auto text-base font-bold text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1 group/btn cursor-pointer bg-transparent border-none p-0 outline-none align-baseline font-sans"
+                  className="mt-auto text-lg md:text-xl font-extrabold text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 group/btn cursor-pointer bg-transparent border-none p-0 outline-none align-baseline font-sans"
                 >
-                  Book Demo <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                  Book Demo <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
                 </button>
               )}
             </motion.div>

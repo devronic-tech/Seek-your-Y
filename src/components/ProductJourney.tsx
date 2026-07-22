@@ -59,11 +59,14 @@ export const ProductJourney = () => {
     <section className="section-padding bg-background-alt" id="programs">
       <div className="container-narrow">
         <div className="text-center mb-16">
-          <span className="pill pill-blue mb-4">COURSES</span>
+          <span className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+            <BookOpen className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+            <span>COURSES</span>
+          </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground max-w-3xl mx-auto">
             Choose Your <span className="headline-primary">Journey</span>
           </h2>
-          <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed" style={{ fontSize: "20px" }}>
             Whether you're starting from scratch or fine-tuning for test day, we have the right course for you.
           </p>
         </div>

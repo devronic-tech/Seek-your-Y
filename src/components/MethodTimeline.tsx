@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/BrandLogo";
@@ -6,10 +6,8 @@ import {
   Lightbulb,
   Target,
   LineChart,
-  Users,
   Video,
-  BookOpen,
-  GraduationCap,
+  Users,
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
@@ -19,8 +17,12 @@ interface TimelineItem {
   title: string;
   description: string;
   icon: LucideIcon;
-  gradient: string;      // card left-accent gradient
-  iconColor: string;     // icon container classes
+  gradient: string;
+  iconColor: string;
+  cardActiveBg: string;
+  cardInactiveBg: string;
+  accentBorder: string;
+  tagBg: string;
   visual: React.ReactNode;
 }
 
@@ -30,8 +32,12 @@ const timelineData: TimelineItem[] = [
     description:
       "We break down every complex topic into intuitive frameworks so that concepts finally click. No rote memorization — only deep understanding that lasts.",
     icon: Lightbulb,
-    gradient: "from-blue-500 to-indigo-500",
+    gradient: "from-blue-600 to-indigo-600",
     iconColor: "bg-blue-50 text-blue-600 border-blue-200/50",
+    cardActiveBg: "bg-gradient-to-br from-blue-50/95 via-white to-indigo-50/60 dark:from-white dark:via-white dark:to-blue-50/80 border-blue-300 shadow-xl shadow-blue-500/10",
+    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-blue-50/40",
+    accentBorder: "bg-gradient-to-b from-blue-500 to-indigo-600",
+    tagBg: "bg-blue-50 text-blue-700 border-blue-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-5 w-full max-w-[340px]">
@@ -49,7 +55,7 @@ const timelineData: TimelineItem[] = [
               transition={{ delay: i * 0.12, duration: 0.4 }}
               className="flex items-center gap-3 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-xl px-4 py-3 shadow-sm"
             >
-              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500" />
+              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500" />
               <span className="text-base font-medium text-foreground">{topic}</span>
             </motion.div>
           ))}
@@ -64,6 +70,10 @@ const timelineData: TimelineItem[] = [
     icon: Target,
     gradient: "from-indigo-600 to-violet-600",
     iconColor: "bg-indigo-50 text-indigo-600 border-indigo-200/50",
+    cardActiveBg: "bg-gradient-to-br from-indigo-50/95 via-white to-violet-50/60 dark:from-white dark:via-white dark:to-indigo-50/80 border-indigo-300 shadow-xl shadow-indigo-500/10",
+    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-indigo-50/40",
+    accentBorder: "bg-gradient-to-b from-indigo-500 to-violet-600",
+    tagBg: "bg-indigo-50 text-indigo-700 border-indigo-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-indigo-600/10 via-violet-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-4 w-full max-w-[340px]">
@@ -111,6 +121,10 @@ const timelineData: TimelineItem[] = [
     icon: LineChart,
     gradient: "from-emerald-500 to-teal-600",
     iconColor: "bg-emerald-50 text-emerald-600 border-emerald-200/50",
+    cardActiveBg: "bg-gradient-to-br from-emerald-50/95 via-white to-teal-50/60 dark:from-white dark:via-white dark:to-emerald-50/80 border-emerald-300 shadow-xl shadow-emerald-500/10",
+    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-emerald-50/40",
+    accentBorder: "bg-gradient-to-b from-emerald-500 to-teal-600",
+    tagBg: "bg-emerald-50 text-emerald-700 border-emerald-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-emerald-600/10 via-teal-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-4 w-full max-w-[340px]">
@@ -143,7 +157,7 @@ const timelineData: TimelineItem[] = [
               <div className="text-muted-foreground" style={{ fontSize: "0.85rem" }}>Avg Improvement</div>
             </div>
             <div className="flex-1 bg-white/80 backdrop-blur-sm border border-emerald-100 rounded-xl px-4 py-3 text-center shadow-sm">
-              <div className="text-2xl font-extrabold text-emerald-600">92%</div>
+              <div className="text-2xl font-extrabold text-emerald-600">80%</div>
               <div className="text-muted-foreground" style={{ fontSize: "0.85rem" }}>Success Rate</div>
             </div>
           </div>
@@ -158,6 +172,10 @@ const timelineData: TimelineItem[] = [
     icon: Video,
     gradient: "from-rose-500 to-pink-600",
     iconColor: "bg-rose-50 text-rose-600 border-rose-200/50",
+    cardActiveBg: "bg-gradient-to-br from-rose-50/95 via-white to-pink-50/60 dark:from-white dark:via-white dark:to-rose-50/80 border-rose-300 shadow-xl shadow-rose-500/10",
+    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-rose-50/40",
+    accentBorder: "bg-gradient-to-b from-rose-500 to-pink-600",
+    tagBg: "bg-rose-50 text-rose-700 border-rose-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-rose-600/10 via-pink-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-4 w-full max-w-[340px]">
@@ -204,6 +222,10 @@ const timelineData: TimelineItem[] = [
     icon: Users,
     gradient: "from-amber-500 to-orange-600",
     iconColor: "bg-amber-50 text-amber-600 border-amber-200/50",
+    cardActiveBg: "bg-gradient-to-br from-amber-50/95 via-white to-orange-50/60 dark:from-white dark:via-white dark:to-amber-50/80 border-amber-300 shadow-xl shadow-amber-500/10",
+    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-amber-50/40",
+    accentBorder: "bg-gradient-to-b from-amber-500 to-orange-600",
+    tagBg: "bg-amber-50 text-amber-700 border-amber-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-amber-600/10 via-orange-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-4 w-full max-w-[340px]">
@@ -257,13 +279,11 @@ export const MethodTimeline: React.FC = () => {
       const clientHeight = container.clientHeight;
       const maxScroll = scrollHeight - clientHeight;
 
-      // If we are scrolled to the very bottom, force the last card to be active
       if (scrollTop >= maxScroll - 10) {
         setActiveCard(cardElements.length - 1);
         return;
       }
 
-      // Check which card is closest to the activation zone (around 80px from container top)
       let closestIndex = 0;
       let minDistance = Infinity;
 
@@ -280,7 +300,6 @@ export const MethodTimeline: React.FC = () => {
     };
 
     container.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once on mount to establish initial state
     handleScroll();
 
     return () => {
@@ -289,25 +308,19 @@ export const MethodTimeline: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-20 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-16 bg-gradient-to-b from-background via-blue-50/20 to-background relative overflow-hidden">
-      {/* Decorative glows */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-blue-400/5 blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 right-10 w-80 h-80 rounded-full bg-indigo-400/8 blur-3xl pointer-events-none -z-10" />
-
-      <div className="max-w-[1200px] mx-auto">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-blue-50/20 to-indigo-50/20 dark:from-background dark:via-blue-950/10 dark:to-background relative overflow-hidden" id="methodology">
+      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-[900px] mx-auto mb-10 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6"
+            className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-6"
           >
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
-              Our Methodology
-            </span>
+            <Sparkles className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+            <span>OUR METHODOLOGY</span>
           </motion.div>
 
           <motion.h2
@@ -315,7 +328,7 @@ export const MethodTimeline: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-3xl md:text-4xl font-bold font-display text-foreground leading-[1.1] tracking-tight mb-5"
+            className="text-3xl md:text-5xl font-extrabold font-display text-foreground leading-[1.1] tracking-tight mb-5"
           >
             How We Take You From{" "}
             <span className="text-primary">Confused</span> to{" "}
@@ -327,7 +340,8 @@ export const MethodTimeline: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.14 }}
-            className="text-base md:text-lg text-muted-foreground leading-relaxed"
+            className="text-muted-foreground leading-relaxed"
+            style={{ fontSize: "20px" }}
           >
             Our proven system builds clarity, strategy, and results — step by step.
           </motion.p>
@@ -336,8 +350,8 @@ export const MethodTimeline: React.FC = () => {
         {/* Sticky Scroll Container - DESKTOP ONLY */}
         <div
           ref={containerRef}
-          className="hidden lg:flex method-timeline-container relative justify-between gap-10 overflow-y-auto rounded-[28px] border border-border/60 bg-card/50 backdrop-blur-sm shadow-soft"
-          style={{ height: "36rem" }}
+          className="hidden lg:flex method-timeline-container relative justify-between gap-8 overflow-y-auto rounded-[32px] border border-border/80 bg-card/60 backdrop-blur-md shadow-elevated p-4"
+          style={{ height: "42rem" }}
         >
           {/* Custom scrollbar styling */}
           <style>{`
@@ -347,10 +361,10 @@ export const MethodTimeline: React.FC = () => {
             .method-timeline-container::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.3); }
           `}</style>
 
-          {/* LEFT SIDE: Timeline Cards */}
-          <div className="relative flex-1 px-8 py-10">
+          {/* LEFT SIDE: Colorful Formatted Cards */}
+          <div className="relative flex-1 px-6 py-8">
             {/* Vertical timeline line */}
-            <div className="absolute left-[2.25rem] top-10 bottom-10 w-px bg-border z-0" />
+            <div className="absolute left-[2.25rem] top-10 bottom-10 w-0.5 bg-border/60 z-0" />
 
             {timelineData.map((item, index) => {
               const isActive = activeCard === index;
@@ -358,58 +372,79 @@ export const MethodTimeline: React.FC = () => {
               return (
                 <div
                   key={item.title}
-                  className="timeline-card relative pl-14 my-16 first:mt-0 last:mb-0"
+                  className="timeline-card relative pl-14 my-10 first:mt-0 last:mb-0"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-[1.5rem] top-1 z-10">
+                  <div className="absolute left-[1.35rem] top-6 z-10">
                     <motion.div
                       animate={{
-                        scale: isActive ? 1 : 0.7,
-                        opacity: isActive ? 1 : 0.4,
+                        scale: isActive ? 1.2 : 0.8,
+                        opacity: isActive ? 1 : 0.6,
                       }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
                       className={cn(
-                        "w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors duration-300",
+                        "w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all duration-300 shadow-sm",
                         isActive
-                          ? "border-primary bg-primary shadow-md shadow-primary/30"
+                          ? "border-primary bg-primary shadow-md shadow-primary/40"
                           : "border-border bg-background"
                       )}
                     >
                       <div
                         className={cn(
-                          "w-2 h-2 rounded-full transition-colors duration-300",
-                          isActive ? "bg-white" : "bg-muted-foreground/30"
+                          "w-2.5 h-2.5 rounded-full transition-colors duration-300",
+                          isActive ? "bg-white" : "bg-muted-foreground/40"
                         )}
                       />
                     </motion.div>
                   </div>
 
-                  {/* Card content */}
+                  {/* Formatted Colorful Left Card */}
                   <motion.div
                     animate={{
-                      opacity: isActive ? 1 : 0.35,
+                      scale: isActive ? 1.02 : 0.98,
+                      opacity: isActive ? 1 : 0.9,
                       y: isActive ? 0 : 4,
                     }}
                     transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="relative"
+                    className={cn(
+                      "relative rounded-2xl border p-6 text-left transition-all duration-300 overflow-hidden backdrop-blur-sm shadow-sm hover:shadow-md hover:scale-[1.01]",
+                      isActive ? item.cardActiveBg : item.cardInactiveBg
+                    )}
                   >
-                    {/* Icon + Title Row */}
-                    <div className="flex items-center gap-3 mb-3">
+                    {/* Left Accent Bar */}
+                    <div
+                      className={cn(
+                        "absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl transition-opacity duration-300",
+                        item.accentBorder,
+                        isActive ? "opacity-100" : "opacity-40"
+                      )}
+                    />
+
+                    {/* Card Header: Icon, Step Tag & Title */}
+                    <div className="flex items-center gap-3.5 mb-3">
                       <div
                         className={cn(
-                          "w-9 h-9 rounded-xl flex items-center justify-center border shrink-0 shadow-sm transition-all duration-300",
-                          item.iconColor
+                          "w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-md transition-all duration-300 text-white bg-gradient-to-br",
+                          item.gradient
                         )}
                       >
-                        <Icon className="w-4.5 h-4.5 stroke-[2]" />
+                        <Icon className="w-5.5 h-5.5 stroke-[2.2]" />
                       </div>
-                      <h3 className="text-xl font-bold text-foreground text-left">
-                        {item.title}
-                      </h3>
+                      <div>
+                        <span className={cn(
+                          "text-[11px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full border inline-block mb-1 shadow-xs",
+                          item.tagBg
+                        )}>
+                          STEP 0{index + 1}
+                        </span>
+                        <h3 className="text-2xl md:text-[25px] font-black text-slate-950 dark:text-slate-950 text-left leading-tight">
+                          {item.title}
+                        </h3>
+                      </div>
                     </div>
 
-                    {/* Description */}
-                    <p className="text-base text-muted-foreground leading-relaxed text-left max-w-lg">
+                    {/* Card Description - Grey Text (+20% size = 19px font-medium) */}
+                    <p className="text-lg md:text-[19px] font-medium text-slate-600 dark:text-slate-600 leading-relaxed text-left max-w-xl mt-2">
                       {item.description}
                     </p>
                   </motion.div>
@@ -417,12 +452,12 @@ export const MethodTimeline: React.FC = () => {
               );
             })}
             {/* Spacer at bottom */}
-            <div className="h-[24rem]" />
+            <div className="h-[28rem]" />
           </div>
 
           {/* RIGHT SIDE: Sticky visual panel */}
           <div className="sticky top-0 hidden lg:flex items-center justify-center w-[400px] xl:w-[440px] shrink-0 p-6">
-            <div className="w-full h-[28rem] rounded-[24px] border border-border/60 bg-background overflow-hidden shadow-soft relative">
+            <div className="w-full h-[32rem] rounded-[28px] border border-border/80 bg-background overflow-hidden shadow-soft relative">
               {/* Logo watermark */}
               <div className="absolute top-4 right-4 z-20 opacity-30">
                 <BrandLogo size="nav" />
@@ -455,30 +490,39 @@ export const MethodTimeline: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="bg-card border border-border/80 rounded-[24px] overflow-hidden shadow-soft p-5 sm:p-6 text-left"
+                className={cn(
+                  "border rounded-[24px] overflow-hidden shadow-soft p-5 sm:p-6 text-left relative",
+                  item.cardActiveBg
+                )}
               >
+                {/* Accent Bar */}
+                <div className={cn("absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl", item.accentBorder)} />
+
                 {/* Header: Step Pill & Title */}
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3.5 mb-3">
                   <div
                     className={cn(
-                      "w-10 h-10 rounded-xl flex items-center justify-center border shrink-0 shadow-sm",
-                      item.iconColor
+                      "w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-md text-white bg-gradient-to-br",
+                      item.gradient
                     )}
                   >
-                    <Icon className="w-5 h-5 stroke-[2]" />
+                    <Icon className="w-5.5 h-5.5 stroke-[2]" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-primary block">
-                      Step 0{index + 1}
+                    <span className={cn(
+                      "text-[11px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full border inline-block mb-1 shadow-xs",
+                      item.tagBg
+                    )}>
+                      STEP 0{index + 1}
                     </span>
-                    <h3 className="text-xl font-bold font-display text-foreground text-left">
+                    <h3 className="text-2xl md:text-[25px] font-black text-slate-950 dark:text-slate-950 text-left">
                       {item.title}
                     </h3>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-base text-muted-foreground leading-relaxed text-left mb-5">
+                <p className="text-lg md:text-[19px] font-medium text-slate-600 dark:text-slate-600 leading-relaxed text-left mb-5">
                   {item.description}
                 </p>
 

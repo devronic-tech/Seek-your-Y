@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Sparkles } from "lucide-react";
 
 const testimonials = [
   {
@@ -72,9 +73,9 @@ export default function Testimonials(): JSX.Element {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center">
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 text-violet-600 font-bold tracking-widest text-xs md:text-sm mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote w-4 h-4 md:w-5 md:h-5" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
-            <span className="uppercase tracking-[0.2em]">TESTIMONIALS</span>
+          <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+            <Sparkles className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+            <span>OUR STUDENTS' SUCCESS</span>
           </div>
           <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 tracking-tight leading-tight">
             Student <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-600">Success Stories</span>

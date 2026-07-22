@@ -355,28 +355,28 @@ const AboutGre = () => {
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
             <div className="space-y-8 flex flex-col">
-              <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
-                <h2 className="text-3xl font-semibold text-foreground">What is the GRE?</h2>
-                <p className="mt-5 text-lg leading-8 text-muted-foreground">
+              <div className="rounded-[32px] border border-slate-200 bg-white p-8 md:p-10 shadow-soft">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">What is the GRE?</h2>
+                <p className="mt-5 text-xl md:text-[22px] leading-relaxed text-slate-700 font-medium">
                   The Graduate Record Examination (GRE) General Test is a multiple-choice exam for applicants seeking advanced study overseas. It helps graduate schools evaluate reasoning, analytical writing, and critical thinking across multiple fields.
                 </p>
-                <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                <p className="mt-4 text-xl md:text-[22px] leading-relaxed text-slate-700 font-medium">
                   Our GRE prep combines targeted strategy, timed practice, and expert mentoring so you can build score-driving confidence for top programs in the US, UK, Canada, and beyond.
                 </p>
               </div>
 
               <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-soft">
                 <div className="border-b border-slate-200 bg-slate-50 px-6 py-6">
-                  <h3 className="text-xl font-semibold text-foreground">GRE Exam Pattern</h3>
+                  <h3 className="text-2xl font-extrabold text-foreground">GRE Exam Pattern</h3>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-slate-200 bg-gradient-to-r from-primary to-[#003A99]">
-                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Section</th>
-                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Questions</th>
-                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Time</th>
-                        <th className="px-6 py-3 text-left text-base font-semibold text-white">Score Scale</th>
+                        <th className="px-6 py-4 text-left text-lg md:text-xl font-extrabold text-white">Section</th>
+                        <th className="px-6 py-4 text-left text-lg md:text-xl font-extrabold text-white">Questions</th>
+                        <th className="px-6 py-4 text-left text-lg md:text-xl font-extrabold text-white">Time</th>
+                        <th className="px-6 py-4 text-left text-lg md:text-xl font-extrabold text-white">Score Scale</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-200">
@@ -419,11 +419,11 @@ const AboutGre = () => {
                           isTotal: true,
                         },
                       ].map((row) => (
-                        <tr key={row.section} className={row.isTotal ? "bg-slate-50 font-semibold" : ""}>
-                          <td className="px-6 py-3 text-base text-slate-900">{row.section}</td>
-                          <td className="px-6 py-3 text-base text-slate-700">{row.questions}</td>
-                          <td className="px-6 py-3 text-base text-slate-700">{row.time}</td>
-                          <td className="px-6 py-3 text-base text-slate-700">{row.scoreScale}</td>
+                        <tr key={row.section} className={row.isTotal ? "bg-slate-50 font-bold" : ""}>
+                          <td className="px-6 py-4 text-lg md:text-xl font-bold text-slate-900">{row.section}</td>
+                          <td className="px-6 py-4 text-lg md:text-xl text-slate-700 font-medium">{row.questions}</td>
+                          <td className="px-6 py-4 text-lg md:text-xl text-slate-700 font-medium">{row.time}</td>
+                          <td className="px-6 py-4 text-lg md:text-xl text-slate-700 font-medium">{row.scoreScale}</td>
                         </tr>
                       ))}
                     </tbody>

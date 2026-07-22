@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Users, Award, GraduationCap, ChevronLeft, ChevronRight } from "lucide-react";
+import { Users, Award, GraduationCap, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { StatCounter } from "./StatCounter";
 
 // Student photos
@@ -72,9 +72,9 @@ export const TopAchievers: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setCardWidth(280);
-      } else {
         setCardWidth(320);
+      } else {
+        setCardWidth(380);
       }
     };
     handleResize();
@@ -131,15 +131,14 @@ export const TopAchievers: React.FC = () => {
       <div className="max-w-[1440px] mx-auto text-center relative">
         {/* Section Heading */}
         <div className="mb-14">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">TOP ACHIEVERS</span>
-            <div className="h-px w-12 bg-primary/40" />
+          <div className="inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+            <Sparkles className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+            <span>OUR STUDENTS' SUCCESS</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight">
             Our Top Performers
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto leading-relaxed" style={{ fontSize: "20px" }}>
             Real score jumps from students who prepared built on logic and dedication.
           </p>
         </div>
@@ -198,7 +197,7 @@ export const TopAchievers: React.FC = () => {
                   style={{ 
                     backgroundImage: `url(${achiever.image})`,
                     width: `${cardWidth}px`,
-                    height: cardWidth === 320 ? "460px" : "400px",
+                    height: cardWidth === 380 ? "520px" : "440px",
                     boxShadow: isActive ? "0 25px 50px -12px rgba(0, 0, 0, 0.3)" : "0 8px 24px -8px rgba(0, 0, 0, 0.15)",
                     transition: isTransitioning ? "all 800ms cubic-bezier(0.25, 1, 0.5, 1)" : "none"
                   }}
@@ -222,11 +221,47 @@ export const TopAchievers: React.FC = () => {
                       {achiever.role}
                     </p>
                     
-                    {/* High Focus Score Badge */}
-                    <div className={`mt-4 px-6 py-2.5 sm:px-8 sm:py-3.5 bg-primary text-white font-extrabold tracking-wide rounded-full shadow-lg shadow-primary/45 border border-white/20 transition-all duration-500 ${
-                      isActive ? "text-sm sm:text-base md:text-lg scale-105" : "text-xs sm:text-sm opacity-90 scale-95"
+                    {/* Oversized High-Focus Score Badge matching user reference design */}
+                    <div className={`mt-5 transition-all duration-500 ${
+                      isActive ? "scale-105" : "opacity-90 scale-95"
                     }`}>
-                      {achiever.score}
+                      {(() => {
+                        const scoreText = achiever.score;
+                        const delimiter = scoreText.includes("->") ? "->" : scoreText.includes("→") ? "→" : null;
+                        if (!delimiter) {
+                          return (
+                            <div className="bg-[#1c84ff] text-white font-black text-2xl px-6 py-3 rounded-2xl shadow-2xl">
+                              {scoreText}
+                            </div>
+                          );
+                        }
+
+                        const [leftPart, rightPart] = scoreText.split(delimiter).map(s => s.trim());
+                        const words = leftPart.split(" ");
+                        let prefix = "";
+                        let beforeScore = leftPart;
+
+                        if (words.length > 1) {
+                          prefix = words.slice(0, -1).join(" ");
+                          beforeScore = words[words.length - 1];
+                        }
+
+                        return (
+                          <div className="inline-flex items-center bg-[#1c84ff] border border-blue-400/40 rounded-2xl pl-5 sm:pl-6 pr-1.5 py-2 shadow-2xl text-white font-extrabold select-none">
+                            {prefix && (
+                              <span className="text-xs font-bold uppercase tracking-wider text-blue-100 mr-2 opacity-95">
+                                {prefix}
+                              </span>
+                            )}
+                            <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mr-3 flex items-center gap-1.5">
+                              {beforeScore} <span className="text-blue-200 font-normal">→</span>
+                            </span>
+                            <span className="bg-white text-slate-950 font-black text-3xl sm:text-4xl md:text-[2.5rem] px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-2xl border border-slate-100 -my-3 sm:-my-4 flex items-center justify-center leading-none">
+                              {rightPart}
+                            </span>
+                          </div>
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>
@@ -237,7 +272,7 @@ export const TopAchievers: React.FC = () => {
 
         {/* Bottom Stats Row */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 md:gap-16 lg:gap-24 mt-20 border-t border-slate-100 pt-14 max-w-[1000px] mx-auto px-4">
-          <StatCounter value="10,000+" label="Students Mentored" icon={Users} color="blue" />
+          <StatCounter value="4000+" label="Students Mentored" icon={Users} color="blue" />
           <StatCounter value="96th" label="Percentile Achievers" icon={Award} color="violet" />
           <StatCounter value="8+" label="Years Experience" icon={GraduationCap} color="emerald" />
         </div>

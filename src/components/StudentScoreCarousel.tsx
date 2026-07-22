@@ -99,7 +99,7 @@ export const StudentScoreCarousel: React.FC<StudentScoreCarouselProps> = ({ type
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Cards Container */}
-      <div className="relative w-full h-[400px] md:h-[460px] flex items-center justify-center overflow-visible">
+      <div className="relative w-full h-[400px] md:h-[480px] flex items-center justify-center overflow-visible">
         {students.map((student, index) => {
           const N = students.length;
           let diff = index - activeIndex;
@@ -114,7 +114,7 @@ export const StudentScoreCarousel: React.FC<StudentScoreCarouselProps> = ({ type
           const isActive = index === activeIndex;
 
           // Spacing offset calculations
-          const desktopSpacing = 200;
+          const desktopSpacing = 180;
           const mobileSpacing = 65;
           const spacing = isMobile ? mobileSpacing : desktopSpacing;
 
@@ -127,7 +127,7 @@ export const StudentScoreCarousel: React.FC<StudentScoreCarouselProps> = ({ type
           const pointerEvents = Math.abs(diff) > 1 ? "none" : "auto";
           
           // Rotation fan effect
-          const rotate = diff * 7;
+          const rotate = diff * 6;
 
           return (
             <motion.div
@@ -149,13 +149,13 @@ export const StudentScoreCarousel: React.FC<StudentScoreCarouselProps> = ({ type
                 damping: 24,
               }}
               onClick={() => setActiveIndex(index)}
-              className={`absolute w-[240px] md:w-[280px] h-[340px] md:h-[400px] rounded-[28px] overflow-hidden cursor-pointer transition-shadow duration-300 ${
+              className={`absolute w-[250px] md:w-[305px] h-[345px] md:h-[430px] rounded-[26px] md:rounded-[32px] overflow-hidden cursor-pointer transition-shadow duration-300 ${
                 isActive 
                   ? "shadow-2xl ring-4 ring-primary/20" 
                   : "shadow-lg opacity-85"
               }`}
               whileHover={isActive ? { 
-                y: -12,
+                y: -10,
                 boxShadow: "0 25px 50px -12px rgba(0,0,0,0.15)"
               } : {}}
             >
@@ -173,41 +173,51 @@ export const StudentScoreCarousel: React.FC<StudentScoreCarouselProps> = ({ type
 
               {/* Foreground Content: Name, Subtitle and Blue Score Pill */}
               <div className="relative z-10 w-full h-full flex flex-col justify-end p-4 md:p-6 pb-6 text-center text-white">
-                <div className="space-y-3.5">
+                <div className="space-y-3">
                   <div className="space-y-0.5">
                     <h4 className="text-base md:text-lg font-bold tracking-wide text-white drop-shadow-sm">
                       {student.name}
                     </h4>
-                    <p className="text-base text-slate-200/90 font-medium tracking-wide">
+                    <p className="text-xs md:text-sm text-slate-200/90 font-medium tracking-wide">
                       {type === "gre" ? student.greStudentLabel : student.gmatStudentLabel}
                     </p>
                   </div>
 
                   {/* Score pill styled exactly like the user's reference image */}
-                  <div className="flex justify-center w-full">
+                  <div className="flex justify-center w-full mt-2">
                     {(() => {
                       const scoreText = type === "gre" ? student.greScore : student.gmatScore;
-                      const parts = scoreText.split("->");
-                      let parsed = { test: "", before: "", after: scoreText };
-                      if (parts.length === 2) {
-                        const leftPart = parts[0].trim();
-                        const rightPart = parts[1].trim();
-                        const leftWords = leftPart.split(" ");
-                        if (leftWords.length >= 2) {
-                          const test = leftWords[0];
-                          const before = leftWords.slice(1).join(" ");
-                          parsed = { test, before, after: rightPart };
-                        } else if (leftWords.length === 1) {
-                          parsed = { test: type.toUpperCase(), before: leftWords[0], after: rightPart };
-                        }
+                      const delimiter = scoreText.includes("->") ? "->" : scoreText.includes("→") ? "→" : null;
+                      if (!delimiter) {
+                        return (
+                          <div className="bg-[#1c84ff] text-white font-black text-lg px-4.5 py-2 rounded-xl shadow-xl">
+                            {scoreText}
+                          </div>
+                        );
                       }
+
+                      const [leftPart, rightPart] = scoreText.split(delimiter).map(s => s.trim());
+                      const words = leftPart.split(" ");
+                      let prefix = "";
+                      let beforeScore = leftPart;
+
+                      if (words.length > 1) {
+                        prefix = words.slice(0, -1).join(" ");
+                        beforeScore = words[words.length - 1];
+                      }
+
                       return (
-                        <div className="flex items-center justify-center gap-2 select-none font-display">
-                          <span className="text-[12px] font-bold text-slate-400 uppercase tracking-wider">{parsed.test}</span>
-                          <span className="text-sm text-slate-300 font-semibold">{parsed.before}</span>
-                          <span className="text-xs text-slate-400">→</span>
-                          <span className="bg-blue-600 text-white font-extrabold text-base px-3.5 py-1 rounded-full shadow-md tracking-wider">
-                            {parsed.after}
+                        <div className="inline-flex items-center bg-[#1c84ff] border border-blue-400/40 rounded-xl pl-4 sm:pl-4.5 pr-1 py-1 shadow-xl text-white font-extrabold select-none">
+                          {prefix && (
+                            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-blue-100 mr-1 opacity-95">
+                              {prefix}
+                            </span>
+                          )}
+                          <span className="text-base sm:text-xl font-extrabold tracking-tight text-white mr-2 flex items-center gap-0.5">
+                            {beforeScore} <span className="text-blue-200 font-normal">→</span>
+                          </span>
+                          <span className="bg-white text-slate-950 font-black text-xl sm:text-2xl md:text-3xl px-3.5 sm:px-4.5 py-1.5 sm:py-2.5 rounded-xl shadow-xl border border-slate-100 -my-2 sm:-my-2.5 flex items-center justify-center leading-none">
+                            {rightPart}
                           </span>
                         </div>
                       );

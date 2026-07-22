@@ -115,9 +115,9 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap sm:flex-nowrap gap-6 md:gap-10 border-t border-indigo-100 pt-8"
           >
-            <StatCounter value="10,000+" label="Students Mentored" icon={Users} color="blue" />
-            <StatCounter value="92%" label="Success Rate" icon={ShieldCheck} color="emerald" />
-            <StatCounter value="15+" label="Years of Experience" icon={GraduationCap} color="violet" />
+            <StatCounter value="4000+" label="Students Mentored" icon={Users} color="blue" />
+            <StatCounter value="80%" label="Success Rate" icon={ShieldCheck} color="emerald" />
+            <StatCounter value="9+" label="Years of Experience" icon={GraduationCap} color="violet" />
           </motion.div>
         </div>
 
@@ -270,7 +270,7 @@ export const Hero = () => {
               </div>
               <div>
                 <p className="text-base font-bold text-foreground leading-snug">
-                  Join 10,000+ successful learners now.
+                  Join 4000+ successful learners now.
                 </p>
               </div>
             </motion.div>
@@ -302,7 +302,7 @@ export const Hero = () => {
                 </div>
               </div>
               <p className="text-sm font-bold text-foreground leading-snug">
-                Join 10,000+ successful learners now.
+                Join 4000+ successful learners now.
               </p>
             </div>
           </div>

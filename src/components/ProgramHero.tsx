@@ -12,20 +12,7 @@ export const ProgramHero: React.FC<ProgramHeroProps> = ({ type }) => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
 
   return (
-    <section className={`overflow-hidden pt-28 md:pt-32 pb-16 md:pb-20 relative ${isGre ? "bg-slate-50" : "bg-background"}`}>
-      {/* Background Gradients */}
-      <div 
-        className={`absolute inset-x-0 top-0 h-64 bg-gradient-to-br opacity-40 md:opacity-100 ${
-          isGre 
-            ? "from-blue-100/40 via-white to-transparent" 
-            : "from-blue-600/15 via-indigo-500/5 to-transparent"
-        }`} 
-      />
-
-      {/* Soft blue/indigo blurred glows at the bottom to blend with the next section */}
-      <div className="absolute -bottom-36 left-1/3 w-[500px] h-[300px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
-
+    <section className="overflow-hidden pt-28 md:pt-32 pb-16 md:pb-20 relative bg-white">
       <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] items-center overflow-visible">
           {/* Left Column: Heading and Info */}

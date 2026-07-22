@@ -23,7 +23,7 @@ Configured in [`index.html`](index.html) and static assets in [`public/`](public
 | Source logo | [`src/assets/seekyoury_logo_favicon.png`](src/assets/seekyoury_logo_favicon.png) |
 
 - **Title**: Seek Your Y \| Master GMAT & GRE Quant
-- **Description**: Logic-based GMAT/GRE Quant mentoring; courses, 1-on-1 guidance, test series; 10,000+ students.
+- **Description**: Logic-based GMAT/GRE Quant mentoring; courses, 1-on-1 guidance, test series; 4000+ students.
 - **Canonical**: https://seekyoury.com
 
 ## How users interact with the site

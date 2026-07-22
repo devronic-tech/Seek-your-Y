@@ -233,28 +233,28 @@ const AboutGmat: React.FC = () => {
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
             <div className="space-y-8">
-              <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
-                <h2 className="text-3xl font-semibold text-foreground">What is the GMAT?</h2>
-                <p className="mt-5 text-lg leading-8 text-muted-foreground">
+              <div className="rounded-[32px] border border-border bg-card p-8 md:p-10 shadow-soft">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">What is the GMAT?</h2>
+                <p className="mt-5 text-xl md:text-[22px] leading-relaxed text-slate-700 dark:text-slate-300 font-medium">
                   The GMAT is a standardized exam for graduate management programs. It evaluates your verbal, quantitative, and analytical reasoning skills — the core abilities top business schools value.
                 </p>
-                <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                <p className="mt-4 text-xl md:text-[22px] leading-relaxed text-slate-700 dark:text-slate-300 font-medium">
                   Our GMAT coaching blends strategy, timed practice, and analytics so you can improve quickly and confidently on test day.
                 </p>
               </div>
 
               <div className="overflow-hidden rounded-[32px] border border-border bg-card shadow-soft">
                 <div className="border-b border-border bg-background px-6 py-6">
-                  <h3 className="text-xl font-semibold text-foreground">GMAT Exam Pattern</h3>
+                  <h3 className="text-2xl font-extrabold text-foreground">GMAT Exam Pattern</h3>
                 </div>
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left text-sm">
+                  <table className="w-full text-left text-base md:text-lg">
                     <thead>
-                      <tr className="bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 text-primary-foreground">
-                        <th className="px-6 py-4">Section</th>
-                        <th className="px-6 py-4">Questions</th>
-                        <th className="px-6 py-4">Time</th>
-                        <th className="px-6 py-4">Score Scale</th>
+                      <tr className="bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 text-white">
+                        <th className="px-6 py-4 font-extrabold text-lg md:text-xl">Section</th>
+                        <th className="px-6 py-4 font-extrabold text-lg md:text-xl">Questions</th>
+                        <th className="px-6 py-4 font-extrabold text-lg md:text-xl">Time</th>
+                        <th className="px-6 py-4 font-extrabold text-lg md:text-xl">Score Scale</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-border bg-card">
@@ -265,10 +265,10 @@ const AboutGmat: React.FC = () => {
                         { section: "Analytical Writing", questions: "2", time: "30 min", score: "0-6" },
                       ].map((row) => (
                         <tr key={row.section} className="odd:bg-background">
-                          <td className="px-6 py-4 font-medium text-foreground">{row.section}</td>
-                          <td className="px-6 py-4 text-muted-foreground">{row.questions}</td>
-                          <td className="px-6 py-4 text-muted-foreground">{row.time}</td>
-                          <td className="px-6 py-4 text-muted-foreground">{row.score}</td>
+                          <td className="px-6 py-4 text-lg md:text-xl font-bold text-foreground">{row.section}</td>
+                          <td className="px-6 py-4 text-lg md:text-xl text-slate-700 dark:text-slate-300 font-medium">{row.questions}</td>
+                          <td className="px-6 py-4 text-lg md:text-xl text-slate-700 dark:text-slate-300 font-medium">{row.time}</td>
+                          <td className="px-6 py-4 text-lg md:text-xl text-slate-700 dark:text-slate-300 font-medium">{row.score}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -276,8 +276,8 @@ const AboutGmat: React.FC = () => {
                 </div>
               </div>
 
-              <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
-                <h3 className="text-xl font-semibold text-foreground">Why GMAT matters</h3>
+              <div className="rounded-[32px] border border-border bg-card p-8 md:p-10 shadow-soft">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-foreground">Why GMAT matters</h3>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   {[
                     "Global business schools use it to compare applicants.",
@@ -285,9 +285,9 @@ const AboutGmat: React.FC = () => {
                     "It shows you can think critically under pressure.",
                     "A strong score boosts confidence in your application.",
                   ].map((item) => (
-                    <div key={item} className="flex gap-3 rounded-3xl bg-background p-5">
-                      <span className="mt-1 h-2.5 w-2.5 rounded-full bg-primary" />
-                      <p className="text-sm text-muted-foreground">{item}</p>
+                    <div key={item} className="flex gap-3.5 rounded-3xl bg-background p-6 border border-border/60">
+                      <span className="mt-1.5 h-3 w-3 rounded-full bg-primary shrink-0" />
+                      <p className="text-base md:text-lg font-bold text-foreground leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -309,7 +309,7 @@ const AboutGmat: React.FC = () => {
             The smarter route to your <span className="text-primary">MBA</span>
           </h2>
 
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10 font-medium">
             Determined to do an MBA from ISB, Singapore, the M7 or the Ivy League? You don't need
             the GMAT for that. Over the last 18 months a growing share of applicants have switched to
             the GRE — here's why.
@@ -317,43 +317,43 @@ const AboutGmat: React.FC = () => {
 
           {/* Comparison Table */}
           <div className="overflow-x-auto rounded-[24px] border border-border bg-card shadow-soft text-left">
-            <table className="w-full border-collapse text-sm md:text-base">
+            <table className="w-full border-collapse text-base md:text-lg">
               <thead>
                 <tr className="border-b border-border">
                   <th className="px-6 py-4 bg-muted/30 w-1/2"></th>
-                  <th className="px-6 py-4 bg-slate-900 text-white font-bold text-center text-lg rounded-t-none w-1/2">
+                  <th className="px-6 py-4 bg-slate-900 text-white font-black text-center text-xl md:text-2xl rounded-t-none w-1/2">
                     GMAT Focus
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 <tr>
-                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Total time</td>
-                  <td className="px-6 py-5 text-muted-foreground text-center">2 hr 15 min</td>
+                  <td className="px-6 py-5 font-bold text-lg md:text-xl text-foreground bg-muted/10">Total time</td>
+                  <td className="px-6 py-5 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium text-center">2 hr 15 min</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Sections</td>
-                  <td className="px-6 py-5 text-muted-foreground text-center">Quant + Verbal + Data Insights</td>
+                  <td className="px-6 py-5 font-bold text-lg md:text-xl text-foreground bg-muted/10">Sections</td>
+                  <td className="px-6 py-5 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium text-center">Quant + Verbal + Data Insights</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Data Insights section</td>
-                  <td className="px-6 py-5 text-muted-foreground text-center">20 questions, a full third of your score</td>
+                  <td className="px-6 py-5 font-bold text-lg md:text-xl text-foreground bg-muted/10">Data Insights section</td>
+                  <td className="px-6 py-5 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium text-center">20 questions, a full third of your score</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Quant style</td>
-                  <td className="px-6 py-5 text-muted-foreground text-center">Logic-heavy word problems</td>
+                  <td className="px-6 py-5 font-bold text-lg md:text-xl text-foreground bg-muted/10">Quant style</td>
+                  <td className="px-6 py-5 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium text-center">Logic-heavy word problems</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Also usable for MS/PhD</td>
-                  <td className="px-6 py-5 text-muted-foreground text-center">Business school only</td>
+                  <td className="px-6 py-5 font-bold text-lg md:text-xl text-foreground bg-muted/10">Also usable for MS/PhD</td>
+                  <td className="px-6 py-5 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium text-center">Business school only</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Accepted at ISB, M7, Ivy League, INSEAD, NUS/NTU</td>
-                  <td className="px-6 py-5 text-muted-foreground text-center">Yes</td>
+                  <td className="px-6 py-5 font-bold text-lg md:text-xl text-foreground bg-muted/10">Accepted at ISB, M7, Ivy League, INSEAD, NUS/NTU</td>
+                  <td className="px-6 py-5 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium text-center">Yes</td>
                 </tr>
                 <tr className="bg-muted/10">
-                  <td className="px-6 py-5 font-semibold text-foreground bg-muted/10">Retakes</td>
-                  <td className="px-6 py-5 text-muted-foreground text-center font-medium">
+                  <td className="px-6 py-5 font-bold text-lg md:text-xl text-foreground bg-muted/10">Retakes</td>
+                  <td className="px-6 py-5 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium text-center">
                     GMAT Focus: up to 5 times/year, 16-day gap
                   </td>
                 </tr>

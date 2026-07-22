@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { AlertTriangle, Brain, Target, TrendingDown, Lightbulb, Users, Play } from "lucide-react";
+import { AlertTriangle, Brain, Target, TrendingDown, Lightbulb, Users, Play, Zap } from "lucide-react";
 import studentImage from "@/assets/image.webp";
 import { Button } from "@/components/ui/button";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
@@ -16,18 +16,15 @@ export const ProblemSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-8 lg:gap-16 items-center">
           {/* LEFT: Problem content (moved right on desktop via grid-order) */}
           <div className="lg:order-2 lg:pl-8">
-            {/* "THE REALITY" pill */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 border border-destructive/30 bg-destructive/10 text-destructive rounded-full px-5 py-2 mb-6 shadow-sm"
+              className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-6"
             >
-              <AlertTriangle className="w-3.5 h-3.5" />
-              <span className="text-xs font-semibold uppercase tracking-widest">
-                The Reality
-              </span>
+              <Zap className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+              <span>THE SEEK YOUR Y ADVANTAGE</span>
             </motion.div>
 
             {/* Headline */}

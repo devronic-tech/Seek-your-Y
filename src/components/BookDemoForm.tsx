@@ -39,7 +39,7 @@ export const BookDemoForm = () => {
           <div>
             <span className="pill pill-blue mb-4">BOOK A DEMO</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-6 tracking-tight">
-              Start Your <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Quant Journey</span> Today
+              Start Your <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Journey</span> Today
             </h2>
             <p className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed max-w-[540px]">
               Book a free 30-minute consultation with Aman to discuss your goals,

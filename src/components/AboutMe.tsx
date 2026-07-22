@@ -66,7 +66,7 @@ export const AboutMe = () => {
                   <Users className="w-5 h-5 stroke-[2]" />
                 </div>
                 <div>
-                  <p className="text-sm font-black text-foreground leading-none">10,000+</p>
+                  <p className="text-sm font-black text-foreground leading-none">4000+</p>
                   <p className="text-xs font-medium text-muted-foreground mt-1">Students Mentored</p>
                 </div>
               </motion.div>
@@ -139,11 +139,10 @@ export const AboutMe = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center self-start gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6 text-primary"
+              className="inline-flex items-center self-start gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-6"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.14em]">
-                Meet Your Mentor
-              </span>
+              <GraduationCap className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+              <span>MEET YOUR MENTOR</span>
             </motion.div>
 
             {/* Headline */}
@@ -158,7 +157,7 @@ export const AboutMe = () => {
             </motion.h2>
 
             {/* Paragraphs */}
-            <div className="space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed mb-10 max-w-[620px]">
+            <div className="space-y-6 text-2xl sm:text-[28px] md:text-[30px] font-medium text-slate-950 dark:text-slate-950 leading-[1.6] mb-10 max-w-[880px]">
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -166,7 +165,7 @@ export const AboutMe = () => {
                 transition={{ duration: 0.5, delay: 0.14 }}
               >
                 For the past 9 years, I've dedicated my life to one mission:{" "}
-                <strong className="text-foreground font-semibold">
+                <strong className="text-black font-extrabold">
                   making Quant accessible and conquerable for everyone.
                 </strong>
               </motion.p>
@@ -189,7 +188,7 @@ export const AboutMe = () => {
                 transition={{ duration: 0.5, delay: 0.26 }}
               >
                 My approach is simple:{" "}
-                <strong className="text-foreground font-semibold">understand the "why" behind every concept.</strong> When you
+                <strong className="text-black font-extrabold">understand the "why" behind every concept.</strong> When you
                 stop memorizing formulas and start seeing patterns, Quant transforms from a nightmare to an empowering skill.
               </motion.p>
 

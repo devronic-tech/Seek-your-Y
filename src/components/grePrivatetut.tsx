@@ -335,7 +335,7 @@ const GrePrivateTut: React.FC = () => {
                   {/* Stat cards */}
                   <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">92%</span>
+                      <span className="text-4xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">80%</span>
                       <span className="text-foreground font-semibold">Success</span>
                     </div>
                     <p className="text-sm text-muted-foreground">Students achieve their target scores with personalized tutoring</p>
@@ -351,7 +351,7 @@ const GrePrivateTut: React.FC = () => {
 
                   <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">15+</span>
+                      <span className="text-4xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">9+</span>
                       <span className="text-foreground font-semibold">Years</span>
                     </div>
                     <p className="text-sm text-muted-foreground">Expert faculty with proven track record since 1993</p>

@@ -231,7 +231,7 @@ const GmatLive: React.FC = () => {
                 <div className="absolute -top-3 left-6 right-6 h-2 rounded-t-[12px] bg-gradient-to-r from-primary to-accent" />
                 <div className="space-y-6">
                   <div className="rounded-xl bg-card/95 p-6 shadow-sm">
-                    <div className="text-3xl font-extrabold text-primary">92% <span className="text-foreground font-semibold text-base">Success</span></div>
+                    <div className="text-3xl font-extrabold text-primary">80% <span className="text-foreground font-semibold text-base">Success</span></div>
                     <div className="text-sm text-muted-foreground mt-2">Students achieve their target scores with personalized tutoring</div>
                   </div>
 
@@ -241,7 +241,7 @@ const GmatLive: React.FC = () => {
                   </div>
 
                   <div className="rounded-xl bg-card/95 p-6 shadow-sm">
-                    <div className="text-3xl font-extrabold text-primary">15+ <span className="text-foreground font-semibold text-base">Years</span></div>
+                    <div className="text-3xl font-extrabold text-primary">9+ <span className="text-foreground font-semibold text-base">Years</span></div>
                     <div className="text-sm text-muted-foreground mt-2">Expert faculty with proven track record since 1993</div>
                   </div>
                 </div>

@@ -80,7 +80,7 @@ export const Footer = () => {
               <BrandLogo variant="onDark" size="lg" />
             </Link>
             <p className="text-base text-white/70 mb-4 max-w-sm">
-              Led by Aman with 8+ years of experience mentoring 10,000+ students to conquer GMAT & GRE Quant.
+              Led by Aman with 8+ years of experience mentoring 4000+ students to conquer GMAT & GRE Quant.
             </p>
             <p className="text-base text-white/70 mb-6 max-w-sm italic">
               "Quant doesn't have To be scary."

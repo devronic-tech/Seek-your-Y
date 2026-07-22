@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, ChevronDown } from "lucide-react";
+import { Play, ChevronDown, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 
@@ -31,7 +31,10 @@ export const CustomFAQ: React.FC<CustomFAQProps> = ({
         <div className="max-w-3xl mx-auto">
           {/* Centered Heading */}
           <div className="text-center mb-12">
-            <span className="pill pill-purple mb-4">FAQ</span>
+            <span className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+              <HelpCircle className="w-4 h-4 text-blue-600 stroke-[2.5]" />
+              <span>FAQ</span>
+            </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground font-display tracking-tight">
               {title === "Frequently asked questions" ? (
                 <>
