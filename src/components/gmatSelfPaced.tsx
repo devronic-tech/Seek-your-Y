@@ -163,13 +163,13 @@ const GmatSelfPaced: React.FC = () => {
       <section className="py-12">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
-            <div className="prose max-w-none text-base text-muted-foreground">
-              <h2>Self-Paced GMAT Online Prep: An Overview</h2>
-              <p className="text-muted-foreground">Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.</p>
-              <p className="text-muted-foreground">Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.</p>
+            <div className="prose max-w-none">
+              <h2 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-4">Self-Paced GMAT Online Prep: An Overview</h2>
+              <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed mb-4">Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.</p>
+              <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed">Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.</p>
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition"
+                className="mt-6 rounded-full px-8 py-3.5 text-base font-bold text-primary-foreground bg-primary shadow-md hover:brightness-95 transition hover:scale-105 transform"
               >
                 TALK TO A GMAT EXPERT
               </button>
@@ -180,13 +180,13 @@ const GmatSelfPaced: React.FC = () => {
 
       <section className="py-16 px-6 bg-slate-50/30">
         <div className="max-w-[1200px] mx-auto text-center">
-          <span className="text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-blue-600 block mb-3">
+          <span className="text-sm font-bold uppercase tracking-[0.15em] text-blue-600 block mb-3">
             CHOOSE YOUR TRACK
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold font-display text-foreground tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold font-display text-foreground tracking-tight leading-tight">
             Pick your track
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-2xl mx-auto mt-4 mb-10">
+          <p className="text-lg md:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto mt-4 mb-10">
             Already strong in one section? Prep only what you need — or take the full course.
           </p>
 
@@ -199,7 +199,7 @@ const GmatSelfPaced: React.FC = () => {
               <button
                 key={track.id}
                 onClick={() => setSelectedTrack(track.id as "quant" | "verbal" | "mixed")}
-                className={`px-8 py-3 rounded-full font-semibold text-sm md:text-base transition-all duration-300 border ${
+                className={`px-9 py-3.5 rounded-full font-bold text-base md:text-lg transition-all duration-300 border ${
                   selectedTrack === track.id
                     ? "bg-blue-600 border-blue-600 text-white shadow-md"
                     : "bg-white border-slate-200 text-slate-800 hover:bg-slate-50"
@@ -221,13 +221,13 @@ const GmatSelfPaced: React.FC = () => {
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
                   className="bg-card rounded-[28px] border border-slate-200/60 p-8 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 shadow-soft hover:shadow-elevated"
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${cardColors.icon}`}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${cardColors.icon}`}>
                     {getTrackIcon(option.icon)}
                   </div>
-                  <h3 className="text-xl font-bold font-display text-slate-900">
+                  <h3 className="text-2xl font-extrabold font-display text-slate-950">
                     {option.title}
                   </h3>
-                  <p className="text-sm md:text-[14.5px] text-muted-foreground leading-relaxed">
+                  <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium">
                     {option.description}
                   </p>
                 </motion.div>
@@ -241,10 +241,10 @@ const GmatSelfPaced: React.FC = () => {
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">PRICING</span>
+            <span className="text-sm font-bold uppercase tracking-[0.14em] text-primary">PRICING</span>
             <div className="h-px w-12 bg-primary/40" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Plans & pricing</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Plans & pricing</h2>
           <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
@@ -261,18 +261,18 @@ const GmatSelfPaced: React.FC = () => {
                 )}
 
                 <div className="flex flex-col h-full">
-                  <h3 className="text-lg font-semibold text-foreground">{plan.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-extrabold text-foreground">{plan.title}</h3>
 
                   <div className="mt-6 flex items-baseline gap-4">
-                    <p className="text-4xl font-extrabold text-primary leading-none">{plan.price}</p>
-                    <p className="text-sm text-muted-foreground">{plan.subtitle}</p>
+                    <p className="text-4xl md:text-5xl font-black text-primary leading-none">{plan.price}</p>
+                    <p className="text-base text-muted-foreground font-medium">{plan.subtitle}</p>
                   </div>
 
                   <ul className="mt-6 space-y-4 flex-1">
                     {plan.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <svg className="mt-1 h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                          <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <li key={b} className="flex items-start gap-3 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium">
+                        <svg className="mt-1 h-5 w-5 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                          <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <span className="leading-6">{b}</span>
                       </li>
@@ -282,7 +282,7 @@ const GmatSelfPaced: React.FC = () => {
                   <div className="mt-8">
                     <button 
                       onClick={() => setIsBookSessionOpen(true)}
-                      className="w-full rounded-[14px] bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-colors"
+                      className="w-full rounded-[14px] bg-primary px-6 py-3.5 text-base md:text-lg font-bold text-primary-foreground shadow-lg hover:bg-primary/90 transition-colors"
                     >
                       Enroll Now
                     </button>

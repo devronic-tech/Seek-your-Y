@@ -108,18 +108,15 @@ export const FeaturesDiagram: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="bg-white border border-slate-200/90 shadow-2xl hover:shadow-blue-500/20 hover:border-blue-500/60 rounded-[24px] p-7 text-left transition duration-300 relative group"
+                className="bg-white border border-slate-200/90 shadow-2xl hover:shadow-blue-500/20 hover:border-blue-500/60 rounded-[24px] p-7 text-left transition duration-300 relative group flex items-center min-h-[100px]"
               >
                 {/* Visual indicator dot */}
                 <div className="absolute top-1/2 -right-3 -translate-y-1/2 w-6 h-6 rounded-full bg-white border-2 border-blue-500 flex items-center justify-center shadow-lg z-20 transition group-hover:scale-110">
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-600" />
                 </div>
-                <h3 className="text-xl md:text-[22px] font-extrabold text-slate-900 mb-2.5 group-hover:text-blue-600 transition duration-300 leading-snug">
+                <h3 className="text-xl md:text-[22px] font-black bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-600 bg-clip-text text-transparent leading-snug">
                   {feat.title}
                 </h3>
-                <p className="text-base text-slate-600 font-medium leading-relaxed">
-                  {feat.desc}
-                </p>
               </motion.div>
             ))}
           </div>
@@ -154,18 +151,15 @@ export const FeaturesDiagram: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="bg-white border border-slate-200/90 shadow-2xl hover:shadow-indigo-500/20 hover:border-indigo-500/60 rounded-[24px] p-7 text-left transition duration-300 relative group"
+                className="bg-white border border-slate-200/90 shadow-2xl hover:shadow-indigo-500/20 hover:border-indigo-500/60 rounded-[24px] p-7 text-left transition duration-300 relative group flex items-center min-h-[100px]"
               >
                 {/* Visual indicator dot */}
                 <div className="absolute top-1/2 -left-3 -translate-y-1/2 w-6 h-6 rounded-full bg-white border-2 border-blue-500 flex items-center justify-center shadow-lg z-20 transition group-hover:scale-110">
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-600" />
                 </div>
-                <h3 className="text-xl md:text-[22px] font-extrabold text-slate-900 mb-2.5 group-hover:text-blue-600 transition duration-300 leading-snug">
+                <h3 className="text-xl md:text-[22px] font-black bg-gradient-to-r from-indigo-700 via-blue-600 to-violet-700 bg-clip-text text-transparent leading-snug">
                   {feat.title}
                 </h3>
-                <p className="text-base text-slate-600 font-medium leading-relaxed">
-                  {feat.desc}
-                </p>
               </motion.div>
             ))}
           </div>
@@ -193,14 +187,11 @@ export const FeaturesDiagram: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white border border-slate-200 shadow-lg rounded-[20px] p-6 text-left hover:border-blue-500/50 transition duration-300"
+                className="bg-white border border-slate-200 shadow-lg rounded-[20px] p-6 text-left hover:border-blue-500/50 transition duration-300 flex items-center min-h-[90px]"
               >
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-black bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-700 bg-clip-text text-transparent leading-snug">
                   {feat.title}
                 </h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">
-                  {feat.desc}
-                </p>
               </motion.div>
             ))}
           </div>

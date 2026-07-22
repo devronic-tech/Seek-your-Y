@@ -290,7 +290,7 @@ export const SupportTabs = () => {
                       {activeContent.headingNormal}{" "}
                       <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent block">{activeContent.headingAccent}</span>
                     </h3>
-                    <p className="text-lg md:text-xl text-slate-700 font-medium mb-8 leading-relaxed">
+                    <p className="text-lg md:text-xl text-slate-700 font-medium mt-5 mb-8 leading-relaxed">
                       {activeContent.content}
                     </p>
 

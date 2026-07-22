@@ -56,7 +56,7 @@ const GrePrivateTut: React.FC = () => {
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
-            <div className="prose max-w-none text-base text-muted-foreground">
+            <div className="prose max-w-none text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed space-y-4">
               <p>
                 GRE private tutoring is the most personalised form of GRE prep which ensures that you work with the best GRE tutors in India, build a customized study plan and learn in a 1-1 classroom setting. These classes can be done in-person or online or hybrid based on availability.
               </p>
@@ -65,11 +65,11 @@ const GrePrivateTut: React.FC = () => {
                 Students looking for a very high GRE score or those with uncertain work schedules generally opt for a GRE tutor. The tutor ensures high concept clarity, focused practice and regular test reviews.
               </p>
 
-              <ul className="mt-6 space-y-3 list-disc pl-5">
-                <li><strong>Personalized GRE roadmap:</strong> Build a custom GRE prep roadmap to achieve the best GRE scores possible in consultation with GRE faculty.</li>
-                <li><strong>Comprehensive study material:</strong> GRE books, sectional tests and full length tests ensure you cover all areas of your prep.</li>
-                <li><strong>Flexibility:</strong> Choose classes based on your availability and level of prep.</li>
-                <li><strong>Both online & offline:</strong> You can choose in-person or online sessions as per convenience.</li>
+              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl">
+                <li className="text-slate-800 dark:text-slate-200"><strong>Personalized GRE roadmap:</strong> Build a custom GRE prep roadmap to achieve the best GRE scores possible in consultation with GRE faculty.</li>
+                <li className="text-slate-800 dark:text-slate-200"><strong>Comprehensive study material:</strong> GRE books, sectional tests and full length tests ensure you cover all areas of your prep.</li>
+                <li className="text-slate-800 dark:text-slate-200"><strong>Flexibility:</strong> Choose classes based on your availability and level of prep.</li>
+                <li className="text-slate-800 dark:text-slate-200"><strong>Both online & offline:</strong> You can choose in-person or online sessions as per convenience.</li>
               </ul>
             </div>
           </div>
@@ -81,11 +81,11 @@ const GrePrivateTut: React.FC = () => {
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 tracking-tight">
               Why Choose Seekyoury for <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">GRE Private Tutoring</span>
             </h2>
             
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-3xl mx-auto">
               Experience personalized GRE preparation backed by 30+ years of expertise
             </p>
           </div>
@@ -110,11 +110,11 @@ const GrePrivateTut: React.FC = () => {
                 </div>
 
                 {/* Text Content */}
-                <h3 className="text-xl font-bold text-foreground mb-3 leading-tight">
+                <h3 className="text-2xl font-extrabold text-foreground mb-3 leading-tight">
                   {card.title}
                 </h3>
                 
-                <p className="text-base text-muted-foreground leading-relaxed">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium">
                   {card.title}
                 </p>
               </div>

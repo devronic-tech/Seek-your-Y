@@ -34,10 +34,10 @@ const timelineData: TimelineItem[] = [
     icon: Lightbulb,
     gradient: "from-blue-600 to-indigo-600",
     iconColor: "bg-blue-50 text-blue-600 border-blue-200/50",
-    cardActiveBg: "bg-gradient-to-br from-blue-50/95 via-white to-indigo-50/60 dark:from-white dark:via-white dark:to-blue-50/80 border-blue-300 shadow-xl shadow-blue-500/10",
-    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-blue-50/40",
+    cardActiveBg: "bg-white border-2 border-blue-500 shadow-xl shadow-blue-500/15",
+    cardInactiveBg: "bg-white border-2 border-blue-200/90 hover:border-blue-400",
     accentBorder: "bg-gradient-to-b from-blue-500 to-indigo-600",
-    tagBg: "bg-blue-50 text-blue-700 border-blue-200 shadow-xs",
+    tagBg: "bg-blue-50 text-blue-700 border border-blue-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-5 w-full max-w-[340px]">
@@ -70,10 +70,10 @@ const timelineData: TimelineItem[] = [
     icon: Target,
     gradient: "from-indigo-600 to-violet-600",
     iconColor: "bg-indigo-50 text-indigo-600 border-indigo-200/50",
-    cardActiveBg: "bg-gradient-to-br from-indigo-50/95 via-white to-violet-50/60 dark:from-white dark:via-white dark:to-indigo-50/80 border-indigo-300 shadow-xl shadow-indigo-500/10",
-    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-indigo-50/40",
+    cardActiveBg: "bg-white border-2 border-indigo-500 shadow-xl shadow-indigo-500/15",
+    cardInactiveBg: "bg-white border-2 border-indigo-200/90 hover:border-indigo-400",
     accentBorder: "bg-gradient-to-b from-indigo-500 to-violet-600",
-    tagBg: "bg-indigo-50 text-indigo-700 border-indigo-200 shadow-xs",
+    tagBg: "bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-indigo-600/10 via-violet-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-4 w-full max-w-[340px]">
@@ -121,10 +121,10 @@ const timelineData: TimelineItem[] = [
     icon: LineChart,
     gradient: "from-emerald-500 to-teal-600",
     iconColor: "bg-emerald-50 text-emerald-600 border-emerald-200/50",
-    cardActiveBg: "bg-gradient-to-br from-emerald-50/95 via-white to-teal-50/60 dark:from-white dark:via-white dark:to-emerald-50/80 border-emerald-300 shadow-xl shadow-emerald-500/10",
-    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-emerald-50/40",
+    cardActiveBg: "bg-white border-2 border-emerald-500 shadow-xl shadow-emerald-500/15",
+    cardInactiveBg: "bg-white border-2 border-emerald-200/90 hover:border-emerald-400",
     accentBorder: "bg-gradient-to-b from-emerald-500 to-teal-600",
-    tagBg: "bg-emerald-50 text-emerald-700 border-emerald-200 shadow-xs",
+    tagBg: "bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-xs",
     visual: (
       <div className="w-full h-full bg-gradient-to-br from-emerald-600/10 via-teal-600/5 to-transparent flex items-center justify-center p-8">
         <div className="space-y-4 w-full max-w-[340px]">
@@ -172,8 +172,8 @@ const timelineData: TimelineItem[] = [
     icon: Video,
     gradient: "from-rose-500 to-pink-600",
     iconColor: "bg-rose-50 text-rose-600 border-rose-200/50",
-    cardActiveBg: "bg-gradient-to-br from-rose-50/95 via-white to-pink-50/60 dark:from-white dark:via-white dark:to-rose-50/80 border-rose-300 shadow-xl shadow-rose-500/10",
-    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-rose-50/40",
+    cardActiveBg: "bg-white border-2 border-rose-500 shadow-xl shadow-rose-500/15",
+    cardInactiveBg: "bg-white border-2 border-rose-200/90 hover:border-rose-400",
     accentBorder: "bg-gradient-to-b from-rose-500 to-pink-600",
     tagBg: "bg-rose-50 text-rose-700 border-rose-200 shadow-xs",
     visual: (

@@ -54,17 +54,21 @@ export const CustomFAQ: React.FC<CustomFAQProps> = ({
               return (
                 <div
                   key={idx}
-                  className="glass-card px-6 border-none rounded-2xl overflow-hidden"
+                  className={`bg-white px-6 border-2 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md ${
+                    isOpen
+                      ? "border-blue-600 ring-2 ring-blue-500/20 shadow-blue-500/10"
+                      : "border-blue-300 hover:border-blue-500"
+                  }`}
                 >
                   {/* Trigger Button */}
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
-                    className="w-full flex items-center justify-between text-left text-lg font-medium text-foreground py-6 cursor-pointer focus:outline-none hover:no-underline transition-colors"
+                    className="w-full flex items-center justify-between text-left text-lg font-bold text-slate-900 py-6 cursor-pointer focus:outline-none hover:no-underline hover:text-blue-600 transition-colors"
                   >
                     <span className="font-display font-bold tracking-tight pr-4">{faq.question}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-muted-foreground transition-transform duration-300 shrink-0 ${
-                        isOpen ? "rotate-180" : "rotate-0"
+                      className={`w-5 h-5 transition-transform duration-300 shrink-0 ${
+                        isOpen ? "rotate-180 text-blue-600" : "rotate-0 text-slate-400"
                       }`}
                     />
                   </button>
@@ -78,7 +82,7 @@ export const CustomFAQ: React.FC<CustomFAQProps> = ({
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.25, ease: "easeInOut" }}
                       >
-                        <div className="text-base text-muted-foreground pb-6 leading-relaxed">
+                        <div className="text-base text-slate-600 pb-6 leading-relaxed">
                           {faq.answer}
                         </div>
                       </motion.div>

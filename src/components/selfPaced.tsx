@@ -148,14 +148,14 @@ const SelfPaced = () => {
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
-            <div className="prose max-w-none text-base text-slate-700">
+            <div className="prose max-w-none text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
               <p>
                 GRE Self-paced coaching allows students to prepare for the GRE at their convenience. These are pre-recorded videos that cover all concepts tested on the GRE with examples of applications of those concepts. GRE online training in a self-paced environment ensures that students can speed up or slow down their preparation based on their schedules.
               </p>
 
-              <ul className="mt-6 space-y-3 list-disc pl-5">
+              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium">
                 {features.map((f) => (
-                  <li key={f} className="text-slate-700">{f}</li>
+                  <li key={f} className="text-slate-800 dark:text-slate-200">{f}</li>
                 ))}
               </ul>
             </div>
@@ -173,18 +173,18 @@ const SelfPaced = () => {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="h-px w-12 bg-primary/40" />
-              <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">CHOOSE YOUR TRACK</span>
+              <span className="text-sm font-bold uppercase tracking-[0.14em] text-primary">CHOOSE YOUR TRACK</span>
               <div className="h-px w-12 bg-primary/40" />
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Pick your track</h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">Already strong in one section? Prep only what you need — or take the full course.</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Pick your track</h2>
+            <p className="mt-4 text-lg md:text-xl font-medium leading-7 text-slate-700">Already strong in one section? Prep only what you need — or take the full course.</p>
           </div>
 
           {/* Toggle Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <button
               onClick={() => setSelectedTrack("mixed")}
-              className={`px-8 py-3 rounded-full font-semibold transition ${
+              className={`px-9 py-3.5 rounded-full font-bold text-base md:text-lg transition ${
                 selectedTrack === "mixed"
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "border border-border bg-card text-foreground hover:border-primary hover:bg-primary/5"
@@ -194,7 +194,7 @@ const SelfPaced = () => {
             </button>
             <button
               onClick={() => setSelectedTrack("quant")}
-              className={`px-8 py-3 rounded-full font-semibold transition ${
+              className={`px-9 py-3.5 rounded-full font-bold text-base md:text-lg transition ${
                 selectedTrack === "quant"
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "border border-border bg-card text-foreground hover:border-primary hover:bg-primary/5"
@@ -204,7 +204,7 @@ const SelfPaced = () => {
             </button>
             <button
               onClick={() => setSelectedTrack("verbal")}
-              className={`px-8 py-3 rounded-full font-semibold transition ${
+              className={`px-9 py-3.5 rounded-full font-bold text-base md:text-lg transition ${
                 selectedTrack === "verbal"
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "border border-border bg-card text-foreground hover:border-primary hover:bg-primary/5"
@@ -226,8 +226,8 @@ const SelfPaced = () => {
                   <div className={`mb-6 flex h-16 w-16 items-center justify-center rounded-3xl ${colors.icon}`}>
                     {getTrackIcon(card.icon)}
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-950">{card.title}</h3>
-                  <p className="mt-4 text-base text-slate-600 leading-relaxed">{card.description}</p>
+                  <h3 className="text-2xl font-extrabold text-slate-950">{card.title}</h3>
+                  <p className="mt-4 text-base md:text-lg text-slate-600 font-medium leading-relaxed">{card.description}</p>
                 </div>
               );
             })}

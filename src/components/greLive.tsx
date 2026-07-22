@@ -90,7 +90,7 @@ const GreLive: React.FC = () => {
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
-            <div className="prose max-w-none text-base md:text-lg text-muted-foreground font-normal leading-relaxed">
+            <div className="prose max-w-none text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed space-y-4">
               <p>
                 GRE online classes are live, scheduled sessions that combine classroom rigor with online convenience. Our live GRE training provides in-depth concept clarity, application practice and continuous doubt resolution so you progress with confidence.
               </p>
@@ -99,10 +99,10 @@ const GreLive: React.FC = () => {
                 Students attending live online classes get access to structured schedules, live doubt-clearing, recordings and an integrated LMS to revise lessons at their own pace.
               </p>
 
-              <ul className="mt-6 space-y-3 list-disc pl-5">
-                <li className="text-muted-foreground"><strong>Comprehensive GRE online course:</strong> 48 hrs of GRE live online classes with faculty for in-depth understanding and practice.</li>
-                <li className="text-muted-foreground"><strong>Unlimited doubt-clearing sessions:</strong> Schedule live doubt-clearing sessions with faculty from 7am to midnight every day.</li>
-                <li className="text-muted-foreground"><strong>GRE practice tests and books:</strong> Course includes books, full-length tests and online preparation tools.</li>
+              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl">
+                <li className="text-slate-800 dark:text-slate-200"><strong>Comprehensive GRE online course:</strong> 48 hrs of GRE live online classes with faculty for in-depth understanding and practice.</li>
+                <li className="text-slate-800 dark:text-slate-200"><strong>Unlimited doubt-clearing sessions:</strong> Schedule live doubt-clearing sessions with faculty from 7am to midnight every day.</li>
+                <li className="text-slate-800 dark:text-slate-200"><strong>GRE practice tests and books:</strong> Course includes books, full-length tests and online preparation tools.</li>
               </ul>
             </div>
           </div>
@@ -113,7 +113,7 @@ const GreLive: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">WHAT YOU GET</p>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">WHAT YOU GET</p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground mb-6">Everything, live</h2>
             <div className="flex justify-center">
               <div className="h-1.5 w-24 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full" />
@@ -136,8 +136,8 @@ const GreLive: React.FC = () => {
                   <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 shadow-lg shadow-blue-500/30 group-hover:shadow-2xl group-hover:shadow-blue-500/40 transition-all duration-300">
                     <img src={card.icon} alt={card.title} className="h-8 w-8 object-contain filter drop-shadow-md" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-950 leading-tight">{card.title}</h3>
-                  <p className="mt-3 text-sm md:text-base leading-6 text-slate-600 group-hover:text-slate-700 transition-colors">{card.description}</p>
+                  <h3 className="text-xl font-bold text-slate-950 leading-tight">{card.title}</h3>
+                  <p className="mt-3 text-base md:text-lg leading-relaxed text-slate-600 group-hover:text-slate-700 transition-colors">{card.description}</p>
                 </div>
               </div>
             ))}
@@ -149,61 +149,61 @@ const GreLive: React.FC = () => {
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">BATCHES</p>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">BATCHES</p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground mb-6">Upcoming batches</h2>
             <div className="flex justify-center">
               <div className="h-1.5 w-24 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full" />
             </div>
-            <p className="mt-6 text-lg text-muted-foreground">Sample schedule — to be replaced with live batch data.</p>
+            <p className="mt-6 text-xl md:text-2xl text-slate-600 font-medium">Sample schedule — to be replaced with live batch data.</p>
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-slate-200/60 shadow-md bg-white">
-            <table className="w-full min-w-[600px]">
+            <table className="w-full min-w-[650px]">
               <thead>
                 <tr className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white">
-                  <th className="px-6 py-5 text-left font-semibold text-sm">Batch</th>
-                  <th className="px-6 py-5 text-left font-semibold text-sm">Starts</th>
-                  <th className="px-6 py-5 text-left font-semibold text-sm">Schedule</th>
-                  <th className="px-6 py-5 text-left font-semibold text-sm">Duration</th>
-                  <th className="px-6 py-5 text-left font-semibold text-sm">Mode</th>
+                  <th className="px-7 py-6 text-left font-bold text-base md:text-lg">Batch</th>
+                  <th className="px-7 py-6 text-left font-bold text-base md:text-lg">Starts</th>
+                  <th className="px-7 py-6 text-left font-bold text-base md:text-lg">Schedule</th>
+                  <th className="px-7 py-6 text-left font-bold text-base md:text-lg">Duration</th>
+                  <th className="px-7 py-6 text-left font-bold text-base md:text-lg">Mode</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="bg-white border-b border-slate-100 hover:bg-blue-50/50 transition-colors duration-200 group">
-                  <td className="px-6 py-5 text-slate-900 font-semibold text-sm">
-                    <span className="inline-flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-blue-500 group-hover:bg-blue-600 transition-colors"></span>
+                  <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
+                    <span className="inline-flex items-center gap-2.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-blue-500 group-hover:bg-blue-600 transition-colors"></span>
                       Weekday Evening
                     </span>
                   </td>
-                  <td className="px-6 py-5 text-slate-700 text-sm">Aug 3, 2026</td>
-                  <td className="px-6 py-5 text-slate-700 text-sm">Mon–Fri, 8–9:30 PM IST</td>
-                  <td className="px-6 py-5 text-slate-700 text-sm"><span className="inline-flex px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">10 weeks</span></td>
-                  <td className="px-6 py-5 text-slate-700 text-sm"><span className="inline-flex px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">Online</span></td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg font-medium">Aug 3, 2026</td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg font-medium">Mon–Fri, 8–9:30 PM IST</td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm md:text-base font-bold">10 weeks</span></td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm md:text-base font-bold">Online</span></td>
                 </tr>
                 <tr className="bg-slate-50/40 border-b border-slate-100 hover:bg-blue-50/50 transition-colors duration-200 group">
-                  <td className="px-6 py-5 text-slate-900 font-semibold text-sm">
-                    <span className="inline-flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-purple-500 group-hover:bg-purple-600 transition-colors"></span>
+                  <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
+                    <span className="inline-flex items-center gap-2.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-purple-500 group-hover:bg-purple-600 transition-colors"></span>
                       Weekend Intensive
                     </span>
                   </td>
-                  <td className="px-6 py-5 text-slate-700 text-sm">Aug 8, 2026</td>
-                  <td className="px-6 py-5 text-slate-700 text-sm">Sat–Sun, 10 AM–1 PM IST</td>
-                  <td className="px-6 py-5 text-slate-700 text-sm"><span className="inline-flex px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">12 weeks</span></td>
-                  <td className="px-6 py-5 text-slate-700 text-sm"><span className="inline-flex px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">Online</span></td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg font-medium">Aug 8, 2026</td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg font-medium">Sat–Sun, 10 AM–1 PM IST</td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm md:text-base font-bold">12 weeks</span></td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm md:text-base font-bold">Online</span></td>
                 </tr>
                 <tr className="bg-white hover:bg-blue-50/50 transition-colors duration-200 group">
-                  <td className="px-6 py-5 text-slate-900 font-semibold text-sm">
-                    <span className="inline-flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-orange-500 group-hover:bg-orange-600 transition-colors"></span>
+                  <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
+                    <span className="inline-flex items-center gap-2.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-orange-500 group-hover:bg-orange-600 transition-colors"></span>
                       Fast-Track Crash
                     </span>
                   </td>
-                  <td className="px-6 py-5 text-slate-700 text-sm">Sep 1, 2026</td>
-                  <td className="px-6 py-5 text-slate-700 text-sm">Daily, 7–9 PM IST</td>
-                  <td className="px-6 py-5 text-slate-700 text-sm"><span className="inline-flex px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold">5 weeks</span></td>
-                  <td className="px-6 py-5 text-slate-700 text-sm"><span className="inline-flex px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">Online</span></td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg font-medium">Sep 1, 2026</td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg font-medium">Daily, 7–9 PM IST</td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm md:text-base font-bold">5 weeks</span></td>
+                  <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm md:text-base font-bold">Online</span></td>
                 </tr>
               </tbody>
             </table>
@@ -212,7 +212,7 @@ const GreLive: React.FC = () => {
           <div className="text-center mt-12">
             <button 
               onClick={() => setIsBookSessionOpen(true)}
-              className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3 text-white font-semibold hover:shadow-lg shadow-md hover:scale-105 transform transition-all duration-300"
+              className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-9 py-3.5 text-white font-extrabold text-lg hover:shadow-lg shadow-md hover:scale-105 transform transition-all duration-300"
             >
               Reserve a Seat
             </button>
@@ -226,51 +226,51 @@ const GreLive: React.FC = () => {
           <div className="grid gap-12 lg:grid-cols-[1fr_420px]">
             {/* Left: Curriculum */}
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">CURRICULUM</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground mb-8">10 weeks, fully mapped</h2>
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">CURRICULUM</p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground mb-8">10 weeks, fully mapped</h2>
               
-              <div className="space-y-4">
-                <div className="flex gap-4 group">
-                  <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="space-y-5">
+                <div className="flex gap-4 items-center group">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
+                    <svg className="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Weeks 1–3: Quant foundations (arithmetic, algebra) + Vocab sprint</p>
+                    <p className="font-bold text-lg md:text-xl text-slate-950 group-hover:text-blue-600 transition-colors">Weeks 1–3: Quant foundations (arithmetic, algebra) + Vocab sprint</p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 group">
-                  <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex gap-4 items-center group">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
+                    <svg className="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Weeks 4–6: Geometry, Data Analysis + RC, Critical Reasoning, TC/SE strategy</p>
+                    <p className="font-bold text-lg md:text-xl text-slate-950 group-hover:text-blue-600 transition-colors">Weeks 4–6: Geometry, Data Analysis + RC, Critical Reasoning, TC/SE strategy</p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 group">
-                  <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex gap-4 items-center group">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
+                    <svg className="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Weeks 7–8: Sectional tests + AWA "Analyze an Issue" workshops</p>
+                    <p className="font-bold text-lg md:text-xl text-slate-950 group-hover:text-blue-600 transition-colors">Weeks 7–8: Sectional tests + AWA "Analyze an Issue" workshops</p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 group">
-                  <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex gap-4 items-center group">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex-shrink-0 shadow-md group-hover:shadow-lg transition-all">
+                    <svg className="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Weeks 9–10: Full mocks + personalised revision plan</p>
+                    <p className="font-bold text-lg md:text-xl text-slate-950 group-hover:text-blue-600 transition-colors">Weeks 9–10: Full mocks + personalised revision plan</p>
                   </div>
                 </div>
               </div>

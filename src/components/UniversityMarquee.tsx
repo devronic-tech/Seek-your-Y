@@ -139,7 +139,7 @@ export const UniversityMarquee: React.FC = () => {
           {marqueeItems.map((uni, idx) => (
             <div
               key={`${uni.name}-${idx}`}
-              className="group relative w-[300px] sm:w-[350px] md:w-[400px] h-[220px] md:h-[260px] rounded-[26px] overflow-hidden border border-border/80 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 shrink-0 cursor-pointer"
+              className="group relative w-[380px] sm:w-[460px] md:w-[520px] h-[280px] sm:h-[320px] md:h-[360px] rounded-[32px] overflow-hidden border border-border/80 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 shrink-0 cursor-pointer"
             >
               {/* Actual Campus Image Background */}
               <img
@@ -154,19 +154,19 @@ export const UniversityMarquee: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-black/20 group-hover:via-slate-950/50 transition-colors duration-300" />
 
               {/* Card Header Top Badge */}
-              <div className="absolute top-5 left-5 right-5 flex justify-between items-center z-10">
-                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-white/90 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-                  <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-10">
+                <span className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white/90 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                  <MapPin className="w-4 h-4 text-blue-400" />
                   <span>{uni.location}</span>
                 </span>
               </div>
 
               {/* Card Bottom: University Name Only */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7 z-10 text-left space-y-1">
-                <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight drop-shadow-md group-hover:text-blue-300 transition-colors">
+              <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-8 md:p-9 z-10 text-left space-y-1.5">
+                <h4 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight drop-shadow-md group-hover:text-blue-300 transition-colors">
                   {uni.name}
                 </h4>
-                <p className="text-sm md:text-base text-slate-200/90 font-medium truncate leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-slate-200/90 font-medium truncate leading-relaxed">
                   {uni.fullName}
                 </p>
               </div>

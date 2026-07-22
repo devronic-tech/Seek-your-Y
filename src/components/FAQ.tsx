@@ -56,12 +56,12 @@ export const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-card px-6 border-none"
+                className="bg-white border-2 border-blue-300 hover:border-blue-500 data-[state=open]:border-blue-600 data-[state=open]:ring-2 data-[state=open]:ring-blue-500/20 px-6 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md"
               >
-                <AccordionTrigger className="text-left text-lg md:text-lg font-medium text-foreground hover:no-underline py-6">
+                <AccordionTrigger className="text-left text-lg md:text-lg font-bold text-slate-900 hover:no-underline py-6 hover:text-blue-600 transition-colors">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground pb-6 leading-relaxed">
+                <AccordionContent className="text-base text-slate-600 pb-6 leading-relaxed">
                   {index === 1 ? (
                     <>
                       You can enroll by booking a free demo session on our website, or you can contact us directly. We will guide you through the enrollment process and get you started on your preparation journey with Seek Your Y.

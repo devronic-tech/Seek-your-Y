@@ -55,17 +55,17 @@ const GmatLive: React.FC = () => {
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
-            <div className="prose max-w-none text-base text-muted-foreground">
-              <h2>Live GMAT Online Prep That Fits Your Schedule</h2>
-              <p>Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.</p>
-              <ul className="mt-6 space-y-3 list-disc pl-5 text-muted-foreground">
+            <div className="prose max-w-none">
+              <h2 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-4">Live GMAT Online Prep That Fits Your Schedule</h2>
+              <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed mb-4">Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.</p>
+              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium">
                 <li>Interactive trainer-led sessions with personalised doubt resolution.</li>
                 <li>Performance analytics, weekly mocks, and strategy reviews.</li>
                 <li>Flexible timings that suit both working professionals and students.</li>
               </ul>
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition"
+                className="mt-6 rounded-full px-8 py-3.5 text-base font-bold text-primary-foreground bg-primary shadow-md hover:brightness-95 transition hover:scale-105 transform"
               >
                 TALK TO A GMAT EXPERT
               </button>
@@ -74,13 +74,10 @@ const GmatLive: React.FC = () => {
         </div>
       </section>
 
-      
-      
-
       <section className="py-12 bg-background">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-primary">WHAT YOU GET</p>
-          <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Built for the Focus Edition</h2>
+          <p className="text-center text-sm font-bold uppercase tracking-[0.28em] text-primary">WHAT YOU GET</p>
+          <h2 className="mt-2 text-center text-4xl md:text-5xl font-extrabold text-foreground">Built for the Focus Edition</h2>
           <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
@@ -88,12 +85,12 @@ const GmatLive: React.FC = () => {
               <div className="flex items-start gap-5">
                 <div className="flex-shrink-0">
                   <div className="rounded-full bg-gradient-to-br from-primary/10 to-accent/10 p-3 shadow-sm">
-                    <BookOpen className="h-6 w-6 text-primary" />
+                    <BookOpen className="h-7 w-7 text-primary" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-foreground">Live concept classes</h3>
-                  <p className="mt-3 text-sm sm:text-base text-muted-foreground">Quant, Verbal and DI taught live, with recordings available the same day.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">Live concept classes</h3>
+                  <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium leading-relaxed">Quant, Verbal and DI taught live, with recordings available the same day.</p>
                 </div>
               </div>
             </div>
@@ -102,12 +99,12 @@ const GmatLive: React.FC = () => {
               <div className="flex items-start gap-5">
                 <div className="flex-shrink-0">
                   <div className="rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-4 shadow-md">
-                    <Activity className="h-7 w-7 text-primary" />
+                    <Activity className="h-8 w-8 text-primary" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-foreground">DI-first curriculum</h3>
-                  <p className="mt-3 text-sm sm:text-base text-muted-foreground">Most courses treat Data Insights as an afterthought. Ours gives all five DI question types equal weight from week one.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">DI-first curriculum</h3>
+                  <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium leading-relaxed">Most courses treat Data Insights as an afterthought. Ours gives all five DI question types equal weight from week one.</p>
                 </div>
               </div>
             </div>
@@ -116,12 +113,12 @@ const GmatLive: React.FC = () => {
               <div className="flex items-start gap-5">
                 <div className="flex-shrink-0">
                   <div className="rounded-full bg-gradient-to-br from-primary/10 to-accent/10 p-3 shadow-sm">
-                    <Zap className="h-6 w-6 text-primary" />
+                    <Zap className="h-7 w-7 text-primary" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-foreground">Weekly mock + analysis</h3>
-                  <p className="mt-3 text-sm sm:text-base text-muted-foreground">A full Focus-style mock every weekend, followed by a live breakdown of strategy, pacing and the review-&amp;edit tool.</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">Weekly mock + analysis</h3>
+                  <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium leading-relaxed">A full Focus-style mock every weekend, followed by a live breakdown of strategy, pacing and the review-&amp;edit tool.</p>
                 </div>
               </div>
             </div>
