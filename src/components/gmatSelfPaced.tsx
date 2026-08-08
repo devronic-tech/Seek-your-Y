@@ -161,9 +161,9 @@ const GmatSelfPaced: React.FC = () => {
       {/* OVERVIEW BANNER CARD */}
       <section className="py-12 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
-          <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg relative overflow-hidden">
+          <div className="rounded-[32px] bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-            <div className="relative z-10 max-w-4xl">
+            <div className="relative z-10 w-full">
               <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
                 <Sparkles className="w-4 h-4 stroke-[2.5]" />
                 <span>SELF-PACED GMAT PREPARATION</span>

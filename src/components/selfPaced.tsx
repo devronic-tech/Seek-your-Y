@@ -14,6 +14,11 @@ import {
   Sparkles,
   ArrowRight,
   Check,
+  Trophy,
+  TrendingUp,
+  Cpu,
+  GraduationCap,
+  HelpCircle,
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
@@ -40,12 +45,6 @@ const selfPacedFaqs = [
     answer: "You get access to our online student doubt forum where you can post queries and receive expert assistance."
   }
 ];
-import analyticsIcon from "@/assets/paced-icon/analytics.webp";
-import booksIcon from "@/assets/paced-icon/books.webp";
-import qaIcon from "@/assets/paced-icon/qa.webp";
-import since1993Icon from "@/assets/paced-icon/since-1993.webp";
-import studentIcon from "@/assets/paced-icon/student.webp";
-import teacherIcon from "@/assets/paced-icon/teacher.webp";
 
 const SelfPaced = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
@@ -69,32 +68,32 @@ const SelfPaced = () => {
 
   const featureCards = [
     {
-      icon: since1993Icon,
+      icon: Trophy,
       title: "Unmatched Scores on the GRE since 1993",
       description: "Proven track record with thousands of 320+ scores."
     },
     {
-      icon: analyticsIcon,
+      icon: TrendingUp,
       title: "Smart analytics help you track and evaluate performance",
       description: "Identify weak spots and track score trajectory."
     },
     {
-      icon: teacherIcon,
+      icon: Cpu,
       title: "Powerful adaptive technology platform streamlines prep",
       description: "AI-driven practice tailored to your exact level."
     },
     {
-      icon: booksIcon,
+      icon: BookOpen,
       title: "Targeted study plan & exhaustive full-length tests",
       description: "Comprehensive coverage of Quant and Verbal concepts."
     },
     {
-      icon: studentIcon,
+      icon: GraduationCap,
       title: "Mentoring and coaching by expert faculty",
       description: "Learn strategies from master GRE instructors."
     },
     {
-      icon: qaIcon,
+      icon: HelpCircle,
       title: "Personalized attention through doubt-clearing sessions",
       description: "Never stay stuck on a problem for long."
     }
@@ -262,9 +261,9 @@ const SelfPaced = () => {
       <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
           {/* Header Card / Intro Banner */}
-          <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
+          <div className="rounded-[32px] bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-            <div className="relative z-10 max-w-4xl">
+            <div className="relative z-10 w-full">
               <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
                 <Sparkles className="w-4 h-4 stroke-[2.5]" />
                 <span>SELF-PACED PREPARATION</span>
@@ -384,18 +383,21 @@ const SelfPaced = () => {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {featureCards.map((card, index) => (
-              <div
-                key={index}
-                className="group relative rounded-[28px] border-2 border-blue-200/70 bg-gradient-to-br from-blue-50/60 via-sky-50/30 to-white p-8 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
-              >
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-md">
-                  <img src={card.icon} alt={card.title} className="h-8 w-8 object-contain filter drop-shadow-md brightness-0 invert" />
+            {featureCards.map((card, index) => {
+              const IconComponent = card.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative rounded-[28px] border-2 border-blue-200/70 bg-gradient-to-br from-blue-50/60 via-sky-50/30 to-white p-8 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                >
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="h-8 w-8 stroke-[2.25]" />
+                  </div>
+                  <h3 className="text-2xl font-extrabold text-slate-950 mb-3 leading-tight">{card.title}</h3>
+                  <p className="text-lg text-slate-700 font-medium leading-relaxed">{card.description}</p>
                 </div>
-                <h3 className="text-2xl font-extrabold text-slate-950 mb-3 leading-tight">{card.title}</h3>
-                <p className="text-lg text-slate-700 font-medium leading-relaxed">{card.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
