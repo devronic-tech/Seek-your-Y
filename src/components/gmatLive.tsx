@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
 import { WebinarSection } from "@/components/WebinarSection";
-import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2 } from "lucide-react";
+import { Activity, BarChart3, BookOpen, Gift, Zap, ChevronDown, CheckCircle2, Sparkles, Clock3 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
@@ -53,23 +53,70 @@ const GmatLive: React.FC = () => {
     <div className="bg-background text-foreground">
       <ProgramHero type="gmat" />
 
-      <section className="py-16">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+      <section className="w-full bg-gradient-to-b from-blue-50/70 via-indigo-50/40 to-slate-50 py-12 md:py-16 relative overflow-hidden">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="w-full">
-            <div className="prose max-w-none">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-4">Live GMAT Online Prep That Fits Your Schedule</h2>
-              <p className="text-lg md:text-xl text-slate-950 font-bold leading-relaxed mb-4">Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.</p>
-              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl text-slate-950 font-bold">
-                <li>Interactive trainer-led sessions with personalised doubt resolution.</li>
-                <li>Performance analytics, weekly mocks, and strategy reviews.</li>
-                <li>Flexible timings that suit both working professionals and students.</li>
-              </ul>
-              <button 
-                onClick={() => setIsBookSessionOpen(true)}
-                className="mt-6 rounded-full px-8 py-3.5 text-base font-bold text-primary-foreground bg-primary shadow-md hover:brightness-95 transition hover:scale-105 transform"
-              >
-                TALK TO A GMAT EXPERT
-              </button>
+            <div className="relative overflow-hidden mb-14">
+              <div className="relative z-10 max-w-none text-center">
+                <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                  <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                  <span>LIVE GMAT TRAINING</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                  Live GMAT Online Prep That Fits <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Your Schedule</span>
+                </h2>
+                <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: 24 }}>
+                  Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.
+                </p>
+
+                <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-stretch">
+                  <div className="w-full rounded-[28px] border border-purple-300/80 bg-gradient-to-br from-violet-200 via-fuchsia-200 to-fuchsia-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
+                    <div className="mb-4">
+                    <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-700 to-fuchsia-500 text-white shadow-lg">
+                      <BookOpen className="h-7 w-7" />
+                    </div>
+                    <div className="mt-3">
+                      <span className="inline-flex w-fit rounded-full bg-violet-100 text-violet-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Live Sessions</span>
+                    </div>
+                  </div>
+                  <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Interactive trainer-led sessions</h3>
+                  <p className="text-base md:text-lg text-slate-700 leading-7">Personalised doubt resolution, live explanations, and real-time problem solving for every concept.</p>
+                  </div>
+
+                  <div className="w-full rounded-[28px] border border-sky-300/80 bg-gradient-to-br from-cyan-200 via-sky-150 to-sky-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
+                    <div className="mb-4">
+                      <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-700 to-cyan-500 text-white shadow-lg">
+                        <BarChart3 className="h-7 w-7" />
+                      </div>
+                      <div className="mt-3">
+                        <span className="inline-flex w-fit rounded-full bg-sky-100 text-sky-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Analytics</span>
+                      </div>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Performance analytics & mocks</h3>
+                    <p className="text-base md:text-lg text-slate-700 leading-7">Weekly mock tests, score reports, and strategic review sessions to keep your preparation sharp.</p>
+                  </div>
+
+                  <div className="w-full rounded-[28px] border border-emerald-300/80 bg-gradient-to-br from-emerald-200 via-teal-150 to-teal-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
+                    <div className="mb-4">
+                      <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-700 to-teal-500 text-white shadow-lg">
+                        <Clock3 className="h-7 w-7" />
+                      </div>
+                      <div className="mt-3">
+                        <span className="inline-flex w-fit rounded-full bg-emerald-100 text-emerald-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Flexible</span>
+                      </div>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Flexible timings that suit you</h3>
+                    <p className="text-base md:text-lg text-slate-700 leading-7">Multiple batch options and schedules designed for both working professionals and students.</p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setIsBookSessionOpen(true)}
+                  className="mt-8 inline-flex items-center justify-center rounded-full px-10 py-4 text-lg font-extrabold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300"
+                >
+                  TALK TO A GMAT EXPERT
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -86,45 +133,36 @@ const GmatLive: React.FC = () => {
           </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft hover:shadow-elevated transform transition duration-200 hover:-translate-y-2">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0">
-                  <div className="rounded-full bg-gradient-to-br from-primary/10 to-accent/10 p-3 shadow-sm">
-                    <BookOpen className="h-7 w-7 text-primary" />
-                  </div>
+            <div className="relative overflow-hidden rounded-[32px] border border-blue-200/70 bg-gradient-to-br from-blue-50/90 via-sky-50/70 to-cyan-50/70 p-8 shadow-lg hover:shadow-2xl transform transition duration-300 hover:-translate-y-2">
+              <div className="absolute -top-6 -right-6 h-28 w-28 rounded-full bg-blue-300/15 blur-2xl pointer-events-none" />
+              <div className="flex flex-col items-start gap-5 relative z-10">
+                <div className="rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 p-4 shadow-xl shadow-blue-500/20 mb-4">
+                  <BookOpen className="h-8 w-8 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">Live concept classes</h3>
-                  <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium leading-relaxed">Quant, Verbal and DI taught live, with recordings available the same day.</p>
-                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950">Live concept classes</h3>
+                <p className="text-lg md:text-xl text-slate-700 font-medium leading-8">Quant, Verbal and DI taught live, with recordings available the same day.</p>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft transform transition duration-200 hover:shadow-elevated hover:-translate-y-2 md:scale-105 md:ring-1 md:ring-primary/20">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0">
-                  <div className="rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-4 shadow-md">
-                    <Activity className="h-8 w-8 text-primary" />
-                  </div>
+            <div className="relative overflow-hidden rounded-[32px] border border-purple-200/70 bg-gradient-to-br from-purple-50/90 via-fuchsia-50/70 to-indigo-50/70 p-8 shadow-lg hover:shadow-2xl transform transition duration-300 hover:-translate-y-2">
+              <div className="absolute -top-6 -right-6 h-28 w-28 rounded-full bg-purple-300/15 blur-2xl pointer-events-none" />
+              <div className="flex flex-col items-start gap-5 relative z-10">
+                <div className="rounded-full bg-gradient-to-br from-purple-600 to-indigo-500 p-4 shadow-xl shadow-purple-500/20 mb-4">
+                  <Activity className="h-8 w-8 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">DI-first curriculum</h3>
-                  <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium leading-relaxed">Most courses treat Data Insights as an afterthought. Ours gives all five DI question types equal weight from week one.</p>
-                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950">DI-first curriculum</h3>
+                <p className="text-lg md:text-xl text-slate-700 font-medium leading-8">Most courses treat Data Insights as an afterthought. Ours gives all five DI question types equal weight from week one.</p>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft hover:shadow-elevated transform transition duration-200 hover:-translate-y-2">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0">
-                  <div className="rounded-full bg-gradient-to-br from-primary/10 to-accent/10 p-3 shadow-sm">
-                    <Zap className="h-7 w-7 text-primary" />
-                  </div>
+            <div className="relative overflow-hidden rounded-[32px] border border-emerald-200/70 bg-gradient-to-br from-emerald-50/90 via-teal-50/70 to-slate-50/70 p-8 shadow-lg hover:shadow-2xl transform transition duration-300 hover:-translate-y-2">
+              <div className="absolute -top-6 -right-6 h-28 w-28 rounded-full bg-emerald-300/15 blur-2xl pointer-events-none" />
+              <div className="flex flex-col items-start gap-5 relative z-10">
+                <div className="rounded-full bg-gradient-to-br from-emerald-600 to-teal-500 p-4 shadow-xl shadow-emerald-500/20 mb-4">
+                  <Zap className="h-8 w-8 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">Weekly mock + analysis</h3>
-                  <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium leading-relaxed">A full Focus-style mock every weekend, followed by a live breakdown of strategy, pacing and the review-&amp;edit tool.</p>
-                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950">Weekly mock + analysis</h3>
+                <p className="text-lg md:text-xl text-slate-700 font-medium leading-8">A full Focus-style mock every weekend, followed by a live breakdown of strategy, pacing and the review-&amp;edit tool.</p>
               </div>
             </div>
           </div>
@@ -140,52 +178,312 @@ const GmatLive: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-[hsl(var(--card-bg, 0 0% 100%))]">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-600 text-sm md:text-base font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
               BATCHES
             </div>
-            <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Upcoming batches</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground mb-6">Upcoming batches</h2>
+            <div className="flex justify-center">
+              <div className="h-1.5 w-24 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full" />
+            </div>
+            <p className="mt-6 text-xl md:text-2xl text-slate-600 font-medium">Sample schedule — to be replaced with live batch data.</p>
           </div>
-          <p className="mt-3 text-center text-muted-foreground">Sample schedule — to be replaced with live batch data.</p>
 
-          <div className="mt-8">
-            <div className="mx-auto max-w-[1100px] rounded-3xl bg-card p-0 shadow-elevated overflow-x-auto">
-              <div className="grid grid-cols-5 min-w-[600px] items-center gap-0 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-t-3xl">
-                <div className="px-6 py-4 font-semibold text-sm md:text-base">Batch</div>
-                <div className="px-6 py-4 font-semibold text-sm md:text-base">Starts</div>
-                <div className="px-6 py-4 font-semibold text-sm md:text-base">Schedule</div>
-                <div className="px-6 py-4 font-semibold text-sm md:text-base">Duration</div>
-                <div className="px-6 py-4 font-semibold text-sm md:text-base">Mode</div>
+          <div className="space-y-8">
+            <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
+              <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
+                <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">GMAT Focus Edition Specs</h3>
+                <p className="text-xs md:text-sm text-slate-300 font-medium mt-1">Breakdown of exam features, duration, structure &amp; MBA acceptance</p>
               </div>
-
-              <div className="divide-y divide-border bg-card min-w-[600px]">
-                <div className="grid grid-cols-5 items-center px-6 py-6 bg-card hover:bg-card/95 transition">
-                  <div className="text-foreground py-2 md:py-0 font-semibold text-sm md:text-base">Weekday Evening</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">Aug 10, 2026</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">Mon/Wed/Fri, 8–10 PM IST</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">12 weeks</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">Online (live)</div>
-                </div>
-
-                <div className="grid grid-cols-5 items-center px-6 py-6 bg-card hover:bg-card/95 transition">
-                  <div className="text-foreground py-2 md:py-0 font-semibold text-sm md:text-base">Weekend Intensive</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">Aug 15, 2026</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">Sat–Sun, 10 AM–1 PM IST</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">14 weeks</div>
-                  <div className="text-muted-foreground py-2 md:py-0 text-sm md:text-base">Online (live)</div>
-                </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-slate-100/90 border-b-2 border-slate-300 text-sm md:text-base font-semibold uppercase tracking-wider text-slate-700">
+                      <th className="px-6 py-5.5 md:py-6">Batch</th>
+                      <th className="px-6 py-5.5 md:py-6">Starts</th>
+                      <th className="px-6 py-5.5 md:py-6">Schedule</th>
+                      <th className="px-6 py-5.5 md:py-6">Duration</th>
+                      <th className="px-6 py-5.5 md:py-6">Mode</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-300 text-base">
+                    <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                      <td className="px-6 py-6.5 md:py-7">
+                        <div className="flex items-center gap-3.5">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-700 shrink-0 shadow-xs">
+                            <BookOpen className="h-5 w-5 stroke-[2]" />
+                          </div>
+                          <div>
+                            <span className="font-medium text-slate-950 block text-lg md:text-xl">Weekday Evening</span>
+                            <span className="text-sm md:text-base text-slate-600 font-normal">Mon–Fri evening batch</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-6.5 md:py-7 text-slate-800 font-medium">Aug 3, 2026</td>
+                      <td className="px-6 py-6.5 md:py-7 text-slate-800 font-medium">Mon–Fri, 8–9:30 PM IST</td>
+                      <td className="px-6 py-6.5 md:py-7">
+                        <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full font-normal text-base md:text-lg border border-slate-200/80">10 weeks</span>
+                      </td>
+                      <td className="px-6 py-6.5 md:py-7">
+                        <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-800 rounded-full font-normal text-base md:text-lg border border-emerald-200/80">Online</span>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                      <td className="px-6 py-6.5 md:py-7">
+                        <div className="flex items-center gap-3.5">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-700 shrink-0 shadow-xs">
+                            <Activity className="h-5 w-5 stroke-[2]" />
+                          </div>
+                          <div>
+                            <span className="font-medium text-slate-950 block text-lg md:text-xl">Weekend Intensive</span>
+                            <span className="text-sm md:text-base text-slate-600 font-normal">Sat–Sun focused bootcamp</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-6.5 md:py-7 text-slate-800 font-medium">Aug 8, 2026</td>
+                      <td className="px-6 py-6.5 md:py-7 text-slate-800 font-medium">Sat–Sun, 10 AM–1 PM IST</td>
+                      <td className="px-6 py-6.5 md:py-7">
+                        <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full font-normal text-base md:text-lg border border-slate-200/80">12 weeks</span>
+                      </td>
+                      <td className="px-6 py-6.5 md:py-7">
+                        <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-800 rounded-full font-normal text-base md:text-lg border border-emerald-200/80">Online</span>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                      <td className="px-6 py-6.5 md:py-7">
+                        <div className="flex items-center gap-3.5">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 shrink-0 shadow-xs">
+                            <Zap className="h-5 w-5 stroke-[2]" />
+                          </div>
+                          <div>
+                            <span className="font-medium text-slate-950 block text-lg md:text-xl">Fast-Track Crash</span>
+                            <span className="text-sm md:text-base text-slate-600 font-normal">Daily rapid-fire online prep</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-6.5 md:py-7 text-slate-800 font-medium">Sep 1, 2026</td>
+                      <td className="px-6 py-6.5 md:py-7 text-slate-800 font-medium">Daily, 7–9 PM IST</td>
+                      <td className="px-6 py-6.5 md:py-7">
+                        <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full font-normal text-base md:text-lg border border-slate-200/80">5 weeks</span>
+                      </td>
+                      <td className="px-6 py-6.5 md:py-7">
+                        <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-800 rounded-full font-normal text-base md:text-lg border border-emerald-200/80">Online</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
+          </div>
 
-            <div className="mt-8 flex justify-center">
-              <button 
-                onClick={() => setIsBookSessionOpen(true)}
-                className="rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-lg hover:brightness-95 transition"
-              >
-                Reserve a Seat
-              </button>
+          <div className="text-center mt-12">
+            <button 
+              onClick={() => setIsBookSessionOpen(true)}
+              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-extrabold text-lg shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+            >
+              <span>Reserve a Seat</span>
+              <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center transition-transform group-hover:translate-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-4 h-4 text-white">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-slate-50">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-5">
+              VALUE CHECK
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
+              Why this is the <span className="text-blue-600">best-value</span> series anywhere
+            </h2>
+          </div>
+
+          <div className="mt-12 overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
+            <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
+              <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">GMAT prep value comparison</h3>
+              <p className="text-xs md:text-sm text-slate-300 font-medium mt-1">How Seek Your Y stacks up against official mocks and other prep options</p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-slate-100/90 border-b-2 border-slate-300 text-sm md:text-base font-semibold uppercase tracking-wider text-slate-700">
+                    <th className="px-6 py-5.5 md:py-6">&nbsp;</th>
+                    <th className="px-6 py-5.5 md:py-6">Seek Your Y</th>
+                    <th className="px-6 py-5.5 md:py-6">Official Mocks</th>
+                    <th className="px-6 py-5.5 md:py-6">Other Prep</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-300 text-base">
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 text-sky-700 shrink-0 shadow-xs">
+                          <BookOpen className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Total tests</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Practice volume that actually prepares you</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">30 tests</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">3–4 mocks</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">15–25 tests</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-700 shrink-0 shadow-xs">
+                          <BarChart3 className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Full-length mocks</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Adaptive mocks that mimic exam pressure</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">10 adaptive mocks</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">3–4 mocks</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">5–10 mocks</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 shrink-0 shadow-xs">
+                          <Activity className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Sectional drills</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Targeted work for weak areas and pacing</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">20 sectionals</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">None</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">10–15 sectionals</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-700 shrink-0 shadow-xs">
+                          <Sparkles className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Live mock debriefs</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Faculty-led review after every mock</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Faculty-led strategy review</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">None</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">None / Recorded only</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 shrink-0 shadow-xs">
+                          <BarChart3 className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Performance tracking</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Detailed gap analysis and weekly progress</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Advanced gap analysis</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Basic score report</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Standard report</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-700 shrink-0 shadow-xs">
+                          <Gift className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Approx. price</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Lower cost for a more complete prep experience</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg font-bold">₹4,999 (GRE) / ₹5,999 (GMAT)</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">₹9,200 (GMAT) / ₹10,000 (GRE)</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">₹6,000 – ₹12,000</span>
+                    </td>
+                  </tr>
+
+                  <tr className="bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-blue-500/10 border-t-2 border-blue-400/30">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white shrink-0 shadow-md">
+                          <Sparkles className="h-5.5 w-5.5" />
+                        </div>
+                        <div>
+                          <span className="font-extrabold text-slate-950 text-xl md:text-2xl block">Value advantage</span>
+                          <span className="text-sm md:text-base text-slate-600 font-medium">More prep, stronger support, better value</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-2 bg-slate-900 text-white rounded-full font-bold text-base md:text-lg shadow-sm">More practice + live review</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full font-bold text-base md:text-lg shadow-sm">Limited mock depth</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-5 py-2 bg-emerald-600 text-white rounded-full font-bold text-base md:text-lg shadow-sm">Good content, less support</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -195,9 +493,9 @@ const GmatLive: React.FC = () => {
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div>
-              <p className="inline-flex items-center rounded-full bg-card/60 px-4 py-2 text-sm font-semibold text-primary">READY TO TRANSFORM YOUR GRE PREP?</p>
-              <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-foreground">Find Your <span className="text-primary">Y</span> Today</h2>
-              <p className="mt-4 text-lg text-muted-foreground max-w-xl">Get personalized GRE tutoring with a 1-on-1 strategy session. We’ll assess your current level, understand your goals, and create a roadmap to your target score.</p>
+              <p className="inline-flex items-center rounded-full bg-card/60 px-4 py-2 text-base md:text-lg font-semibold text-primary">READY TO TRANSFORM YOUR GRE PREP?</p>
+              <h2 className="mt-6 text-5xl sm:text-6xl md:text-7xl font-extrabold text-foreground">Find Your <span className="text-primary">Y</span> Today</h2>
+              <p className="mt-4 text-xl md:text-2xl text-muted-foreground max-w-xl">Get personalized GRE tutoring with a 1-on-1 strategy session. We’ll assess your current level, understand your goals, and create a roadmap to your target score.</p>
 
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start gap-4">
@@ -206,7 +504,7 @@ const GmatLive: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">Free strategy consultation</div>
-                    <div className="text-sm text-muted-foreground">30-minute session with GRE experts</div>
+                    <div className="text-base text-muted-foreground">30-minute session with GRE experts</div>
                   </div>
                 </li>
 
@@ -216,7 +514,7 @@ const GmatLive: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">Personalized study roadmap</div>
-                    <div className="text-sm text-muted-foreground">Custom plan tailored to your timeline</div>
+                    <div className="text-base text-muted-foreground">Custom plan tailored to your timeline</div>
                   </div>
                 </li>
 
@@ -226,7 +524,7 @@ const GmatLive: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">No commitment required</div>
-                    <div className="text-sm text-muted-foreground">Pure guidance, zero obligations</div>
+                    <div className="text-base text-muted-foreground">Pure guidance, zero obligations</div>
                   </div>
                 </li>
               </ul>
@@ -234,7 +532,7 @@ const GmatLive: React.FC = () => {
               <div className="mt-8">
                 <button 
                   onClick={() => setIsBookSessionOpen(true)}
-                  className="rounded-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold shadow-lg"
+                  className="rounded-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-base md:text-lg shadow-lg"
                 >
                   Book Your Free Demo
                 </button>

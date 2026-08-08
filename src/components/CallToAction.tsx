@@ -1,35 +1,41 @@
 import React, { useState } from "react";
 import { BookSessionDialog } from "./BookSessionDialog";
 
-export const CallToAction: React.FC = () => {
+type CallToActionProps = {
+  variant?: "dark" | "light";
+};
+
+export const CallToAction: React.FC<CallToActionProps> = ({ variant = "dark" }) => {
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
+
+  const isLight = variant === "light";
 
   return (
     <>
-      <section className="bg-slate-950 text-white border-t border-b border-slate-800/80 py-24 px-6 text-center w-full relative overflow-hidden">
-        {/* Decorative background glows matching home page dark section */}
+      <section className={isLight ? "bg-white text-slate-950 border-t border-b border-slate-200 py-24 px-6 text-center w-full relative overflow-hidden" : "bg-slate-950 text-white border-t border-b border-slate-800/80 py-24 px-6 text-center w-full relative overflow-hidden"}>
+        {/* Decorative background glows */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none -z-10 animate-pulse" />
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none -z-10" />
 
         <div className="max-w-[800px] mx-auto space-y-6 relative z-10">
           <div className="flex justify-center">
-            <span className="inline-flex rounded-full border border-blue-400/40 bg-blue-500/10 px-5 py-2 text-xs sm:text-sm font-extrabold uppercase tracking-[0.14em] text-blue-400 shadow-sm">
+            <span className={isLight ? "inline-flex rounded-full border border-blue-200 bg-blue-50 px-5 py-2 text-xs sm:text-sm font-extrabold uppercase tracking-[0.14em] text-blue-700 shadow-sm" : "inline-flex rounded-full border border-blue-400/40 bg-blue-500/10 px-5 py-2 text-xs sm:text-sm font-extrabold uppercase tracking-[0.14em] text-blue-400 shadow-sm"}>
               Ready for your next step?
             </span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-[1.1] tracking-tight text-white">
+          <h2 className={isLight ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-[1.1] tracking-tight text-slate-950" : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-[1.1] tracking-tight text-white"}>
             Ready to find your Y?
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto">
+          <p className={isLight ? "text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed font-medium max-w-2xl mx-auto" : "text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto"}>
             Book a free demo session and a 1-on-1 strategy call. We'll map your target score, timeline and study plan — no strings attached.
           </p>
           
           <div className="pt-4">
             <button 
               onClick={() => setIsBookDemoOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full bg-white text-slate-950 font-extrabold px-8 py-3.5 sm:px-10 sm:py-4 text-base md:text-lg shadow-xl hover:bg-slate-100 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer"
+              className={isLight ? "inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-extrabold px-8 py-3.5 sm:px-10 sm:py-4 text-base md:text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer" : "inline-flex items-center gap-2 rounded-full bg-white text-slate-950 font-extrabold px-8 py-3.5 sm:px-10 sm:py-4 text-base md:text-lg shadow-xl hover:bg-slate-100 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer"}
             >
               Book a Free Demo
             </button>

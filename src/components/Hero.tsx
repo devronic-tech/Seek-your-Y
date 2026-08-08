@@ -1,12 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Play, Users, ShieldCheck, GraduationCap, TrendingUp } from "lucide-react";
 import { StatCounter } from "./StatCounter";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 import mentorImage from "@/assets/mentor.webp";
+import carouselImg1 from "@/assets/student_pics/Arjun M S.jpeg";
+import carouselImg2 from "@/assets/student_pics/Prafful.jpeg";
+import carouselImg3 from "@/assets/student_pics/Sabhyata.jpeg";
+import carouselImg4 from "@/assets/student_pics/Balagopal Jayakumar.jpeg";
+import carouselImg5 from "@/assets/student_pics/Manya.jpeg";
 
 export const Hero = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const carouselImages = [mentorImage, carouselImg1, carouselImg2, carouselImg3, carouselImg4, carouselImg5];
+
+  // Auto-rotate carousel images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="pt-[84px] md:pt-10 min-h-[calc(100vh-84px)] flex flex-col justify-between relative overflow-x-hidden bg-background">
@@ -63,11 +79,10 @@ export const Hero = () => {
         <div className="max-w-[620px] flex flex-col justify-center order-2 xl:order-1">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground leading-[1.1] tracking-tight mb-6">
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="block">Prep doesn't</motion.span>
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }} className="block">have to be scary.</motion.span>
+            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="block">Understand the why.</motion.span>
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}
               className="block bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 bg-clip-text text-transparent"
-            >Master GRE & GMAT!</motion.span>
+            >The score follows.</motion.span>
           </h1>
 
           {/* Subheadline */}
@@ -77,7 +92,7 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg md:text-xl font-normal text-muted-foreground leading-relaxed max-w-[540px] mb-8"
           >
-            Build confidence with a logic-first approach that translates directly to test-day speed and accuracy.
+            Logic-first GRE & GMAT preparation — from your first concept to your final mock. Self-paced courses, live classes, one-on-one mentoring and admissions guidance, led by Aman.
           </motion.p>
 
           {/* CTA Button Row */}
@@ -94,7 +109,7 @@ export const Hero = () => {
               className="h-[60px] px-8 bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 text-white font-bold text-sm rounded-[14px] flex items-center justify-center gap-2.5 transition-all duration-200 shadow-lg shadow-indigo-500/25"
             >
               <Calendar className="w-5 h-5 stroke-[2.5]" />
-              Book a Call
+              Book a free demo
             </motion.button>
 
             {/* Secondary button */}
@@ -104,7 +119,7 @@ export const Hero = () => {
               className="h-[60px] px-8 bg-white border-2 border-indigo-200 text-indigo-700 font-semibold text-sm rounded-[14px] flex items-center justify-center gap-2.5 transition-colors duration-200 hover:border-indigo-400"
             >
               <Play className="w-5 h-5 fill-indigo-600 stroke-indigo-600" />
-              Explore Programs
+              Explore Courses
             </motion.button>
           </motion.div>
 
@@ -115,8 +130,8 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap sm:flex-nowrap gap-6 md:gap-10 border-t border-indigo-100 pt-8"
           >
-            <StatCounter value="4000+" label="Students Mentored" icon={Users} color="blue" />
-            <StatCounter value="80%" label="Success Rate" icon={ShieldCheck} color="emerald" />
+            <StatCounter value="1000+" label="students mentored" icon={Users} color="blue" />
+            <StatCounter value="10+" label="avg. GRE point gain" icon={ShieldCheck} color="emerald" />
             <StatCounter value="9+" label="Years of Experience" icon={GraduationCap} color="violet" />
           </motion.div>
         </div>
@@ -125,28 +140,51 @@ export const Hero = () => {
         <div className="relative flex flex-col xl:flex-row items-center justify-center mt-10 md:mt-4 xl:mt-0 w-full overflow-visible order-1 xl:order-2">
           {/* Portrait Container */}
           <div className="relative flex justify-center items-center h-[340px] sm:h-[480px] lg:h-[560px] xl:h-[720px] w-full max-w-[360px] md:max-w-[480px] lg:max-w-[560px] xl:max-w-none scale-[0.9] sm:scale-100 origin-center overflow-hidden xl:overflow-visible">
-            {/* Portrait Frame Oval Background */}
+            {/* Portrait Frame Oval Background with Carousel */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute top-[4%] left-1/4 transform -translate-x-[36%] xl:-translate-x-[30%] w-[240px] h-[340px] md:w-[320px] md:h-[460px] lg:w-[360px] lg:h-[500px] xl:w-[340px] xl:h-[480px] rounded-full z-[1]"
-              style={{
-                background: 'linear-gradient(to bottom, hsl(var(--primary) / 0.1) 0%, hsl(var(--primary) / 0.1) 60%, transparent 100%)'
-              }}
-            />
+              className="absolute top-[12%] left-1/4 transform -translate-x-[36%] xl:-translate-x-[30%] w-[240px] h-[340px] md:w-[320px] md:h-[460px] lg:w-[360px] lg:h-[500px] xl:w-[340px] xl:h-[480px] rounded-full z-[1] overflow-hidden shadow-2xl"
+            >
+              {/* Carousel Images */}
+              <div className="relative w-full h-full">
+                {carouselImages.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    className="absolute inset-0 w-full h-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  >
+                    <img
+                      src={image}
+                      alt={`Photo ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                ))}
+              </div>
 
-            {/* Main Hero Portrait Wrapper */}
-            <div className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[520px] xl:max-w-[640px] z-[2] pointer-events-none transform translate-x-0 sm:translate-x-10 lg:translate-x-10">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="w-full"
-              >
-                <img src={mentorImage} alt="Elite Quant Mentor" className="w-full h-auto object-contain mx-auto" />
-              </motion.div>
-            </div>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-b from-transparent via-transparent to-background/40 pointer-events-none" />
+
+              {/* Dot Indicators */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                {carouselImages.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? "bg-white w-6"
+                        : "bg-white/50 hover:bg-white/75"
+                    }`}
+                    whileHover={{ scale: 1.2 }}
+                  />
+                ))}
+              </div>
+            </motion.div>
 
             {/* Bottom fade-out on image */}
             <div className="absolute bottom-0 left-0 right-0 h-24 xl:h-48 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none z-10" />

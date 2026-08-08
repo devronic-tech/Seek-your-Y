@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
-import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck, Calculator, BarChart3, Sparkles, PlayCircle, Video, UserCheck, CheckCircle2, Clock3, PenTool, Trophy, GraduationCap, Layers, RotateCcw, Globe2 } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck, Calculator, BarChart3, Sparkles, Play, PlayCircle, Video, UserCheck, CheckCircle2, Clock3, PenTool, Trophy, GraduationCap, Layers, RotateCcw, Globe2 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
@@ -22,7 +21,6 @@ const AboutGmat: React.FC = () => {
   const [activeMode, setActiveMode] = useState("classroom");
   const [activeGmatFocus, setActiveGmatFocus] = useState("learn");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>(null);
 
   const gmatPrepModes = [
@@ -37,6 +35,16 @@ const AboutGmat: React.FC = () => {
         "Hybrid mode for flexible classroom and online attendance",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: Video,
+      theme: {
+        card: "border-blue-200 bg-gradient-to-br from-blue-100 via-cyan-100 to-blue-50",
+        active: "border-blue-400 bg-gradient-to-br from-blue-100 via-cyan-100 to-blue-50 shadow-[0_20px_45px_-18px_rgba(37,99,235,0.35)]",
+        icon: "bg-gradient-to-br from-blue-600 to-cyan-500 text-white",
+        badge: "bg-blue-600/10 text-blue-700",
+        button: "from-blue-600 via-cyan-600 to-sky-600",
+        detail: "from-blue-100 to-cyan-100",
+        bullet: "bg-blue-600",
+      },
     },
     {
       id: "online",
@@ -49,6 +57,16 @@ const AboutGmat: React.FC = () => {
         "Access to lesson recordings and study dashboards",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: PlayCircle,
+      theme: {
+        card: "border-indigo-200 bg-gradient-to-br from-indigo-100 via-violet-100 to-indigo-50",
+        active: "border-indigo-400 bg-gradient-to-br from-indigo-100 via-violet-100 to-indigo-50 shadow-[0_20px_45px_-18px_rgba(79,70,229,0.35)]",
+        icon: "bg-gradient-to-br from-indigo-600 to-violet-500 text-white",
+        badge: "bg-indigo-600/10 text-indigo-700",
+        button: "from-indigo-600 via-violet-600 to-purple-600",
+        detail: "from-indigo-100 to-violet-100",
+        bullet: "bg-indigo-600",
+      },
     },
     {
       id: "self-paced",
@@ -61,6 +79,16 @@ const AboutGmat: React.FC = () => {
         "Self-study support and progress tracking",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: BookOpen,
+      theme: {
+        card: "border-purple-200 bg-gradient-to-br from-purple-100 via-fuchsia-100 to-purple-50",
+        active: "border-purple-400 bg-gradient-to-br from-purple-100 via-fuchsia-100 to-purple-50 shadow-[0_20px_45px_-18px_rgba(168,85,247,0.35)]",
+        icon: "bg-gradient-to-br from-purple-600 to-fuchsia-500 text-white",
+        badge: "bg-purple-600/10 text-purple-700",
+        button: "from-purple-600 via-fuchsia-600 to-violet-600",
+        detail: "from-purple-100 to-fuchsia-100",
+        bullet: "bg-purple-600",
+      },
     },
     {
       id: "private",
@@ -73,6 +101,16 @@ const AboutGmat: React.FC = () => {
         "Focused doubt clearing for verbal, quant, and IR",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: UserCheck,
+      theme: {
+        card: "border-amber-200 bg-gradient-to-br from-amber-100 via-orange-100 to-amber-50",
+        active: "border-amber-400 bg-gradient-to-br from-amber-100 via-orange-100 to-amber-50 shadow-[0_20px_45px_-18px_rgba(251,146,60,0.35)]",
+        icon: "bg-gradient-to-br from-amber-600 to-orange-500 text-white",
+        badge: "bg-amber-600/10 text-amber-700",
+        button: "from-amber-600 via-orange-600 to-red-500",
+        detail: "from-amber-100 to-orange-100",
+        bullet: "bg-amber-600",
+      },
     },
   ];
 
@@ -186,6 +224,31 @@ const AboutGmat: React.FC = () => {
       text: "Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.",
       footer: "Sreethy, 3 months ago",
     },
+    {
+      name: "Sneha",
+      title: "GMAT coach",
+      image: ManyaPhoto,
+      rating: 5,
+      text: "Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.",
+      footer: "Aarav, 1 month ago",
+    },
+    {
+      name: "Rohan",
+      title: "GMAT mentor",
+      image: PraffulPhoto,
+      rating: 5,
+      text: "Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.",
+      footer: "Nisha, 3 weeks ago",
+    },
+  ];
+
+  const reviewCardGradients = [
+    "from-cyan-100 via-sky-100 to-blue-100",
+    "from-fuchsia-100 via-pink-100 to-violet-100",
+    "from-emerald-100 via-lime-100 to-teal-100",
+    "from-amber-100 via-orange-100 to-rose-100",
+    "from-slate-100 via-sky-100 to-indigo-100",
+    "from-rose-100 via-orange-100 to-amber-100",
   ];
 
   const gmatFaqs = [
@@ -215,18 +278,6 @@ const AboutGmat: React.FC = () => {
     }
   ];
 
-  useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
-
-    const interval = window.setInterval(() => {
-      carouselApi.scrollNext();
-    }, 5000);
-
-    return () => window.clearInterval(interval);
-  }, [carouselApi]);
-
   return (
     <div className="bg-background text-foreground">
       <ProgramHero type="gmat" />
@@ -248,9 +299,8 @@ const AboutGmat: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
-            {/* 1. GMAT Self Paced Course — Purple / Pink / Indigo */}
             <div className="rounded-[28px] border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-pink-50/50 to-indigo-50/70 p-8 shadow-md hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
-              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none" />
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none"></div>
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-500 flex items-center justify-center text-white shadow-lg mb-6">
                   <PlayCircle className="w-7 h-7" />
@@ -263,15 +313,15 @@ const AboutGmat: React.FC = () => {
                 <ul className="space-y-3.5 mb-8">
                   <li className="flex items-center gap-2.5 text-purple-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-purple-600 shrink-0" />
-                    Complete HD Video Modules
+                    100+ Hours of HD Video Lessons
                   </li>
                   <li className="flex items-center gap-2.5 text-purple-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-purple-600 shrink-0" />
-                    Topic-wise Drills & Analytics
+                    Topic-wise Practice Drills & Tests
                   </li>
                   <li className="flex items-center gap-2.5 text-purple-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-purple-600 shrink-0" />
-                    Quant, Verbal & Data Insights
+                    Comprehensive Quant & Verbal Modules
                   </li>
                 </ul>
               </div>
@@ -284,9 +334,8 @@ const AboutGmat: React.FC = () => {
               </button>
             </div>
 
-            {/* 2. GMAT Live Classes — Blue / Sky / Cyan */}
             <div className="rounded-[28px] border-2 border-blue-300 bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-cyan-50/70 p-8 shadow-xl relative flex flex-col justify-between overflow-visible transform md:-translate-y-2">
-              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 opacity-15 blur-2xl pointer-events-none overflow-hidden rounded-full" />
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 opacity-15 blur-2xl pointer-events-none overflow-hidden rounded-full"></div>
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-black uppercase tracking-widest px-5 py-1.5 rounded-full shadow-lg z-20 whitespace-nowrap">
                 Most Popular
               </div>
@@ -302,11 +351,11 @@ const AboutGmat: React.FC = () => {
                 <ul className="space-y-3.5 mb-8">
                   <li className="flex items-center gap-2.5 text-blue-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
-                    Daily Interactive Live Sessions
+                    Daily Interactive Live Masterclasses
                   </li>
                   <li className="flex items-center gap-2.5 text-blue-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
-                    Mock Test Review & Strategy
+                    Live Mock Test Review & Strategy
                   </li>
                   <li className="flex items-center gap-2.5 text-blue-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" />
@@ -323,9 +372,8 @@ const AboutGmat: React.FC = () => {
               </button>
             </div>
 
-            {/* 3. GMAT Private Tutoring — Teal / Emerald / Green */}
             <div className="rounded-[28px] border-2 border-teal-200/80 bg-gradient-to-br from-teal-50/80 via-emerald-50/50 to-green-50/70 p-8 shadow-md hover:shadow-xl hover:border-teal-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
-              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-teal-400 to-emerald-400 opacity-15 blur-2xl pointer-events-none" />
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-teal-400 to-emerald-400 opacity-15 blur-2xl pointer-events-none"></div>
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-400 flex items-center justify-center text-white shadow-lg mb-6">
                   <UserCheck className="w-7 h-7" />
@@ -342,7 +390,7 @@ const AboutGmat: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-2.5 text-teal-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0" />
-                    Custom Strategy & Weakness Fix
+                    Custom Strategy & Weakness Diagnosis
                   </li>
                   <li className="flex items-center gap-2.5 text-teal-950 font-semibold" style={{ fontSize: "18px" }}>
                     <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0" />
@@ -361,6 +409,95 @@ const AboutGmat: React.FC = () => {
           </div>
         </div>
       </section>
+
+
+
+      <section className="py-20 relative overflow-hidden">
+        <div className="max-w-[1180px] mx-auto px-6 lg:px-8 relative">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-violet-500/10 px-4 py-2 text-sm font-semibold text-cyan-700 shadow-sm ring-1 ring-cyan-200/70">
+                <Sparkles className="w-4 h-4 text-cyan-600" />
+                <span>Live GMAT Online Prep</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-[1.15] tracking-tight text-foreground">
+                Achieve GMAT momentum with <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">coaching built for scores.</span>
+              </h2>
+              <p className="max-w-3xl text-lg md:text-xl leading-8 text-slate-700">
+                Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high-scoring aspirants.
+              </p>
+
+              <div className="grid gap-3 text-slate-700">
+                <div className="flex items-start gap-3 rounded-[24px] border border-cyan-300/90 bg-gradient-to-br from-cyan-100/95 via-cyan-50 to-white p-5 shadow-md shadow-cyan-500/10">
+                  <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-600 to-sky-600 text-white shadow-lg">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </span>
+                  <p className="text-lg md:text-xl font-medium text-cyan-900">Interactive trainer-led sessions with personalised doubt resolution.</p>
+                </div>
+                <div className="flex items-start gap-3 rounded-[24px] border border-sky-300/90 bg-gradient-to-br from-sky-100/95 via-sky-50 to-white p-5 shadow-md shadow-sky-500/10">
+                  <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-600 to-blue-600 text-white shadow-lg">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </span>
+                  <p className="text-lg md:text-xl font-medium text-sky-900">Performance analytics, weekly mocks, and strategy reviews.</p>
+                </div>
+                <div className="flex items-start gap-3 rounded-[24px] border border-violet-300/90 bg-gradient-to-br from-violet-100/95 via-violet-50 to-white p-5 shadow-md shadow-violet-500/10">
+                  <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </span>
+                  <p className="text-lg md:text-xl font-medium text-violet-900">Flexible timings that suit both working professionals and students.</p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsBookSessionOpen(true)}
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-600 via-sky-600 to-violet-600 px-8 py-4 text-white font-extrabold text-lg shadow-lg hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+              >
+                TALK TO A GMAT EXPERT
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm">
+              <div className="space-y-5">
+                <div className="rounded-[26px] border border-cyan-300/90 bg-gradient-to-br from-cyan-100/95 via-cyan-50 to-white p-6 shadow-md shadow-cyan-500/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-cyan-600 to-sky-600 text-white shadow-lg">
+                      <Play className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold text-cyan-900">Live problem discussions</p>
+                      <p className="text-base text-cyan-800">Solve GMAT challenges together in real time with expert guidance.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-[26px] border border-sky-300/90 bg-gradient-to-br from-sky-100/95 via-sky-50 to-white p-6 shadow-md shadow-sky-500/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-600 to-blue-600 text-white shadow-lg">
+                      <BarChart3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold text-sky-900">Weekly mock review</p>
+                      <p className="text-base text-sky-800">Track progress with live mock analytics and improvement plans.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-[26px] border border-violet-300/90 bg-gradient-to-br from-violet-100/95 via-violet-50 to-white p-6 shadow-md shadow-violet-500/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg">
+                      <Clock3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold text-violet-900">Flexible study schedule</p>
+                      <p className="text-base text-violet-800">Join sessions that fit your work or college timetable without compromise.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <section className="bg-background py-20">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
@@ -494,20 +631,68 @@ const AboutGmat: React.FC = () => {
                 </div>
               </div>
 
-              <div className="rounded-[32px] border border-border bg-card p-8 md:p-10 shadow-soft">
-                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950">Why GMAT matters</h3>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {[
-                    "Global business schools use it to compare applicants.",
-                    "Strong GMAT scores improve scholarship chances.",
-                    "It shows you can think critically under pressure.",
-                    "A strong score boosts confidence in your application.",
-                  ].map((item) => (
-                    <div key={item} className="flex gap-3.5 rounded-3xl bg-background p-6 border border-border/60">
-                      <span className="mt-1.5 h-3 w-3 rounded-full bg-primary shrink-0" />
-                      <p className="text-base md:text-lg font-bold text-slate-950 leading-relaxed">{item}</p>
+              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-50 p-8 md:p-12 shadow-soft">
+                <div className="absolute -top-16 right-0 h-36 w-36 rounded-full bg-gradient-to-br from-blue-400/25 to-violet-400/25 blur-3xl" />
+                <div className="absolute left-0 bottom-0 h-40 w-40 rounded-full bg-gradient-to-r from-cyan-200/30 to-transparent blur-3xl" />
+                <div className="relative">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-blue-700 shadow-sm">
+                    <Sparkles className="h-4 w-4 text-blue-600" />
+                    Why GMAT matters
+                  </div>
+                  <h3 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-950">Why GMAT matters for your MBA journey</h3>
+                  <p className="mt-4 max-w-3xl text-xl md:text-2xl leading-relaxed text-slate-700">
+                    The GMAT is more than an exam — it proves your readiness for elite business programs by demonstrating analytical strength, endurance, and academic potential.
+                  </p>
+
+                  <div className="mt-10 grid gap-5 sm:grid-cols-2">
+                    <div className="relative h-full rounded-[28px] border border-sky-200/60 bg-gradient-to-br from-cyan-200 via-sky-100 to-blue-50 p-7 shadow-[0_20px_40px_-12px_rgba(2,6,23,0.06)] shadow-inner ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex flex-col items-start gap-4">
+                        <div className="h-16 w-16 sm:h-18 sm:w-18 rounded-2xl bg-white/10 flex items-center justify-center shadow-lg">
+                          <Globe2 className="h-7 w-7 text-sky-700" />
+                        </div>
+                          <h4 className="text-2xl font-semibold text-slate-900">Global comparison</h4>
+                          <p className="mt-0 text-base md:text-lg leading-7 text-slate-700">
+                          Business schools worldwide use GMAT scores to compare applicants on a single, trusted scale.
+                        </p>
+                      </div>
                     </div>
-                  ))}
+
+                    <div className="relative h-full rounded-[28px] border border-indigo-200/60 bg-gradient-to-br from-indigo-100 via-violet-100 to-indigo-50 p-7 shadow-[0_20px_40px_-12px_rgba(79,70,229,0.06)] shadow-inner ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex flex-col items-start gap-4">
+                        <div className="h-16 w-16 sm:h-18 sm:w-18 rounded-2xl bg-white/10 flex items-center justify-center shadow-lg">
+                          <ShieldCheck className="h-7 w-7 text-indigo-700" />
+                        </div>
+                        <h4 className="text-2xl font-semibold text-slate-900">Scholarship edge</h4>
+                        <p className="mt-0 text-base md:text-lg leading-7 text-slate-700">
+                          Strong scores make your profile more attractive for scholarships, fellowships, and merit-based aid.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="relative h-full rounded-[28px] border border-rose-200/60 bg-gradient-to-br from-rose-100 via-fuchsia-100 to-pink-50 p-7 shadow-[0_20px_40px_-12px_rgba(219,39,119,0.06)] shadow-inner ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex flex-col items-start gap-4">
+                        <div className="h-16 w-16 sm:h-18 sm:w-18 rounded-2xl bg-white/10 flex items-center justify-center shadow-lg">
+                          <Zap className="h-7 w-7 text-rose-700" />
+                        </div>
+                        <h4 className="text-2xl font-semibold text-slate-900">Pressure proof</h4>
+                        <p className="mt-0 text-base md:text-lg leading-7 text-slate-700">
+                          The GMAT demonstrates your ability to think critically and perform on a timed, high-stakes exam.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="relative h-full rounded-[28px] border border-amber-200/60 bg-gradient-to-br from-amber-200 via-amber-100 to-amber-50 p-7 shadow-[0_20px_40px_-12px_rgba(234,88,12,0.06)] shadow-inner ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex flex-col items-start gap-4">
+                        <div className="h-16 w-16 sm:h-18 sm:w-18 rounded-2xl bg-white/10 flex items-center justify-center shadow-lg">
+                          <Trophy className="h-7 w-7 text-amber-700" />
+                        </div>
+                        <h4 className="text-2xl font-semibold text-slate-900">Application confidence</h4>
+                        <p className="mt-0 text-base md:text-lg leading-7 text-slate-700">
+                          A strong GMAT score gives your application credibility and confidence with admissions committees.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -529,7 +714,7 @@ const AboutGmat: React.FC = () => {
       </section>
 
       {/* GRE FOR MBA Section */}
-      <section className="py-20 bg-slate-50/50">
+      <section className="py-20 bg-slate-100/90">
         <div className="mx-auto max-w-[1200px] px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary/40" />
@@ -677,7 +862,7 @@ const AboutGmat: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="space-y-4 w-full">
             {/* Quantitative Reasoning Accordion */}
             <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
               openSyllabusSection === "quant" 
@@ -887,73 +1072,76 @@ const AboutGmat: React.FC = () => {
 
       <section className="mt-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[36px] border border-border bg-card p-5 sm:p-8 md:p-10 shadow-soft">
+          <div className="rounded-[36px] border border-slate-300/80 bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200 p-5 sm:p-8 md:p-10 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.18)]">
             <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">GMAT Prep Modes</p>
-              <h2 className="mt-4 text-3xl font-semibold text-foreground">Pick the GMAT preparation mode that works best for you</h2>
-              <p className="mt-4 mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700 shadow-sm">
+                <Sparkles className="h-3.5 w-3.5" />
+                GMAT Prep Modes
+              </div>
+              <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-slate-950">Pick the GMAT preparation mode that works best for you</h2>
+              <p className="mt-4 mx-auto max-w-2xl text-sm md:text-base leading-7 text-slate-600">
                 Choose from classroom, online, self-paced or private tutoring. Each plan is designed to fit your study habits and timeline.
               </p>
             </div>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-              {gmatPrepModes.map((mode) => (
-                <button
-                  key={mode.id}
-                  onClick={() => setActiveMode(mode.id)}
-                  className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-5 sm:p-6 text-left transition duration-300 ${
-                    activeMode === mode.id
-                      ? "border-primary bg-primary/10 shadow-soft"
-                      : "border-border bg-card hover:border-primary/70 hover:bg-background hover:shadow-sm"
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.24em] text-muted-foreground truncate">{mode.label}</p>
-                    <div className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl ${
-                      activeMode === mode.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                    }`}>
-                      <span className="text-sm font-bold">{mode.title.split(" ")[1]?.charAt(0) ?? mode.title.charAt(0)}</span>
+              {gmatPrepModes.map((mode) => {
+                const Icon = mode.icon;
+                const isActive = activeMode === mode.id;
+                return (
+                  <button
+                    key={mode.id}
+                    onClick={() => setActiveMode(mode.id)}
+                    className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-5 sm:p-6 text-left transition duration-300 ${
+                      isActive ? mode.theme.active : `${mode.theme.card} hover:shadow-sm`
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.24em] text-slate-500 truncate">{mode.label}</p>
+                      <div className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl ${isActive ? mode.theme.icon : "bg-slate-100 text-slate-600"}`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="mt-6 text-lg font-semibold text-foreground">{mode.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-muted-foreground">{mode.description}</p>
-                  <div className="mt-auto pt-6">
-                    <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition group-hover:bg-primary/20">
-                      Learn More
-                    </span>
-                  </div>
-                </button>
-              ))}
+                    <h3 className="mt-6 text-lg font-semibold text-slate-950">{mode.title}</h3>
+                    <p className="mt-4 text-sm leading-6 text-slate-600">{mode.description}</p>
+                    <div className="mt-auto pt-6">
+                      <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] transition ${isActive ? mode.theme.badge : "bg-slate-100 text-slate-700 group-hover:bg-white group-hover:text-slate-900"}`}>
+                        Learn More
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="mt-8 rounded-[32px] border border-border bg-background p-6 shadow-soft">
+            <div className={`mt-8 rounded-[32px] border border-slate-200 bg-gradient-to-br ${gmatPrepModes.find((mode) => mode.id === activeMode)?.theme.detail ?? "from-slate-50 to-white"} p-6 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.2)]`}>
               {gmatPrepModes.filter((mode) => mode.id === activeMode).map((mode) => (
                 <div key={mode.id} className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-center">
                   <div>
                     <div className="mb-4 flex flex-wrap items-center gap-3">
-                      <span className="text-xl font-semibold text-foreground">{mode.title}</span>
-                      <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">{mode.label}</span>
+                      <span className="text-xl font-semibold text-slate-950">{mode.title}</span>
+                      <span className={`rounded-full px-3 py-1 text-sm font-semibold text-white bg-gradient-to-r ${mode.theme.button}`}>{mode.label}</span>
                     </div>
-                    <p className="text-muted-foreground">{mode.description}</p>
-                    <ul className="mt-6 space-y-3 text-muted-foreground">
+                    <p className="text-slate-600">{mode.description}</p>
+                    <ul className="mt-6 space-y-3 text-slate-600">
                       {mode.bullets.map((bullet) => (
                         <li key={bullet} className="flex items-start gap-3 text-sm leading-6">
-                          <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-primary" />
+                          <span className={`mt-1.5 inline-block h-2.5 w-2.5 rounded-full bg-gradient-to-r ${mode.theme.button}`} />
                           <span>{bullet}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-7 flex flex-wrap gap-3">
-                      <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-6 py-3 text-sm font-semibold text-primary-foreground shadow hover:opacity-95 transition">
+                      <button className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${mode.theme.button} px-6 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-95 transition`}>
                         Book a Demo
                       </button>
-                      <a href="#" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-background">
+                      <a href="#" className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
                         Know More
                       </a>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center rounded-[2rem] bg-card p-4">
-                    <img src={mode.image} alt={mode.title} className="h-auto w-full max-w-[320px] rounded-[2rem] object-cover" />
+                  <div className={`flex items-center justify-center rounded-[2rem] border border-slate-200 bg-gradient-to-br ${mode.theme.detail} p-4`}>
+                    <img src={mode.image} alt={mode.title} className="h-auto w-full max-w-[320px] rounded-[2rem] object-cover shadow-md" />
                   </div>
                 </div>
               ))}
@@ -962,50 +1150,187 @@ const AboutGmat: React.FC = () => {
         </div>
       </section>
       
-      <section className="px-6 pb-20">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
-            <div className="text-center mb-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">GMAT Tutor Reviews</p>
-              <h2 className="mt-4 text-3xl font-semibold text-foreground">What our students say</h2>
-              <p className="mt-3 mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">
-                Read the experiences of students who improved their GMAT score with Seekyoury coaching.
-              </p>
-            </div>
-            <Carousel
-              opts={{
-                containScroll: "trimSnaps",
-                slidesToScroll: 1,
-                loop: true,
-                align: "start",
-              }}
-              setApi={setCarouselApi}
-              className="relative"
-            >
-              <CarouselContent className="flex gap-4">
-                {studentReviews.map((review) => (
-                  <CarouselItem key={`${review.name}-${review.footer}`} className="min-w-full sm:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1rem)]">
-                    <div className="rounded-[32px] border border-border bg-background p-6 shadow-soft min-h-full">
-                      <div className="flex items-center gap-4">
-                        <img src={review.image} alt={review.name} className="h-16 w-16 rounded-full object-cover" />
-                        <div>
-                          <p className="text-lg font-semibold text-foreground">{review.name}</p>
-                          <p className="text-sm text-muted-foreground">{review.title}</p>
-                          <div className="mt-2 flex items-center gap-1 text-[hsl(var(--exam-gold))]">
-                            {Array.from({ length: review.rating }).map((_, index) => (
-                              <span key={index}>★</span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      <p className="mt-5 text-sm leading-7 text-muted-foreground">{review.text}</p>
-                      <p className="mt-6 text-sm font-semibold text-foreground">{review.footer}</p>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
+         <section className="py-20 md:py-28 bg-gradient-to-b from-background via-blue-50/20 to-background border-t border-b border-border/40 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[350px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="max-w-[1250px] mx-auto text-center px-4 mb-16">
+          <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-5">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <span>GMAT TUTOR REVIEWS</span>
           </div>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-foreground tracking-tight uppercase">What our students say</h3>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 rounded-full mx-auto mt-5" />
+          <p className="mt-6 mx-auto max-w-3xl text-base md:text-lg leading-8 text-muted-foreground">
+            Read the experiences of students who improved their GMAT score with Seekyoury coaching.
+          </p>
+        </div>
+
+        <div className="relative overflow-hidden px-4 pb-8 pt-6">
+          <style>{`
+            @keyframes gmatReviewMarquee {
+              0% { transform: translate3d(0, 0, 0); }
+              100% { transform: translate3d(-50%, 0, 0); }
+            }
+          `}</style>
+
+          <div className="hidden md:block absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+          <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+
+          <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "gmatReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Nishtha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Nishtha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Nishtha ma'am is excellent at explaining concepts in a simple and easy to understand way. She is patient, supportive, and always encourages me to do my best.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sandeep, 1 week ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Dhruv" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Dhruv</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Hello Dhruv, thank you for the excellent teaching and support you've given to our 10 years old son Thomas. Your clear explanations and friendly approach have made math enjoyable for him.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Fabio, 2 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Arjun%20M%20S.jpeg" alt="Pratyush" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Pratyush</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Pratyush has been an excellent calculus tutor for my son. He explains complex concepts in a clear, patient, and easy-to-understand manner, which has greatly improved my son's confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Devesh, 2 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Balagopal%20Jayakumar.jpeg" alt="Balagopal" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Balagopal</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sreethy, 3 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Sneha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Sneha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT coach</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Aarav, 1 month ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Rohan" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Rohan</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT mentor</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Nisha, 3 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Nishtha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Nishtha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Nishtha ma'am is excellent at explaining concepts in a simple and easy to understand way. She is patient, supportive, and always encourages me to do my best.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sandeep, 1 week ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Dhruv" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Dhruv</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Hello Dhruv, thank you for the excellent teaching and support you've given to our 10 years old son Thomas. Your clear explanations and friendly approach have made math enjoyable for him.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Fabio, 2 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Arjun%20M%20S.jpeg" alt="Pratyush" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Pratyush</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Pratyush has been an excellent calculus tutor for my son. He explains complex concepts in a clear, patient, and easy-to-understand manner, which has greatly improved my son's confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Devesh, 2 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Balagopal%20Jayakumar.jpeg" alt="Balagopal" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Balagopal</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sreethy, 3 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Sneha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Sneha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT coach</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Aarav, 1 month ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Rohan" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Rohan</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT mentor</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Nisha, 3 weeks ago</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 text-center flex justify-center z-10 relative">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-extrabold text-base md:text-lg shadow-lg shadow-blue-500/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
+            <ArrowRight className="w-5 h-5 text-white" />
+            <span>Book a Session</span>
+          </button>
         </div>
       </section>
 

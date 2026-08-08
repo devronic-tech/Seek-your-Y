@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FileText, Calculator, Languages, Mic, BarChart3, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +6,11 @@ import { Footer } from "@/components/Footer";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
+import testSlide0 from "@/assets/student_pics/test.jpg";
+import testSlide1 from "@/assets/student_pics/test1.jpg";
+import testSlide2 from "@/assets/student_pics/test2.jpg";
+import testSlide3 from "@/assets/student_pics/test3.jpg";
+import testSlide4 from "@/assets/student_pics/test4.jpg";
 
 const testSeriesFaqs = [
   {
@@ -26,6 +31,29 @@ const testSeriesFaqs = [
   }
 ];
 
+const slides = [
+  {
+    image: testSlide0,
+    caption: "Exam preparation scene",
+  },
+  {
+    image: testSlide1,
+    caption: "Pencil and answer sheet",
+  },
+  {
+    image: testSlide2,
+    caption: "Exam paper handoff",
+  },
+  {
+    image: testSlide3,
+    caption: "Writing test answers",
+  },
+  {
+    image: testSlide4,
+    caption: "Desk with exam sheet and pencil",
+  },
+];
+
 const TestSeriesComponent: React.FC = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
 
@@ -34,25 +62,49 @@ const TestSeriesComponent: React.FC = () => {
       title: "10 full-length mocks",
       description: "Adaptive, exam-interface mocks matching real difficulty, timing (12Q/18min ... 15Q/26min) and scoring.",
       icon: FileText,
-      gradient: "from-blue-600 to-blue-400",
+      iconBg: "from-fuchsia-600 via-purple-600 to-indigo-600",
+      cardBg: "border-fuchsia-300 bg-gradient-to-br from-fuchsia-100 via-violet-100 to-indigo-100",
+      borderHover: "hover:border-fuchsia-500",
+      pill: "text-fuchsia-950 bg-fuchsia-100 border-fuchsia-200",
+      titleClass: "text-fuchsia-950",
+      descClass: "text-fuchsia-950 font-medium",
+      glow: "from-fuchsia-500 via-purple-500 to-indigo-500",
     },
     {
       title: "10 Quant sectionals",
       description: "Arithmetic to Data Analysis — topic-weighted exactly like ETS.",
       icon: Calculator,
-      gradient: "from-orange-500 to-pink-500",
+      iconBg: "from-sky-600 via-blue-600 to-cyan-600",
+      cardBg: "border-sky-300 bg-gradient-to-br from-sky-100 via-blue-100 to-cyan-100",
+      borderHover: "hover:border-sky-500",
+      pill: "text-sky-950 bg-sky-100 border-sky-200",
+      titleClass: "text-sky-950",
+      descClass: "text-sky-950 font-medium",
+      glow: "from-sky-500 via-blue-500 to-cyan-500",
     },
     {
       title: "10 Verbal sectionals",
       description: "RC, Critical Reasoning, TC and SE in real section proportions.",
       icon: Languages,
-      gradient: "from-cyan-500 to-blue-500",
+      iconBg: "from-emerald-600 via-green-600 to-lime-600",
+      cardBg: "border-emerald-300 bg-gradient-to-br from-emerald-100 via-green-100 to-lime-100",
+      borderHover: "hover:border-emerald-500",
+      pill: "text-emerald-950 bg-emerald-100 border-emerald-200",
+      titleClass: "text-emerald-950",
+      descClass: "text-emerald-950 font-medium",
+      glow: "from-emerald-500 via-green-500 to-lime-500",
     },
     {
       title: "Live analysis",
       description: "Group analysis session after each mock weekend + error-log templates.",
       icon: Mic,
-      gradient: "from-purple-600 to-indigo-600",
+      iconBg: "from-amber-500 via-orange-500 to-rose-500",
+      cardBg: "border-amber-300 bg-gradient-to-br from-amber-100 via-orange-100 to-rose-100",
+      borderHover: "hover:border-amber-500",
+      pill: "text-amber-950 bg-amber-100 border-amber-200",
+      titleClass: "text-amber-950",
+      descClass: "text-amber-950 font-medium",
+      glow: "from-amber-500 via-orange-500 to-rose-500",
     },
   ];
 
@@ -61,36 +113,97 @@ const TestSeriesComponent: React.FC = () => {
       title: "10 full-length mocks",
       description: "Focus interface, 205–805 scoring, and the review-&-edit tool included.",
       icon: FileText,
-      gradient: "from-blue-600 to-blue-400",
+      iconBg: "from-indigo-600 via-violet-600 to-purple-600",
+      cardBg: "border-indigo-300 bg-gradient-to-br from-indigo-100 via-violet-100 to-purple-100",
+      borderHover: "hover:border-indigo-400",
+      pill: "text-indigo-950 bg-indigo-100 border-indigo-200",
+      titleClass: "text-indigo-950",
+      descClass: "text-indigo-950 font-medium",
+      glow: "from-indigo-500 via-violet-500 to-purple-500",
     },
     {
       title: "10 DI sectionals",
       description: "All five DI types — DS, MSR, tables, graphics, two-part — the section that decides percentiles.",
       icon: BarChart3,
-      gradient: "from-purple-600 to-indigo-600",
+      iconBg: "from-rose-600 via-pink-600 to-fuchsia-600",
+      cardBg: "border-rose-300 bg-gradient-to-br from-rose-100 via-pink-100 to-fuchsia-100",
+      borderHover: "hover:border-rose-400",
+      pill: "text-rose-950 bg-rose-100 border-rose-200",
+      titleClass: "text-rose-950",
+      descClass: "text-rose-950 font-medium",
+      glow: "from-rose-500 via-pink-500 to-fuchsia-500",
     },
     {
       title: "10 Quant + Verbal sectionals",
       description: "Five of each, calibrated to GMAC difficulty curves.",
       icon: Calculator,
-      gradient: "from-orange-500 to-pink-500",
+      iconBg: "from-teal-600 via-emerald-600 to-green-600",
+      cardBg: "border-teal-300 bg-gradient-to-br from-teal-100 via-emerald-100 to-green-100",
+      borderHover: "hover:border-teal-400",
+      pill: "text-teal-950 bg-teal-100 border-teal-200",
+      titleClass: "text-teal-950",
+      descClass: "text-teal-950 font-medium",
+      glow: "from-teal-500 via-emerald-500 to-green-500",
     },
     {
       title: "Live analysis",
       description: "Faculty-led mock debriefs on strategy, pacing and answer-changing tactics.",
       icon: Mic,
-      gradient: "from-purple-600 to-indigo-600",
+      iconBg: "from-orange-500 via-amber-500 to-yellow-500",
+      cardBg: "border-orange-300 bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100",
+      borderHover: "hover:border-orange-400",
+      pill: "text-orange-950 bg-orange-100 border-orange-200",
+      titleClass: "text-orange-950",
+      descClass: "text-orange-950 font-medium",
+      glow: "from-orange-500 via-amber-500 to-yellow-500",
     },
   ];
+
+  const slides = [
+    {
+      image: testSlide0,
+      caption: "Exam preparation scene",
+    },
+    {
+      image: testSlide1,
+      caption: "Pencil and answer sheet",
+    },
+    {
+      image: testSlide2,
+      caption: "Exam paper handoff",
+    },
+    {
+      image: testSlide3,
+      caption: "Writing test answers",
+    },
+    {
+      image: testSlide4,
+      caption: "Desk with exam sheet and pencil",
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    slides.forEach(({ image }) => {
+      const preloaded = new Image();
+      preloaded.src = image;
+    });
+
+    const intervalId = window.setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4500);
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="bg-background text-foreground">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
-        {/* Soft decorative glow */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none opacity-50">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/90 pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-blue-500/15 blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[320px] h-[320px] rounded-full bg-indigo-500/15 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 w-[280px] h-[280px] rounded-full bg-violet-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-70">
           <div
             className="h-full w-full"
             style={{
@@ -101,240 +214,211 @@ const TestSeriesComponent: React.FC = () => {
           />
         </div>
         
-        <div className="max-w-[1200px] mx-auto px-6 text-left relative z-10">
-          <div className="max-w-3xl">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display leading-[1.1] tracking-tight mb-6 text-slate-900"
-            >
-              GRE & GMAT Test Series
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed mb-8"
-            >
-              30 realistic tests per exam — 10 full-length adaptive mocks plus 20 sectionals — with the analytics to turn every attempt into a score improvement.
-            </motion.p>
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <div>
+              <div className="max-w-4xl">
+                <div className="inline-flex items-center gap-2.5 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-[0.24em] text-indigo-700 shadow-sm mb-6">
+                  <span className="h-2.5 w-2.5 rounded-full bg-indigo-600" />
+                  Test Series
+                </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <button 
-                onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center justify-center rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-8 py-4 font-bold text-white shadow-lg shadow-indigo-500/20 transition hover:opacity-95 duration-200"
-              >
-                Book a Free Demo
-              </button>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. GRE TEST SERIES SECTION */}
-      <section className="py-20 px-6 bg-slate-50/50">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">GRE</span>
-            <div className="h-px w-12 bg-primary/40" />
-          </div>
-          
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
-            GRE Test Series — ₹4,999
-          </h2>
-          
-          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-3xl mx-auto mb-14">
-            Section-adaptive mocks calibrated to the shorter GRE, with percentile benchmarking against thousands of test-takers.
-          </p>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-12">
-            {greCards.map((card, idx) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.1)" }}
-                  className="bg-card rounded-[24px] border border-border/50 p-6 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 shadow-soft"
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display leading-[1.1] tracking-tight mb-6 text-slate-950"
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-tr ${card.gradient}`}>
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold font-display text-foreground">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {card.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <button 
-            onClick={() => setIsBookSessionOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700 hover:shadow-xl duration-200"
-          >
-            Get GRE Test Series — ₹4,999
-          </button>
-        </div>
-      </section>
-
-      {/* 3. GMAT TEST SERIES SECTION */}
-      <section className="py-20 px-6 bg-white border-t border-slate-100">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">GMAT</span>
-            <div className="h-px w-12 bg-primary/40" />
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
-            GMAT Focus Test Series — ₹5,999
-          </h2>
-          
-          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-3xl mx-auto mb-14">
-            Question-adaptive Focus Edition mocks with sectional and sub-sectional gap analysis across Quant, Verbal and DI.
-          </p>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-12">
-            {gmatCards.map((card, idx) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.1)" }}
-                  className="bg-card rounded-[24px] border border-border/50 p-6 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 shadow-soft"
+                  Achieve exam momentum with{' '}
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">
+                    test series built for scores.
+                  </span>
+                </motion.h1>
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-lg sm:text-xl md:text-[1.35rem] text-slate-700 font-medium leading-relaxed mb-8 max-w-3xl"
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-tr ${card.gradient}`}>
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold font-display text-foreground">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {card.description}
-                  </p>
+                  30 realistic tests per exam — 10 full-length adaptive mocks plus 20 sectionals — with the analytics to turn every attempt into a score improvement.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="flex flex-wrap gap-4"
+                >
+                  <button 
+                    onClick={() => setIsBookSessionOpen(true)}
+                    className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0"
+                  >
+                    Book a Free Demo
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setIsBookSessionOpen(true)}
+                    className="inline-flex items-center rounded-2xl border border-slate-300 bg-white/80 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-50/60"
+                  >
+                    Talk to an Expert
+                  </button>
                 </motion.div>
-              );
-            })}
-          </div>
+              </div>
+            </div>
 
-          <button 
-            onClick={() => setIsBookSessionOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700 hover:shadow-xl duration-200"
-          >
-            Get GMAT Test Series — ₹5,999
-          </button>
-        </div>
-      </section>
-
-      {/* 4. VALUE CHECK SECTION */}
-      <section className="py-20 px-6 bg-slate-50/50 border-t border-slate-100">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">VALUE CHECK</span>
-            <div className="h-px w-12 bg-primary/40" />
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
-            Why this is the <span className="text-primary">best-value</span> series anywhere
-          </h2>
-
-          {/* Table Container */}
-          <div className="mt-12 overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-soft text-left">
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-left text-sm md:text-base">
-                <thead>
-                  <tr className="border-b border-slate-200">
-                    <th className="px-6 py-4 bg-slate-50 w-1/4"></th>
-                    <th className="px-6 py-4 bg-[#0052CC] text-white font-bold text-center text-lg rounded-t-none">
-                      Seek Your Y
-                    </th>
-                    <th className="px-6 py-4 bg-slate-950 text-white font-bold text-center text-lg rounded-t-none">
-                      Official Mocks
-                    </th>
-                    <th className="px-6 py-4 bg-slate-600 text-white font-bold text-center text-lg rounded-t-none">
-                      Other Prep
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Total tests</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">30 tests</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">3–4 mocks</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">15–25 tests</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Full-length mocks</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">10 adaptive mocks</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">3–4 mocks</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">5–10 mocks</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Sectional drills</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">20 sectionals</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">None</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">10–15 sectionals</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Live mock debriefs</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Faculty-led strategy review</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">None</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">None / Recorded only</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Performance tracking</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Advanced gap analysis</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Basic score report</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Standard report</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Approx. price</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-extrabold text-center bg-blue-50/10 text-lg">
-                      ₹4,999 (GRE) / ₹5,999 (GMAT)
-                    </td>
-                    <td className="px-6 py-5 text-slate-700 text-center">
-                      ₹9,200 (GMAT) / ₹10,000 (GRE)
-                    </td>
-                    <td className="px-6 py-5 text-slate-700 text-center">
-                      ₹6,000 – ₹12,000
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="relative">
+              <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] rounded-[32px] overflow-hidden border border-white/70 shadow-[0_30px_60px_rgba(15,23,42,0.2)] bg-gradient-to-br from-slate-950 via-blue-950 to-violet-950">
+                <div className="absolute inset-0 w-full h-full" style={{ opacity: 1, transform: 'scale(1.00164)' }}>
+                  {slides.map((slide, index) => (
+                    <motion.img
+                      key={slide.caption || index}
+                      src={slide.image}
+                      alt={slide.caption || "Campus image"}
+                      initial={{ opacity: 0, scale: 1.02 }}
+                      animate={{ opacity: index === currentSlide ? 1 : 0, scale: index === currentSlide ? 1 : 1.02 }}
+                      transition={{ duration: 0.6 }}
+                      className="absolute inset-0 w-full h-full object-cover object-center"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  ))}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-slate-950/5 to-black/0"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. DIAGNOSTIC CTA */}
-      <section className="py-20 px-6 bg-white border-t border-slate-100">
-        <div className="max-w-[800px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">FREE TRIAL</span>
-            <div className="h-px w-12 bg-primary/40" />
+      {/* 2. GRE TEST SERIES SECTION */}
+      <section className="py-20 px-6 bg-slate-950">
+        <div className="max-w-[1280px] mx-auto text-center">
+          <div className="rounded-[32px] border border-slate-200/90 bg-white p-8 md:p-12 shadow-xl shadow-slate-950/20 mb-14 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                <span className="h-2.5 w-2.5 rounded-full bg-white animate-pulse" />
+                GRE
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                GRE Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600">₹4,999</span>
+              </h2>
+              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+                Section-adaptive mocks calibrated to the shorter GRE, with percentile benchmarking against thousands of test-takers.
+              </p>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
+            {greCards.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.2)" }}
+                  className={`rounded-[28px] border-2 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group ${card.cardBg} ${card.borderHover}`}
+                >
+                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${card.glow} opacity-15 blur-2xl pointer-events-none`} />
+                  <div>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.iconBg} shadow-lg mb-6`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${card.pill}`}>GRE</span>
+                    <h3 className={`text-2xl font-extrabold mt-4 mb-2 ${card.titleClass}`}>{card.title}</h3>
+                    <p className={`leading-relaxed font-normal ${card.descClass}`} style={{ fontSize: "22px" }}>
+                      {card.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <button 
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-10 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+          >
+            <span>Get GRE Test Series</span>
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </section>
+
+      {/* 3. GMAT TEST SERIES SECTION */}
+      <section className="py-20 px-6 bg-slate-950">
+        <div className="max-w-[1280px] mx-auto text-center">
+          <div className="rounded-[32px] border border-slate-200/90 bg-white p-8 md:p-12 shadow-xl shadow-slate-950/20 mb-14 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-indigo-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                <span className="h-2.5 w-2.5 rounded-full bg-white animate-pulse" />
+                GMAT
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                GMAT Focus Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-violet-600 to-fuchsia-600">₹5,999</span>
+              </h2>
+              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+                Question-adaptive Focus Edition mocks with sectional and sub-sectional gap analysis across Quant, Verbal and DI.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
+            {gmatCards.map((card, idx) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(79, 70, 229, 0.2)" }}
+                  className={`rounded-[28px] border-2 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group ${card.cardBg} ${card.borderHover}`}
+                >
+                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${card.glow} opacity-15 blur-2xl pointer-events-none`} />
+                  <div>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.iconBg} shadow-lg mb-6`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${card.pill}`}>GMAT</span>
+                    <h3 className={`text-2xl font-extrabold mt-4 mb-2 ${card.titleClass}`}>{card.title}</h3>
+                    <p className={`leading-relaxed font-normal ${card.descClass}`} style={{ fontSize: "22px" }}>
+                      {card.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <button 
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-10 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+          >
+            <span>Get GMAT Test Series</span>
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </section>
+
+      {/* 4. VALUE CHECK SECTION */}
+
+
+      {/* 5. DIAGNOSTIC CTA */}
+      <section className="py-20 px-6 bg-white border-t border-slate-200/70">
+        <div className="max-w-[800px] mx-auto text-center">
+          <div className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-5">
+            FREE TRIAL
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
             Take a free diagnostic mock
           </h2>
           
-          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
             Not sure where you stand? Start with one free full-length mock — GRE or GMAT — and get a strategy call on your report.
           </p>
 
           <button 
             onClick={() => setIsBookSessionOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700 hover:shadow-xl duration-200"
+            className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-lg font-extrabold text-white shadow-xl shadow-indigo-500/25 transition hover:opacity-95 hover:scale-[1.02] duration-200"
           >
             Take the Free Diagnostic
           </button>

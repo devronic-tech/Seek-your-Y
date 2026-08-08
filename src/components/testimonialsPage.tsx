@@ -161,6 +161,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Priya M.",
       score: "GRE 331",
       avatar: Person1,
+      bgColor: "bg-violet-50/60",
       text: (
         <>
           I'd done two other courses before this. The difference is the way concepts are taught — as logic, not formulas. Quant went from my weakness to a <strong className="font-bold text-foreground">168</strong>.
@@ -171,6 +172,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Sahil K.",
       score: "GMAT 705",
       avatar: PraffulPhoto,
+      bgColor: "bg-blue-50/60",
       text: (
         <>
           Daily live classes meant I couldn't slack off. The weekly mock analysis sessions alone are worth the fee.
@@ -181,6 +183,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Dev J.",
       score: "GRE 334",
       avatar: BalagopalPhoto,
+      bgColor: "bg-teal-50/60",
       text: (
         <>
           Aman personally reviewed my error log every week during tutoring. That level of attention is rare anywhere.
@@ -191,6 +194,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Neha G.",
       score: "GMAT 715",
       avatar: SabhyataPhoto,
+      bgColor: "bg-violet-50/60",
       text: (
         <>
           The <strong className="font-bold text-foreground">DI module saved my GMAT</strong>. Nobody else takes Data Insights this seriously.
@@ -201,6 +205,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Riya S.",
       score: "GRE 328",
       avatar: ManyaPhoto,
+      bgColor: "bg-blue-50/60",
       text: (
         <>
           They told me honestly that GRE was the smarter route for my MBA target. From diagnostic to <strong className="font-bold text-foreground">Columbia admit in 9 months</strong> — prep, essays and interviews all in one place.
@@ -211,6 +216,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Vikram T.",
       score: "GRE 319",
       avatar: Person2,
+      bgColor: "bg-teal-50/60",
       text: (
         <>
           As a working professional the flexible tutoring slots were a lifesaver. Worth every rupee.
@@ -222,11 +228,11 @@ export const TestimonialsPage: React.FC = () => {
   return (
     <div className="bg-slate-50/50 text-foreground min-h-screen">
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/90 pt-[76px] md:pt-[84px] pb-20 text-slate-900 border-b border-slate-200/60">
         {/* Soft decorative glow */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none opacity-50">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-blue-500/15 blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[320px] h-[320px] rounded-full bg-indigo-500/15 blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-60">
           <div
             className="h-full w-full"
             style={{
@@ -237,22 +243,111 @@ export const TestimonialsPage: React.FC = () => {
           />
         </div>
         
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-6xl lg:text-6xl font-extrabold font-display leading-[1.1] tracking-tight text-slate-900 mb-6">
-            Success stories
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed mb-8">
-            Real students, real score jumps, real admits — for MBA and MS alike. Here's what
-            happens when prep is built on logic and accountability.
-          </p>
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            {/* Left Column */}
+            <div>
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-blue-700 shadow-sm mb-6">
+                <span className="h-2.5 w-2.5 rounded-full bg-blue-600 animate-pulse" />
+                VERIFIED SUCCESS STORIES
+              </div>
 
-          <button 
-            onClick={() => setIsBookSessionOpen(true)}
-            className="rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 text-white font-bold px-8 py-4 shadow-lg shadow-indigo-500/20 transition duration-200"
-          >
-            Book a Free Demo
-          </button>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold font-display leading-[1.22] tracking-tight text-slate-950 mb-6">
+                Real Students.{" "}
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 pb-2.5 pt-1">
+                  Real Score Jumps.
+                </span>
+                Real Global Admits.
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed mb-8 max-w-2xl">
+                From 300+ GRE leaps to 700+ GMAT Focus milestones — discover how ambitious aspirants achieved target scores and secured admits to top global universities.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <button 
+                  onClick={() => setIsBookSessionOpen(true)}
+                  className="rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 hover:-translate-y-0.5 text-white font-extrabold text-base px-8 py-4 shadow-lg shadow-indigo-500/25 transition duration-200"
+                >
+                  Book a Free Demo
+                </button>
+                <a 
+                  href="#testimonials"
+                  className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white/80 px-8 py-4 text-base font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-50/50"
+                >
+                  Read Student Stories
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Unique 3D Testimonial Showcase Card */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Floating Stat Badge 1 */}
+              <div className="absolute -top-4 -left-4 z-30 rounded-2xl bg-white border border-slate-200 p-3.5 shadow-xl shadow-slate-950/10 flex items-center gap-3 animate-bounce-slow">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm">
+                  ★
+                </div>
+                <div>
+                  <div className="text-sm font-black text-slate-950">98.4% Success</div>
+                  <div className="text-[11px] text-slate-500 font-semibold">Target Score Rate</div>
+                </div>
+              </div>
+
+              {/* Main Showcase Hero Card */}
+              <div className="w-full max-w-[420px] rounded-[32px] border border-slate-200/90 bg-white p-7 shadow-2xl shadow-indigo-500/10 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="relative z-10 space-y-5">
+                  <div className="flex items-center justify-between">
+                    <span className="px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-black uppercase tracking-wider">
+                      FEATURED ADMIT
+                    </span>
+                    <div className="flex items-center gap-1 text-amber-400 text-sm">
+                      {"★★★★★"}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={ManyaPhoto}
+                      alt="Riya S."
+                      className="w-16 h-16 rounded-2xl object-cover border-2 border-blue-200 shadow-md"
+                    />
+                    <div>
+                      <h4 className="text-xl font-extrabold text-slate-950">Riya S.</h4>
+                      <p className="text-xs text-blue-600 font-bold">Columbia Business School</p>
+                      <p className="text-[11px] text-slate-500 font-medium">MBA Admit • Verified</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl bg-slate-50 p-4 border border-slate-100 flex items-center justify-between">
+                    <div>
+                      <div className="text-[10px] uppercase tracking-wider font-extrabold text-slate-500">Exam Score</div>
+                      <div className="text-lg font-black text-slate-950">GRE 302 → 328</div>
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-emerald-500 text-white font-extrabold text-xs shadow-sm">
+                      +26 Points
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slate-700 font-medium leading-relaxed italic">
+                    "Switched from GMAT to GRE with Seek Your Y. The formula-free logic techniques and continuous mentor accountability completely transformed my score!"
+                  </p>
+                </div>
+              </div>
+
+              {/* Floating Stat Badge 2 */}
+              <div className="absolute -bottom-4 -right-2 z-30 rounded-2xl bg-white border border-slate-200 p-3.5 shadow-xl shadow-slate-950/10 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-extrabold text-sm">
+                  500+
+                </div>
+                <div>
+                  <div className="text-sm font-black text-slate-950">Top Admits</div>
+                  <div className="text-[11px] text-slate-500 font-semibold">USA, UK & Europe</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -314,7 +409,7 @@ export const TestimonialsPage: React.FC = () => {
             <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">RESULTS</span>
             <div className="h-px w-12 bg-primary/40" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground tracking-tight">
             Score improvements
           </h2>
           <p className="text-base text-slate-600 max-w-2xl mx-auto leading-relaxed mt-4">
@@ -361,7 +456,7 @@ export const TestimonialsPage: React.FC = () => {
             <div className="flex justify-center items-center text-center px-4 pt-2">
               <span className="inline-flex items-center gap-2.5 rounded-full border border-blue-200/80 bg-blue-50/90 px-6 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-blue-700 shadow-sm backdrop-blur-sm">
                 <TrendingUp className="h-4 w-4 text-blue-600 stroke-[2.5]" />
-                GRE Score Improvements
+                GRE / GMAT Score Improvements
               </span>
             </div>
             <div className="w-full overflow-hidden">
@@ -414,61 +509,8 @@ export const TestimonialsPage: React.FC = () => {
           </div>
 
           {/* ROW 2: GMAT Score Improvements (Left to Right) */}
-          <div className="space-y-6 pt-4">
-            <div className="flex justify-center items-center text-center px-4">
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-indigo-200/80 bg-indigo-50/90 px-6 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-indigo-700 shadow-sm backdrop-blur-sm">
-                <TrendingUp className="h-4 w-4 text-indigo-600 stroke-[2.5]" />
-                GMAT Score Improvements
-              </span>
-            </div>
-            <div className="w-full overflow-hidden">
-              <div className="score-marquee-scroll-right">
-                {/* Duplicate array once to enable a seamless infinite scroll loop */}
-                {[...gmatScores, ...gmatScores].map((score, idx) => (
-                  <div
-                    key={`gmat-${idx}`}
-                    className="relative w-[280px] h-[340px] shrink-0 rounded-[28px] overflow-hidden shadow-lg border border-white/10 group cursor-pointer transition-all duration-300 hover:translate-y-[-6px] hover:shadow-xl"
-                  >
-                    {/* Full-bleed Photo Background */}
-                    <div className="absolute inset-0 w-full h-full">
-                      <img
-                        src={score.avatar}
-                        alt={score.name}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      {/* Dark bottom gradient overlay for text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-                    </div>
-
-                    {/* Foreground Content */}
-                    <div className="relative z-10 w-full h-full flex flex-col justify-end p-5 pb-6 text-center text-white">
-                      <div className="space-y-3.5">
-                        <div className="space-y-1">
-                          <h4 className="text-lg font-bold tracking-wide text-white drop-shadow-sm">
-                            {score.name}
-                          </h4>
-                          <p className="text-sm text-slate-300 font-medium tracking-wide">
-                            {score.program}
-                          </p>
-                        </div>
-
-                        {/* Highlighted score text */}
-                        <div className="flex items-center justify-center gap-2 select-none font-display">
-                          <span className="text-[12px] font-bold text-slate-400 uppercase tracking-wider">{score.test}</span>
-                          <span className="text-sm text-slate-300 font-semibold">{score.before}</span>
-                          <span className="text-xs text-slate-400">→</span>
-                          <span className="bg-blue-600 text-white font-extrabold text-base px-3.5 py-1 rounded-full shadow-md tracking-wider">
-                            {score.after}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+       
+       
 
         </div>
       </section>
@@ -489,30 +531,40 @@ export const TestimonialsPage: React.FC = () => {
             {textTestimonials.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[24px] border border-slate-200 shadow-soft p-8 flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition duration-300"
+                className={`${item.bgColor} rounded-[24px] border border-slate-200/50 shadow-soft p-8 flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition duration-300`}
               >
                 <div>
-                  {/* Blue Stars */}
-                  <div className="flex gap-1 text-blue-600 text-lg mb-5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <span key={i}>★</span>
-                    ))}
+                  <div className="flex flex-wrap items-center gap-2 mb-5">
+                    <div className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 shadow-sm">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.35 11.1H12v2.8h5.35c-.22 1.1-.9 2.04-1.92 2.66v2.2h3.1c1.8-1.65 2.85-4.08 2.85-6.86 0-.6-.06-1.18-.17-1.75Z" fill="#4285F4"/>
+                        <path d="M12 22c2.43 0 4.47-.8 5.96-2.16l-3.1-2.2c-.86.57-1.96.9-2.86.9-2.2 0-4.08-1.48-4.75-3.48H3.96v2.18C5.46 19.84 8.51 22 12 22Z" fill="#34A853"/>
+                        <path d="M7.25 13.06A5.96 5.96 0 0 1 6.96 12c0-.41.05-.82.1-1.2V8.62H3.96A9.98 9.98 0 0 0 2 12c0 1.7.41 3.3 1.14 4.7l2.11-2.09Z" fill="#FBBC05"/>
+                        <path d="M12 5.4c1.3 0 2.47.45 3.4 1.34l2.55-2.55C16.47 2.7 14.43 2 12 2 8.51 2 5.46 4.16 3.96 7.18l2.1 2.18C7.92 7.02 9.8 5.4 12 5.4Z" fill="#EA4335"/>
+                      </svg>
+                    </div>
+                    <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <span key={i} className="text-amber-500 text-[1rem] leading-none">★</span>
+                      ))}
+                    </div>
+                    <span className="text-sm font-medium text-slate-500">5.0</span>
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-slate-700 text-[15px] leading-relaxed mb-6 font-normal">
+                  <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6 font-normal">
                     "{item.text}"
                   </p>
                 </div>
 
                 {/* User avatar and name info */}
                 <div className="flex items-center gap-4 border-t border-slate-100 pt-5 mt-auto">
-                  <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
                     <img src={item.avatar} alt={item.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 text-[15px]">{item.name}</h4>
-                    <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">{item.score}</p>
+                    <h4 className="font-bold text-slate-900 text-lg">{item.name}</h4>
+                    <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider">{item.score}</p>
                   </div>
                 </div>
               </div>
@@ -522,7 +574,6 @@ export const TestimonialsPage: React.FC = () => {
       </section>
 
       <CallToAction />
-      <CustomFAQ faqs={testimonialsFaqs} title="Testimonials & Success FAQs" />
       <Footer />
       <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
     </div>

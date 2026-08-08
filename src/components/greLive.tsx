@@ -87,30 +87,31 @@ const GreLive: React.FC = () => {
       <ProgramHero type="gre" />
 
       {/* MAIN CONTENT - Professional Colorful Feature Cards */}
+      {/* Header Banner - Full Width */}
+      <section className="w-full bg-gradient-to-b from-blue-50/70 via-indigo-50/40 to-slate-50 py-12 md:py-16 relative overflow-hidden">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8 relative z-10 text-center">
+          <div className="mx-auto max-w-4xl">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+              <Sparkles className="w-4 h-4 stroke-[2.5]" />
+              <span>LIVE INTERACTIVE CLASSES</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5 text-center">
+              Master the GRE with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Expert Live Coaching</span>
+            </h2>
+          </div>
+          <p className="mx-auto w-full max-w-none text-slate-700 font-medium leading-relaxed mb-4 text-center" style={{ fontSize: "24px" }}>
+            GRE online classes are live, scheduled sessions that combine classroom rigor with online convenience. Our live GRE training provides in-depth concept clarity, application practice and continuous doubt resolution so you progress with confidence.
+          </p>
+          <p className="mx-auto w-full max-w-none text-slate-700 font-medium leading-relaxed text-center" style={{ fontSize: "24px" }}>
+            Students attending live online classes get access to structured schedules, live doubt-clearing, recordings and an integrated LMS to revise lessons at their own pace.
+          </p>
+        </div>
+      </section>
+
       <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
-          {/* Header Card / Intro Banner */}
-          <div className="rounded-[32px] bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-            <div className="relative z-10 w-full">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
-                <Sparkles className="w-4 h-4 stroke-[2.5]" />
-                <span>LIVE INTERACTIVE CLASSES</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
-                Master the GRE with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Expert Live Coaching</span>
-              </h2>
-              <p className="text-slate-700 font-medium leading-relaxed mb-4" style={{ fontSize: "24px" }}>
-                GRE online classes are live, scheduled sessions that combine classroom rigor with online convenience. Our live GRE training provides in-depth concept clarity, application practice and continuous doubt resolution so you progress with confidence.
-              </p>
-              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
-                Students attending live online classes get access to structured schedules, live doubt-clearing, recordings and an integrated LMS to revise lessons at their own pace.
-              </p>
-            </div>
-          </div>
-
-          {/* 3 Colorful Professional Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* 6 Colorful Professional Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {/* Card 1: Comprehensive GRE Online Course */}
             <div className="rounded-[28px] border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-pink-50/50 to-indigo-50/70 p-8 shadow-md hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none" />
@@ -158,6 +159,54 @@ const GreLive: React.FC = () => {
                 </p>
               </div>
             </div>
+
+            {/* Card 4: Live Mentoring & Strategy */}
+            <div className="rounded-[28px] border-2 border-amber-200/80 bg-gradient-to-br from-amber-50/80 via-orange-50/50 to-yellow-50/70 p-8 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <Users className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200/80">Live Mentorship</span>
+                <h3 className="text-2xl font-extrabold text-amber-950 mt-4 mb-2">Personalized Guidance</h3>
+                <div className="inline-block text-amber-700 font-bold mb-3" style={{ fontSize: "19px" }}>One-on-one mentor support throughout your prep</div>
+                <p className="text-amber-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Get strategy guidance, progress tracking, and feedback tailored to your strengths and weak areas.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5: Performance Tracking */}
+            <div className="rounded-[28px] border-2 border-rose-200/80 bg-gradient-to-br from-rose-50/80 via-pink-50/50 to-red-50/70 p-8 shadow-md hover:shadow-xl hover:border-rose-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-600 to-pink-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <BarChart3 className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-rose-900 bg-rose-100/70 px-3 py-1 rounded-full border border-rose-200/80">Progress Insights</span>
+                <h3 className="text-2xl font-extrabold text-rose-950 mt-4 mb-2">Performance Tracking</h3>
+                <div className="inline-block text-rose-700 font-bold mb-3" style={{ fontSize: "19px" }}>Measure improvement with detailed analytics</div>
+                <p className="text-rose-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Follow your mock performance, topic-wise accuracy, and readiness score with actionable insights.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 6: Flexible Revision Access */}
+            <div className="rounded-[28px] border-2 border-slate-200/80 bg-gradient-to-br from-slate-50/80 via-zinc-50/50 to-stone-50/70 p-8 shadow-md hover:shadow-xl hover:border-slate-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-slate-400 to-zinc-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-700 to-zinc-600 flex items-center justify-center text-white shadow-lg mb-6">
+                  <BookOpen className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800 bg-slate-100/70 px-3 py-1 rounded-full border border-slate-200/80">Revision Access</span>
+                <h3 className="text-2xl font-extrabold text-slate-950 mt-4 mb-2">Flexible Study Replays</h3>
+                <div className="inline-block text-slate-700 font-bold mb-3" style={{ fontSize: "19px" }}>Revisit live sessions and class notes anytime</div>
+                <p className="text-slate-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Review recorded sessions, revise concepts, and keep your prep moving even on busy days.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Action CTA Button */}
@@ -195,7 +244,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30",
                   title: "text-blue-950",
                   desc: "text-blue-900/90",
-                  glow: "from-blue-400 to-cyan-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-purple-50/90 via-indigo-50/60 to-pink-50/70",
@@ -203,7 +251,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-purple-600 to-indigo-500 text-white shadow-lg shadow-purple-500/30",
                   title: "text-purple-950",
                   desc: "text-purple-900/90",
-                  glow: "from-purple-400 to-pink-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-amber-50/90 via-orange-50/60 to-yellow-50/70",
@@ -211,7 +258,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30",
                   title: "text-amber-950",
                   desc: "text-amber-900/90",
-                  glow: "from-amber-400 to-orange-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-emerald-50/90 via-teal-50/60 to-green-50/70",
@@ -219,7 +265,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-500/30",
                   title: "text-emerald-950",
                   desc: "text-emerald-900/90",
-                  glow: "from-emerald-400 to-teal-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-rose-50/90 via-pink-50/60 to-red-50/70",
@@ -227,7 +272,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-rose-500 to-pink-500 text-white shadow-lg shadow-rose-500/30",
                   title: "text-rose-950",
                   desc: "text-rose-900/90",
-                  glow: "from-rose-400 to-pink-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-indigo-50/90 via-violet-50/60 to-purple-50/70",
@@ -235,7 +279,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/30",
                   title: "text-indigo-950",
                   desc: "text-indigo-900/90",
-                  glow: "from-indigo-400 to-violet-400",
                 },
               ];
               const theme = themes[index % themes.length];
@@ -243,18 +286,19 @@ const GreLive: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className={`group relative rounded-[28px] ${theme.border} ${theme.bg} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                  className={`group relative rounded-[28px] ${theme.border} ${theme.bg} p-8 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center text-center`}
                 >
-                  {/* Glowing background blur shape */}
-                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${theme.glow} opacity-20 blur-2xl pointer-events-none`} />
-
-                  <div className="relative">
-                    <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${theme.icon} transition-all duration-300`}>
-                      <IconComponent className="h-8 w-8 text-white stroke-[2.2]" />
-                    </div>
-                    <h3 className={`text-2xl font-extrabold ${theme.title} leading-tight`}>{card.title}</h3>
-                    <p className={`mt-3 text-base md:text-lg leading-relaxed ${theme.desc} font-medium`}>{card.description}</p>
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
+                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-white/0 via-slate-200/30 to-slate-200/0 opacity-80 blur-2xl pointer-events-none" />
+                  <div className={`relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl ${theme.icon} text-white shadow-lg group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300`}>
+                    <IconComponent className="h-9 w-9 text-white stroke-[2.2]" />
                   </div>
+                  <h3 className={`text-2xl md:text-3xl font-extrabold ${theme.title} tracking-tight mb-3`}>
+                    {card.title}
+                  </h3>
+                  <p className={`text-base md:text-lg leading-relaxed ${theme.desc} font-medium max-w-[290px]`}>
+                    {card.description}
+                  </p>
                 </div>
               );
             })}
@@ -297,7 +341,7 @@ const GreLive: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b border-slate-100 hover:bg-blue-50/50 transition-colors duration-200 group">
+                <tr className="bg-white border-b border-black/40 hover:bg-blue-50/50 transition-colors duration-200 group">
                   <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
                     <span className="inline-flex items-center gap-2.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-blue-500 group-hover:bg-blue-600 transition-colors"></span>
@@ -309,7 +353,7 @@ const GreLive: React.FC = () => {
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm md:text-base font-bold">10 weeks</span></td>
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm md:text-base font-bold">Online</span></td>
                 </tr>
-                <tr className="bg-slate-50/40 border-b border-slate-100 hover:bg-blue-50/50 transition-colors duration-200 group">
+                <tr className="bg-slate-50/40 border-b border-black/40 hover:bg-blue-50/50 transition-colors duration-200 group">
                   <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
                     <span className="inline-flex items-center gap-2.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-purple-500 group-hover:bg-purple-600 transition-colors"></span>
@@ -321,7 +365,7 @@ const GreLive: React.FC = () => {
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm md:text-base font-bold">12 weeks</span></td>
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm md:text-base font-bold">Online</span></td>
                 </tr>
-                <tr className="bg-white hover:bg-blue-50/50 transition-colors duration-200 group">
+                <tr className="bg-white border-b border-black/40 hover:bg-blue-50/50 transition-colors duration-200 group">
                   <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
                     <span className="inline-flex items-center gap-2.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-orange-500 group-hover:bg-orange-600 transition-colors"></span>
@@ -416,8 +460,7 @@ const GreLive: React.FC = () => {
 
                 <h3 className="mt-6 text-2xl md:text-3xl font-bold bg-gradient-to-r from-slate-950 to-slate-800 bg-clip-text text-transparent">Live Batch Enrollment</h3>
                 
-                <div className="mt-8 relative">
-                  <div className="absolute -left-4 top-0 w-1.5 h-16 bg-gradient-to-b from-blue-600 to-transparent rounded-r-full" />
+                <div className="mt-8">
                   <p className="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">₹29,999</p>
                   <p className="mt-2 text-sm text-slate-600 font-medium">One-time • all material included</p>
                 </div>
@@ -478,12 +521,6 @@ const GreLive: React.FC = () => {
             </div>
           </div>
 
-          {/* Comparison Note */}
-          <div className="mt-12 rounded-2xl bg-blue-50 border border-blue-200 p-6">
-            <p className="text-sm md:text-base text-muted-foreground">
-              <span className="font-semibold text-blue-900">How we compare:</span> comparable live GRE programs cost ₹30,000–60,000 (Princeton Review/Manya ₹30–40k, Jamboree ₹30–35k, premium batches higher) — usually with test series sold separately. Ours is ₹29,999 with everything bundled.
-            </p>
-          </div>
         </div>
       </section>
 

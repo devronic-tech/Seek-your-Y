@@ -247,21 +247,21 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Actions (CTA + Menu) */}
-        <div className="flex lg:hidden items-center gap-3">
+        <div className="flex lg:hidden items-center gap-1.5 sm:gap-2.5 shrink-0">
           <button
             onClick={() => setIsBookSessionOpen(true)}
-            className="h-9 px-3.5 bg-primary hover:bg-primary/95 text-primary-foreground font-semibold text-sm rounded-[10px] transition-all duration-200 shrink-0"
+            className="h-8.5 sm:h-9 px-2.5 sm:px-3.5 bg-primary hover:bg-primary/95 text-primary-foreground font-extrabold text-xs sm:text-sm rounded-[10px] transition-all duration-200 shrink-0 whitespace-nowrap"
           >
             Book a Session
           </button>
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((s) => !s)}
-            className="text-foreground bg-white/95 border border-border/80 hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-full p-2 shadow-sm"
+            className="text-foreground bg-white/95 border border-border/80 hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-full p-1.5 sm:p-2 shadow-sm shrink-0"
             aria-label="Toggle Menu"
             aria-expanded={isMobileMenuOpen}
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
       </div>

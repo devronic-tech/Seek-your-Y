@@ -4,9 +4,73 @@ import { GraduationCap, Coins, Wallet, TrendingUp, BookOpen, Briefcase, ChevronR
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
+import mbs1st from "@/assets/student_pics/mbs1st.jpg";
+import mba2nd from "@/assets/student_pics/mba2nd.jpg";
+import mbacost from "@/assets/student_pics/mbacost.jpg";
+import mbascholarship from "@/assets/student_pics/mbascholarship.jpg";
+import mbatestoptionalrecord from "@/assets/student_pics/mbatestoptionalrecord.jpg";
+import mbafinance from "@/assets/student_pics/mbafinance.jpg";
 
 const BlogsComponent: React.FC = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
+
+  const baseCardClassName = "rounded-[28px] border border-slate-200/80 overflow-hidden flex flex-col transition-all duration-300 shadow-[0_20px_45px_rgba(15,23,42,0.08)] bg-gradient-to-br from-white via-slate-50/80 to-blue-50/60";
+  const basePillClassName = "inline-flex w-fit rounded-full bg-gradient-to-r from-slate-700 to-slate-900 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white shadow-md";
+  const baseOverlayClassName = "absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-slate-500/20";
+
+  const blogThemes: Record<
+    string,
+    {
+      cardGradient: string;
+      border: string;
+      shadow: string;
+      pillGradient: string;
+      overlay: string;
+    }
+  > = {
+    strategy: {
+      cardGradient: "from-blue-50/90 via-indigo-50/60 to-white",
+      border: "border-blue-200/80",
+      shadow: "rgba(59,130,246,0.14)",
+      pillGradient: "from-blue-600 via-indigo-600 to-violet-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-indigo-500/20",
+    },
+    roi: {
+      cardGradient: "from-pink-50 via-rose-50 to-orange-50",
+      border: "border-pink-300/80",
+      shadow: "rgba(236,72,153,0.14)",
+      pillGradient: "from-purple-600 via-fuchsia-600 to-pink-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-fuchsia-200/30 to-pink-300/20",
+    },
+    costs: {
+      cardGradient: "from-emerald-50 via-teal-50 to-cyan-50",
+      border: "border-emerald-300/80",
+      shadow: "rgba(34,197,94,0.14)",
+      pillGradient: "from-emerald-600 via-teal-600 to-cyan-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/50 via-slate-900/20 to-emerald-500/15",
+    },
+    scholarships: {
+      cardGradient: "from-amber-50 via-yellow-50 to-orange-50",
+      border: "border-amber-300/80",
+      shadow: "rgba(245,158,11,0.14)",
+      pillGradient: "from-amber-600 via-orange-600 to-red-500",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/20 to-amber-500/15",
+    },
+    admissions: {
+      cardGradient: "from-cyan-50 via-sky-50 to-blue-50",
+      border: "border-cyan-300/80",
+      shadow: "rgba(56,189,248,0.14)",
+      pillGradient: "from-cyan-600 via-blue-600 to-indigo-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/20 to-cyan-400/15",
+    },
+    careers: {
+      cardGradient: "from-violet-50 via-fuchsia-50 to-purple-50",
+      border: "border-violet-300/80",
+      shadow: "rgba(139,92,246,0.14)",
+      pillGradient: "from-violet-600 via-fuchsia-600 to-pink-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/20 to-violet-500/15",
+    },
+  };
 
   const initialBlogs = [
     {
@@ -14,59 +78,65 @@ const BlogsComponent: React.FC = () => {
       title: "GRE vs GMAT for MBA in 2026: why applicants keep switching to GRE",
       description: "Same schools, shorter test, no Data Insights. The data behind the great GRE migration — and when the GMAT is still the right call.",
       icon: GraduationCap,
+      image: mbs1st,
       meta: "Jul 8, 2026 • 9 min read",
-      gradient: "from-[#0A192F] to-[#172A45]",
+      theme: "strategy",
     },
     {
       category: "MBA ROI",
       title: "Is an MBA abroad worth it? The honest ROI of ISB, M7 and INSEAD",
       description: "Salaries, opportunity cost, payback periods and the intangibles — a numbers-first look at whether the degree pays for itself.",
       icon: Coins,
+      image: mba2nd,
       meta: "Jul 1, 2026 • 11 min read",
-      gradient: "from-[#1E3A8A] to-[#3B82F6]",
+      theme: "roi",
     },
     {
       category: "MBA COSTS",
       title: "What an MBA really costs in 2026: ISB vs M7 vs Singapore vs Europe",
       description: "Tuition, living expenses, forex and loans — total cost of attendance compared across the schools Indians target most.",
       icon: Wallet,
+      image: mbacost,
       meta: "Jun 24, 2026 • 10 min read",
-      gradient: "from-[#2563EB] to-[#60A5FA]",
+      theme: "costs",
     },
     {
       category: "SCHOLARSHIPS",
       title: "Scholarship Math Explained",
       description: "Merit aid is score-driven. What each extra GRE/GMAT point is statistically worth in scholarship money.",
       icon: TrendingUp,
+      image: mbascholarship,
       meta: "May 27, 2026 • 7 min read",
-      gradient: "from-[#0F172A] to-[#1E293B]",
+      theme: "scholarships",
     },
     {
       category: "ADMISSIONS",
       title: "Test-optional trends, decoded",
       description: "Some programs went test-optional — yet median scores at top schools keep rising. What it means for your application.",
       icon: BookOpen,
+      image: mbatestoptionalrecord,
       meta: "May 20, 2026 • 8 min read",
-      gradient: "from-[#1D4ED8] to-[#2563EB]",
+      theme: "admissions",
     },
     {
       category: "CAREERS",
       title: "Product, finance — and what pays",
       description: "Where ISB, M7 and European grads actually land, with median comp and visa realities for Indian applicants.",
       icon: Briefcase,
+      image: mbafinance,
       meta: "May 13, 2026 • 9 min read",
-      gradient: "from-[#3B82F6] to-[#1D4ED8]",
+      theme: "careers",
     },
   ];
 
   return (
     <div className="bg-background text-foreground">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/90 pt-[76px] md:pt-[84px] pb-20 text-slate-900 border-b border-slate-200/60">
         {/* Soft decorative glow */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none opacity-50">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-blue-500/15 blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[320px] h-[320px] rounded-full bg-indigo-500/15 blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-60">
           <div
             className="h-full w-full"
             style={{
@@ -77,74 +147,156 @@ const BlogsComponent: React.FC = () => {
           />
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-6 text-left relative z-10">
-          <div className="max-w-3xl">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display leading-[1.15] tracking-tight mb-6 text-slate-900"
-            >
-              The Seek Your Y Blog
-            </motion.h1>
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            {/* Left Column */}
+            <div>
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.24em] text-indigo-700 shadow-sm mb-6">
+                <span className="h-2.5 w-2.5 rounded-full bg-indigo-600 animate-pulse" />
+                KNOWLEDGE & STRATEGY HUB
+              </div>
 
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed mb-8"
-            >
-              Strategy deep-dives, MBA cost & ROI breakdowns, study plans and admissions trends — written by the people who teach it.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <button 
-                onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center justify-center rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-8 py-4 font-bold text-white shadow-lg shadow-indigo-500/20 transition hover:opacity-95 duration-200"
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold font-display leading-[1.25] tracking-tight mb-6 text-slate-950"
               >
-                Book a Free Demo
-              </button>
-            </motion.div>
+                Insights That Drive{" "}
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 pb-2.5 pt-1">
+                  Test Scores & Admits.
+                </span>
+              </motion.h1>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed mb-8 max-w-2xl"
+              >
+                Strategy deep-dives, GRE & GMAT logic techniques, MBA ROI breakdowns, and global university admissions trends — written by lead mentors.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-wrap gap-4"
+              >
+                <button 
+                  onClick={() => setIsBookSessionOpen(true)}
+                  className="rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 hover:-translate-y-0.5 text-white font-extrabold text-base px-8 py-4 shadow-lg shadow-indigo-500/25 transition duration-200 cursor-pointer"
+                >
+                  Book a Free Demo
+                </button>
+                <button
+                  onClick={() => setIsBookSessionOpen(true)}
+                  className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white/80 px-8 py-4 text-base font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-50/50 cursor-pointer"
+                >
+                  Talk to an Expert
+                </button>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Unique Blog Spotlight & Interactive Topic Showcase */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Featured Article Spotlight Card */}
+              <div className="w-full max-w-[430px] rounded-[32px] border border-slate-200/90 bg-white p-6 shadow-2xl shadow-indigo-500/10 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-500/10 to-violet-500/10 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="relative z-10 space-y-4">
+                  {/* Article Badge & Read Time */}
+                  <div className="flex items-center justify-between">
+                    <span className="px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-black uppercase tracking-wider">
+                      FEATURED ARTICLE
+                    </span>
+                    <span className="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                      5 MIN READ
+                    </span>
+                  </div>
+
+                  {/* Article Thumbnail */}
+                  <div className="h-44 rounded-2xl overflow-hidden relative">
+                    <img
+                      src={initialBlogs[0].image}
+                      alt={initialBlogs[0].title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                    <span className="absolute bottom-3 left-3 px-3 py-1 rounded-lg bg-blue-600 text-white font-extrabold text-xs shadow-md">
+                      {initialBlogs[0].category}
+                    </span>
+                  </div>
+
+                  {/* Article Title & Snippet */}
+                  <h4 className="text-xl font-extrabold text-slate-950 leading-snug group-hover:text-blue-600 transition-colors">
+                    {initialBlogs[0].title}
+                  </h4>
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    {initialBlogs[0].description}
+                  </p>
+
+                  {/* Topic Tag Pills */}
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    {["GRE Strategy", "GMAT Focus", "Admissions ROI", "Scholarships"].map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[11px] font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200/80 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 transition cursor-pointer"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 2. BLOG CARDS GRID SECTION */}
-      <section className="py-20 px-6 bg-slate-50/50">
+      <section className="py-20 px-6 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.12),transparent_24%),radial-gradient(circle_at_80%_20%,rgba(167,139,250,0.14),transparent_26%),linear-gradient(135deg,#f8fbff_0%,#fdfcff_50%,#eef2ff_100%)]">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {initialBlogs.map((blog, idx) => {
               const Icon = blog.icon;
+              const theme = blogThemes[blog.theme] ?? null;
+              const cardClassName = theme
+                ? `rounded-[28px] border-2 ${theme.border} overflow-hidden flex flex-col transition-all duration-300 shadow-[0_20px_45px_${theme.shadow}] bg-gradient-to-br ${theme.cardGradient}`
+                : baseCardClassName;
+              const pillClassName = theme
+                ? `inline-flex w-fit rounded-full bg-gradient-to-r ${theme.pillGradient} px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white shadow-md`
+                : basePillClassName;
+              const overlayClassName = theme?.overlay ?? baseOverlayClassName;
+
               return (
                 <motion.div
                   key={idx}
-                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(0, 82, 204, 0.08)" }}
-                  className="bg-card rounded-[24px] border border-blue-500/10 overflow-hidden flex flex-col transition-all duration-300 shadow-soft"
+                  whileHover={{ y: -8, scale: 1.01, boxShadow: "0 30px 60px -20px rgba(99, 102, 241, 0.25)" }}
+                  className={cardClassName}
                 >
-                  {/* Blog Header Image (Gradient box with Icon) */}
-                  <div className={`h-48 w-full bg-gradient-to-tr ${blog.gradient} flex items-center justify-center`}>
-                    <Icon className="w-14 h-14 text-white" />
+                  {/* Blog Header Image (Gradient box with Image + Icon overlay) */}
+                  <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-tr ${theme?.cardGradient ?? "from-slate-200 to-slate-300"}`}>
+                    <img src={blog.image} alt={blog.title} className="h-full w-full object-cover scale-105 transition duration-500 group-hover:scale-110" />
+                    <div className={overlayClassName} />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.26),transparent_32%),radial-gradient(circle_at_20%_80%,rgba(167,139,250,0.24),transparent_28%)]" />
                   </div>
 
                   {/* Blog Details */}
                   <div className="p-7 flex flex-col flex-1 justify-between gap-4">
                     <div className="space-y-3">
-                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block">
+                      <span className={pillClassName}>
                         {blog.category}
                       </span>
-                      <h3 className="text-xl font-bold font-display text-slate-900 leading-snug hover:text-blue-600 transition duration-200">
+                      <h3 className="text-xl font-black font-display text-slate-950 leading-snug hover:text-blue-700 transition duration-200">
                         {blog.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm md:text-[15px] text-slate-700 leading-relaxed">
                         {blog.description}
                       </p>
                     </div>
 
-                    <div className="text-xs text-slate-400 font-medium pt-3 border-t border-slate-100">
+                    <div className="text-xs text-slate-500 font-semibold pt-3 border-t border-slate-200/80">
                       {blog.meta}
                     </div>
                   </div>
@@ -156,7 +308,7 @@ const BlogsComponent: React.FC = () => {
           {/* Load More Button */}
           <div className="flex justify-center mt-14">
             <button 
-              className="inline-flex items-center justify-center rounded-2xl border border-blue-600 px-8 py-4 font-bold text-blue-600 bg-white hover:bg-slate-50 hover:shadow-md transition duration-200"
+              className="inline-flex items-center justify-center rounded-2xl border border-indigo-200 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-8 py-4 font-bold text-white shadow-[0_16px_35px_rgba(79,70,229,0.24)] hover:opacity-95 transition duration-200"
             >
               Load more articles
             </button>

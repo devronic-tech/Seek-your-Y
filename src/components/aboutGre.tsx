@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
 import { Footer } from "@/components/Footer";
@@ -35,12 +35,7 @@ const AboutGre = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   const [activeMode, setActiveMode] = useState("classroom");
   const [activeGreFocus, setActiveGreFocus] = useState("concepts");
-  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
   const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>(null);
-  const [isReviewPaused, setIsReviewPaused] = useState(false);
-  const reviewListRef = useRef<HTMLDivElement | null>(null);
-  const reviewCardsRef = useRef<HTMLDivElement[]>([]);
-  const hasInitializedReviewCarousel = useRef(false);
 
   const studentReviews = [
     {
@@ -77,36 +72,6 @@ const AboutGre = () => {
     },
   ];
 
-  useEffect(() => {
-    if (isReviewPaused || studentReviews.length <= 1) return;
-
-    const timeout = window.setTimeout(() => {
-      setActiveReviewIndex((prev) => (prev + 1) % studentReviews.length);
-    }, 4500);
-
-    return () => window.clearTimeout(timeout);
-  }, [activeReviewIndex, isReviewPaused, studentReviews.length]);
-
-  useEffect(() => {
-    if (!hasInitializedReviewCarousel.current) {
-      hasInitializedReviewCarousel.current = true;
-      return;
-    }
-
-    const reviewList = reviewListRef.current;
-    if (!reviewList) return;
-
-    const rect = reviewList.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const isVisible = rect.top < viewportHeight && rect.bottom > 0;
-    if (!isVisible) return;
-
-    reviewCardsRef.current[activeReviewIndex]?.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
-  }, [activeReviewIndex]);
 
   const results = [
     {
@@ -347,16 +312,6 @@ const AboutGre = () => {
   ];
 
   const activeFocus = greFocusAreas.find((item) => item.id === activeGreFocus) ?? greFocusAreas[0];
-  reviewCardsRef.current = [];
-
-  const handlePrevReview = () => {
-    setActiveReviewIndex((prev) => (prev - 1 + studentReviews.length) % studentReviews.length);
-  };
-
-  const handleNextReview = () => {
-    setActiveReviewIndex((prev) => (prev + 1) % studentReviews.length);
-  };
-
   return (
     <div className="bg-slate-50 text-foreground">
       <ProgramHero type="gre" />
@@ -492,13 +447,18 @@ const AboutGre = () => {
         </div>
       </section>
 
+     
+
       <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
             <div className="space-y-8 flex flex-col">
 
 
               {/* Premium GRE Exam Pattern Table */}
+            
+            
+
               <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
                 {/* Header Title Bar */}
                 <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
@@ -648,15 +608,15 @@ const AboutGre = () => {
                 </div>
               </div>
 
-              <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
-                <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-center">
-                  <div className="space-y-4">
+              <div className="rounded-[32px] border border-slate-200 bg-white p-7 shadow-soft -mt-2">
+                <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-start">
+                  <div className="space-y-3">
                     <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
                       <Globe2 className="h-4 w-4" />
                       GRE for Global MS
                     </div>
-                    <h3 className="text-3xl font-semibold text-foreground">The GRE advantage for your next master’s application</h3>
-                    <p className="font-medium text-slate-800 leading-relaxed" style={{ fontSize: "clamp(1.125rem, 1.4vw, 1.35rem)" }}>
+                    <h3 className="text-3xl font-semibold text-foreground -mt-1">The GRE advantage for your next master’s application</h3>
+                    <p className="font-medium text-slate-800 leading-relaxed -mt-1" style={{ fontSize: "clamp(1.125rem, 1.4vw, 1.35rem)" }}>
                       GRE gives you a flexible, globally accepted score report that works for top MS programs while keeping your application options open across business, engineering and science.
                     </p>
                   </div>
@@ -734,12 +694,13 @@ const AboutGre = () => {
             </h2>
 
             <p
-              className="text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10"
+              className="text-muted-foreground max-w-[1100px] mx-auto leading-relaxed mb-10 px-2 sm:px-0"
               style={{ fontSize: "clamp(1.15rem, 1.5vw, 1.35rem)" }}
             >
               Determined to do an MBA from ISB, Singapore, the M7 or the Ivy League? You don't need
-              the GMAT for that. Over the last 18 months a growing share of applicants have switched to
-              the GRE — here's why.
+              the GMAT for that. Over the last 18 months, a growing share of applicants have switched to
+              the GRE — and for good reason. Here is a clear, side-by-side view of how the GRE compares
+              to the GMAT, from test structure and timing to admissions value and flexibility.
             </p>
 
             {/* Comparison Table */}
@@ -870,7 +831,7 @@ const AboutGre = () => {
                 </p>
               </div>
 
-              <div className="space-y-4 max-w-4xl mx-auto">
+              <div className="space-y-4 w-full">
                 {/* Quantitative Reasoning Accordion */}
                 <div className={`rounded-[20px] bg-white shadow-soft transition-all duration-200 overflow-hidden ${
                   openSyllabusSection === "quant" 
@@ -1095,11 +1056,195 @@ const AboutGre = () => {
                     <ArrowRight className="w-4 h-4 text-white" />
                   </div>
                 </button>
-              </div>
             </div>
-
           </div>
-        </section>
+        </div>
+      </section>
+
+    <section className="py-20 md:py-28 bg-gradient-to-b from-background via-blue-50/20 to-background border-t border-b border-border/40 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[350px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="max-w-[1250px] mx-auto text-center px-4 mb-16">
+          <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-5">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <span>GRE TUTOR REVIEWS</span>
+          </div>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-foreground tracking-tight uppercase">What our students say</h3>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 rounded-full mx-auto mt-5" />
+          <p className="mt-6 mx-auto max-w-3xl text-base md:text-lg leading-8 text-muted-foreground">
+            Read the experiences of students who improved their GRE score with Seek Your Y coaching.
+          </p>
+        </div>
+
+        <div className="relative overflow-hidden px-4 pb-8 pt-6">
+          <style>{`
+            @keyframes greReviewMarquee {
+              0% { transform: translate3d(0, 0, 0); }
+              100% { transform: translate3d(-50%, 0, 0); }
+            }
+          `}</style>
+
+          <div className="hidden md:block absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+          <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+
+          <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "greReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Nishtha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Nishtha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Nishtha ma'am is excellent at explaining concepts in a simple and easy to understand way. She is patient, supportive, and always encourages me to do my best.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sandeep, 1 week ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Dhruv" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Dhruv</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Hello Dhruv, thank you for the excellent teaching and support you've given to our 10 years old son Thomas. Your clear explanations and friendly approach have made math enjoyable for him.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Fabio, 2 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Arjun%20M%20S.jpeg" alt="Pratyush" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Pratyush</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Pratyush has been an excellent calculus tutor for my son. He explains complex concepts in a clear, patient, and easy-to-understand manner, which has greatly improved my son's confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Devesh, 2 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Balagopal%20Jayakumar.jpeg" alt="Balagopal" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Balagopal</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sreethy, 3 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Sneha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Sneha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE coach</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Aarav, 1 month ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Rohan" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Rohan</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE mentor</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Nisha, 3 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Nishtha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Nishtha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Nishtha ma'am is excellent at explaining concepts in a simple and easy to understand way. She is patient, supportive, and always encourages me to do my best.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sandeep, 1 week ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Dhruv" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Dhruv</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Hello Dhruv, thank you for the excellent teaching and support you've given to our 10 years old son Thomas. Your clear explanations and friendly approach have made math enjoyable for him.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Fabio, 2 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Arjun%20M%20S.jpeg" alt="Pratyush" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Pratyush</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Pratyush has been an excellent calculus tutor for my son. He explains complex concepts in a clear, patient, and easy-to-understand manner, which has greatly improved my son's confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Devesh, 2 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Balagopal%20Jayakumar.jpeg" alt="Balagopal" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Balagopal</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sreethy, 3 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Sneha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Sneha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE coach</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Aarav, 1 month ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Rohan" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Rohan</p>
+                  <p className="text-lg md:text-xl text-slate-700">GRE mentor</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Nisha, 3 weeks ago</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 text-center flex justify-center z-10 relative">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-extrabold text-base md:text-lg shadow-lg shadow-blue-500/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
+            <ArrowRight className="w-5 h-5 text-white" />
+            <span>Book a Session</span>
+          </button>
+        </div>
+      </section>
+
 
         <CallToAction />
         <CustomFAQ faqs={greFaqs} />
