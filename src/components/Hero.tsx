@@ -3,18 +3,19 @@ import { motion } from "framer-motion";
 import { Calendar, Play, Users, ShieldCheck, GraduationCap, TrendingUp } from "lucide-react";
 import { StatCounter } from "./StatCounter";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
-import mentorImage from "@/assets/mentor.webp";
-import carouselImg1 from "@/assets/student_pics/Arjun M S.jpeg";
-import carouselImg2 from "@/assets/student_pics/Prafful.jpeg";
-import carouselImg3 from "@/assets/student_pics/Sabhyata.jpeg";
-import carouselImg4 from "@/assets/student_pics/Balagopal Jayakumar.jpeg";
-import carouselImg5 from "@/assets/student_pics/Manya.jpeg";
+
+const heroImages = [
+  "/images/hero/1.jpeg",
+  "/images/hero/2.jpeg",
+  "/images/hero/3.jpeg",
+  "/images/hero/4.jpeg",
+];
 
 export const Hero = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const carouselImages = [mentorImage, carouselImg1, carouselImg2, carouselImg3, carouselImg4, carouselImg5];
+  const carouselImages = heroImages;
 
   // Auto-rotate carousel images every 3 seconds
   useEffect(() => {
@@ -137,7 +138,7 @@ export const Hero = () => {
         </div>
 
         {/* RIGHT COLUMN: PORTRAIT & FLOATING CARDS */}
-        <div className="relative flex flex-col xl:flex-row items-center justify-center mt-10 md:mt-4 xl:mt-0 w-full overflow-visible order-1 xl:order-2">
+        <div className="relative flex flex-col xl:flex-row items-center justify-center mt-4 md:mt-4 xl:mt-0 w-full overflow-visible order-1 xl:order-2">
           {/* Portrait Container */}
           <div className="relative flex justify-center items-center h-[340px] sm:h-[480px] lg:h-[560px] xl:h-[720px] w-full max-w-[360px] md:max-w-[480px] lg:max-w-[560px] xl:max-w-none scale-[0.9] sm:scale-100 origin-center overflow-hidden xl:overflow-visible">
             {/* Portrait Frame Oval Background with Carousel */}
@@ -145,7 +146,7 @@ export const Hero = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute top-[12%] left-1/4 transform -translate-x-[36%] xl:-translate-x-[30%] w-[240px] h-[340px] md:w-[320px] md:h-[460px] lg:w-[360px] lg:h-[500px] xl:w-[340px] xl:h-[480px] rounded-full z-[1] overflow-hidden shadow-2xl"
+              className="absolute top-[4%] md:top-[12%] left-0 right-0 mx-auto xl:left-1/4 xl:right-auto xl:mx-0 xl:-translate-x-[30%] w-[240px] h-[340px] md:w-[320px] md:h-[460px] lg:w-[360px] lg:h-[500px] xl:w-[340px] xl:h-[480px] rounded-full z-[1] overflow-hidden shadow-2xl"
             >
               {/* Carousel Images */}
               <div className="relative w-full h-full">
@@ -160,7 +161,7 @@ export const Hero = () => {
                     <img
                       src={image}
                       alt={`Photo ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain object-center"
                     />
                   </motion.div>
                 ))}
@@ -202,16 +203,16 @@ export const Hero = () => {
                 y: { repeat: Infinity, duration: 4.0, ease: "easeInOut" }
               }}
               whileHover={{ scale: 1.05 }}
-              className="hidden md:flex absolute top-[8%] -left-4 sm:left-[2%] md:-left-[5%] lg:left-[0%] xl:left-[6%] z-20 bg-card rounded-[12px] sm:rounded-[15px] p-2 sm:p-3 shadow-soft border border-border/80 flex items-center gap-1.5 sm:gap-2.5 w-[145px] sm:w-[190px] xl:w-[220px] cursor-pointer"
+              className="flex absolute top-[0%] md:top-[6%] left-[1%] sm:left-[2%] md:-left-[5%] lg:left-[0%] xl:left-[6%] z-20 bg-card rounded-[12px] sm:rounded-[15px] p-1.5 sm:p-3 shadow-soft border border-border/80 flex items-center gap-1.5 sm:gap-2.5 w-[130px] sm:w-[190px] xl:w-[220px] cursor-pointer"
             >
-              <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 shrink-0">
-                <TrendingUp className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
+              <div className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 shrink-0">
+                <TrendingUp className="w-3 h-3 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-base font-semibold text-muted-foreground uppercase tracking-wider">
+                <h4 className="text-[9px] sm:text-xs md:text-base font-semibold text-muted-foreground uppercase tracking-wider leading-tight">
                   Score Improvement
                 </h4>
-                <p className="text-base font-bold text-foreground mt-0.5 leading-tight">
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-foreground mt-0.5 leading-tight">
                   +120 Avg Increase
                 </p>
               </div>
@@ -230,16 +231,16 @@ export const Hero = () => {
                 y: { repeat: Infinity, duration: 4.6, ease: "easeInOut", delay: 0.4 }
               }}
               whileHover={{ scale: 1.05 }}
-              className="absolute top-[42%] -right-4 sm:right-[2%] md:-right-[5%] lg:right-[0%] xl:right-[6%] z-20 bg-card rounded-[12px] sm:rounded-[15px] p-2 sm:p-3 shadow-soft border border-border/80 flex items-center gap-1.5 sm:gap-2.5 w-[145px] sm:w-[190px] xl:w-[220px] cursor-pointer"
+              className="flex absolute top-[32%] md:top-[42%] right-[1%] sm:right-[2%] md:-right-[5%] lg:right-[0%] xl:right-[6%] z-20 bg-card rounded-[12px] sm:rounded-[15px] p-1.5 sm:p-3 shadow-soft border border-border/80 flex items-center gap-1.5 sm:gap-2.5 w-[130px] sm:w-[190px] xl:w-[220px] cursor-pointer"
             >
-              <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                <Users className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
+              <div className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <Users className="w-3 h-3 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-base font-semibold text-muted-foreground uppercase tracking-wider">
+                <h4 className="text-[9px] sm:text-xs md:text-base font-semibold text-muted-foreground uppercase tracking-wider leading-tight">
                   1:1 Personalised
                 </h4>
-                <p className="text-base font-bold text-foreground mt-0.5 leading-tight">
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-foreground mt-0.5 leading-tight">
                   Tailored Mentorship
                 </p>
               </div>
@@ -258,16 +259,16 @@ export const Hero = () => {
                 y: { repeat: Infinity, duration: 4.2, ease: "easeInOut", delay: 0.2 }
               }}
               whileHover={{ scale: 1.05 }}
-              className="hidden md:flex absolute bottom-[24%] -left-4 sm:left-[2%] md:-left-[5%] lg:left-[-2%] xl:left-[4%] z-20 bg-card rounded-[12px] sm:rounded-[15px] p-2 sm:p-3 shadow-soft border border-border/80 flex items-center gap-1.5 sm:gap-2.5 w-[145px] sm:w-[190px] xl:w-[220px] cursor-pointer"
+              className="flex absolute bottom-[22%] md:bottom-[24%] left-[1%] sm:left-[2%] md:-left-[5%] lg:left-[-2%] xl:left-[4%] z-20 bg-card rounded-[12px] sm:rounded-[15px] p-1.5 sm:p-3 shadow-soft border border-border/80 flex items-center gap-1.5 sm:gap-2.5 w-[130px] sm:w-[190px] xl:w-[220px] cursor-pointer"
             >
-              <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 shrink-0">
-                <ShieldCheck className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
+              <div className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 shrink-0">
+                <ShieldCheck className="w-3 h-3 sm:w-4.5 sm:h-4.5 stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-base font-semibold text-muted-foreground uppercase tracking-wider">
+                <h4 className="text-[9px] sm:text-xs md:text-base font-semibold text-muted-foreground uppercase tracking-wider leading-tight">
                   Proven Result
                 </h4>
-                <p className="text-base font-bold text-foreground mt-0.5 leading-tight">
+                <p className="text-[11px] sm:text-sm md:text-base font-bold text-foreground mt-0.5 leading-tight">
                   700+ GMAT/GRE
                 </p>
               </div>
@@ -315,7 +316,7 @@ export const Hero = () => {
           </div>
 
           {/* SOCIAL PROOF BADGE - MOBILE ONLY */}
-          <div className="flex flex-col items-center w-full -mt-8 md:mt-2 px-4 xl:hidden">
+          <div className="flex flex-col items-center w-full mt-2 md:mt-2 px-4 xl:hidden">
             {/* Social Proof Static Card */}
             <div className="bg-card rounded-[14px] p-2.5 border border-border/80 shadow-soft flex items-center justify-center gap-3 w-full max-w-[290px]">
               {/* User Avatars Grid */}

@@ -9,123 +9,127 @@ import manyaImage from "@/assets/student_pics/testimonial4.avif";
 
 const testimonials = [
   {
-    name: "Priya M.",
-    role: "GRE 331",
-    image: priyaImage,
-    quote:
-      "I'd done two other courses before this. The difference is the way concepts are taught — as logic, not formulas. Quant went from my weakness to a 168.",
+    name: "Shreshtha",
+    role: "GRE Student",
+    quote: "Aman doesn't just teach the syllabus, he mentors me through every doubt and weak area.",
+    rating: 4.8,
     accent: "purple",
   },
   {
-    name: "Sahil K.",
-    role: "GMAT 705",
-    image: praffulImage,
-    quote:
-      "Aman personally reviewed my error log every week during tutoring. That level of attention is rare anywhere.",
+    name: "Ayushi",
+    role: "GMAT Student",
+    quote: "The structured practice tests and personalized feedback from Seek Your Y help me stay balanced and confident across every part of my prep.",
+    rating: 5.0,
     accent: "blue",
   },
   {
-    name: "Dev J.",
-    role: "GRE 334",
-    image: balagopalImage,
-    quote: "The DI module saved my GMAT. Nobody else takes Data Insights this seriously.",
+    name: "Vatsalya",
+    role: "GRE Student",
+    quote: "I was so grateful to be blessed with a mentor like Aman. His guidance shaped not just my prep, but gave me an added perspective on life.",
+    rating: 4.9,
     accent: "emerald",
   },
   {
-    name: "Neha G.",
-    role: "GMAT 715",
-    image: sabhyataImage,
-    quote:
-      "They told me honestly that GRE was the smarter route for my MBA target. From diagnostic to Columbia admit in 9 months — prep, essays and interviews all in one place.",
+    name: "Moses",
+    role: "GRE Student",
+    quote: "Aman's live sessions were engaging and practical. Solving questions together in class helped me actually understand how well I'd grasped each topic.",
+    rating: 4.5,
     accent: "amber",
   },
   {
-    name: "Riya S.",
-    role: "GRE 328",
-    image: manyaImage,
-    quote: "As a working professional the flexible tutoring slots were a lifesaver. Worth every rupee.",
+    name: "Ayush",
+    role: "GRE Student",
+    quote: "Aman's structured approach and problem-solving strategies saved me crucial time and made my whole prep so much easier to manage.",
+    rating: 5.0,
     accent: "indigo",
   },
   {
-    name: "Vikram T.",
+    name: "Akshita",
+    role: "GRE Student",
+    quote: "Aman kept me consistent through months of prep, checking in and adjusting the plan whenever I struggled. That consistency was exactly why I hit my target score.",
+    rating: 4.8,
+    accent: "rose",
+  },
+  {
+    name: "Manya",
+    role: "GMAT Focus 645",
+    quote: "The course material at Seek Your Y was incredibly comprehensive, covering every topic with concept videos and mock tests. I felt fully prepared going into my exam.",
+    rating: 5.0,
+    accent: "purple",
+  },
+  {
+    name: "Aditya",
+    role: "GRE Student",
+    quote: "I was rusty in my basics before starting, but Seek Your Y's beginner classes rebuilt my fundamentals and gave me a strong start to my prep.",
+    rating: 4.5,
+    accent: "blue",
+  },
+  {
+    name: "Sabhyata",
     role: "GRE 319",
-    image: vikramImage,
-    quote: "The clarity, structure and personal support made the whole prep journey feel achievable and focused.",
-    accent: "rose",
-  },
-  {
-    name: "Annant Mehta",
-    role: "GRE 320 → MS, Texas A&M University, USA",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "The tailored approach and insightful strategies provided by the team were absolutely crucial. I achieved 170 in Quant and 150 in Verbal — and I owe a lot of that to the focused preparation structure at Seek Your Y. I highly recommend this coaching to anyone serious about graduate school.",
-    accent: "blue",
-  },
-  {
-    name: "Vishnu Singh",
-    role: "GMAT 730 → Paris School of Business",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "Working closely with Amit Kumar as my Verbal Faculty was instrumental in achieving a remarkable GMAT score. His expertise and insightful strategies were invaluable throughout my preparation journey. I highly recommend his guidance.",
-    accent: "indigo",
-  },
-  {
-    name: "Saransh Walia",
-    role: "GRE 329 → Alberta University of Arts",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "Thanks to Amit Kumar's exceptional guidance as my GRE Verbal Faculty, I achieved 329. From day one, his approachable demeanor and genuine interest in my progress created an environment where I actually wanted to study harder.",
-    accent: "purple",
-  },
-  {
-    name: "Devshri Sharma",
-    role: "GMAT 720 → INSEAD",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "Studying under the guidance of Amit Kumar was an invaluable experience. I scored 720, surpassing my own expectations, thanks to his effective teaching methods and insightful strategies.",
-    accent: "blue",
-  },
-  {
-    name: "Sneha Reddy",
-    role: "IELTS 8.5 Band",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "The personalized attention I received during my IELTS preparation was unparalleled. The faculty's deep understanding of exam patterns and their ability to tailor lessons to my specific weaknesses in Writing and Speaking were the difference-maker.",
+    quote: "Seek Your Y's constant encouragement and structured guidance kept me motivated throughout my prep. Truly thankful for the support.",
+    rating: 4.9,
     accent: "emerald",
   },
   {
-    name: "Arjun Mehta",
-    role: "IELTS 8.0 Band",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "Achieving an 8.0 band in IELTS felt like a distant dream until I joined Seek Your Y. The intensive training sessions and focus on nuanced vocabulary for the Writing section made all the difference.",
+    name: "Bala",
+    role: "GRE 326",
+    quote: "Aman's patience and clarity made even the toughest concepts approachable. I can't thank him enough for the time and effort he put into my prep.",
+    rating: 5.0,
     accent: "amber",
   },
   {
-    name: "Rahul Verma",
-    role: "IELTS 8.0 Band (from 6.5)",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "The mock test series for IELTS at Seek Your Y was a game-changer. It perfectly simulated the pressure of the actual exam. The faculty's feedback on my Speaking module was specific and actionable — I jumped from 6.5 to 8.0.",
+    name: "Arjun",
+    role: "GRE 328",
+    quote: "Aman took time out of his schedule to walk me through my weak areas on calls. That extra guidance made all the difference in my prep.",
+    rating: 4.8,
+    accent: "indigo",
+  },
+  {
+    name: "Prafful",
+    role: "GRE 323",
+    quote: "Thanks to Seek Your Y's structured strategy sessions, I felt far more confident tackling my prep by the time test day arrived.",
+    rating: 5.0,
     accent: "rose",
   },
   {
-    name: "Keshav Goyal",
-    role: "SAT → Top US Undergraduate",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "I completed my entire SAT syllabus in just 20 days under Mr. Pradeep's guidance. The clarity and depth of instruction were exactly what I needed to excel.",
+    name: "Rahat",
+    role: "GRE Student",
+    quote: "Aman's mentoring gave me the confidence to approach my prep with a clear strategy. My accuracy and speed both improved dramatically.",
+    rating: 4.6,
+    accent: "purple",
+  },
+  {
+    name: "Sanah",
+    role: "GRE Student",
+    quote: "Even with last-minute mock reviews, Aman made sure every small doubt was addressed. His advice made a real difference in my prep.",
+    rating: 4.9,
     accent: "blue",
   },
   {
-    name: "Mehakjot Kaur Massoun",
-    role: "SAT → Top-50 US College",
-    image: "/assets/gre-asset/girl.webp",
-    quote:
-      "As someone who knew nothing about the process of going abroad — and never thought it was a possibility for me — getting into a top-50 US college felt impossible. Seek Your Y changed that, step by step.",
-    accent: "indigo",
+    name: "Anushka",
+    role: "GMAT Student",
+    quote: "From concept building to mock analysis, Seek Your Y's guidance is thorough at every step. I couldn't ask for better support throughout my prep.",
+    rating: 5.0,
+    accent: "emerald",
   },
 ];
+
+const renderStarIcons = (rating: number) => {
+  const totalGold = rating >= 4.8 ? 5 : 4;
+  return (
+    <span className="inline-flex items-center gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span
+          key={i}
+          className={i < totalGold ? "text-amber-400" : "text-slate-300/80"}
+        >
+          ★
+        </span>
+      ))}
+    </span>
+  );
+};
 
 const accentStyles: Record<
   string,
@@ -240,14 +244,9 @@ export default function Testimonials(): JSX.Element {
                       <div className={`absolute -bottom-10 -left-10 h-28 w-28 rounded-full blur-3xl ${accent.glowBottom}`} />
                       <div className="relative z-10">
                         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8 mb-8">
-                          <div className="flex items-center gap-4">
-                            <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-white/90 bg-white shadow-xl shadow-slate-200/40">
-                              <img src={person.image} alt={person.name} className="h-full w-full object-cover" />
-                            </div>
-                            <div>
-                              <p className="text-lg font-bold text-slate-900">{person.name}</p>
-                              <p className="mt-1 text-sm font-semibold tracking-[0.02em] text-slate-600">{person.role}</p>
-                            </div>
+                          <div>
+                            <p className="text-xl font-extrabold text-slate-900">{person.name}</p>
+                            <p className="mt-1 text-sm font-semibold tracking-[0.02em] text-slate-600">{person.role}</p>
                           </div>
                           <span className={`inline-flex items-center rounded-full px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase ${accent.badge}`}>
                             Top review
@@ -256,8 +255,8 @@ export default function Testimonials(): JSX.Element {
 
                         <div className="mb-8">
                           <div className={`mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium shadow-sm shadow-slate-200/60 ${accent.stars}`}>
-                            <span className="text-current">★★★★★</span>
-                            <span>5.0 rating</span>
+                            <span className="flex items-center">{renderStarIcons(person.rating ?? 5.0)}</span>
+                            <span>{(person.rating ?? 5.0).toFixed(1)} rating</span>
                           </div>
                           <p className="text-base sm:text-lg leading-8 text-slate-700 italic">“{person.quote}”</p>
                         </div>

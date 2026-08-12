@@ -75,7 +75,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Sabhyata R.",
       test: "GRE",
       before: "310",
-      after: "320",
+      after: "319",
       program: "Admitted • NIIT University",
       avatar: SabhyataPhoto,
       quote: "Mocks and strategy reviews were key.",
@@ -83,9 +83,9 @@ export const TestimonialsPage: React.FC = () => {
     },
     {
       name: "Manya P.",
-      test: "GRE",
-      before: "312",
-      after: "324",
+      test: "GMAT Focus",
+      before: "565",
+      after: "645",
       program: "MBA • Punjab College",
       avatar: ManyaPhoto,
       quote: "Brilliant logic shortcuts for DI.",
@@ -94,8 +94,8 @@ export const TestimonialsPage: React.FC = () => {
     {
       name: "Arjun M.",
       test: "GRE",
-      before: "305",
-      after: "322",
+      before: "315",
+      after: "328",
       program: "MS • DTU Delhi",
       avatar: ArjunPhoto,
       quote: "Personal feedback on error logs was a game changer.",
@@ -126,9 +126,9 @@ export const TestimonialsPage: React.FC = () => {
     },
     {
       name: "Manya P.",
-      test: "GMAT",
-      before: "690",
-      after: "750",
+      test: "GMAT Focus",
+      before: "565",
+      after: "645",
       program: "MBA • Punjab College",
       avatar: ManyaPhoto,
       quote: "Brilliant logic shortcuts for DI.",
@@ -158,70 +158,124 @@ export const TestimonialsPage: React.FC = () => {
 
   const textTestimonials = [
     {
-      name: "Priya M.",
-      score: "GRE 331",
+      name: "Shreshtha",
+      score: "GRE Student",
       avatar: Person1,
+      rating: 4.8,
       bgColor: "bg-violet-50/60",
-      text: (
-        <>
-          I'd done two other courses before this. The difference is the way concepts are taught — as logic, not formulas. Quant went from my weakness to a <strong className="font-bold text-foreground">168</strong>.
-        </>
-      ),
+      text: "Aman doesn't just teach the syllabus, he mentors me through every doubt and weak area.",
     },
     {
-      name: "Sahil K.",
-      score: "GMAT 705",
-      avatar: PraffulPhoto,
-      bgColor: "bg-blue-50/60",
-      text: (
-        <>
-          Daily live classes meant I couldn't slack off. The weekly mock analysis sessions alone are worth the fee.
-        </>
-      ),
-    },
-    {
-      name: "Dev J.",
-      score: "GRE 334",
-      avatar: BalagopalPhoto,
-      bgColor: "bg-teal-50/60",
-      text: (
-        <>
-          Aman personally reviewed my error log every week during tutoring. That level of attention is rare anywhere.
-        </>
-      ),
-    },
-    {
-      name: "Neha G.",
-      score: "GMAT 715",
-      avatar: SabhyataPhoto,
-      bgColor: "bg-violet-50/60",
-      text: (
-        <>
-          The <strong className="font-bold text-foreground">DI module saved my GMAT</strong>. Nobody else takes Data Insights this seriously.
-        </>
-      ),
-    },
-    {
-      name: "Riya S.",
-      score: "GRE 328",
+      name: "Ayushi",
+      score: "GMAT Student",
       avatar: ManyaPhoto,
+      rating: 5.0,
       bgColor: "bg-blue-50/60",
-      text: (
-        <>
-          They told me honestly that GRE was the smarter route for my MBA target. From diagnostic to <strong className="font-bold text-foreground">Columbia admit in 9 months</strong> — prep, essays and interviews all in one place.
-        </>
-      ),
+      text: "The structured practice tests and personalized feedback from Seek Your Y help me stay balanced and confident across every part of my prep.",
     },
     {
-      name: "Vikram T.",
-      score: "GRE 319",
+      name: "Vatsalya",
+      score: "GRE Student",
       avatar: Person2,
+      rating: 4.9,
       bgColor: "bg-teal-50/60",
-      text: (
-        <>
-          As a working professional the flexible tutoring slots were a lifesaver. Worth every rupee.
-        </>
-      ),
+      text: "I was so grateful to be blessed with a mentor like Aman. His guidance shaped not just my prep, but gave me an added perspective on life.",
+    },
+    {
+      name: "Moses",
+      score: "GRE Student",
+      avatar: BalagopalPhoto,
+      rating: 4.5,
+      bgColor: "bg-violet-50/60",
+      text: "Aman's live sessions were engaging and practical. Solving questions together in class helped me actually understand how well I'd grasped each topic.",
+    },
+    {
+      name: "Ayush",
+      score: "GRE Student",
+      avatar: PraffulPhoto,
+      rating: 5.0,
+      bgColor: "bg-blue-50/60",
+      text: "Aman's structured approach and problem-solving strategies saved me crucial time and made my whole prep so much easier to manage.",
+    },
+    {
+      name: "Akshita",
+      score: "GRE Student",
+      avatar: SabhyataPhoto,
+      rating: 4.8,
+      bgColor: "bg-teal-50/60",
+      text: "Aman kept me consistent through months of prep, checking in and adjusting the plan whenever I struggled. That consistency was exactly why I hit my target score.",
+    },
+    {
+      name: "Manya",
+      score: "GMAT Focus 645",
+      avatar: ManyaPhoto,
+      rating: 5.0,
+      bgColor: "bg-violet-50/60",
+      text: "The course material at Seek Your Y was incredibly comprehensive, covering every topic with concept videos and mock tests. I felt fully prepared going into my exam.",
+    },
+    {
+      name: "Aditya",
+      score: "GRE Student",
+      avatar: Person1,
+      rating: 4.5,
+      bgColor: "bg-blue-50/60",
+      text: "I was rusty in my basics before starting, but Seek Your Y's beginner classes rebuilt my fundamentals and gave me a strong start to my prep.",
+    },
+    {
+      name: "Sabhyata",
+      score: "GRE 319",
+      avatar: SabhyataPhoto,
+      rating: 4.9,
+      bgColor: "bg-teal-50/60",
+      text: "Seek Your Y's constant encouragement and structured guidance kept me motivated throughout my prep. Truly thankful for the support.",
+    },
+    {
+      name: "Bala",
+      score: "GRE 326",
+      avatar: BalagopalPhoto,
+      rating: 5.0,
+      bgColor: "bg-violet-50/60",
+      text: "Aman's patience and clarity made even the toughest concepts approachable. I can't thank him enough for the time and effort he put into my prep.",
+    },
+    {
+      name: "Arjun",
+      score: "GRE 328",
+      avatar: ArjunPhoto,
+      rating: 4.8,
+      bgColor: "bg-blue-50/60",
+      text: "Aman took time out of his schedule to walk me through my weak areas on calls. That extra guidance made all the difference in my prep.",
+    },
+    {
+      name: "Prafful",
+      score: "GRE 323",
+      avatar: PraffulPhoto,
+      rating: 5.0,
+      bgColor: "bg-teal-50/60",
+      text: "Thanks to Seek Your Y's structured strategy sessions, I felt far more confident tackling my prep by the time test day arrived.",
+    },
+    {
+      name: "Rahat",
+      score: "GRE Student",
+      avatar: Person2,
+      rating: 4.6,
+      bgColor: "bg-violet-50/60",
+      text: "Aman's mentoring gave me the confidence to approach my prep with a clear strategy. My accuracy and speed both improved dramatically.",
+    },
+    {
+      name: "Sanah",
+      score: "GRE Student",
+      avatar: SabhyataPhoto,
+      rating: 4.9,
+      bgColor: "bg-blue-50/60",
+      text: "Even with last-minute mock reviews, Aman made sure every small doubt was addressed. His advice made a real difference in my prep.",
+    },
+    {
+      name: "Anushka",
+      score: "GMAT Student",
+      avatar: ManyaPhoto,
+      rating: 5.0,
+      bgColor: "bg-teal-50/60",
+      text: "From concept building to mock analysis, Seek Your Y's guidance is thorough at every step. I couldn't ask for better support throughout my prep.",
     },
   ];
 
@@ -544,11 +598,21 @@ export const TestimonialsPage: React.FC = () => {
                       </svg>
                     </div>
                     <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <span key={i} className="text-amber-500 text-[1rem] leading-none">★</span>
-                      ))}
+                      <span className="inline-flex items-center gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => {
+                          const totalGold = (item.rating ?? 5.0) >= 4.8 ? 5 : 4;
+                          return (
+                            <span
+                              key={i}
+                              className={i < totalGold ? "text-amber-500 text-[1rem] leading-none" : "text-slate-300 text-[1rem] leading-none"}
+                            >
+                              ★
+                            </span>
+                          );
+                        })}
+                      </span>
                     </div>
-                    <span className="text-sm font-medium text-slate-500">5.0</span>
+                    <span className="text-sm font-bold text-slate-700">{(item.rating ?? 5.0).toFixed(1)}</span>
                   </div>
 
                   {/* Review Text */}
@@ -557,15 +621,10 @@ export const TestimonialsPage: React.FC = () => {
                   </p>
                 </div>
 
-                {/* User avatar and name info */}
-                <div className="flex items-center gap-4 border-t border-slate-100 pt-5 mt-auto">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
-                    <img src={item.avatar} alt={item.name} className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-lg">{item.name}</h4>
-                    <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider">{item.score}</p>
-                  </div>
+                {/* User name info */}
+                <div className="border-t border-slate-100 pt-4 mt-auto">
+                  <h4 className="font-extrabold text-slate-950 text-lg">{item.name}</h4>
+                  <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-0.5">{item.score}</p>
                 </div>
               </div>
             ))}

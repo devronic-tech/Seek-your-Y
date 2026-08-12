@@ -12,34 +12,34 @@ import BalagopalPhoto from "@/assets/student_pics/Balagopal Jayakumar.jpeg";
 
 const achievers = [
   {
-    name: "Praful",
+    name: "Prafful",
     role: "GRE Student",
     image: PraffulPhoto,
-    score: "Quant 156 -> 169",
+    score: "GRE 308 -> 323",
   },
   {
     name: "Arjun",
     role: "GRE Student",
     image: ArjunPhoto,
-    score: "Quant 160 -> 168",
+    score: "GRE 315 -> 328",
   },
   {
     name: "Sabhyata",
     role: "GRE Student",
     image: SabhyataPhoto,
-    score: "Quant 155 -> 160",
+    score: "GRE 310 -> 319",
   },
   {
     name: "Manya",
-    role: "GRE Student",
+    role: "GMAT Student",
     image: ManyaPhoto,
-    score: "Quant 150 -> 166",
+    score: "GMAT 565 -> 645",
   },
   {
     name: "Balagopal",
-    role: "GMAT Student",
+    role: "GRE Student",
     image: BalagopalPhoto,
-    score: "Quant 158 -> 170",
+    score: "GRE 310 -> 326",
   },
 ];
 

@@ -18,30 +18,24 @@ import avatar1 from "@/assets/person1.jpg";
 import avatar2 from "@/assets/person2.jpg";
 import avatar3 from "@/assets/person3.jpg";
 
-// Course & Showcase Images
-import CourseGre from "/assets/gre-asset/course_gre_.webp";
-import CourseGmat from "/assets/gre-asset/course_gmat.webp";
-import CourseSat from "/assets/gre-asset/course_sat.webp";
-import CourseIelts from "/assets/gre-asset/course_ielts.webp";
-
 const tutoringSlides = [
   {
-    src: CourseGre,
+    src: "/images/doubts photos/1.jpeg",
     title: "1-on-1 Personalized Mentoring",
     subtitle: "Customized roadmap tailored to your specific score goals & learning style",
   },
   {
-    src: CourseGmat,
+    src: "/images/doubts photos/2.jpeg",
     title: "Targeted Practice & Strategy",
     subtitle: "Focus directly on weak areas with expert-guided practice & feedback",
   },
   {
-    src: CourseSat,
+    src: "/images/doubts photos/3.jpeg",
     title: "Real-Time Doubt Resolution",
     subtitle: "Logic-based shortcuts without formulas or rote memorization",
   },
   {
-    src: CourseIelts,
+    src: "/images/doubts photos/4.jpeg",
     title: "Trackable Score Progression",
     subtitle: "Proven framework yielding average +120 point score jumps",
   },
@@ -49,22 +43,22 @@ const tutoringSlides = [
 
 const doubtSlides = [
   {
-    src: CourseGmat,
+    src: "/images/doubts photos/5.jpeg",
     title: "Instant Expert Matching",
     subtitle: "Connect with verified expert tutors in seconds anytime",
   },
   {
-    src: CourseGre,
+    src: "/images/doubts photos/6.jpeg",
     title: "Step-by-Step Solutions",
     subtitle: "Receive clear, intuitive solution breakdowns for complex problems",
   },
   {
-    src: CourseSat,
+    src: "/images/doubts photos/7.jpeg",
     title: "Ask Any Question Instantly",
     subtitle: "Type, upload an image, or snap a photo of your practice doubt",
   },
   {
-    src: CourseIelts,
+    src: "/images/doubts photos/8.jpeg",
     title: "24/7 Academic Support",
     subtitle: "Never stay stuck on a problem during your test preparation",
   },
@@ -171,15 +165,15 @@ const ImageSlideshow: React.FC<{ slides: typeof tutoringSlides }> = ({ slides })
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.03 }}
           transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full flex items-center justify-center bg-slate-950 p-3 pb-24"
         >
           <img
             src={activeSlide.src}
             alt={activeSlide.title}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-contain object-center rounded-2xl"
           />
           {/* Dark gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
         </motion.div>
       </AnimatePresence>
 
